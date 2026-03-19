@@ -77,6 +77,32 @@
       "source_hash": "f5a5fd3ab758b214ba8fc397be92dd9bcda9b417b8c9e5214ddbf98599eaa03f",
       "target_class": "prd",
       "transform_target": "markdown_prd"
+    },
+    {
+      "artifact_id": "drv_1c17355736457af2a825",
+      "artifact_kind": "derivative",
+      "created_at": "2026-03-19T21:45:13.896101Z",
+      "file_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\.sr8\\artifacts\\derivative\\drv_1c17355736457af2a825_1.json",
+      "parent_artifact_id": "art_ac723606653dd5513a5a",
+      "profile": "prd",
+      "readiness_status": "derived",
+      "record_id": "drv_004",
+      "source_hash": "f5a5fd3ab758b214ba8fc397be92dd9bcda9b417b8c9e5214ddbf98599eaa03f",
+      "target_class": "prd",
+      "transform_target": "markdown_prd"
+    },
+    {
+      "artifact_id": "art_ac723606653dd5513a5a",
+      "artifact_kind": "canonical",
+      "created_at": "2026-03-19T21:45:13.978734Z",
+      "file_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\.sr8\\artifacts\\canonical\\art_ac723606653dd5513a5a_1.json",
+      "parent_artifact_id": null,
+      "profile": "prd",
+      "readiness_status": "pass",
+      "record_id": "art_004",
+      "source_hash": "f5a5fd3ab758b214ba8fc397be92dd9bcda9b417b8c9e5214ddbf98599eaa03f",
+      "target_class": "prd",
+      "transform_target": null
     }
   ]
 }
