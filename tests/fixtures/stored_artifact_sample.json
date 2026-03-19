@@ -1,0 +1,44 @@
+{
+  "artifact_id": "art_stored_sample",
+  "artifact_version": "1.0.0",
+  "compiler_version": "0.1.0",
+  "profile": "generic",
+  "created_at": "2026-03-19T00:00:00Z",
+  "source": {
+    "source_id": "src_stored_sample",
+    "source_type": "text",
+    "source_hash": "hash_stored_sample",
+    "origin": "tests/fixtures/stored_artifact_sample.json"
+  },
+  "objective": "Stored artifact sample objective.",
+  "scope": ["Phase 1"],
+  "exclusions": [],
+  "constraints": ["Local only"],
+  "target_class": "generic",
+  "authority_context": "",
+  "dependencies": ["pytest"],
+  "assumptions": [],
+  "success_criteria": ["passes"],
+  "output_contract": ["artifact"],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "validation": {
+    "report_id": "val_stored_sample",
+    "readiness_status": "pass",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "errors": [],
+    "warnings": [],
+    "generated_at": "2026-03-19T00:00:01Z"
+  },
+  "lineage": {
+    "compile_run_id": "run_stored_sample",
+    "pipeline_version": "0.1.0",
+    "source_hash": "hash_stored_sample",
+    "steps": [],
+    "parent_artifact_ids": []
+  },
+  "metadata": {}
+}

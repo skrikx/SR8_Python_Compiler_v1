@@ -1,0 +1,56 @@
+{
+  "records": [
+    {
+      "artifact_id": "art_a73fbd6c7f83ea98379f",
+      "artifact_kind": "canonical",
+      "created_at": "2026-03-19T21:26:38.327714Z",
+      "file_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\.sr8\\artifacts\\canonical\\art_a73fbd6c7f83ea98379f.json",
+      "parent_artifact_id": null,
+      "profile": "prd",
+      "readiness_status": "pass",
+      "record_id": "art_001",
+      "source_hash": "f499104eab3ce6f228b67becc6b3a0f4bcdb2014469fc00242683e400f5486fb",
+      "target_class": "prd",
+      "transform_target": null
+    },
+    {
+      "artifact_id": "drv_513c29b8343b2a14d7f5",
+      "artifact_kind": "derivative",
+      "created_at": "2026-03-19T21:26:44.575095Z",
+      "file_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\.sr8\\artifacts\\derivative\\drv_513c29b8343b2a14d7f5.json",
+      "parent_artifact_id": "art_a73fbd6c7f83ea98379f",
+      "profile": "prd",
+      "readiness_status": "derived",
+      "record_id": "drv_001",
+      "source_hash": "f499104eab3ce6f228b67becc6b3a0f4bcdb2014469fc00242683e400f5486fb",
+      "target_class": "prd",
+      "transform_target": "markdown_prd"
+    },
+    {
+      "artifact_id": "drv_513c29b8343b2a14d7f5",
+      "artifact_kind": "derivative",
+      "created_at": "2026-03-19T21:28:08.596547Z",
+      "file_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\.sr8\\artifacts\\derivative\\drv_513c29b8343b2a14d7f5_1.json",
+      "parent_artifact_id": "art_a73fbd6c7f83ea98379f",
+      "profile": "prd",
+      "readiness_status": "derived",
+      "record_id": "drv_002",
+      "source_hash": "f499104eab3ce6f228b67becc6b3a0f4bcdb2014469fc00242683e400f5486fb",
+      "target_class": "prd",
+      "transform_target": "markdown_prd"
+    },
+    {
+      "artifact_id": "art_a73fbd6c7f83ea98379f",
+      "artifact_kind": "canonical",
+      "created_at": "2026-03-19T21:28:08.598423Z",
+      "file_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\.sr8\\artifacts\\canonical\\art_a73fbd6c7f83ea98379f_1.json",
+      "parent_artifact_id": null,
+      "profile": "prd",
+      "readiness_status": "pass",
+      "record_id": "art_002",
+      "source_hash": "f499104eab3ce6f228b67becc6b3a0f4bcdb2014469fc00242683e400f5486fb",
+      "target_class": "prd",
+      "transform_target": null
+    }
+  ]
+}

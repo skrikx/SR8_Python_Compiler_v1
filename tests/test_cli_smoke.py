@@ -21,7 +21,7 @@ def test_cli_version() -> None:
 def test_cli_init_default() -> None:
     result = runner.invoke(app, ["init"])
     assert result.exit_code == 0
-    assert "Initialized SR8 workspace scaffold" in result.stdout
+    assert "Initialized SR8 workspace at:" in result.stdout
 
 
 def test_cli_inspect_default() -> None:

@@ -33,4 +33,6 @@ GENERIC_PROFILE = ProfileDefinition(
             check=_has_scope,
         ),
     ),
+    supported_transform_targets=("markdown_plan", "markdown_prompt_pack"),
+    section_order_hints=("objective", "scope", "constraints", "success_criteria"),
 )

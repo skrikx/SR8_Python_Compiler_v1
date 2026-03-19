@@ -1,0 +1,77 @@
+{
+  "artifact_id": "art_fixture_research",
+  "artifact_version": "1.0.0",
+  "compiler_version": "0.1.0",
+  "profile": "research_brief",
+  "created_at": "2026-03-19T00:00:00Z",
+  "source": {
+    "source_id": "src_fixture_research",
+    "source_type": "markdown",
+    "source_hash": "hash_fixture_research",
+    "origin": "tests/fixtures/compiled_research_artifact.json"
+  },
+  "objective": "Investigate causes of failed onboarding and identify evidence-backed interventions.",
+  "scope": [
+    "Review onboarding funnel events",
+    "Compare cohorts",
+    "Summarize findings"
+  ],
+  "exclusions": [
+    "No production changes"
+  ],
+  "constraints": [
+    "Use only internal evidence",
+    "Timebox to one week"
+  ],
+  "target_class": "research_brief",
+  "authority_context": "research lead",
+  "dependencies": [
+    "analytics export",
+    "stakeholder interviews"
+  ],
+  "assumptions": [
+    "data quality is sufficient"
+  ],
+  "success_criteria": [
+    "Evidence links are included",
+    "Findings are reproducible"
+  ],
+  "output_contract": [
+    "Research brief markdown",
+    "Findings table"
+  ],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "validation": {
+    "report_id": "val_fixture_research",
+    "readiness_status": "pass",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "errors": [],
+    "warnings": [],
+    "generated_at": "2026-03-19T00:00:01Z"
+  },
+  "lineage": {
+    "compile_run_id": "run_fixture_research",
+    "pipeline_version": "0.1.0",
+    "source_hash": "hash_fixture_research",
+    "steps": [
+      {
+        "stage": "ingest",
+        "detail": "Loaded fixture",
+        "occurred_at": "2026-03-19T00:00:01Z"
+      },
+      {
+        "stage": "assemble",
+        "detail": "Assembled canonical artifact",
+        "occurred_at": "2026-03-19T00:00:02Z"
+      }
+    ],
+    "parent_artifact_ids": []
+  },
+  "metadata": {
+    "fixture": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "derivative_id": "drv_stored_sample",
+  "parent_artifact_id": "art_stored_sample",
+  "parent_artifact_version": "1.0.0",
+  "transform_target": "markdown_plan",
+  "profile": "plan",
+  "created_at": "2026-03-19T00:00:02Z",
+  "content": "# Plan\n\nSample derivative",
+  "lineage": {
+    "parent_source_hash": "hash_stored_sample",
+    "parent_compile_run_id": "run_stored_sample",
+    "parent_lineage_steps": ["ingest", "assemble"]
+  },
+  "metadata": {
+    "renderer_version": "w04.v1",
+    "transform_target": "markdown_plan"
+  }
+}

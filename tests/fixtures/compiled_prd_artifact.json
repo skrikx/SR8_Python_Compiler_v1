@@ -1,0 +1,76 @@
+{
+  "artifact_id": "art_fixture_prd",
+  "artifact_version": "1.0.0",
+  "compiler_version": "0.1.0",
+  "profile": "prd",
+  "created_at": "2026-03-19T00:00:00Z",
+  "source": {
+    "source_id": "src_fixture_prd",
+    "source_type": "markdown",
+    "source_hash": "hash_fixture_prd",
+    "origin": "tests/fixtures/compiled_prd_artifact.json"
+  },
+  "objective": "Define a product requirement that solves user onboarding confusion.",
+  "scope": [
+    "Define user stories",
+    "Define acceptance criteria"
+  ],
+  "exclusions": [
+    "No code implementation in this phase"
+  ],
+  "constraints": [
+    "Ship in two sprints",
+    "Maintain compliance"
+  ],
+  "target_class": "prd",
+  "authority_context": "product manager",
+  "dependencies": [
+    "design review",
+    "analytics"
+  ],
+  "assumptions": [
+    "users need faster onboarding"
+  ],
+  "success_criteria": [
+    "Adoption improves",
+    "Stakeholders approve scope"
+  ],
+  "output_contract": [
+    "PRD markdown",
+    "Summary report"
+  ],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "validation": {
+    "report_id": "val_fixture_prd",
+    "readiness_status": "pass",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "errors": [],
+    "warnings": [],
+    "generated_at": "2026-03-19T00:00:01Z"
+  },
+  "lineage": {
+    "compile_run_id": "run_fixture_prd",
+    "pipeline_version": "0.1.0",
+    "source_hash": "hash_fixture_prd",
+    "steps": [
+      {
+        "stage": "ingest",
+        "detail": "Loaded fixture",
+        "occurred_at": "2026-03-19T00:00:01Z"
+      },
+      {
+        "stage": "assemble",
+        "detail": "Assembled canonical artifact",
+        "occurred_at": "2026-03-19T00:00:02Z"
+      }
+    ],
+    "parent_artifact_ids": []
+  },
+  "metadata": {
+    "fixture": true
+  }
+}

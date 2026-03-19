@@ -69,4 +69,12 @@ PRD_PROFILE = ProfileDefinition(
             check=_has_success_metrics,
         ),
     ),
+    supported_transform_targets=("markdown_prd", "markdown_prompt_pack"),
+    section_order_hints=(
+        "objective",
+        "scope",
+        "exclusions",
+        "constraints",
+        "success_criteria",
+    ),
 )

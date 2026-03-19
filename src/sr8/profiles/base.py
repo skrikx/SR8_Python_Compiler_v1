@@ -26,6 +26,8 @@ class ProfileDefinition:
     target_class: str
     required_rules: tuple[ProfileRule, ...]
     warning_rules: tuple[ProfileRule, ...] = ()
+    supported_transform_targets: tuple[str, ...] = ()
+    section_order_hints: tuple[str, ...] = ()
 
     def apply(self, artifact: IntentArtifact) -> IntentArtifact:
         if self.name == "generic":
@@ -33,6 +35,9 @@ class ProfileDefinition:
         else:
             target_class = self.target_class
         return artifact.model_copy(update={"profile": self.name, "target_class": target_class})
+
+    def supports_target(self, transform_target: str) -> bool:
+        return transform_target in self.supported_transform_targets
 
     def validate(
         self,

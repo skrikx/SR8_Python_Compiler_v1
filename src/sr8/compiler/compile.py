@@ -39,6 +39,16 @@ def extract_dimensions(normalized_source: SourceIntent) -> ExtractedDimensions:
     return extract_dimensions_core(source_text)
 
 
+def summarize_extracted_dimensions(extracted: ExtractedDimensions) -> dict[str, object]:
+    return {
+        "objective": extracted.objective,
+        "scope_count": len(extracted.scope),
+        "constraints_count": len(extracted.constraints),
+        "dependencies_count": len(extracted.dependencies),
+        "success_criteria_count": len(extracted.success_criteria),
+    }
+
+
 def assemble_artifact(
     source_intent: SourceIntent,
     extracted_dimensions: ExtractedDimensions,
