@@ -1,0 +1,85 @@
+{
+  "artifact_id": "art_1755969981cdd2065765",
+  "artifact_version": "1.0.0",
+  "assumptions": [],
+  "authority_context": "founder",
+  "compiler_version": "1.0.0",
+  "constraints": [
+    "Keep local-first operation."
+  ],
+  "created_at": "2026-03-19T21:42:32.058436Z",
+  "dependencies": [],
+  "exclusions": [],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "lineage": {
+    "compile_run_id": "run_fe46c7005645966e1ece",
+    "parent_artifact_ids": [],
+    "pipeline_version": "1.0.0",
+    "source_hash": "f25db7729673f88d55b897ebe8099100842087c3a989a57fa35f781ae92857ce",
+    "steps": [
+      {
+        "detail": "Loaded source_type=markdown",
+        "occurred_at": "2026-03-19T21:42:32.058416Z",
+        "stage": "ingest"
+      },
+      {
+        "detail": "Normalized whitespace and wrappers",
+        "occurred_at": "2026-03-19T21:42:32.058421Z",
+        "stage": "normalize"
+      },
+      {
+        "detail": "Applied rule-first extraction",
+        "occurred_at": "2026-03-19T21:42:32.058423Z",
+        "stage": "extract"
+      },
+      {
+        "detail": "Assembled artifact_id=art_1755969981cdd2065765",
+        "occurred_at": "2026-03-19T21:42:32.058425Z",
+        "stage": "assemble"
+      }
+    ]
+  },
+  "metadata": {
+    "normalized_char_count": 308,
+    "pipeline_mode": "rule-first",
+    "source_metadata": {
+      "detected_source_type": "markdown",
+      "normalization": "whitespace+wrapper-clean",
+      "normalized_char_count": 308,
+      "normalized_line_count": 15,
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\founder_ask.md",
+      "raw_char_count": 309
+    }
+  },
+  "objective": "Convert founder intent into structured execution artifacts.",
+  "output_contract": [
+    "Canonical artifact JSON."
+  ],
+  "profile": "generic",
+  "scope": [
+    "Compile local text and markdown.",
+    "Preserve validation and lineage."
+  ],
+  "source": {
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\founder_ask.md",
+    "source_hash": "f25db7729673f88d55b897ebe8099100842087c3a989a57fa35f781ae92857ce",
+    "source_id": "src_32acba60625fb222",
+    "source_type": "markdown"
+  },
+  "success_criteria": [
+    "Artifact validates with pass or warn readiness."
+  ],
+  "target_class": "compiler_core",
+  "validation": {
+    "errors": [],
+    "generated_at": "2026-03-19T21:42:32.058523Z",
+    "readiness_status": "pass",
+    "report_id": "rcpt_7555bff4e773616b15e7",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "warnings": []
+  }
+}

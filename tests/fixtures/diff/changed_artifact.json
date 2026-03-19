@@ -1,0 +1,22 @@
+{
+  "artifact_id": "art_diff_changed",
+  "artifact_version": "1.0.0",
+  "compiler_version": "0.1.0",
+  "profile": "plan",
+  "created_at": "2026-03-20T00:00:00Z",
+  "source": {"source_id": "src_diff_changed", "source_type": "markdown", "source_hash": "hash_diff_changed", "origin": "tests/fixtures/diff/changed_artifact.json"},
+  "objective": "Execute migration and validation plan",
+  "scope": ["Phase 1. baseline", "Phase 2. rollout", "Phase 3. hardening"],
+  "exclusions": ["No rewrite"],
+  "constraints": ["No downtime", "Preserve audit trail"],
+  "target_class": "plan",
+  "authority_context": "engineering lead",
+  "dependencies": ["QA", "Security"],
+  "assumptions": ["team availability"],
+  "success_criteria": ["release approved", "audit pass"],
+  "output_contract": ["plan markdown", "status report"],
+  "governance_flags": {"ambiguous": false, "incomplete": false, "requires_human_review": false},
+  "validation": {"report_id": "val_diff_changed", "readiness_status": "warn", "summary": "warn", "errors": [], "warnings": [{"code": "W001", "message": "minor", "severity": "warning", "path": "constraints"}], "generated_at": "2026-03-20T00:00:01Z"},
+  "lineage": {"compile_run_id": "run_diff_changed", "pipeline_version": "0.1.0", "source_hash": "hash_diff_changed", "steps": [], "parent_artifact_ids": []},
+  "metadata": {}
+}

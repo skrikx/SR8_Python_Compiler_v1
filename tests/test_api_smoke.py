@@ -1,0 +1,38 @@
+import json
+from pathlib import Path
+
+from fastapi.testclient import TestClient
+
+from sr8.api.app import app
+
+
+def test_api_health_compile_validate_transform(tmp_path: Path) -> None:
+    client = TestClient(app)
+
+    health = client.get("/health")
+    assert health.status_code == 200
+    assert health.json()["status"] == "ok"
+
+    compile_response = client.post(
+        "/compile",
+        json={"source": "examples/product_prd.md", "profile": "prd"},
+    )
+    assert compile_response.status_code == 200
+    artifact_payload = compile_response.json()["artifact"]
+
+    artifact_path = tmp_path / "artifact.json"
+    artifact_path.write_text(json.dumps(artifact_payload), encoding="utf-8")
+
+    validate_response = client.post(
+        "/validate",
+        json={"artifact_path": str(artifact_path)},
+    )
+    assert validate_response.status_code == 200
+    assert validate_response.json()["readiness_status"] in {"pass", "warn", "fail"}
+
+    transform_response = client.post(
+        "/transform",
+        json={"artifact_path": str(artifact_path), "target": "markdown_prd"},
+    )
+    assert transform_response.status_code == 200
+    assert transform_response.json()["transform_target"] == "markdown_prd"

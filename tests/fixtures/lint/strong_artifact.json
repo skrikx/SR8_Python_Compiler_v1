@@ -1,0 +1,22 @@
+{
+  "artifact_id": "art_lint_strong",
+  "artifact_version": "1.0.0",
+  "compiler_version": "0.1.0",
+  "profile": "prd",
+  "created_at": "2026-03-19T00:00:00Z",
+  "source": {"source_id": "src_lint_strong", "source_type": "markdown", "source_hash": "hash_lint_strong", "origin": "tests/fixtures/lint/strong_artifact.json"},
+  "objective": "Deliver a scoped product requirement",
+  "scope": ["define stories", "define metrics"],
+  "exclusions": ["no implementation"],
+  "constraints": ["two sprint window"],
+  "target_class": "prd",
+  "authority_context": "product manager",
+  "dependencies": ["design", "qa"],
+  "assumptions": ["stakeholders available"],
+  "success_criteria": ["approval signed"],
+  "output_contract": ["prd markdown"],
+  "governance_flags": {"ambiguous": false, "incomplete": false, "requires_human_review": false},
+  "validation": {"report_id": "val_lint_strong", "readiness_status": "pass", "summary": "pass", "errors": [], "warnings": [], "generated_at": "2026-03-19T00:00:01Z"},
+  "lineage": {"compile_run_id": "run_lint_strong", "pipeline_version": "0.1.0", "source_hash": "hash_lint_strong", "steps": [], "parent_artifact_ids": []},
+  "metadata": {}
+}

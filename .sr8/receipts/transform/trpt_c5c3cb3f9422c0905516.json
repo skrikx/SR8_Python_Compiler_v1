@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-03-19T21:43:56.933703Z",
+  "derivative_id": "drv_1c17355736457af2a825",
+  "output_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\.sr8\\artifacts\\derivative\\drv_1c17355736457af2a825.json",
+  "parent_artifact_id": "art_ac723606653dd5513a5a",
+  "profile": "prd",
+  "receipt_id": "trpt_c5c3cb3f9422c0905516",
+  "renderer_version": "w04.v1",
+  "transform_target": "markdown_prd"
+}

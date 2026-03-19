@@ -1,0 +1,22 @@
+{
+  "artifact_id": "art_lint_weak",
+  "artifact_version": "1.0.0",
+  "compiler_version": "0.1.0",
+  "profile": "generic",
+  "created_at": "2026-03-19T00:00:00Z",
+  "source": {"source_id": "src_lint_weak", "source_type": "text", "source_hash": "hash_lint_weak", "origin": "tests/fixtures/lint/weak_artifact.json"},
+  "objective": "",
+  "scope": ["do stuff"],
+  "exclusions": [],
+  "constraints": [],
+  "target_class": "generic",
+  "authority_context": "",
+  "dependencies": [],
+  "assumptions": [],
+  "success_criteria": [],
+  "output_contract": [],
+  "governance_flags": {"ambiguous": true, "incomplete": true, "requires_human_review": true},
+  "validation": {"report_id": "val_lint_weak", "readiness_status": "warn", "summary": "warn", "errors": [], "warnings": [], "generated_at": "2026-03-19T00:00:01Z"},
+  "lineage": {"compile_run_id": "run_lint_weak", "pipeline_version": "0.1.0", "source_hash": "hash_lint_weak", "steps": [], "parent_artifact_ids": []},
+  "metadata": {}
+}

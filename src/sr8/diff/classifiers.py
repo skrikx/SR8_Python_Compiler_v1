@@ -2,7 +2,12 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
-from sr8.diff.types import HIGH_IMPACT_FIELDS, MEDIUM_IMPACT_FIELDS
+from sr8.diff.types import (
+    HIGH_IMPACT_FIELDS,
+    MEDIUM_IMPACT_FIELDS,
+    DiffClass,
+    ImpactLevel,
+)
 
 
 def _is_empty(value: object | None) -> bool:
@@ -19,17 +24,20 @@ def _is_empty(value: object | None) -> bool:
 
 def normalize_semantic_value(value: object | None) -> object | None:
     if isinstance(value, list):
-        normalized = [str(item).strip() for item in value if str(item).strip()]
-        return sorted(normalized)
+        normalized_list = [str(item).strip() for item in value if str(item).strip()]
+        return sorted(normalized_list)
     if isinstance(value, Mapping):
-        normalized = {str(key): normalize_semantic_value(sub_value) for key, sub_value in value.items()}
-        return dict(sorted(normalized.items()))
+        normalized_map = {
+            str(key): normalize_semantic_value(sub_value)
+            for key, sub_value in value.items()
+        }
+        return dict(sorted(normalized_map.items()))
     if isinstance(value, str):
         return value.strip()
     return value
 
 
-def classify_change(left: object | None, right: object | None) -> str:
+def classify_change(left: object | None, right: object | None) -> DiffClass:
     normalized_left = normalize_semantic_value(left)
     normalized_right = normalize_semantic_value(right)
     if normalized_left == normalized_right:
@@ -41,7 +49,7 @@ def classify_change(left: object | None, right: object | None) -> str:
     return "modified"
 
 
-def classify_impact(field: str, change_class: str) -> str:
+def classify_impact(field: str, change_class: DiffClass) -> ImpactLevel:
     if change_class == "unchanged":
         return "low"
     if field in HIGH_IMPACT_FIELDS:

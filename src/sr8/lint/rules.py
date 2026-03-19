@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Literal
 
@@ -7,38 +8,20 @@ from sr8.models.intent_artifact import IntentArtifact
 from sr8.models.lint_finding import LintFinding
 
 Severity = Literal["info", "warn", "error"]
+Predicate = Callable[[IntentArtifact], bool]
 
 
 @dataclass(frozen=True)
-class LintRule:
+class PredicateRule:
     rule_id: str
     severity: Severity
     artifact_field: str
     message: str
     suggested_fix: str
+    predicate: Predicate
 
     def evaluate(self, artifact: IntentArtifact) -> bool:
-        raise NotImplementedError
-
-
-class PredicateRule(LintRule):
-    predicate: object
-
-    def __init__(
-        self,
-        *,
-        rule_id: str,
-        severity: Severity,
-        artifact_field: str,
-        message: str,
-        suggested_fix: str,
-        predicate,
-    ) -> None:
-        super().__init__(rule_id, severity, artifact_field, message, suggested_fix)
-        self.predicate = predicate
-
-    def evaluate(self, artifact: IntentArtifact) -> bool:
-        return bool(self.predicate(artifact))
+        return self.predicate(artifact)
 
 
 def _has_text(value: str) -> bool:

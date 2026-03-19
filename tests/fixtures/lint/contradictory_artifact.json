@@ -1,0 +1,22 @@
+{
+  "artifact_id": "art_lint_contradict",
+  "artifact_version": "1.0.0",
+  "compiler_version": "0.1.0",
+  "profile": "repo_audit",
+  "created_at": "2026-03-19T00:00:00Z",
+  "source": {"source_id": "src_lint_contradict", "source_type": "text", "source_hash": "hash_lint_contradict", "origin": "tests/fixtures/lint/contradictory_artifact.json"},
+  "objective": "Audit repository quality maybe maybe",
+  "scope": ["security checks"],
+  "exclusions": ["security checks"],
+  "constraints": [],
+  "target_class": "repo_audit",
+  "authority_context": "",
+  "dependencies": [],
+  "assumptions": [],
+  "success_criteria": [],
+  "output_contract": [],
+  "governance_flags": {"ambiguous": true, "incomplete": true, "requires_human_review": true},
+  "validation": {"report_id": "val_lint_contradict", "readiness_status": "fail", "summary": "fail", "errors": [], "warnings": [], "generated_at": "2026-03-19T00:00:01Z"},
+  "lineage": {"compile_run_id": "run_lint_contradict", "pipeline_version": "0.1.0", "source_hash": "hash_lint_contradict", "steps": [], "parent_artifact_ids": []},
+  "metadata": {}
+}

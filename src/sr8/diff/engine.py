@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import cast
+
 from sr8.diff.classifiers import classify_change, classify_impact
 from sr8.diff.types import SEMANTIC_FIELDS
 from sr8.models.diff_report import DiffFieldChange, DiffReport
@@ -10,7 +12,7 @@ from sr8.utils.hash import stable_text_hash
 def _read_field(artifact: IntentArtifact, field: str) -> object | None:
     if field == "validation.readiness_status":
         return artifact.validation.readiness_status
-    return getattr(artifact, field)
+    return cast(object | None, getattr(artifact, field))
 
 
 def semantic_diff(
