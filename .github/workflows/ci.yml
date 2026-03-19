@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "release/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: lint
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      python-version: "3.12"
+      run-lint: true
+
+  typecheck:
+    name: typecheck
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      python-version: "3.12"
+      run-typecheck: true
+
+  tests:
+    name: tests (py${{ matrix.python-version }})
+    needs: [lint, typecheck]
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: ["3.12", "3.13"]
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      python-version: ${{ matrix.python-version }}
+      run-tests: true
+      pytest-args: tests
+
+  examples-smoke:
+    name: examples-smoke
+    needs: [lint, typecheck]
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      python-version: "3.12"
+      run-examples-smoke: true
+
+  package-build-smoke:
+    name: package-build-smoke
+    needs: [tests, examples-smoke]
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      python-version: "3.12"
+      upload-artifact: false

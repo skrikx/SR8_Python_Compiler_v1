@@ -3,8 +3,12 @@
 SR8 is a deterministic, local-first compiler for intent artifacts.
 
 Core flow:
-1. Ingest source intent
-2. Normalize and extract dimensions
-3. Assemble canonical artifact
-4. Apply profile and validate
-5. Persist, transform, diff, and lint
+
+1. ingest source intent
+2. normalize content
+3. extract semantic dimensions
+4. assemble canonical artifact
+5. apply profile overlay and validation
+6. persist, transform, diff, and lint
+
+For complete documentation navigation, use [index.md](index.md).

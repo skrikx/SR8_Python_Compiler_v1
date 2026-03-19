@@ -1,0 +1,90 @@
+name: Reusable - Test Gates
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        description: Python version to run against.
+        required: false
+        type: string
+        default: "3.12"
+      checkout-ref:
+        description: Git reference to checkout. Empty uses the workflow ref.
+        required: false
+        type: string
+        default: ""
+      run-lint:
+        description: Run ruff lint.
+        required: false
+        type: boolean
+        default: false
+      run-typecheck:
+        description: Run mypy type checking.
+        required: false
+        type: boolean
+        default: false
+      run-tests:
+        description: Run pytest.
+        required: false
+        type: boolean
+        default: false
+      pytest-args:
+        description: Arguments passed to pytest when run-tests is enabled.
+        required: false
+        type: string
+        default: "tests"
+      run-examples-smoke:
+        description: Run example CLI smoke commands.
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  test-gates:
+    name: test-gates (py${{ inputs.python-version }})
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (workflow ref)
+        if: inputs.checkout-ref == ''
+        uses: actions/checkout@v4
+
+      - name: Checkout (explicit ref)
+        if: inputs.checkout-ref != ''
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.checkout-ref }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Ruff lint
+        if: inputs.run-lint
+        run: ruff check .
+
+      - name: Mypy typecheck
+        if: inputs.run-typecheck
+        run: mypy src
+
+      - name: Pytest
+        if: inputs.run-tests
+        run: pytest ${{ inputs.pytest-args }}
+
+      - name: Examples smoke
+        if: inputs.run-examples-smoke
+        run: |
+          sr8 init --path .sr8_ci
+          sr8 compile examples/product_prd.md --profile prd --out .sr8_ci/artifacts/canonical
+          sr8 transform .sr8_ci/artifacts/canonical/latest.json --to markdown_prd --out .sr8_ci/artifacts/derivative
+          sr8 lint .sr8_ci/artifacts/canonical/latest.json

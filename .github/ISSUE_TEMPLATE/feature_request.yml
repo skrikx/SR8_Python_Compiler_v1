@@ -1,0 +1,53 @@
+name: Feature request
+description: Request an improvement to SR8 behavior.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests should focus on problem framing and concrete outcomes.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem are you trying to solve?
+      placeholder: Describe the user or maintainer pain point.
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Proposed Outcome
+      description: What should SR8 be able to do after this change?
+      placeholder: Describe expected behavior and acceptance criteria.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and Constraints
+      description: Any boundary conditions, non-goals, or required compatibility.
+      placeholder: Keep SR8 local-first, avoid hidden network dependencies, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What alternatives did you evaluate?
+      placeholder: Existing workflow, workaround, or rejected options.
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Links, references, or examples.
+    validations:
+      required: false

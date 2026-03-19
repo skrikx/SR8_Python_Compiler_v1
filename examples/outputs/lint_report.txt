@@ -1,0 +1,9 @@
+Lint Report: lint_dc712bb71fc7a718
+Artifact: tests\fixtures\lint\weak_artifact.json
+Status: fail
+Summary: Lint fail: 5 finding(s).
+- L001 [error] objective: Missing or weak objective
+- L002 [warn] scope: Scope is empty or vague
+- L003 [warn] constraints: Constraints missing for profile/target that implies constraints
+- L004 [warn] success_criteria: Success criteria are absent or weak
+- L005 [warn] output_contract: Output contract is absent or underspecified

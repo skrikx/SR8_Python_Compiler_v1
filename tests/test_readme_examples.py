@@ -24,11 +24,20 @@ def test_readme_example_commands_work(tmp_path: Path) -> None:
     )
     assert compile_result.exit_code == 0
 
+    latest_artifact = str(workspace / "artifacts" / "canonical" / "latest.json")
+
+    validate_result = runner.invoke(
+        app,
+        ["validate", latest_artifact],
+    )
+    assert validate_result.exit_code == 0
+    assert "Validation:" in validate_result.stdout
+
     transform_result = runner.invoke(
         app,
         [
             "transform",
-            str(workspace / "artifacts" / "canonical" / "latest.json"),
+            latest_artifact,
             "--to",
             "markdown_prd",
             "--out",
@@ -39,7 +48,22 @@ def test_readme_example_commands_work(tmp_path: Path) -> None:
 
     lint_result = runner.invoke(
         app,
-        ["lint", str(workspace / "artifacts" / "canonical" / "latest.json")],
+        ["lint", latest_artifact],
     )
     assert lint_result.exit_code == 0
     assert "Lint Report:" in lint_result.stdout
+
+    diff_result = runner.invoke(
+        app,
+        [
+            "diff",
+            "tests/fixtures/diff/base_artifact.json",
+            "tests/fixtures/diff/changed_artifact.json",
+        ],
+    )
+    assert diff_result.exit_code == 0
+    assert "Diff Report:" in diff_result.stdout
+
+    list_result = runner.invoke(app, ["list", "--path", str(workspace)])
+    assert list_result.exit_code == 0
+    assert "canonical" in list_result.stdout

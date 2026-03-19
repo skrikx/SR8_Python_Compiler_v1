@@ -1,0 +1,131 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing semantic tag to release, for example v1.2.3.
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    name: preflight
+    runs-on: ubuntu-latest
+    outputs:
+      release_tag: ${{ steps.resolve-tag.outputs.release_tag }}
+    steps:
+      - name: Resolve and validate release tag
+        id: resolve-tag
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            tag="${{ inputs.tag }}"
+          else
+            tag="${GITHUB_REF_NAME}"
+          fi
+
+          if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Tag must match vMAJOR.MINOR.PATCH. Got: $tag"
+            exit 1
+          fi
+
+          echo "release_tag=$tag" >> "$GITHUB_OUTPUT"
+
+  lint:
+    name: lint
+    needs: [preflight]
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      python-version: "3.12"
+      checkout-ref: ${{ needs.preflight.outputs.release_tag }}
+      run-lint: true
+
+  typecheck:
+    name: typecheck
+    needs: [preflight]
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      python-version: "3.12"
+      checkout-ref: ${{ needs.preflight.outputs.release_tag }}
+      run-typecheck: true
+
+  tests:
+    name: tests
+    needs: [lint, typecheck]
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      python-version: "3.12"
+      checkout-ref: ${{ needs.preflight.outputs.release_tag }}
+      run-tests: true
+      pytest-args: tests
+
+  examples-smoke:
+    name: examples-smoke
+    needs: [lint, typecheck]
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      python-version: "3.12"
+      checkout-ref: ${{ needs.preflight.outputs.release_tag }}
+      run-examples-smoke: true
+
+  build-dist:
+    name: build-dist
+    needs: [tests, examples-smoke]
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      python-version: "3.12"
+      checkout-ref: ${{ needs.preflight.outputs.release_tag }}
+      upload-artifact: true
+      artifact-name: sr8-dist-release
+
+  publish-pypi:
+    name: publish-pypi
+    needs: [build-dist]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Download release artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: sr8-dist-release
+          path: dist
+
+      - name: Publish to PyPI via Trusted Publishing
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
+
+  github-release:
+    name: github-release
+    needs: [preflight, publish-pypi]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download release artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: sr8-dist-release
+          path: dist
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.preflight.outputs.release_tag }}
+          files: dist/*
+          generate_release_notes: true

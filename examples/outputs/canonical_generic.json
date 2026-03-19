@@ -1,84 +1,93 @@
 {
-  "artifact_id": "art_1755969981cdd2065765",
+  "artifact_id": "art_0e7cf829a283752bbf54",
   "artifact_version": "1.0.0",
-  "assumptions": [],
+  "assumptions": [
+    "Team uses version-controlled markdown briefs.",
+    "Stakeholders need readable markdown derivatives."
+  ],
   "authority_context": "founder",
   "compiler_version": "1.0.0",
   "constraints": [
-    "Keep local-first operation."
+    "Local-first operation only.",
+    "Maintain stable CLI behavior for automation use."
   ],
-  "created_at": "2026-03-19T21:42:32.058436Z",
+  "created_at": "2026-03-19T22:07:42.541226Z",
   "dependencies": [],
-  "exclusions": [],
+  "exclusions": [
+    "No remote service dependencies for compile flow.",
+    "No deployment orchestration in this request."
+  ],
   "governance_flags": {
     "ambiguous": false,
     "incomplete": false,
     "requires_human_review": false
   },
   "lineage": {
-    "compile_run_id": "run_fe46c7005645966e1ece",
+    "compile_run_id": "run_5594c5436edf2c3262c0",
     "parent_artifact_ids": [],
     "pipeline_version": "1.0.0",
-    "source_hash": "f25db7729673f88d55b897ebe8099100842087c3a989a57fa35f781ae92857ce",
+    "source_hash": "b723906b309cf9156efdd5d84f3fa2f2c0cf26d9bbe6296974eedbdb58c07c1c",
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-19T21:42:32.058416Z",
+        "occurred_at": "2026-03-19T22:07:42.541210Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-19T21:42:32.058421Z",
+        "occurred_at": "2026-03-19T22:07:42.541214Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-19T21:42:32.058423Z",
+        "occurred_at": "2026-03-19T22:07:42.541216Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_1755969981cdd2065765",
-        "occurred_at": "2026-03-19T21:42:32.058425Z",
+        "detail": "Assembled artifact_id=art_0e7cf829a283752bbf54",
+        "occurred_at": "2026-03-19T22:07:42.541218Z",
         "stage": "assemble"
       }
     ]
   },
   "metadata": {
-    "normalized_char_count": 308,
+    "normalized_char_count": 819,
     "pipeline_mode": "rule-first",
     "source_metadata": {
       "detected_source_type": "markdown",
       "normalization": "whitespace+wrapper-clean",
-      "normalized_char_count": 308,
-      "normalized_line_count": 15,
+      "normalized_char_count": 819,
+      "normalized_line_count": 26,
       "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\founder_ask.md",
-      "raw_char_count": 309
+      "raw_char_count": 820
     }
   },
-  "objective": "Convert founder intent into structured execution artifacts.",
+  "objective": "Convert a founder request into a structured execution artifact that engineering and product can review asynchronously.",
   "output_contract": [
-    "Canonical artifact JSON."
+    "Canonical artifact JSON suitable for diff and lint."
   ],
   "profile": "generic",
   "scope": [
-    "Compile local text and markdown.",
-    "Preserve validation and lineage."
+    "Compile markdown and plain text intent inputs.",
+    "Preserve deterministic validation and lineage fields.",
+    "Keep outputs inspectable by humans and machines."
   ],
   "source": {
     "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\founder_ask.md",
-    "source_hash": "f25db7729673f88d55b897ebe8099100842087c3a989a57fa35f781ae92857ce",
-    "source_id": "src_32acba60625fb222",
+    "source_hash": "b723906b309cf9156efdd5d84f3fa2f2c0cf26d9bbe6296974eedbdb58c07c1c",
+    "source_id": "src_20c33f43c6dd8bfe",
     "source_type": "markdown"
   },
   "success_criteria": [
-    "Artifact validates with pass or warn readiness."
+    "Artifact validates with pass or warn readiness status.",
+    "Scope, constraints, and output contract are populated."
   ],
   "target_class": "compiler_core",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-19T21:42:32.058523Z",
+    "generated_at": "2026-03-19T22:07:42.541303Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_7555bff4e773616b15e7",
+    "report_id": "rcpt_2d5e5193f39e6a2a0205",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

@@ -1,20 +1,24 @@
-# PRD - art_ac723606653dd5513a5a
+# PRD - art_99185c0e9c910411180b
 ## Summary
 Profile: prd
 ## Problem
-Produce a product requirement artifact for onboarding improvements.
+Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.
 ## Objective
-Produce a product requirement artifact for onboarding improvements.
+Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.
 ## Scope
-- Define user stories.
-- Define acceptance criteria.
-- Define release milestones.
+- Define user and stakeholder signals for onboarding flow.
+- Define acceptance criteria for first-session completion.
+- Define milestone slices for delivery planning.
+- Capture measurable success criteria for release readiness.
 
 ## Non-goals
 - No implementation coding in this phase.
+- No analytics vendor migration work.
 
 ## Constraints
 - Two sprint timeline.
+- No backend schema migration in this phase.
 
 ## Success Criteria
 - Stakeholders approve requirement scope.
+- Completion rate improves after rollout compared with current baseline.

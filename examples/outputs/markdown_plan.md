@@ -1,16 +1,21 @@
-# Plan - art_1755969981cdd2065765
+# Plan - art_fd937d2ee8518738e152
 ## Goal
-Convert founder intent into structured execution artifacts.
+Audit repository quality and risk posture for release readiness.
 ## Scope
-- Compile local text and markdown.
-- Preserve validation and lineage.
+- Evaluate lint, typecheck, and test posture.
+- Evaluate release and security automation baseline.
+- Identify high-impact maintainability and reliability risks.
+- Provide prioritized remediation sequence.
 
 ## Dependencies
 - (none)
 
 ## Phases
-- Compile local text and markdown.
-- Preserve validation and lineage.
+- Evaluate lint, typecheck, and test posture.
+- Evaluate release and security automation baseline.
+- Identify high-impact maintainability and reliability risks.
+- Provide prioritized remediation sequence.
 
 ## Success Criteria
-- Artifact validates with pass or warn readiness.
+- Findings include prioritized remediation with severity tiers.
+- Audit output is actionable for maintainers within one release cycle.

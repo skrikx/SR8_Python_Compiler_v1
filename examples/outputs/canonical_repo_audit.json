@@ -1,0 +1,94 @@
+{
+  "artifact_id": "art_fd937d2ee8518738e152",
+  "artifact_version": "1.0.0",
+  "assumptions": [
+    "CI workflow definitions in `.github/workflows/` are source of truth."
+  ],
+  "authority_context": "",
+  "compiler_version": "1.0.0",
+  "constraints": [
+    "Deterministic local checks only.",
+    "Recommendations must map to existing repository boundaries."
+  ],
+  "created_at": "2026-03-19T22:07:43.272862Z",
+  "dependencies": [],
+  "exclusions": [
+    "No architecture rewrite.",
+    "No framework migration."
+  ],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "lineage": {
+    "compile_run_id": "run_d6417cc4ebd627286d76",
+    "parent_artifact_ids": [],
+    "pipeline_version": "1.0.0",
+    "source_hash": "bf0d54bcca4da2ee7e62b619e7833b4e59bd1996e18fbaf2634bdacb0b6fc53c",
+    "steps": [
+      {
+        "detail": "Loaded source_type=markdown",
+        "occurred_at": "2026-03-19T22:07:43.272840Z",
+        "stage": "ingest"
+      },
+      {
+        "detail": "Normalized whitespace and wrappers",
+        "occurred_at": "2026-03-19T22:07:43.272847Z",
+        "stage": "normalize"
+      },
+      {
+        "detail": "Applied rule-first extraction",
+        "occurred_at": "2026-03-19T22:07:43.272849Z",
+        "stage": "extract"
+      },
+      {
+        "detail": "Assembled artifact_id=art_fd937d2ee8518738e152",
+        "occurred_at": "2026-03-19T22:07:43.272851Z",
+        "stage": "assemble"
+      }
+    ]
+  },
+  "metadata": {
+    "normalized_char_count": 788,
+    "pipeline_mode": "rule-first",
+    "source_metadata": {
+      "detected_source_type": "markdown",
+      "normalization": "whitespace+wrapper-clean",
+      "normalized_char_count": 788,
+      "normalized_line_count": 26,
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\repo_audit.md",
+      "raw_char_count": 789
+    }
+  },
+  "objective": "Audit repository quality and risk posture for release readiness.",
+  "output_contract": [
+    "Audit report and remediation checklist suitable for planning."
+  ],
+  "profile": "repo_audit",
+  "scope": [
+    "Evaluate lint, typecheck, and test posture.",
+    "Evaluate release and security automation baseline.",
+    "Identify high-impact maintainability and reliability risks.",
+    "Provide prioritized remediation sequence."
+  ],
+  "source": {
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\repo_audit.md",
+    "source_hash": "bf0d54bcca4da2ee7e62b619e7833b4e59bd1996e18fbaf2634bdacb0b6fc53c",
+    "source_id": "src_84876dae4dfc3efc",
+    "source_type": "markdown"
+  },
+  "success_criteria": [
+    "Findings include prioritized remediation with severity tiers.",
+    "Audit output is actionable for maintainers within one release cycle."
+  ],
+  "target_class": "repo_audit",
+  "validation": {
+    "errors": [],
+    "generated_at": "2026-03-19T22:07:43.272962Z",
+    "readiness_status": "pass",
+    "report_id": "rcpt_ec21b4ec6f35e0d9328b",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "warnings": []
+  }
+}

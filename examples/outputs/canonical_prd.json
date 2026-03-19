@@ -1,18 +1,24 @@
 {
-  "artifact_id": "art_ac723606653dd5513a5a",
+  "artifact_id": "art_99185c0e9c910411180b",
   "artifact_version": "1.0.0",
   "assumptions": [
-    "Product and engineering stakeholders available."
+    "Product and engineering stakeholders are available for review.",
+    "Existing onboarding instrumentation is reliable enough for baseline measurement."
   ],
   "authority_context": "product manager",
   "compiler_version": "1.0.0",
   "constraints": [
-    "Two sprint timeline."
+    "Two sprint timeline.",
+    "No backend schema migration in this phase."
   ],
-  "created_at": "2026-03-19T21:42:32.059258Z",
-  "dependencies": [],
+  "created_at": "2026-03-19T22:07:42.912592Z",
+  "dependencies": [
+    "Design review sign-off.",
+    "Analytics event naming agreement."
+  ],
   "exclusions": [
-    "No implementation coding in this phase."
+    "No implementation coding in this phase.",
+    "No analytics vendor migration work."
   ],
   "governance_flags": {
     "ambiguous": false,
@@ -20,70 +26,73 @@
     "requires_human_review": false
   },
   "lineage": {
-    "compile_run_id": "run_21f93f17796abca99ebc",
+    "compile_run_id": "run_ea26b0bca07d27e2156b",
     "parent_artifact_ids": [],
     "pipeline_version": "1.0.0",
-    "source_hash": "f5a5fd3ab758b214ba8fc397be92dd9bcda9b417b8c9e5214ddbf98599eaa03f",
+    "source_hash": "c7df69ea2320cb31f7ee95a8fad7732eb27b4cf0de0d871ab78aef4f1951e10c",
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-19T21:42:32.059244Z",
+        "occurred_at": "2026-03-19T22:07:42.912575Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-19T21:42:32.059248Z",
+        "occurred_at": "2026-03-19T22:07:42.912579Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-19T21:42:32.059250Z",
+        "occurred_at": "2026-03-19T22:07:42.912581Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_ac723606653dd5513a5a",
-        "occurred_at": "2026-03-19T21:42:32.059252Z",
+        "detail": "Assembled artifact_id=art_99185c0e9c910411180b",
+        "occurred_at": "2026-03-19T22:07:42.912583Z",
         "stage": "assemble"
       }
     ]
   },
   "metadata": {
-    "normalized_char_count": 481,
+    "normalized_char_count": 1080,
     "pipeline_mode": "rule-first",
     "source_metadata": {
       "detected_source_type": "markdown",
       "normalization": "whitespace+wrapper-clean",
-      "normalized_char_count": 481,
-      "normalized_line_count": 25,
+      "normalized_char_count": 1080,
+      "normalized_line_count": 35,
       "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-      "raw_char_count": 482
+      "raw_char_count": 1081
     }
   },
-  "objective": "Produce a product requirement artifact for onboarding improvements.",
+  "objective": "Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.",
   "output_contract": [
-    "PRD artifact for delivery planning."
+    "PRD artifact for planning and implementation handoff.",
+    "Markdown PRD derivative for cross-functional review."
   ],
   "profile": "prd",
   "scope": [
-    "Define user stories.",
-    "Define acceptance criteria.",
-    "Define release milestones."
+    "Define user and stakeholder signals for onboarding flow.",
+    "Define acceptance criteria for first-session completion.",
+    "Define milestone slices for delivery planning.",
+    "Capture measurable success criteria for release readiness."
   ],
   "source": {
     "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-    "source_hash": "f5a5fd3ab758b214ba8fc397be92dd9bcda9b417b8c9e5214ddbf98599eaa03f",
-    "source_id": "src_50c0f896dd239119",
+    "source_hash": "c7df69ea2320cb31f7ee95a8fad7732eb27b4cf0de0d871ab78aef4f1951e10c",
+    "source_id": "src_f7439100a2e4a7ff",
     "source_type": "markdown"
   },
   "success_criteria": [
-    "Stakeholders approve requirement scope."
+    "Stakeholders approve requirement scope.",
+    "Completion rate improves after rollout compared with current baseline."
   ],
   "target_class": "prd",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-19T21:42:32.059314Z",
+    "generated_at": "2026-03-19T22:07:42.912678Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_b0f0258acf12fd900fee",
+    "report_id": "rcpt_5711b93c116341c127c8",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

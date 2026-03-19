@@ -1,0 +1,11 @@
+Diff Report: diff_ec3b8157597c9a5f
+Left: tests\fixtures\diff\base_artifact.json
+Right: tests\fixtures\diff\changed_artifact.json
+Summary: Changed fields (7): objective, scope, constraints, dependencies, success_criteria, output_contract, validation.readiness_status
+- objective: modified (impact=medium)
+- scope: modified (impact=high)
+- constraints: modified (impact=high)
+- dependencies: modified (impact=medium)
+- success_criteria: modified (impact=high)
+- output_contract: modified (impact=high)
+- validation.readiness_status: modified (impact=medium)

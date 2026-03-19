@@ -1,0 +1,64 @@
+name: Reusable - Build Package
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        description: Python version to run against.
+        required: false
+        type: string
+        default: "3.12"
+      checkout-ref:
+        description: Git reference to checkout. Empty uses the workflow ref.
+        required: false
+        type: string
+        default: ""
+      upload-artifact:
+        description: Upload dist artifacts.
+        required: false
+        type: boolean
+        default: true
+      artifact-name:
+        description: Artifact name when upload-artifact is true.
+        required: false
+        type: string
+        default: "sr8-dist"
+
+permissions:
+  contents: read
+
+jobs:
+  build-package:
+    name: build-package (py${{ inputs.python-version }})
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (workflow ref)
+        if: inputs.checkout-ref == ''
+        uses: actions/checkout@v4
+
+      - name: Checkout (explicit ref)
+        if: inputs.checkout-ref != ''
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.checkout-ref }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Build distributions
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+          python -m build
+
+      - name: Upload build artifacts
+        if: inputs.upload-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: dist/*
+          if-no-files-found: error
