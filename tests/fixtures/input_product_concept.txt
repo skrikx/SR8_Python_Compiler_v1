@@ -1,0 +1,12 @@
+Objective: Compile product intent into inspectable artifacts.
+Scope:
+- Capture objective, scope, constraints, and success criteria.
+- Keep extraction explicit and deterministic.
+Constraints:
+- Avoid fabricated certainty.
+- Keep architecture modular.
+Success Criteria:
+- Objective is extracted.
+- Scope contains at least one concrete work item.
+Output Expectations:
+- A canonical intent artifact for downstream workflows.

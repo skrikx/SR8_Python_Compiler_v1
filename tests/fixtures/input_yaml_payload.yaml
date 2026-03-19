@@ -1,0 +1,19 @@
+objective: Compile YAML intent into canonical SR8 artifact.
+scope:
+  - Load YAML payload input
+  - Extract objective and scope reliably
+constraints:
+  - Preserve ambiguity where signal is weak
+  - Keep models fully typed
+dependencies:
+  - pydantic v2
+  - ruff
+success_criteria:
+  - compile_intent accepts yaml files
+  - artifact contains lineage and validation placeholder
+output_contract:
+  - artifact
+  - receipt
+  - normalized_source
+target_class: compiler_core
+authority_context: founder

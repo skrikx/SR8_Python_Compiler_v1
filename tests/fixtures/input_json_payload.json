@@ -1,0 +1,27 @@
+{
+  "objective": "Compile JSON intent into canonical SR8 artifact.",
+  "scope": [
+    "Load structured payload input",
+    "Extract core dimensions with explicit rules"
+  ],
+  "constraints": [
+    "No hidden AI dependency",
+    "Deterministic extraction behavior"
+  ],
+  "dependencies": [
+    "pydantic v2",
+    "pytest"
+  ],
+  "success_criteria": [
+    "compile_intent returns stable artifact id",
+    "source hash remains stable for equivalent input"
+  ],
+  "output_contract": [
+    "artifact",
+    "receipt",
+    "normalized_source",
+    "extracted_dimensions"
+  ],
+  "target_class": "compiler_core",
+  "authority_context": "cto"
+}
