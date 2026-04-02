@@ -1,7 +1,10 @@
 from sr8.models.artifact_record import ArtifactRecord
 from sr8.models.compilation_receipt import CompilationReceiptRecord
+from sr8.models.compile_config import CompileConfig
 from sr8.models.derivative_artifact import DerivativeArtifact, DerivativeLineage
 from sr8.models.diff_report import DiffFieldChange, DiffReport
+from sr8.models.extraction_confidence import ExtractionConfidenceSignal
+from sr8.models.extraction_trace import ExtractionTrace
 from sr8.models.intent_artifact import ArtifactSource, GovernanceFlags, IntentArtifact
 from sr8.models.lineage import Lineage, LineageStep
 from sr8.models.lint_finding import LintFinding
@@ -16,11 +19,14 @@ __all__ = [
     "ArtifactSource",
     "ArtifactRecord",
     "CompilationReceiptRecord",
+    "CompileConfig",
     "CompilationReceipt",
     "DiffFieldChange",
     "DiffReport",
     "DerivativeArtifact",
     "DerivativeLineage",
+    "ExtractionConfidenceSignal",
+    "ExtractionTrace",
     "GovernanceFlags",
     "IntentArtifact",
     "LintFinding",

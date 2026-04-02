@@ -46,6 +46,7 @@ def extract_dimensions(normalized_source: str) -> ExtractedDimensions:
         scope=sections["scope"],
         exclusions=sections["exclusions"],
         constraints=sections["constraints"],
+        context_package=sections["context_package"],
         assumptions=sections["assumptions"],
         dependencies=sections["dependencies"],
         success_criteria=sections["success_criteria"],

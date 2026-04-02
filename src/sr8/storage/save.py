@@ -6,6 +6,7 @@ from pathlib import Path
 from sr8.models.artifact_record import ArtifactRecord
 from sr8.models.derivative_artifact import DerivativeArtifact
 from sr8.models.intent_artifact import IntentArtifact
+from sr8.storage.atomic import atomic_write_text
 from sr8.storage.index import add_record
 from sr8.storage.paths import ensure_unique_path
 from sr8.storage.workspace import SR8Workspace
@@ -20,8 +21,8 @@ def save_canonical_artifact(
 
     artifact_path = ensure_unique_path(workspace.canonical_dir / f"{artifact.artifact_id}.json")
     latest_path = workspace.canonical_dir / "latest.json"
-    artifact_path.write_text(payload, encoding="utf-8")
-    latest_path.write_text(payload, encoding="utf-8")
+    atomic_write_text(artifact_path, payload, workspace.tmp_dir)
+    atomic_write_text(latest_path, payload, workspace.tmp_dir)
 
     indexed = add_record(
         workspace,
@@ -54,10 +55,10 @@ def save_derivative_artifact(
     latest_json = workspace.derivative_dir / "latest.json"
     latest_markdown = workspace.derivative_dir / "latest.md"
 
-    json_path.write_text(payload, encoding="utf-8")
-    markdown_path.write_text(derivative.content, encoding="utf-8")
-    latest_json.write_text(payload, encoding="utf-8")
-    latest_markdown.write_text(derivative.content, encoding="utf-8")
+    atomic_write_text(json_path, payload, workspace.tmp_dir)
+    atomic_write_text(markdown_path, derivative.content, workspace.tmp_dir)
+    atomic_write_text(latest_json, payload, workspace.tmp_dir)
+    atomic_write_text(latest_markdown, derivative.content, workspace.tmp_dir)
 
     indexed = add_record(
         workspace,
@@ -66,7 +67,7 @@ def save_derivative_artifact(
             artifact_id=derivative.derivative_id,
             artifact_kind="derivative",
             profile=derivative.profile,
-            target_class=derivative.profile,
+            target_class=None,
             transform_target=derivative.transform_target,
             source_hash=derivative.lineage.parent_source_hash,
             created_at=derivative.created_at,

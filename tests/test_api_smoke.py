@@ -8,6 +8,7 @@ from sr8.api.app import app
 
 def test_api_health_compile_validate_transform(tmp_path: Path) -> None:
     client = TestClient(app)
+    source_text = Path("examples/product_prd.md").read_text(encoding="utf-8")
 
     health = client.get("/health")
     assert health.status_code == 200
@@ -15,7 +16,7 @@ def test_api_health_compile_validate_transform(tmp_path: Path) -> None:
 
     compile_response = client.post(
         "/compile",
-        json={"source": "examples/product_prd.md", "profile": "prd"},
+        json={"source_text": source_text, "profile": "prd"},
     )
     assert compile_response.status_code == 200
     artifact_payload = compile_response.json()["artifact"]

@@ -18,7 +18,16 @@ TRANSFORM_REGISTRY: dict[str, TransformTargetSpec] = {
         target="markdown_plan",
         description="Render planning markdown output.",
         renderer=render_markdown_plan,
-        compatible_profiles=("generic", "plan", "repo_audit", "procedure", "research_brief"),
+        compatible_profiles=(
+            "generic",
+            "plan",
+            "prd",
+            "repo_audit",
+            "procedure",
+            "research_brief",
+            "whitepaper_outline",
+            "code_task_graph",
+        ),
     ),
     "markdown_research_brief": TransformTargetSpec(
         target="markdown_research_brief",
@@ -36,7 +45,15 @@ TRANSFORM_REGISTRY: dict[str, TransformTargetSpec] = {
         target="markdown_prompt_pack",
         description="Render reusable prompt pack markdown output.",
         renderer=render_markdown_prompt_pack,
-        compatible_profiles=("prompt_pack", "plan", "prd", "generic", "media_spec"),
+        compatible_profiles=(
+            "prompt_pack",
+            "plan",
+            "prd",
+            "generic",
+            "media_spec",
+            "whitepaper_outline",
+            "code_task_graph",
+        ),
     ),
 }
 

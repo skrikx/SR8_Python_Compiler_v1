@@ -1,0 +1,63 @@
+{
+  "GAP01": {
+    "status": "closed",
+    "evidence": ["tests/test_ac5_fixture_count.py", "tests/fixtures/golden/"]
+  },
+  "GAP02": {
+    "status": "closed",
+    "evidence": [
+      "src/sr8/ingest/loaders.py",
+      "src/sr8/normalize/clean.py",
+      "tests/test_source_hash_lineage.py"
+    ]
+  },
+  "GAP03": {
+    "status": "closed",
+    "evidence": ["src/sr8/compiler/recompile.py", "src/sr8/cli.py", "tests/test_recompile_flow.py"]
+  },
+  "GAP04": {
+    "status": "closed",
+    "evidence": [
+      "src/sr8/profiles/whitepaper_outline.py",
+      "src/sr8/profiles/code_task_graph.py",
+      "tests/test_whitepaper_outline_profile.py",
+      "tests/test_code_task_graph_profile.py"
+    ]
+  },
+  "GAP05": {
+    "status": "closed",
+    "evidence": [
+      "src/sr8/extract/adapters/base.py",
+      "src/sr8/extract/adapters/registry.py",
+      "tests/test_extraction_adapter_registry.py"
+    ]
+  },
+  "GAP06": {
+    "status": "closed",
+    "evidence": ["src/sr8/config/settings.py", "tests/test_cli_compile.py"]
+  },
+  "GAP07": {
+    "status": "closed",
+    "evidence": ["tests/test_performance_gate.py"]
+  },
+  "GAP08": {
+    "status": "closed",
+    "evidence": ["tests/test_ac7_multi_derivative.py"]
+  },
+  "GAP09": {
+    "status": "closed",
+    "evidence": [
+      "src/sr8/extract/confidence.py",
+      "src/sr8/extract/trace.py",
+      "tests/test_extraction_confidence.py"
+    ]
+  },
+  "GAP10": {
+    "status": "closed",
+    "evidence": [
+      "src/sr8/validate/engine.py",
+      "src/sr8/lint/engine.py",
+      "tests/test_field_population_quality.py"
+    ]
+  }
+}

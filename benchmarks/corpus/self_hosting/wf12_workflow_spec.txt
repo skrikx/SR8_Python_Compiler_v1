@@ -1,0 +1,35 @@
+Objective: Build the SR8 proof lane so benchmark runs are local-first, reproducible, and useful to operators.
+
+Scope:
+- Phase 1. Add an evaluation harness for compile, validate, lint, and transform
+- Phase 2. Add a benchmark corpus across founder, research, repo, procedure, weak, and self-hosting tracks
+- Phase 3. Add regression comparison and self-hosting proof cases
+
+Exclusions:
+- Hosted SaaS benchmark portal
+
+Constraints:
+- Keep evaluation local-first and reproducible
+- Do not hide weak confidence or contradictory intent
+
+Context Package:
+- WF11 gap closure receipt
+- Architecture notes
+- Benchmark rubric definitions
+
+Authority Context:
+- founder sponsor
+
+Dependencies:
+- Current compile, transform, and lint rails
+
+Assumptions:
+- Rule-first extraction remains the default path
+
+Success Criteria:
+- Benchmark runs emit scored JSON and markdown reports
+- Self-hosting cases prove compile, transform, and recompile flows
+
+Output Contract:
+- Canonical artifact
+- Self-hosting proof pack

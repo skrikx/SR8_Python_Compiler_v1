@@ -3,10 +3,13 @@ from __future__ import annotations
 from collections.abc import Mapping
 from pathlib import Path
 
+from sr8.extract.adapters.registry import get_extraction_adapter
 from sr8.extract.core import extract_dimensions as extract_dimensions_core
 from sr8.extract.signals import ExtractedDimensions
+from sr8.extract.trace import summarize_extraction_trace
 from sr8.ingest.loaders import load_source as ingest_load_source
 from sr8.models.base import utc_now
+from sr8.models.compile_config import CompileConfig
 from sr8.models.intent_artifact import ArtifactSource, GovernanceFlags, IntentArtifact
 from sr8.models.lineage import Lineage, LineageStep
 from sr8.models.receipts import CompilationReceipt
@@ -21,12 +24,16 @@ from sr8.utils.ids import (
 )
 from sr8.validate.engine import validate_artifact
 
-from .types import CompilationResult, CompileConfig
+from .recompile import recompile_artifact
+from .types import CompilationResult
 
-SourceInput = str | Path | Mapping[str, object]
+SourceInput = str | Path | Mapping[str, object] | IntentArtifact
 
 
 def load_source(source: SourceInput, source_type: SourceType | None = None) -> SourceIntent:
+    if isinstance(source, IntentArtifact):
+        msg = "load_source does not accept IntentArtifact instances. Use compile_intent instead."
+        raise TypeError(msg)
     return ingest_load_source(source=source, source_type=source_type)
 
 
@@ -99,6 +106,7 @@ def assemble_artifact(
         scope=extracted_dimensions.scope,
         exclusions=extracted_dimensions.exclusions,
         constraints=extracted_dimensions.constraints,
+        context_package=extracted_dimensions.context_package,
         target_class=extracted_dimensions.target_class,
         authority_context=extracted_dimensions.authority_context,
         dependencies=extracted_dimensions.dependencies,
@@ -125,11 +133,96 @@ def compile_intent(
     source_type: SourceType | None = None,
     config: CompileConfig | None = None,
 ) -> CompilationResult:
+    active_config = config or CompileConfig()
+    if isinstance(source, IntentArtifact):
+        compiled_artifact = recompile_artifact(
+            source,
+            profile=active_config.profile if config is not None else None,
+            config=active_config,
+        )
+        receipt = CompilationReceipt(
+            receipt_id=build_receipt_id(
+                compiled_artifact.artifact_id,
+                compiled_artifact.source.source_hash,
+            ),
+            artifact_id=compiled_artifact.artifact_id,
+            source_hash=compiled_artifact.source.source_hash,
+            status="accepted",
+            notes=["Recompiled from in-memory canonical artifact source."],
+        )
+        fallback_source = SourceIntent(
+            source_id=compiled_artifact.source.source_id,
+            source_type=compiled_artifact.source.source_type,
+            raw_content=str(compiled_artifact.metadata.get("raw_content", "")),
+            normalized_content=str(compiled_artifact.metadata.get("raw_content", "")),
+            source_hash=compiled_artifact.source.source_hash,
+            origin=compiled_artifact.source.origin,
+            metadata={},
+        )
+        return CompilationResult(
+            artifact=compiled_artifact,
+            receipt=receipt,
+            normalized_source=fallback_source,
+            extracted_dimensions=ExtractedDimensions(),
+        )
+    if source_type is None and isinstance(source, (str, Path)):
+        candidate = Path(source)
+        candidate_exists = False
+        try:
+            candidate_exists = candidate.exists()
+        except OSError:
+            candidate_exists = False
+        if candidate_exists and candidate.suffix.lower() in {".json", ".yaml", ".yml"}:
+            from sr8.io.exporters import load_artifact
+
+            compiled_artifact = recompile_artifact(
+                load_artifact(candidate),
+                profile=active_config.profile if config is not None else None,
+                config=active_config,
+            )
+            receipt = CompilationReceipt(
+                receipt_id=build_receipt_id(
+                    compiled_artifact.artifact_id,
+                    compiled_artifact.source.source_hash,
+                ),
+                artifact_id=compiled_artifact.artifact_id,
+                source_hash=compiled_artifact.source.source_hash,
+                status="accepted",
+                notes=["Recompiled from canonical artifact source."],
+            )
+            fallback_source = SourceIntent(
+                source_id=compiled_artifact.source.source_id,
+                source_type=compiled_artifact.source.source_type,
+                raw_content=str(compiled_artifact.metadata.get("raw_content", "")),
+                normalized_content=str(compiled_artifact.metadata.get("raw_content", "")),
+                source_hash=compiled_artifact.source.source_hash,
+                origin=compiled_artifact.source.origin,
+                metadata={},
+            )
+            return CompilationResult(
+                artifact=compiled_artifact,
+                receipt=receipt,
+                normalized_source=fallback_source,
+                extracted_dimensions=ExtractedDimensions(),
+            )
     loaded = load_source(source=source, source_type=source_type)
     normalized = normalize_source(loaded)
-    extracted = extract_dimensions(normalized)
-    active_config = config or CompileConfig()
+    adapter = get_extraction_adapter(active_config.extraction_adapter)
+    extracted, extraction_trace = adapter.extract(
+        normalized.normalized_content or normalized.raw_content,
+        config=active_config,
+    )
     assembled = assemble_artifact(normalized, extracted, config=active_config)
+    assembled = assembled.model_copy(
+        update={
+            "metadata": assembled.metadata
+            | {
+                "extraction_trace": extraction_trace.model_dump(mode="json"),
+                "extraction_trust_summary": summarize_extraction_trace(extraction_trace),
+                "provider_assist": extraction_trace.metadata,
+            }
+        }
+    )
     profiled = apply_profile_overlay(assembled, active_config.profile)
     validation_report = validate_artifact(profiled, profile_name=active_config.profile)
     artifact = profiled.model_copy(update={"validation": validation_report})

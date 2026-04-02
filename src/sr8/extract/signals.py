@@ -16,6 +16,7 @@ class ExtractedDimensions(SR8Model):
     scope: list[str] = Field(default_factory=list)
     exclusions: list[str] = Field(default_factory=list)
     constraints: list[str] = Field(default_factory=list)
+    context_package: list[str] = Field(default_factory=list)
     assumptions: list[str] = Field(default_factory=list)
     dependencies: list[str] = Field(default_factory=list)
     success_criteria: list[str] = Field(default_factory=list)

@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sr8"
-version = "1.0.0"
+version = "1.2.0"
 description = "SR8 local-first intent compiler"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 license = "MIT"
 authors = [
   { name = "SR8 Engineering" }
@@ -18,6 +18,7 @@ classifiers = [
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Compilers",
@@ -28,6 +29,7 @@ dependencies = [
   "fastapi>=0.115,<1.0",
   "httpx>=0.27,<1.0",
   "pydantic>=2.7,<3.0",
+  "pydantic-settings>=2.4,<3.0",
   "PyYAML>=6.0,<7.0",
   "typer>=0.12,<1.0",
   "uvicorn>=0.30,<1.0"
@@ -56,14 +58,14 @@ pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py312"
+target-version = "py311"
 src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.11"
 files = ["src"]
 disallow_untyped_defs = true
 check_untyped_defs = true

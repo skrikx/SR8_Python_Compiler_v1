@@ -1,0 +1,10 @@
+{
+  "case_id": "research_outline",
+  "suite": "research",
+  "name": "Research outline to whitepaper profile",
+  "description": "Ambiguous research request compiled into a whitepaper outline artifact.",
+  "source_path": "benchmarks/corpus/research/research_outline_request.md",
+  "profile": "whitepaper_outline",
+  "transform_targets": ["markdown_plan", "markdown_prompt_pack"],
+  "tags": ["research", "outline", "whitepaper"]
+}

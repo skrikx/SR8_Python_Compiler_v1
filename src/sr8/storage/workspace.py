@@ -36,6 +36,10 @@ class SR8Workspace:
     def catalog_path(self) -> Path:
         return self.index_dir / "catalog.json"
 
+    @property
+    def catalog_lock_path(self) -> Path:
+        return self.index_dir / "catalog.lock"
+
     def initialize(self) -> None:
         for directory in (
             self.canonical_dir,

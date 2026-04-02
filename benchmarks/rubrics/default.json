@@ -1,0 +1,46 @@
+{
+  "rubric_id": "wf12.default",
+  "name": "WF12 Benchmark Rubric",
+  "dimensions": [
+    {
+      "dimension": "faithfulness",
+      "question": "Did the artifact preserve what the input actually said?",
+      "passing_score": 0.65,
+      "weight": 1.0
+    },
+    {
+      "dimension": "completeness",
+      "question": "Did the artifact capture the expected dimensions for the target profile?",
+      "passing_score": 0.65,
+      "weight": 1.0
+    },
+    {
+      "dimension": "constraint_integrity",
+      "question": "Were constraints, exclusions, authority, and success criteria preserved?",
+      "passing_score": 0.65,
+      "weight": 1.0
+    },
+    {
+      "dimension": "readiness",
+      "question": "Is the output usable for downstream work without major correction?",
+      "passing_score": 0.65,
+      "weight": 1.0
+    },
+    {
+      "dimension": "trust_surface",
+      "question": "Did confidence, trace, warnings, and lint behave honestly for the input quality?",
+      "passing_score": 0.65,
+      "weight": 1.0
+    },
+    {
+      "dimension": "transform_utility",
+      "question": "Do downstream derivatives remain useful and aligned when generated?",
+      "passing_score": 0.65,
+      "weight": 1.0
+    }
+  ],
+  "notes": [
+    "Scores are deterministic heuristics tied to explicit expectations and current compiler behavior.",
+    "These reports are regression-oriented. They support comparison and failure discovery, not absolute truth claims."
+  ]
+}

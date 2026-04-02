@@ -1,0 +1,14 @@
+{
+  "source_terms": ["pilot", "local-first", "field ops teams"],
+  "required_fields": ["objective", "scope", "exclusions", "constraints", "success_criteria", "output_contract"],
+  "constraint_terms": ["6 weeks", "local-first"],
+  "required_transform_targets": ["markdown_prd", "markdown_plan"],
+  "trust_field_statuses": {
+    "objective": "explicit",
+    "scope": "explicit",
+    "constraints": "explicit",
+    "success_criteria": "explicit"
+  },
+  "expect_human_review": false,
+  "minimum_readiness": "pass"
+}

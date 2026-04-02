@@ -12,7 +12,7 @@ Tagged releases rerun gates, build distributions, publish to PyPI through OIDC t
   - Shared `workflow_call` module for `python -m build` and optional artifact upload.
 - `.github/workflows/ci.yml`
   - Runs on `pull_request` and `push` to `main` and `release/**`.
-  - Jobs: lint, typecheck, tests (Python 3.12 and 3.13), examples smoke, package build smoke.
+- Jobs: lint, typecheck, tests (Python 3.11, 3.12, and 3.13), examples smoke, package build smoke.
 - `.github/workflows/release.yml`
   - Runs on semantic tag push (`v*.*.*`) and optional `workflow_dispatch`.
   - Reruns release gates, builds sdist and wheel, publishes to PyPI with OIDC, creates GitHub Release.
@@ -20,6 +20,12 @@ Tagged releases rerun gates, build distributions, publish to PyPI through OIDC t
   - Runs on pull requests and fails on high-severity dependency risk.
 - `.github/workflows/codeql.yml`
   - Runs on push to `main`, pull requests targeting `main`, and weekly schedule.
+- `.github/workflows/docs-check.yml`
+  - Verifies docs and workflow contract tests that guard the release surface.
+- `.github/workflows/hygiene.yml`
+  - Verifies repo layout and cleanup audits.
+- `.github/workflows/frontend-ci.yml`
+  - Present for frontend CI wiring and intentionally defers when `frontend/package.json` is absent.
 
 ## CI Validation Scope
 
@@ -34,6 +40,10 @@ Tagged releases rerun gates, build distributions, publish to PyPI through OIDC t
    - `sr8 transform .sr8_ci/artifacts/canonical/latest.json --to markdown_prd --out .sr8_ci/artifacts/derivative`
    - `sr8 lint .sr8_ci/artifacts/canonical/latest.json`
 5. Package build smoke: `python -m build`
+6. Docs and hygiene checks:
+   - `pytest tests/test_docs_commands.py tests/test_repo_structure.py tests/test_release_workflow_contracts.py`
+   - `python scripts/cleanup/check_repo_layout.py`
+   - `python scripts/cleanup/repo_audit.py --check`
 
 ## Trusted Publishing Configuration
 

@@ -1,0 +1,14 @@
+{
+  "source_terms": ["deterministic intent compilation", "rule-first extraction design", "peer review"],
+  "required_fields": ["objective", "scope", "constraints", "success_criteria", "output_contract"],
+  "constraint_terms": ["auditable local artifacts"],
+  "required_transform_targets": ["markdown_plan", "markdown_prompt_pack"],
+  "trust_field_statuses": {
+    "objective": "explicit",
+    "scope": "explicit",
+    "target_class": "explicit",
+    "output_contract": "explicit"
+  },
+  "expect_human_review": false,
+  "minimum_readiness": "pass"
+}

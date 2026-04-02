@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+*.py linguist-language=Python
+*.yml linguist-language=YAML
+*.yaml linguist-language=YAML
+*.md linguist-language=Markdown

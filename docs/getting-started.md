@@ -4,7 +4,7 @@ This page gives a first-success path from clean install to validated artifact ou
 
 ## Requirements
 
-- Python 3.12 or newer
+- Python 3.11 or newer
 
 ## Install
 

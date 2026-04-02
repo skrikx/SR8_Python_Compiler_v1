@@ -1,0 +1,4 @@
+[profiles.wf11_gap_closure]
+model = "gpt-5.4"
+reasoning_effort = "high"
+approval_policy = "never"

@@ -1,0 +1,10 @@
+{
+  "case_id": "sr8_workflow_compile",
+  "suite": "self_hosting",
+  "name": "Compile WF12 workflow spec",
+  "description": "Self-hosting proof that SR8 can compile its own workflow specification into a canonical artifact.",
+  "source_path": "benchmarks/corpus/self_hosting/wf12_workflow_spec.txt",
+  "profile": "plan",
+  "transform_targets": ["markdown_plan"],
+  "tags": ["self-hosting", "workflow", "plan"]
+}

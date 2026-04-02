@@ -1,0 +1,3 @@
+Objective: Whitepaper
+Scope:
+- Intro

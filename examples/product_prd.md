@@ -1,5 +1,5 @@
 Objective:
-- Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.
+- Produce a product requirement artifact for SR8 v2.
 
 Scope:
 - Define user and stakeholder signals for onboarding flow.

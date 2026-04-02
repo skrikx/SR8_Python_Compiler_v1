@@ -1,0 +1,10 @@
+{
+  "case_id": "sr8_artifact_eval",
+  "suite": "self_hosting",
+  "name": "Evaluate stored SR8 artifact",
+  "description": "Self-hosting proof that the benchmark harness can evaluate an SR8-generated artifact as source.",
+  "source_path": "benchmarks/corpus/self_hosting/sr8_release_artifact.json",
+  "source_kind": "artifact",
+  "profile": "prd",
+  "tags": ["self-hosting", "artifact", "evaluation"]
+}

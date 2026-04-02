@@ -1,6 +1,6 @@
 # Artifact Schema
 
-This page documents the primary model fields used in SR8 v1.0.0.
+This page documents the primary model fields used in SR8 v1.1.0.
 
 ## Canonical Artifact (`IntentArtifact`)
 
@@ -25,6 +25,7 @@ This page documents the primary model fields used in SR8 v1.0.0.
 - `scope`
 - `exclusions`
 - `constraints`
+- `context_package`
 - `target_class`
 - `authority_context`
 - `dependencies`
@@ -48,8 +49,19 @@ This page documents the primary model fields used in SR8 v1.0.0.
 - `lineage.compile_run_id`
 - `lineage.pipeline_version`
 - `lineage.source_hash`
+- `lineage.parent_artifact_ids[]`
 - `lineage.steps[]`
 - `metadata` (freeform map)
+
+### Compilation Receipt Additions
+
+- `source_hash`
+- `extraction_trust_summary.adapter_name`
+- `extraction_trust_summary.status_counts`
+- `extraction_trust_summary.low_confidence_fields[]`
+- `lineage_summary.compile_run_id`
+- `lineage_summary.source_hash`
+- `lineage_summary.parent_artifact_count`
 
 ## Derivative Artifact (`DerivativeArtifact`)
 
@@ -82,3 +94,11 @@ Lint report (`LintReport`) contains:
 - `status` (`pass`, `warn`, `fail`)
 - `summary`
 - `findings[]`
+
+
+## Extraction trust metadata
+
+- `metadata.extraction_trace.adapter_name`
+- `metadata.extraction_trace.confidence[]` with field-level statuses and bands
+- `metadata.extraction_trust_summary.status_counts`
+- `metadata.extraction_trust_summary.low_confidence_fields[]`

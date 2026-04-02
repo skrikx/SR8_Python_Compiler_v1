@@ -1,0 +1,14 @@
+{
+  "source_terms": ["proof lane", "local-first", "self-hosting proof cases"],
+  "required_fields": ["objective", "scope", "constraints", "context_package", "dependencies", "success_criteria", "output_contract"],
+  "constraint_terms": ["local-first", "contradictory intent"],
+  "required_transform_targets": ["markdown_plan"],
+  "trust_field_statuses": {
+    "objective": "explicit",
+    "scope": "explicit",
+    "context_package": "explicit",
+    "success_criteria": "explicit"
+  },
+  "expect_human_review": false,
+  "minimum_readiness": "pass"
+}

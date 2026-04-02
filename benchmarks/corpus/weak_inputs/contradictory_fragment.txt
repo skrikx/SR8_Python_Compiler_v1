@@ -1,0 +1,10 @@
+Objective: Maybe ship something for SR8 maybe
+Scope:
+- Ship evaluation lab
+- Trim docs later
+Exclusions:
+- Ship evaluation lab
+Constraints:
+- TBD
+Success Criteria:
+- maybe okay

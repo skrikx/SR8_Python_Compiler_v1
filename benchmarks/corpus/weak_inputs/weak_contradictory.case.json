@@ -1,0 +1,9 @@
+{
+  "case_id": "weak_contradictory",
+  "suite": "weak_inputs",
+  "name": "Weak contradictory fragment",
+  "description": "Low-signal input with contradictory scope and underspecified constraints.",
+  "source_path": "benchmarks/corpus/weak_inputs/contradictory_fragment.txt",
+  "profile": "generic",
+  "tags": ["weak", "contradictory", "underspecified"]
+}

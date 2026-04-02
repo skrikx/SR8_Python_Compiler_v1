@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Mapping
 from pathlib import Path
+from typing import cast
 
 from sr8.compiler.types import CompilationResult
+from sr8.extract.trace import summarize_extraction_trace
 from sr8.models.compilation_receipt import CompilationReceiptRecord
 from sr8.models.derivative_artifact import DerivativeArtifact
 from sr8.models.transform_receipt import TransformReceiptRecord
@@ -35,6 +38,15 @@ def write_compilation_receipt(
             "scope_count": len(result.extracted_dimensions.scope),
             "constraints_count": len(result.extracted_dimensions.constraints),
             "success_criteria_count": len(result.extracted_dimensions.success_criteria),
+        },
+        extraction_trust_summary=summarize_extraction_trace(
+            cast(Mapping[str, object] | None, artifact.metadata.get("extraction_trace"))
+        ),
+        lineage_summary={
+            "compile_run_id": artifact.lineage.compile_run_id,
+            "source_hash": artifact.lineage.source_hash,
+            "parent_artifact_count": len(artifact.lineage.parent_artifact_ids),
+            "steps": [step.stage for step in artifact.lineage.steps],
         },
         validation_summary=report.summary,
         warnings=[warning.message for warning in report.warnings],

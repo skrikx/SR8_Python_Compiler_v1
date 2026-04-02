@@ -1,0 +1,10 @@
+{
+  "case_id": "procedure_rollback",
+  "suite": "procedure",
+  "name": "Rollback procedure with escalation",
+  "description": "Operational procedure with rollback and escalation logic.",
+  "source_path": "benchmarks/corpus/procedure/incident_rollback_procedure.md",
+  "profile": "procedure",
+  "transform_targets": ["markdown_procedure", "markdown_plan"],
+  "tags": ["procedure", "rollback", "operations"]
+}

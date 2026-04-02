@@ -1,0 +1,14 @@
+{
+  "source_terms": ["rollback", "release owner", "source hash mismatch"],
+  "required_fields": ["objective", "scope", "constraints", "authority_context", "success_criteria"],
+  "constraint_terms": ["rollback", "escalate", "release owner"],
+  "required_transform_targets": ["markdown_procedure", "markdown_plan"],
+  "trust_field_statuses": {
+    "authority_context": "explicit",
+    "scope": "explicit",
+    "constraints": "explicit",
+    "success_criteria": "explicit"
+  },
+  "expect_human_review": false,
+  "minimum_readiness": "pass"
+}

@@ -11,7 +11,7 @@ class ArtifactRecord(SR8Model):
     artifact_id: str
     artifact_kind: Literal["canonical", "derivative"]
     profile: str
-    target_class: str
+    target_class: str | None = None
     transform_target: str | None = None
     source_hash: str
     created_at: datetime

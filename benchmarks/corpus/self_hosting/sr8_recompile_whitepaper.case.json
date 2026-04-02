@@ -1,0 +1,11 @@
+{
+  "case_id": "sr8_recompile_whitepaper",
+  "suite": "self_hosting",
+  "name": "Recompile SR8 artifact into whitepaper profile",
+  "description": "Self-hosting proof that SR8 can recompile one of its own artifacts into a different profile.",
+  "source_path": "benchmarks/corpus/self_hosting/sr8_release_artifact.json",
+  "source_kind": "artifact",
+  "profile": "whitepaper_outline",
+  "transform_targets": ["markdown_plan"],
+  "tags": ["self-hosting", "recompile", "whitepaper"]
+}

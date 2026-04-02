@@ -19,7 +19,7 @@ SR8 provides that path with a local-first workflow that is easy to test, automat
 
 ## Install
 
-SR8 requires Python 3.12 or newer.
+SR8 requires Python 3.11 or newer.
 
 ```bash
 python -m pip install -e .
@@ -103,6 +103,8 @@ Built-in profiles:
 - `procedure`
 - `media_spec`
 - `prompt_pack`
+- `whitepaper_outline`
+- `code_task_graph`
 
 Reference: [docs/profiles.md](docs/profiles.md)
 
@@ -151,7 +153,7 @@ See [ROADMAP.md](ROADMAP.md).
 
 ## Project Status
 
-SR8 v1.0.0 is production-grade for local compiler workflows documented in this repository.
+SR8 v1.1.0 is a hardened local compiler release with extraction trust, artifact recompilation, and expanded profile coverage.
 
 ## Release Notes
 

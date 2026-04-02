@@ -1,0 +1,10 @@
+{
+  "case_id": "sr8_release_transform",
+  "suite": "self_hosting",
+  "name": "Transform SR8 release proof artifact",
+  "description": "Self-hosting proof that one SR8 canonical artifact can generate three downstream derivatives.",
+  "source_path": "benchmarks/corpus/self_hosting/sr8_release_proof.md",
+  "profile": "prd",
+  "transform_targets": ["markdown_prd", "markdown_plan", "markdown_prompt_pack"],
+  "tags": ["self-hosting", "transform", "release-proof"]
+}
