@@ -40,10 +40,11 @@ def file_lock(lock_path: Path) -> Iterator[None]:
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open("a+b") as handle:
         if os.name == "nt":
+            cast_msvcrt = cast(Any, msvcrt)
             handle.seek(0)
             while True:
                 try:
-                    msvcrt.locking(handle.fileno(), msvcrt.LK_LOCK, 1)
+                    cast_msvcrt.locking(handle.fileno(), cast_msvcrt.LK_LOCK, 1)
                     break
                 except OSError:
                     time.sleep(0.01)
@@ -51,7 +52,7 @@ def file_lock(lock_path: Path) -> Iterator[None]:
                 yield
             finally:
                 handle.seek(0)
-                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+                cast_msvcrt.locking(handle.fileno(), cast_msvcrt.LK_UNLCK, 1)
         else:
             cast_fcntl = cast(Any, posix_fcntl)
             cast_fcntl.flock(handle.fileno(), cast_fcntl.LOCK_EX)
