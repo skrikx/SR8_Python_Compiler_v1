@@ -12,7 +12,7 @@
     "No backend schema migration in this phase."
   ],
   "context_package": [],
-  "created_at": "2026-03-21T20:55:43.415116Z",
+  "created_at": "2026-03-31T17:21:10.543766Z",
   "dependencies": [
     "Design review sign-off.",
     "Analytics event naming agreement."
@@ -35,22 +35,22 @@
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-31T17:21:10.543766Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-31T17:21:10.543766Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-31T17:21:10.543766Z",
         "stage": "extract"
       },
       {
         "detail": "Assembled artifact_id=art_01cc8a598120973536a4",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-31T17:21:10.543766Z",
         "stage": "assemble"
       }
     ]
@@ -193,7 +193,7 @@
   "target_class": "prd",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-21T20:55:43.415116Z",
+    "generated_at": "2026-03-31T17:21:10.544766Z",
     "readiness_status": "pass",
     "report_id": "rcpt_d1cfb7cf9a8c73283beb",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",

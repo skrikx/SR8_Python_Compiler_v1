@@ -1,25 +1,26 @@
 {
-  "artifact_id": "art_01cc8a598120973536a4",
+  "artifact_id": "art_848f90d9d277cf6f9a6b",
   "artifact_version": "1.0.0",
   "assumptions": [
-    "Product and engineering stakeholders are available for review.",
-    "Existing onboarding instrumentation is reliable enough for baseline measurement."
+    "Pilot cohort stays under 50 sites"
   ],
-  "authority_context": "product manager",
+  "authority_context": "founder sponsor",
   "compiler_version": "1.2.0",
   "constraints": [
-    "Two sprint timeline.",
-    "No backend schema migration in this phase."
+    "Ship in 6 weeks",
+    "Keep local-first data export"
   ],
-  "context_package": [],
-  "created_at": "2026-03-21T20:55:43.415116Z",
+  "context_package": [
+    "Interview notes from field ops teams",
+    "Pilot support ticket digest"
+  ],
+  "created_at": "2026-03-20T03:31:50.833664Z",
   "dependencies": [
-    "Design review sign-off.",
-    "Analytics event naming agreement."
+    "Existing auth service",
+    "Device enrollment API"
   ],
   "exclusions": [
-    "No implementation coding in this phase.",
-    "No analytics vendor migration work."
+    "Billing system rewrite"
   ],
   "governance_flags": {
     "ambiguous": false,
@@ -27,30 +28,30 @@
     "requires_human_review": false
   },
   "lineage": {
-    "compile_run_id": "run_a6a874e0224dc47fc16d",
+    "compile_run_id": "run_baf78042fa35a37a326e",
     "parent_artifact_ids": [],
     "parent_source_hash": null,
     "pipeline_version": "1.2.0",
-    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
+    "source_hash": "b935bde0075a71e3e6b4ec09e2322c67241049697cffbc1674c21c480c9b76b6",
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.833664Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.833664Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.833664Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_01cc8a598120973536a4",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "detail": "Assembled artifact_id=art_848f90d9d277cf6f9a6b",
+        "occurred_at": "2026-03-20T03:31:50.833664Z",
         "stage": "assemble"
       }
     ]
@@ -68,14 +69,14 @@
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 4 item(s) from section signals.",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
           "field_name": "scope",
           "notes": "",
           "status": "explicit"
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "exclusions",
           "notes": "",
           "status": "explicit"
@@ -88,11 +89,11 @@
           "status": "explicit"
         },
         {
-          "confidence_band": "low",
-          "evidence_summary": "No extracted items.",
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
           "field_name": "context_package",
           "notes": "",
-          "status": "empty"
+          "status": "explicit"
         },
         {
           "confidence_band": "medium",
@@ -117,7 +118,7 @@
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "assumptions",
           "notes": "",
           "status": "explicit"
@@ -147,55 +148,51 @@
     },
     "extraction_trust_summary": {
       "adapter_name": "rule_based",
-      "low_confidence_fields": [
-        "context_package"
-      ],
+      "low_confidence_fields": [],
       "status_counts": {
-        "empty": 1,
-        "explicit": 10,
+        "explicit": 11,
         "inferred": 1
       }
     },
-    "normalized_char_count": 1080,
+    "normalized_char_count": 755,
     "pipeline_mode": "rule-first",
     "source_metadata": {
       "detected_source_type": "markdown",
       "normalization": "whitespace+wrapper-clean",
-      "normalized_char_count": 1080,
-      "normalized_line_count": 35,
-      "normalized_source_hash": "c7df69ea2320cb31f7ee95a8fad7732eb27b4cf0de0d871ab78aef4f1951e10c",
-      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-      "raw_char_count": 1081
+      "normalized_char_count": 755,
+      "normalized_line_count": 37,
+      "normalized_source_hash": "d81d064a48948cfad4a8f15ce7ed80aca46017cd8c2f7e16ca6d15af4fdabd88",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\founder\\founder_launch_brief.md",
+      "raw_char_count": 756
     }
   },
-  "objective": "Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.",
+  "objective": "Compile a PRD for the SR8 pilot user onboarding flow.",
   "output_contract": [
-    "PRD artifact for planning and implementation handoff.",
-    "Markdown PRD derivative for cross-functional review."
+    "Canonical PRD artifact",
+    "Markdown PRD derivative"
   ],
   "profile": "prd",
   "scope": [
-    "Define user and stakeholder signals for onboarding flow.",
-    "Define acceptance criteria for first-session completion.",
-    "Define milestone slices for delivery planning.",
-    "Capture measurable success criteria for release readiness."
+    "User-facing mobile operator checklists for field ops teams",
+    "Offline-friendly capture for pilot sites",
+    "Admin dashboard for pilot health"
   ],
   "source": {
-    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
-    "source_id": "src_f7439100a2e4a7ff",
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\founder\\founder_launch_brief.md",
+    "source_hash": "b935bde0075a71e3e6b4ec09e2322c67241049697cffbc1674c21c480c9b76b6",
+    "source_id": "src_b935bde0075a71e3",
     "source_type": "markdown"
   },
   "success_criteria": [
-    "Stakeholders approve requirement scope.",
-    "Completion rate improves after rollout compared with current baseline."
+    "Pilot managers can complete setup in under 20 minutes",
+    "Support tickets drop by 30 percent"
   ],
   "target_class": "prd",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-21T20:55:43.415116Z",
+    "generated_at": "2026-03-20T03:31:50.833664Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_d1cfb7cf9a8c73283beb",
+    "report_id": "rcpt_9cd180987a27590ebf07",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

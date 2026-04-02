@@ -1,25 +1,26 @@
 {
-  "artifact_id": "art_01cc8a598120973536a4",
+  "artifact_id": "art_a82b1505fbb3d6d14f21",
   "artifact_version": "1.0.0",
   "assumptions": [
-    "Product and engineering stakeholders are available for review.",
-    "Existing onboarding instrumentation is reliable enough for baseline measurement."
+    "Rule-first extraction remains the default path"
   ],
-  "authority_context": "product manager",
+  "authority_context": "founder sponsor",
   "compiler_version": "1.2.0",
   "constraints": [
-    "Two sprint timeline.",
-    "No backend schema migration in this phase."
+    "Keep evaluation local-first and reproducible",
+    "Do not hide weak confidence or contradictory intent"
   ],
-  "context_package": [],
-  "created_at": "2026-03-21T20:55:43.415116Z",
+  "context_package": [
+    "WF11 gap closure receipt",
+    "Architecture notes",
+    "Benchmark rubric definitions"
+  ],
+  "created_at": "2026-03-20T03:31:50.887663Z",
   "dependencies": [
-    "Design review sign-off.",
-    "Analytics event naming agreement."
+    "Current compile, transform, and lint rails"
   ],
   "exclusions": [
-    "No implementation coding in this phase.",
-    "No analytics vendor migration work."
+    "Hosted SaaS benchmark portal"
   ],
   "governance_flags": {
     "ambiguous": false,
@@ -27,30 +28,30 @@
     "requires_human_review": false
   },
   "lineage": {
-    "compile_run_id": "run_a6a874e0224dc47fc16d",
+    "compile_run_id": "run_4e184a4a51e3086e27ca",
     "parent_artifact_ids": [],
     "parent_source_hash": null,
     "pipeline_version": "1.2.0",
-    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
+    "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c",
     "steps": [
       {
-        "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "detail": "Loaded source_type=text",
+        "occurred_at": "2026-03-20T03:31:50.887663Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.887663Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.887663Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_01cc8a598120973536a4",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "detail": "Assembled artifact_id=art_a82b1505fbb3d6d14f21",
+        "occurred_at": "2026-03-20T03:31:50.887663Z",
         "stage": "assemble"
       }
     ]
@@ -68,14 +69,14 @@
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 4 item(s) from section signals.",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
           "field_name": "scope",
           "notes": "",
           "status": "explicit"
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "exclusions",
           "notes": "",
           "status": "explicit"
@@ -88,11 +89,11 @@
           "status": "explicit"
         },
         {
-          "confidence_band": "low",
-          "evidence_summary": "No extracted items.",
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
           "field_name": "context_package",
           "notes": "",
-          "status": "empty"
+          "status": "explicit"
         },
         {
           "confidence_band": "medium",
@@ -110,14 +111,14 @@
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "dependencies",
           "notes": "",
           "status": "explicit"
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "assumptions",
           "notes": "",
           "status": "explicit"
@@ -147,55 +148,51 @@
     },
     "extraction_trust_summary": {
       "adapter_name": "rule_based",
-      "low_confidence_fields": [
-        "context_package"
-      ],
+      "low_confidence_fields": [],
       "status_counts": {
-        "empty": 1,
-        "explicit": 10,
+        "explicit": 11,
         "inferred": 1
       }
     },
-    "normalized_char_count": 1080,
+    "normalized_char_count": 993,
     "pipeline_mode": "rule-first",
     "source_metadata": {
-      "detected_source_type": "markdown",
+      "detected_source_type": "text",
       "normalization": "whitespace+wrapper-clean",
-      "normalized_char_count": 1080,
+      "normalized_char_count": 993,
       "normalized_line_count": 35,
-      "normalized_source_hash": "c7df69ea2320cb31f7ee95a8fad7732eb27b4cf0de0d871ab78aef4f1951e10c",
-      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-      "raw_char_count": 1081
+      "normalized_source_hash": "aa19e4e85df32205e4b2afa96dc36090e9a4ec6840fc4a2a131e35042cade149",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\self_hosting\\wf12_workflow_spec.txt",
+      "raw_char_count": 994
     }
   },
-  "objective": "Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.",
+  "objective": "Build the SR8 proof lane so benchmark runs are local-first, reproducible, and useful to operators.",
   "output_contract": [
-    "PRD artifact for planning and implementation handoff.",
-    "Markdown PRD derivative for cross-functional review."
+    "Canonical artifact",
+    "Self-hosting proof pack"
   ],
-  "profile": "prd",
+  "profile": "plan",
   "scope": [
-    "Define user and stakeholder signals for onboarding flow.",
-    "Define acceptance criteria for first-session completion.",
-    "Define milestone slices for delivery planning.",
-    "Capture measurable success criteria for release readiness."
+    "Phase 1. Add an evaluation harness for compile, validate, lint, and transform",
+    "Phase 2. Add a benchmark corpus across founder, research, repo, procedure, weak, and self-hosting tracks",
+    "Phase 3. Add regression comparison and self-hosting proof cases"
   ],
   "source": {
-    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
-    "source_id": "src_f7439100a2e4a7ff",
-    "source_type": "markdown"
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\self_hosting\\wf12_workflow_spec.txt",
+    "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c",
+    "source_id": "src_fe15eef3c73b59cc",
+    "source_type": "text"
   },
   "success_criteria": [
-    "Stakeholders approve requirement scope.",
-    "Completion rate improves after rollout compared with current baseline."
+    "Benchmark runs emit scored JSON and markdown reports",
+    "Self-hosting cases prove compile, transform, and recompile flows"
   ],
-  "target_class": "prd",
+  "target_class": "plan",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-21T20:55:43.415116Z",
+    "generated_at": "2026-03-20T03:31:50.887663Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_d1cfb7cf9a8c73283beb",
+    "report_id": "rcpt_793b3124bcbb7ac54a98",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

@@ -1,0 +1,218 @@
+{
+  "artifact_id": "art_0bce7938275213e2ea1b",
+  "artifact_version": "1.0.0",
+  "assumptions": [],
+  "authority_context": "",
+  "compiler_version": "1.2.0",
+  "constraints": [
+    "TBD"
+  ],
+  "context_package": [],
+  "created_at": "2026-03-20T03:31:50.893660Z",
+  "dependencies": [],
+  "exclusions": [
+    "Ship evaluation lab"
+  ],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "lineage": {
+    "compile_run_id": "run_c785dc60434807e950af",
+    "parent_artifact_ids": [],
+    "parent_source_hash": null,
+    "pipeline_version": "1.2.0",
+    "source_hash": "82c19c8d280123b5f53305138aeb0da9fd9fbd3abde952756dda0f49cf4f11c4",
+    "steps": [
+      {
+        "detail": "Loaded source_type=text",
+        "occurred_at": "2026-03-20T03:31:50.893660Z",
+        "stage": "ingest"
+      },
+      {
+        "detail": "Normalized whitespace and wrappers",
+        "occurred_at": "2026-03-20T03:31:50.893660Z",
+        "stage": "normalize"
+      },
+      {
+        "detail": "Applied rule-first extraction",
+        "occurred_at": "2026-03-20T03:31:50.893660Z",
+        "stage": "extract"
+      },
+      {
+        "detail": "Assembled artifact_id=art_0bce7938275213e2ea1b",
+        "occurred_at": "2026-03-20T03:31:50.893660Z",
+        "stage": "assemble"
+      }
+    ]
+  },
+  "metadata": {
+    "extraction_trace": {
+      "adapter_name": "rule_based",
+      "confidence": [
+        {
+          "confidence_band": "low",
+          "evidence_summary": "Field populated from sparse or ambiguous evidence.",
+          "field_name": "objective",
+          "notes": "Input text contains weak or underspecified phrasing.",
+          "status": "weak"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "Conflicting items were extracted across related sections.",
+          "field_name": "scope",
+          "notes": "At least one extracted item overlaps with an exclusion.",
+          "status": "contradictory"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "exclusions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "Extracted 1 item(s), but phrasing is weak or ambiguous.",
+          "field_name": "constraints",
+          "notes": "Review the extracted items before downstream use.",
+          "status": "weak"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No extracted items.",
+          "field_name": "context_package",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No strong extraction evidence.",
+          "field_name": "target_class",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No strong extraction evidence.",
+          "field_name": "authority_context",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No extracted items.",
+          "field_name": "dependencies",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No extracted items.",
+          "field_name": "assumptions",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "Extracted 1 item(s), but phrasing is weak or ambiguous.",
+          "field_name": "success_criteria",
+          "notes": "Review the extracted items before downstream use.",
+          "status": "weak"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No extracted items.",
+          "field_name": "output_contract",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "medium",
+          "evidence_summary": "No governance escalation flags were raised by the extractor.",
+          "field_name": "governance_flags",
+          "notes": "",
+          "status": "explicit"
+        }
+      ]
+    },
+    "extraction_trust_summary": {
+      "adapter_name": "rule_based",
+      "low_confidence_fields": [
+        "objective",
+        "scope",
+        "constraints",
+        "context_package",
+        "target_class",
+        "authority_context",
+        "dependencies",
+        "assumptions",
+        "success_criteria",
+        "output_contract"
+      ],
+      "status_counts": {
+        "contradictory": 1,
+        "empty": 6,
+        "explicit": 2,
+        "weak": 3
+      }
+    },
+    "normalized_char_count": 176,
+    "pipeline_mode": "rule-first",
+    "source_metadata": {
+      "detected_source_type": "text",
+      "normalization": "whitespace+wrapper-clean",
+      "normalized_char_count": 176,
+      "normalized_line_count": 10,
+      "normalized_source_hash": "765a4f2088d0ed444a2455bf3086b18ac588e4dacfb0aaf7f676e80fca3018ac",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\weak_inputs\\contradictory_fragment.txt",
+      "raw_char_count": 177
+    }
+  },
+  "objective": "Maybe ship something for SR8 maybe",
+  "output_contract": [],
+  "profile": "generic",
+  "scope": [
+    "Ship evaluation lab",
+    "Trim docs later"
+  ],
+  "source": {
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\weak_inputs\\contradictory_fragment.txt",
+    "source_hash": "82c19c8d280123b5f53305138aeb0da9fd9fbd3abde952756dda0f49cf4f11c4",
+    "source_id": "src_82c19c8d280123b5",
+    "source_type": "text"
+  },
+  "success_criteria": [
+    "maybe okay"
+  ],
+  "target_class": "generic",
+  "validation": {
+    "errors": [
+      {
+        "code": "VAL-CAN-007",
+        "message": "scope and exclusions conflict on at least one item",
+        "path": "scope",
+        "severity": "error"
+      }
+    ],
+    "generated_at": "2026-03-20T03:31:50.893660Z",
+    "readiness_status": "fail",
+    "report_id": "rcpt_2f7ed2c5ebe213d0390b",
+    "summary": "Validation fail: 1 error(s), 2 warning(s).",
+    "warnings": [
+      {
+        "code": "VAL-CAN-006",
+        "message": "output_contract is empty",
+        "path": "output_contract",
+        "severity": "warning"
+      },
+      {
+        "code": "VAL-TRUST-004",
+        "message": "success_criteria extraction trust is weak; downstream output may need manual review",
+        "path": "success_criteria",
+        "severity": "warning"
+      }
+    ]
+  }
+}

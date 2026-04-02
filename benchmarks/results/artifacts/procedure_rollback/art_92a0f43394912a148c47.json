@@ -1,25 +1,26 @@
 {
-  "artifact_id": "art_01cc8a598120973536a4",
+  "artifact_id": "art_92a0f43394912a148c47",
   "artifact_version": "1.0.0",
   "assumptions": [
-    "Product and engineering stakeholders are available for review.",
-    "Existing onboarding instrumentation is reliable enough for baseline measurement."
+    "Fallback path uses the previous passing results bundle"
   ],
   "authority_context": "product manager",
   "compiler_version": "1.2.0",
   "constraints": [
-    "Two sprint timeline.",
-    "No backend schema migration in this phase."
+    "If fail on source hash mismatch, trigger rollback within 15 minutes",
+    "Escalate to the release owner before publishing a replacement pack"
   ],
-  "context_package": [],
-  "created_at": "2026-03-21T20:55:43.415116Z",
+  "context_package": [
+    "Release checklist",
+    "Receipt persistence docs"
+  ],
+  "created_at": "2026-03-20T03:31:50.842661Z",
   "dependencies": [
-    "Design review sign-off.",
-    "Analytics event naming agreement."
+    "Workspace receipts",
+    "Versioned benchmark results"
   ],
   "exclusions": [
-    "No implementation coding in this phase.",
-    "No analytics vendor migration work."
+    "Schema redesign"
   ],
   "governance_flags": {
     "ambiguous": false,
@@ -27,30 +28,30 @@
     "requires_human_review": false
   },
   "lineage": {
-    "compile_run_id": "run_a6a874e0224dc47fc16d",
+    "compile_run_id": "run_77129bd6a1392ea725fb",
     "parent_artifact_ids": [],
     "parent_source_hash": null,
     "pipeline_version": "1.2.0",
-    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
+    "source_hash": "7022f8adccc70e7c73b512ea19ed973ed43445298567d2ae98e9cabd2720ad7d",
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.842661Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.842661Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.842661Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_01cc8a598120973536a4",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "detail": "Assembled artifact_id=art_92a0f43394912a148c47",
+        "occurred_at": "2026-03-20T03:31:50.842661Z",
         "stage": "assemble"
       }
     ]
@@ -68,14 +69,14 @@
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 4 item(s) from section signals.",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
           "field_name": "scope",
           "notes": "",
           "status": "explicit"
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "exclusions",
           "notes": "",
           "status": "explicit"
@@ -88,11 +89,11 @@
           "status": "explicit"
         },
         {
-          "confidence_band": "low",
-          "evidence_summary": "No extracted items.",
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
           "field_name": "context_package",
           "notes": "",
-          "status": "empty"
+          "status": "explicit"
         },
         {
           "confidence_band": "medium",
@@ -117,7 +118,7 @@
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "assumptions",
           "notes": "",
           "status": "explicit"
@@ -131,7 +132,7 @@
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "output_contract",
           "notes": "",
           "status": "explicit"
@@ -147,55 +148,50 @@
     },
     "extraction_trust_summary": {
       "adapter_name": "rule_based",
-      "low_confidence_fields": [
-        "context_package"
-      ],
+      "low_confidence_fields": [],
       "status_counts": {
-        "empty": 1,
-        "explicit": 10,
+        "explicit": 11,
         "inferred": 1
       }
     },
-    "normalized_char_count": 1080,
+    "normalized_char_count": 863,
     "pipeline_mode": "rule-first",
     "source_metadata": {
       "detected_source_type": "markdown",
       "normalization": "whitespace+wrapper-clean",
-      "normalized_char_count": 1080,
-      "normalized_line_count": 35,
-      "normalized_source_hash": "c7df69ea2320cb31f7ee95a8fad7732eb27b4cf0de0d871ab78aef4f1951e10c",
-      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-      "raw_char_count": 1081
+      "normalized_char_count": 863,
+      "normalized_line_count": 36,
+      "normalized_source_hash": "86ac5cfbe814eafc2c1c33d8f6b76505f640e94d5f67bc733eadfb8a1e44935e",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\procedure\\incident_rollback_procedure.md",
+      "raw_char_count": 864
     }
   },
-  "objective": "Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.",
+  "objective": "Document an incident rollback procedure for failed benchmark releases.",
   "output_contract": [
-    "PRD artifact for planning and implementation handoff.",
-    "Markdown PRD derivative for cross-functional review."
+    "Markdown procedure"
   ],
-  "profile": "prd",
+  "profile": "procedure",
   "scope": [
-    "Define user and stakeholder signals for onboarding flow.",
-    "Define acceptance criteria for first-session completion.",
-    "Define milestone slices for delivery planning.",
-    "Capture measurable success criteria for release readiness."
+    "Step 1. Detect benchmark release breakage",
+    "Step 2. Roll back result packs to the prior passing version",
+    "Step 3. Notify the release owner and archive the failed pack"
   ],
   "source": {
-    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
-    "source_id": "src_f7439100a2e4a7ff",
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\procedure\\incident_rollback_procedure.md",
+    "source_hash": "7022f8adccc70e7c73b512ea19ed973ed43445298567d2ae98e9cabd2720ad7d",
+    "source_id": "src_7022f8adccc70e7c",
     "source_type": "markdown"
   },
   "success_criteria": [
-    "Stakeholders approve requirement scope.",
-    "Completion rate improves after rollout compared with current baseline."
+    "Owner approval is captured before rerun",
+    "Escalation path is explicit for on-call review"
   ],
-  "target_class": "prd",
+  "target_class": "procedure",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-21T20:55:43.415116Z",
+    "generated_at": "2026-03-20T03:31:50.842661Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_d1cfb7cf9a8c73283beb",
+    "report_id": "rcpt_defdefd1ad87cb3aee4e",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

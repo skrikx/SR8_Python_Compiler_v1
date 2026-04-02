@@ -1,56 +1,53 @@
 {
-  "artifact_id": "art_01cc8a598120973536a4",
+  "artifact_id": "art_f62c7dbfab5eade63167",
   "artifact_version": "1.0.0",
   "assumptions": [
-    "Product and engineering stakeholders are available for review.",
-    "Existing onboarding instrumentation is reliable enough for baseline measurement."
+    "Audience is technical research leads"
   ],
-  "authority_context": "product manager",
+  "authority_context": "cto",
   "compiler_version": "1.2.0",
   "constraints": [
-    "Two sprint timeline.",
-    "No backend schema migration in this phase."
+    "Cite only auditable local artifacts"
   ],
-  "context_package": [],
-  "created_at": "2026-03-21T20:55:43.415116Z",
+  "context_package": [
+    "Architecture notes",
+    "Workflow receipts"
+  ],
+  "created_at": "2026-03-20T03:31:50.857661Z",
   "dependencies": [
-    "Design review sign-off.",
-    "Analytics event naming agreement."
+    "Existing benchmark corpus"
   ],
-  "exclusions": [
-    "No implementation coding in this phase.",
-    "No analytics vendor migration work."
-  ],
+  "exclusions": [],
   "governance_flags": {
     "ambiguous": false,
     "incomplete": false,
     "requires_human_review": false
   },
   "lineage": {
-    "compile_run_id": "run_a6a874e0224dc47fc16d",
+    "compile_run_id": "run_fff0f268ec3278b31c90",
     "parent_artifact_ids": [],
     "parent_source_hash": null,
     "pipeline_version": "1.2.0",
-    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
+    "source_hash": "1afcef2ce31f59ea0e8a2748577ac2ad2bc17ad79d945a20d6e9df5d8d60cc1b",
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.857661Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.857661Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "occurred_at": "2026-03-20T03:31:50.857661Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_01cc8a598120973536a4",
-        "occurred_at": "2026-03-21T20:55:43.415116Z",
+        "detail": "Assembled artifact_id=art_f62c7dbfab5eade63167",
+        "occurred_at": "2026-03-20T03:31:50.857661Z",
         "stage": "assemble"
       }
     ]
@@ -68,31 +65,31 @@
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 4 item(s) from section signals.",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
           "field_name": "scope",
-          "notes": "",
-          "status": "explicit"
-        },
-        {
-          "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
-          "field_name": "exclusions",
-          "notes": "",
-          "status": "explicit"
-        },
-        {
-          "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
-          "field_name": "constraints",
           "notes": "",
           "status": "explicit"
         },
         {
           "confidence_band": "low",
           "evidence_summary": "No extracted items.",
-          "field_name": "context_package",
+          "field_name": "exclusions",
           "notes": "",
           "status": "empty"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "constraints",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "context_package",
+          "notes": "",
+          "status": "explicit"
         },
         {
           "confidence_band": "medium",
@@ -102,29 +99,29 @@
           "status": "inferred"
         },
         {
-          "confidence_band": "high",
-          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "confidence_band": "medium",
+          "evidence_summary": "Field populated from sparse or ambiguous evidence.",
           "field_name": "authority_context",
-          "notes": "",
-          "status": "explicit"
+          "notes": "Value was inferred from keyword heuristics.",
+          "status": "inferred"
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "dependencies",
           "notes": "",
           "status": "explicit"
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "assumptions",
           "notes": "",
           "status": "explicit"
         },
         {
           "confidence_band": "high",
-          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
           "field_name": "success_criteria",
           "notes": "",
           "status": "explicit"
@@ -148,54 +145,52 @@
     "extraction_trust_summary": {
       "adapter_name": "rule_based",
       "low_confidence_fields": [
-        "context_package"
+        "exclusions"
       ],
       "status_counts": {
         "empty": 1,
-        "explicit": 10,
-        "inferred": 1
+        "explicit": 9,
+        "inferred": 2
       }
     },
-    "normalized_char_count": 1080,
+    "normalized_char_count": 627,
     "pipeline_mode": "rule-first",
     "source_metadata": {
       "detected_source_type": "markdown",
       "normalization": "whitespace+wrapper-clean",
-      "normalized_char_count": 1080,
-      "normalized_line_count": 35,
-      "normalized_source_hash": "c7df69ea2320cb31f7ee95a8fad7732eb27b4cf0de0d871ab78aef4f1951e10c",
-      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-      "raw_char_count": 1081
+      "normalized_char_count": 627,
+      "normalized_line_count": 34,
+      "normalized_source_hash": "43f3aa11f1367f9c5d121f38e034efc4d5b81f7c61d8fb2af937076b28ea8e7e",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\research\\research_outline_request.md",
+      "raw_char_count": 628
     }
   },
-  "objective": "Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.",
+  "objective": "Produce a whitepaper outline on deterministic intent compilation for research operators.",
   "output_contract": [
-    "PRD artifact for planning and implementation handoff.",
-    "Markdown PRD derivative for cross-functional review."
+    "Whitepaper outline",
+    "Markdown prompt pack"
   ],
-  "profile": "prd",
+  "profile": "whitepaper_outline",
   "scope": [
-    "Define user and stakeholder signals for onboarding flow.",
-    "Define acceptance criteria for first-session completion.",
-    "Define milestone slices for delivery planning.",
-    "Capture measurable success criteria for release readiness."
+    "Problem framing and thesis",
+    "Methodology and rule-first extraction design",
+    "Evaluation plan for messy intent"
   ],
   "source": {
-    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\examples\\product_prd.md",
-    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
-    "source_id": "src_f7439100a2e4a7ff",
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\research\\research_outline_request.md",
+    "source_hash": "1afcef2ce31f59ea0e8a2748577ac2ad2bc17ad79d945a20d6e9df5d8d60cc1b",
+    "source_id": "src_1afcef2ce31f59ea",
     "source_type": "markdown"
   },
   "success_criteria": [
-    "Stakeholders approve requirement scope.",
-    "Completion rate improves after rollout compared with current baseline."
+    "Outline supports peer review"
   ],
-  "target_class": "prd",
+  "target_class": "whitepaper_outline",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-21T20:55:43.415116Z",
+    "generated_at": "2026-03-20T03:31:50.857661Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_d1cfb7cf9a8c73283beb",
+    "report_id": "rcpt_d699ad07b2bbba3dee32",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

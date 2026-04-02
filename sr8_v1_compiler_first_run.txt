@@ -1,0 +1,611 @@
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1>python -m pip install -e .
+Obtaining file:///C:/Users/hassm/OneDrive/Desktop/SROS_v3_Snapshots/SR8_Python_Compiler_v1
+  Installing build dependencies ... done
+  Checking if build backend supports build_editable ... done
+  Getting requirements to build editable ... done
+  Installing backend dependencies ... done
+  Preparing editable metadata (pyproject.toml) ... done
+Requirement already satisfied: build<2.0,>=1.2 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from sr8==1.2.0) (1.4.0)
+Requirement already satisfied: fastapi<1.0,>=0.115 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from sr8==1.2.0) (0.128.3)
+Requirement already satisfied: httpx<1.0,>=0.27 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from sr8==1.2.0) (0.28.1)
+Requirement already satisfied: pydantic-settings<3.0,>=2.4 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from sr8==1.2.0) (2.13.1)
+Requirement already satisfied: pydantic<3.0,>=2.7 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from sr8==1.2.0) (2.12.5)
+Requirement already satisfied: pyyaml<7.0,>=6.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from sr8==1.2.0) (6.0.3)
+Requirement already satisfied: typer<1.0,>=0.12 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from sr8==1.2.0) (0.21.1)
+Requirement already satisfied: uvicorn<1.0,>=0.30 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from sr8==1.2.0) (0.40.0)
+Requirement already satisfied: packaging>=24.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from build<2.0,>=1.2->sr8==1.2.0) (26.0)
+Requirement already satisfied: pyproject_hooks in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from build<2.0,>=1.2->sr8==1.2.0) (1.2.0)
+Requirement already satisfied: colorama in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from build<2.0,>=1.2->sr8==1.2.0) (0.4.6)
+Requirement already satisfied: starlette<1.0.0,>=0.40.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from fastapi<1.0,>=0.115->sr8==1.2.0) (0.52.1)
+Requirement already satisfied: typing-extensions>=4.8.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from fastapi<1.0,>=0.115->sr8==1.2.0) (4.15.0)
+Requirement already satisfied: typing-inspection>=0.4.2 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from fastapi<1.0,>=0.115->sr8==1.2.0) (0.4.2)
+Requirement already satisfied: annotated-doc>=0.0.2 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from fastapi<1.0,>=0.115->sr8==1.2.0) (0.0.4)
+Requirement already satisfied: anyio in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from httpx<1.0,>=0.27->sr8==1.2.0) (4.12.1)
+Requirement already satisfied: certifi in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from httpx<1.0,>=0.27->sr8==1.2.0) (2026.1.4)
+Requirement already satisfied: httpcore==1.* in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from httpx<1.0,>=0.27->sr8==1.2.0) (1.0.9)
+Requirement already satisfied: idna in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from httpx<1.0,>=0.27->sr8==1.2.0) (3.11)
+Requirement already satisfied: h11>=0.16 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from httpcore==1.*->httpx<1.0,>=0.27->sr8==1.2.0) (0.16.0)
+Requirement already satisfied: annotated-types>=0.6.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from pydantic<3.0,>=2.7->sr8==1.2.0) (0.7.0)
+Requirement already satisfied: pydantic-core==2.41.5 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from pydantic<3.0,>=2.7->sr8==1.2.0) (2.41.5)
+Requirement already satisfied: python-dotenv>=0.21.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from pydantic-settings<3.0,>=2.4->sr8==1.2.0) (1.2.1)
+Requirement already satisfied: click>=8.0.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages(from typer<1.0,>=0.12->sr8==1.2.0) (8.3.1)
+Requirement already satisfied: shellingham>=1.3.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from typer<1.0,>=0.12->sr8==1.2.0) (1.5.4)
+Requirement already satisfied: rich>=10.11.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from typer<1.0,>=0.12->sr8==1.2.0) (14.3.1)
+Requirement already satisfied: markdown-it-py>=2.2.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from rich>=10.11.0->typer<1.0,>=0.12->sr8==1.2.0) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from rich>=10.11.0->typer<1.0,>=0.12->sr8==1.2.0) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in c:\users\hassm\appdata\local\programs\python\python311\lib\site-packages (from markdown-it-py>=2.2.0->rich>=10.11.0->typer<1.0,>=0.12->sr8==1.2.0) (0.1.2)
+Building wheels for collected packages: sr8
+  Building editable for sr8 (pyproject.toml) ... done
+  Created wheel for sr8: filename=sr8-1.2.0-py3-none-any.whl size=4076 sha256=9eaae510c61cb216c73df6d0d007ffc95ed4cfa8528b2edc10df1826686cc033
+  Stored in directory: C:\Users\hassm\AppData\Local\Temp\pip-ephem-wheel-cache-hwzogxgf\wheels\d3\b1\67\6c7fe6f8587c8a7fc951c8ff05eccf65619bfbc500a5f7114d
+Successfully built sr8
+Installing collected packages: sr8
+  Attempting uninstall: sr8
+    Found existing installation: sr8 1.2.0
+    Uninstalling sr8-1.2.0:
+      Successfully uninstalled sr8-1.2.0
+Successfully installed sr8-1.2.0
+
+[notice] A new release of pip is available: 24.0 -> 26.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1>pytest
+............................................................................................F................... [ 97%]
+...                                                                                                              [100%]
+====================================================== FAILURES =======================================================
+_______________________________________ test_release_and_ci_workflow_contracts ________________________________________
+
+    def test_release_and_ci_workflow_contracts() -> None:
+        release = _read(".github/workflows/release.yml")
+        ci = _read(".github/workflows/ci.yml")
+        docs_check = _read(".github/workflows/docs-check.yml")
+        frontend_ci = _read(".github/workflows/frontend-ci.yml")
+        hygiene = _read(".github/workflows/hygiene.yml")
+
+        assert "v*.*.*" in release
+        assert "pypa/gh-action-pypi-publish@release/v1" in release
+        assert "softprops/action-gh-release@v2" in release
+        assert "workflow_dispatch" in release
+
+        assert "docs-check" in ci
+        assert "frontend-ci" in ci
+        assert "hygiene" in ci
+        assert "package-build-smoke" in ci
+        assert "docs-check, hygiene, frontend-ci" in ci
+
+        assert "workflow_call" in docs_check
+        assert "tests/test_repo_structure.py" in docs_check
+        assert "tests/test_release_workflow_contracts.py" in docs_check
+
+        assert "workflow_call" in frontend_ci
+        assert "frontend/package.json" in frontend_ci
+        assert "actions/setup-node@v4" in frontend_ci
+        assert "npm run build" in frontend_ci
+
+        assert "workflow_call" in hygiene
+>       assert "repo layout check" in hygiene
+E       assert 'repo layout check' in 'name: Hygiene\n\non:\n  pull_request:\n  push:\n    branches:\n      - main\n  - "release/**"\n  workflow_call:\n...py --check\n\n      - name: Dry-run stale output pruning\n        run: python scripts/cleanup/prune_stale_outputs.py\n'
+
+tests\test_release_workflow_contracts.py:36: AssertionError
+=============================================== short test summary info ===============================================
+FAILED tests/test_release_workflow_contracts.py::test_release_and_ci_workflow_contracts - assert 'repo layout check' in'name: Hygiene\n\non:\n  pull_request:\n  push:\n    branches:\n      - main\n      -...
+1 failed, 114 passed in 2.25s
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1>ruff check .
+I001 [*] Import block is un-sorted or un-formatted
+ --> scripts\cleanup\check_repo_layout.py:1:1
+  |
+1 | / from __future__ import annotations
+2 | |
+3 | | import argparse
+4 | | from pathlib import Path
+  | |________________________^
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> scripts\cleanup\prune_stale_outputs.py:1:1
+  |
+1 | / from __future__ import annotations
+2 | |
+3 | | import argparse
+4 | | from pathlib import Path
+  | |________________________^
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> scripts\cleanup\repo_audit.py:1:1
+  |
+1 | / from __future__ import annotations
+2 | |
+3 | | import argparse
+4 | | import json
+5 | | from dataclasses import dataclass, asdict
+6 | | from pathlib import Path
+  | |________________________^
+  |
+help: Organize imports
+
+E501 Line too long (101 > 100)
+  --> scripts\cleanup\repo_audit.py:55:101
+   |
+53 | def main() -> int:
+54 |     parser = argparse.ArgumentParser(description="Audit repo hygiene and release surface.")
+55 |     parser.add_argument("--check", action="store_true", help="Fail on any missing required surface.")
+   |                                                                                                     ^
+56 |     parser.add_argument("--json", action="store_true", help="Emit JSON instead of text.")
+57 |     args = parser.parse_args()
+   |
+
+E501 Line too long (101 > 100)
+  --> src\sr8\adapters\anthropic_adapter.py:42:101
+   |
+40 |         content = payload.get("content")
+41 |         if not isinstance(content, list):
+42 |             raise ProviderNormalizationError(self.name, "Anthropic response missing content blocks.")
+   |                                                                                                     ^
+43 |         usage = payload.get("usage")
+44 |         return ProviderResponse(
+   |
+
+E501 Line too long (106 > 100)
+  --> src\sr8\adapters\azure_openai_adapter.py:30:101
+   |
+28 |     ) -> tuple[str, dict[str, str], dict[str, object]]:
+29 |         if self.settings.endpoint is None or self.settings.deployment is None:
+30 |             raise ProviderNormalizationError(self.name, "Azure OpenAI endpoint or deployment is missing.")
+   |                                                                                                     ^^^^^^
+31 |         url = (
+32 |             f"{self.settings.endpoint.rstrip('/')}/openai/deployments/"
+   |
+
+E501 Line too long (105 > 100)
+  --> src\sr8\adapters\azure_openai_adapter.py:55:101
+   |
+53 |         message = choice.get("message")
+54 |         if not isinstance(message, Mapping):
+55 |             raise ProviderNormalizationError(self.name, "Azure OpenAI response missing message payload.")
+   |                                                                                                     ^^^^^
+56 |         usage = payload.get("usage")
+57 |         return ProviderResponse(
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> src\sr8\adapters\base.py:1:1
+   |
+ 1 | / from __future__ import annotations
+ 2 | |
+ 3 | | from abc import ABC, abstractmethod
+ 4 | | from collections.abc import Mapping
+ 5 | |
+ 6 | | import httpx
+ 7 | | from pydantic_settings import BaseSettings
+ 8 | |
+ 9 | | from sr8.adapters.errors import (
+10 | |     ProviderExecutionError,
+11 | |     ProviderNormalizationError,
+12 | |     ProviderNotConfiguredError,
+13 | |     map_http_error,
+14 | | )
+15 | | from sr8.adapters.types import ProviderDescriptor, ProviderProbeResult, ProviderRequest, ProviderResponse
+   | |_________________________________________________________________________________________________________^
+   |
+help: Organize imports
+
+E501 Line too long (105 > 100)
+  --> src\sr8\adapters\base.py:15:101
+   |
+13 |     map_http_error,
+14 | )
+15 | from sr8.adapters.types import ProviderDescriptor, ProviderProbeResult, ProviderRequest, ProviderResponse
+   |                                                                                                     ^^^^^
+   |
+
+E501 Line too long (103 > 100)
+  --> src\sr8\adapters\base.py:79:101
+   |
+77 |             raw_payload = response.json()
+78 |         except ValueError as exc:
+79 |             raise ProviderNormalizationError(self.name, "Provider returned non-JSON payload.") from exc
+   |                                                                                                     ^^^
+80 |         if not isinstance(raw_payload, dict):
+81 |             raise ProviderNormalizationError(self.name, "Provider response must be a JSON object.")
+   |
+
+E501 Line too long (111 > 100)
+   --> src\sr8\api\routes.py:176:101
+    |
+174 |         artifact = load_artifact(candidate)
+175 |         return {"artifact": artifact.model_dump(mode="json"), "mode": "artifact"}
+176 |     result = compile_intent(source=payload.target, config=CompileConfig(profile=SR8Settings().default_profile))
+    |                                                                                                     ^^^^^^^^^^^
+177 |     return {
+178 |         "artifact": result.artifact.model_dump(mode="json"),
+    |
+
+E501 Line too long (102 > 100)
+   --> src\sr8\api\routes.py:202:101
+    |
+200 |     try:
+201 |         left_artifact, left_ref = _resolve_canonical_artifact(payload.left, payload.workspace_path)
+202 |         right_artifact, right_ref = _resolve_canonical_artifact(payload.right, payload.workspace_path)
+    |                                                                                                     ^^
+203 |     except ValueError as exc:
+204 |         raise HTTPException(status_code=400, detail=str(exc)) from exc
+    |
+
+E501 Line too long (106 > 100)
+   --> src\sr8\api\routes.py:216:101
+    |
+214 | def lint_endpoint(payload: LintRequest) -> dict[str, object]:
+215 |     try:
+216 |         artifact, artifact_ref = _resolve_canonical_artifact(payload.artifact_ref, payload.workspace_path)
+    |                                                                                                     ^^^^^^
+217 |     except ValueError as exc:
+218 |         raise HTTPException(status_code=400, detail=str(exc)) from exc
+    |
+
+E501 Line too long (106 > 100)
+  --> src\sr8\compiler\model_assist.py:40:101
+   |
+38 |     end = stripped.rfind("}")
+39 |     if start == -1 or end == -1 or end <= start:
+40 |         raise ProviderNormalizationError("model_assist", "Provider output did not contain a JSON object.")
+   |                                                                                                     ^^^^^^
+41 |     payload = json.loads(stripped[start : end + 1])
+42 |     if not isinstance(payload, dict):
+   |
+
+E501 Line too long (113 > 100)
+  --> src\sr8\extract\adapters\model_assisted.py:26:101
+   |
+24 |     ) -> tuple[ExtractedDimensions, ExtractionTrace]:
+25 |         settings = SR8Settings()
+26 |         provider_name = config.assist_provider if config and config.assist_provider else settings.assist_provider
+   |                                                                                                     ^^^^^^^^^^^^^
+27 |         model_name = config.assist_model if config and config.assist_model else settings.assist_model
+28 |         if not provider_name or not model_name:
+   |
+
+E501 Line too long (101 > 100)
+  --> src\sr8\extract\adapters\model_assisted.py:27:101
+   |
+25 |         settings = SR8Settings()
+26 |         provider_name = config.assist_provider if config and config.assist_provider else settings.assist_provider
+27 |         model_name = config.assist_model if config and config.assist_model else settings.assist_model
+   |                                                                                                     ^
+28 |         if not provider_name or not model_name:
+29 |             msg = "Model-assisted extraction requires assist_provider and assist_model."
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests\test_provider_normalization.py:1:1
+   |
+ 1 | / from sr8.adapters.anthropic_adapter import AnthropicAdapter
+ 2 | | from sr8.adapters.azure_openai_adapter import AzureOpenAIAdapter
+ 3 | | from sr8.adapters.bedrock_adapter import BedrockAdapter
+ 4 | | from sr8.adapters.gemini_adapter import GeminiAdapter
+ 5 | | from sr8.adapters.ollama_adapter import OllamaAdapter
+ 6 | | from sr8.adapters.openai_adapter import OpenAIAdapter
+ 7 | | from sr8.config.provider_settings import (
+ 8 | |     AWSBedrockProviderSettings,
+ 9 | |     AnthropicProviderSettings,
+10 | |     AzureOpenAIProviderSettings,
+11 | |     GeminiProviderSettings,
+12 | |     OllamaProviderSettings,
+13 | |     OpenAIProviderSettings,
+14 | | )
+   | |_^
+   |
+help: Organize imports
+
+Found 17 errors.
+[*] 5 fixable with the `--fix` option.
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1>
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1>mypy src
+src\sr8\config\provider_settings.py:76: error: Returning Any from function declared to return "BaseSettings"
+[no-any-return]
+                return getattr(self, provider)
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\openai_adapter.py:26: error: "BaseSettings" has no attribute "api_key"  [attr-defined]
+                "Authorization": f"Bearer {self.settings.api_key}",
+                                          ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\openai_adapter.py:40: error: "BaseSettings" has no attribute "base_url"  [attr-defined]
+            return f"{self.settings.base_url.rstrip('/')}/chat/completions", headers, payload
+                      ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\ollama_adapter.py:39: error: "BaseSettings" has no attribute "base_url"  [attr-defined]
+                f"{self.settings.base_url.rstrip('/')}/api/generate",
+                   ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\ollama_adapter.py:54: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("model", self.settings.model or "")),
+                                               ^~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\gemini_adapter.py:25: error: "BaseSettings" has no attribute "base_url"  [attr-defined]
+                f"{self.settings.base_url.rstrip('/')}/models/{request.model}:generateContent"
+                   ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\gemini_adapter.py:26: error: "BaseSettings" has no attribute "api_key"  [attr-defined]
+                f"?key={self.settings.api_key}"
+                       ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\gemini_adapter.py:36: error: Incompatible return value type (got
+"tuple[str, dict[str, str], dict[str, Collection[Collection[str]]]]", expected
+"tuple[str, dict[str, str], dict[str, object]]")  [return-value]
+            return url, {"Content-Type": "application/json"}, payload
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\gemini_adapter.py:50: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("modelVersion", self.settings.model or "")),
+                                                      ^~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\bedrock_adapter.py:38: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("modelId", self.settings.model or "")),
+                                                 ^~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:29: error: "BaseSettings" has no attribute "endpoint"  [attr-defined]
+            if self.settings.endpoint is None or self.settings.deployment is None:
+               ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:29: error: "BaseSettings" has no attribute "deployment"  [attr-defined]
+            if self.settings.endpoint is None or self.settings.deployment is None:
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:32: error: "BaseSettings" has no attribute "endpoint"  [attr-defined]
+                f"{self.settings.endpoint.rstrip('/')}/openai/deployments/"
+                   ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:33: error: "BaseSettings" has no attribute "deployment"  [attr-defined]
+                f"{self.settings.deployment}/chat/completions?api-version={self.settings.api_version}"
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:33: error: "BaseSettings" has no attribute "api_version"  [attr-defined]
+                f"{self.settings.deployment}/chat/completions?api-version={self.settings.api_version}"
+                                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:35: error: "BaseSettings" has no attribute "api_key"  [attr-defined]
+            headers = {"api-key": str(self.settings.api_key), "Content-Type": "application/json"}
+                                      ^~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:59: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("model", self.settings.model or "")),
+                                               ^~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\anthropic_adapter.py:26: error: "BaseSettings" has no attribute "api_key"  [attr-defined]
+                "x-api-key": str(self.settings.api_key),
+                                 ^~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\anthropic_adapter.py:37: error: "BaseSettings" has no attribute "base_url"  [attr-defined]
+            return f"{self.settings.base_url.rstrip('/')}/messages", headers, payload
+                      ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\anthropic_adapter.py:46: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("model", self.settings.model or "")),
+                                               ^~~~~~~~~~~~~~~~~~~
+Found 20 errors in 7 files (checked 120 source files)
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1>mypy src
+src\sr8\config\provider_settings.py:76: error: Returning Any from function declared to return "BaseSettings"
+[no-any-return]
+                return getattr(self, provider)
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\openai_adapter.py:26: error: "BaseSettings" has no attribute "api_key"  [attr-defined]
+                "Authorization": f"Bearer {self.settings.api_key}",
+                                          ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\openai_adapter.py:40: error: "BaseSettings" has no attribute "base_url"  [attr-defined]
+            return f"{self.settings.base_url.rstrip('/')}/chat/completions", headers, payload
+                      ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\ollama_adapter.py:39: error: "BaseSettings" has no attribute "base_url"  [attr-defined]
+                f"{self.settings.base_url.rstrip('/')}/api/generate",
+                   ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\ollama_adapter.py:54: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("model", self.settings.model or "")),
+                                               ^~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\gemini_adapter.py:25: error: "BaseSettings" has no attribute "base_url"  [attr-defined]
+                f"{self.settings.base_url.rstrip('/')}/models/{request.model}:generateContent"
+                   ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\gemini_adapter.py:26: error: "BaseSettings" has no attribute "api_key"  [attr-defined]
+                f"?key={self.settings.api_key}"
+                       ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\gemini_adapter.py:36: error: Incompatible return value type (got
+"tuple[str, dict[str, str], dict[str, Collection[Collection[str]]]]", expected
+"tuple[str, dict[str, str], dict[str, object]]")  [return-value]
+            return url, {"Content-Type": "application/json"}, payload
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\gemini_adapter.py:50: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("modelVersion", self.settings.model or "")),
+                                                      ^~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\bedrock_adapter.py:38: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("modelId", self.settings.model or "")),
+                                                 ^~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:29: error: "BaseSettings" has no attribute "endpoint"  [attr-defined]
+            if self.settings.endpoint is None or self.settings.deployment is None:
+               ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:29: error: "BaseSettings" has no attribute "deployment"  [attr-defined]
+            if self.settings.endpoint is None or self.settings.deployment is None:
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:32: error: "BaseSettings" has no attribute "endpoint"  [attr-defined]
+                f"{self.settings.endpoint.rstrip('/')}/openai/deployments/"
+                   ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:33: error: "BaseSettings" has no attribute "deployment"  [attr-defined]
+                f"{self.settings.deployment}/chat/completions?api-version={self.settings.api_version}"
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:33: error: "BaseSettings" has no attribute "api_version"  [attr-defined]
+                f"{self.settings.deployment}/chat/completions?api-version={self.settings.api_version}"
+                                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:35: error: "BaseSettings" has no attribute "api_key"  [attr-defined]
+            headers = {"api-key": str(self.settings.api_key), "Content-Type": "application/json"}
+                                      ^~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\azure_openai_adapter.py:59: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("model", self.settings.model or "")),
+                                               ^~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\anthropic_adapter.py:26: error: "BaseSettings" has no attribute "api_key"  [attr-defined]
+                "x-api-key": str(self.settings.api_key),
+                                 ^~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\anthropic_adapter.py:37: error: "BaseSettings" has no attribute "base_url"  [attr-defined]
+            return f"{self.settings.base_url.rstrip('/')}/messages", headers, payload
+                      ^~~~~~~~~~~~~~~~~~~~~~
+src\sr8\adapters\anthropic_adapter.py:46: error: "BaseSettings" has no attribute "model"  [attr-defined]
+                model=str(payload.get("model", self.settings.model or "")),
+                                               ^~~~~~~~~~~~~~~~~~~
+Found 20 errors in 7 files (checked 120 source files)
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1>python -m build
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - hatchling>=1.27.0
+* Getting build dependencies for sdist...
+* Building sdist...
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - hatchling>=1.27.0
+* Getting build dependencies for wheel...
+* Building wheel...
+Successfully built sr8-1.2.0.tar.gz and sr8-1.2.0-py3-none-any.whl
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1>cd frontend && npm install
+
+added 3 packages, removed 1 package, changed 1 package, and audited 133 packages in 2s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+7 vulnerabilities (3 low, 4 moderate)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend>cd frontend && npm run check
+The system cannot find the path specified.
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend>npm run check
+
+> sr8-frontend@0.1.0 check
+> svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+
+Loading svelte-check in workspace: c:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend
+Getting Svelte diagnostics...
+
+svelte-check found 0 errors and 0 warnings
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend>cd frontend && npm run check
+The system cannot find the path specified.
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend>npm run build
+
+> sr8-frontend@0.1.0 build
+> vite build --config vite.config.mjs
+
+vite v5.4.21 building SSR bundle for production...
+✓ 193 modules transformed.
+vite v5.4.21 building for production...
+✓ 200 modules transformed.
+.svelte-kit/output/client/_app/version.json                        0.03 kB │ gzip:  0.05 kB
+.svelte-kit/output/client/.vite/manifest.json                      9.35 kB │ gzip:  1.11 kB
+.svelte-kit/output/client/_app/immutable/assets/0.DiupNICK.css    14.35 kB │ gzip:  3.75 kB
+.svelte-kit/output/client/_app/immutable/entry/start.Y8mD3v-t.js   0.08 kB │ gzip:  0.09 kB
+.svelte-kit/output/client/_app/immutable/chunks/CSE2JIsB.js        0.19 kB │ gzip:  0.18 kB
+.svelte-kit/output/client/_app/immutable/chunks/x96odnOC.js        0.31 kB │ gzip:  0.17 kB
+.svelte-kit/output/client/_app/immutable/chunks/B1qHFZNs.js        0.33 kB │ gzip:  0.25 kB
+.svelte-kit/output/client/_app/immutable/nodes/1.BAd6PRu3.js       0.45 kB │ gzip:  0.30 kB
+.svelte-kit/output/client/_app/immutable/chunks/MBYf9-z-.js        0.54 kB │ gzip:  0.34 kB
+.svelte-kit/output/client/_app/immutable/nodes/3.DBw6MfX-.js       0.91 kB │ gzip:  0.55 kB
+.svelte-kit/output/client/_app/immutable/chunks/CGEXsfz3.js        0.94 kB │ gzip:  0.56 kB
+.svelte-kit/output/client/_app/immutable/chunks/BG3SF3HE.js        0.97 kB │ gzip:  0.57 kB
+.svelte-kit/output/client/_app/immutable/chunks/CE9ANSX9.js        0.99 kB │ gzip:  0.51 kB
+.svelte-kit/output/client/_app/immutable/chunks/LOj4aqbB.js        1.00 kB │ gzip:  0.57 kB
+.svelte-kit/output/client/_app/immutable/nodes/10.DX1jAobd.js      1.27 kB │ gzip:  0.61 kB
+.svelte-kit/output/client/_app/immutable/chunks/BHfcY-ri.js        1.38 kB │ gzip:  0.73 kB
+.svelte-kit/output/client/_app/immutable/chunks/BE0xV7HD.js        1.88 kB │ gzip:  0.92 kB
+.svelte-kit/output/client/_app/immutable/nodes/8.CM7EDqEa.js       2.35 kB │ gzip:  1.12 kB
+.svelte-kit/output/client/_app/immutable/nodes/9.C5WmfoSP.js       2.35 kB │ gzip:  1.11 kB
+.svelte-kit/output/client/_app/immutable/chunks/CBYeAFdI.js        2.55 kB │ gzip:  1.16 kB
+.svelte-kit/output/client/_app/immutable/nodes/7.BlBvNtEl.js       2.98 kB │ gzip:  1.29 kB
+.svelte-kit/output/client/_app/immutable/nodes/12.BoazDZ95.js      3.07 kB │ gzip:  1.38 kB
+.svelte-kit/output/client/_app/immutable/nodes/5.zgebVUtd.js       3.28 kB │ gzip:  1.51 kB
+.svelte-kit/output/client/_app/immutable/nodes/11.DKPX_pGq.js      3.48 kB │ gzip:  1.31 kB
+.svelte-kit/output/client/_app/immutable/nodes/4.BoIyMAny.js       4.00 kB │ gzip:  1.31 kB
+.svelte-kit/output/client/_app/immutable/chunks/Bq6dm2ae.js        4.41 kB │ gzip:  2.07 kB
+.svelte-kit/output/client/_app/immutable/nodes/2.z3lKwt8a.js       4.42 kB │ gzip:  1.41 kB
+.svelte-kit/output/client/_app/immutable/nodes/0.SJtz1D0w.js       5.05 kB │ gzip:  2.25 kB
+.svelte-kit/output/client/_app/immutable/entry/app.LM8xcj82.js     8.14 kB │ gzip:  3.44 kB
+.svelte-kit/output/client/_app/immutable/chunks/hkpijghA.js        8.74 kB │ gzip:  3.77 kB
+.svelte-kit/output/client/_app/immutable/nodes/6.Br3_7GsM.js      10.78 kB │ gzip:  3.45 kB
+.svelte-kit/output/client/_app/immutable/chunks/BiFBXrJc.js       27.09 kB │ gzip: 10.65 kB
+.svelte-kit/output/client/_app/immutable/chunks/BqYo-fgh.js       33.35 kB │ gzip: 12.77 kB
+✓ built in 952ms
+.svelte-kit/output/server/.vite/manifest.json                                9.54 kB
+.svelte-kit/output/server/_app/immutable/assets/_layout.DQ5yUGTJ.css        14.26 kB
+.svelte-kit/output/server/chunks/false.js                                    0.05 kB
+.svelte-kit/output/server/chunks/shared-server.js                            0.28 kB
+.svelte-kit/output/server/entries/pages/settings/_page.server.ts.js          0.32 kB
+.svelte-kit/output/server/entries/fallbacks/error.svelte.js                  0.35 kB
+.svelte-kit/output/server/entries/pages/artifacts/_page.server.ts.js         0.39 kB
+.svelte-kit/output/server/internal.js                                        0.41 kB
+.svelte-kit/output/server/entries/pages/artifacts/_id_/_page.server.ts.js    0.50 kB
+.svelte-kit/output/server/entries/pages/receipts/_page.server.ts.js          0.54 kB
+.svelte-kit/output/server/entries/pages/providers/_page.server.ts.js         0.56 kB
+.svelte-kit/output/server/chunks/environment.js                              0.62 kB
+.svelte-kit/output/server/entries/pages/_layout.server.ts.js                 0.70 kB
+.svelte-kit/output/server/entries/pages/_page.server.ts.js                   0.74 kB
+.svelte-kit/output/server/entries/pages/benchmarks/_page.server.ts.js        0.84 kB
+.svelte-kit/output/server/entries/pages/artifacts/_page.svelte.js            0.88 kB
+.svelte-kit/output/server/entries/pages/lint/_page.server.ts.js              0.95 kB
+.svelte-kit/output/server/entries/pages/diff/_page.server.ts.js              1.00 kB
+.svelte-kit/output/server/entries/pages/receipts/_page.svelte.js             1.09 kB
+.svelte-kit/output/server/chunks/utils.js                                    1.15 kB
+.svelte-kit/output/server/chunks/index3.js                                   1.18 kB
+.svelte-kit/output/server/entries/pages/transforms/_page.server.ts.js        1.18 kB
+.svelte-kit/output/server/chunks/index.js                                    1.41 kB
+.svelte-kit/output/server/chunks/ProviderProbePanel.js                       1.54 kB
+.svelte-kit/output/server/entries/pages/compile/_page.server.ts.js           1.91 kB
+.svelte-kit/output/server/chunks/ArtifactList.js                             2.06 kB
+.svelte-kit/output/server/entries/pages/lint/_page.svelte.js                 2.26 kB
+.svelte-kit/output/server/entries/pages/providers/_page.svelte.js            2.59 kB
+.svelte-kit/output/server/entries/pages/diff/_page.svelte.js                 2.97 kB
+.svelte-kit/output/server/chunks/internal.js                                 3.04 kB
+.svelte-kit/output/server/chunks/server.js                                   3.22 kB
+.svelte-kit/output/server/entries/pages/transforms/_page.svelte.js           3.43 kB
+.svelte-kit/output/server/entries/pages/settings/_page.svelte.js             3.50 kB
+.svelte-kit/output/server/entries/pages/benchmarks/_page.svelte.js           3.93 kB
+.svelte-kit/output/server/entries/pages/_page.svelte.js                      4.40 kB
+.svelte-kit/output/server/entries/pages/artifacts/_id_/_page.svelte.js       4.43 kB
+.svelte-kit/output/server/entries/pages/_layout.svelte.js                    4.90 kB
+.svelte-kit/output/server/chunks/exports.js                                  5.54 kB
+.svelte-kit/output/server/entries/pages/compile/_page.svelte.js             13.00 kB
+.svelte-kit/output/server/remote-entry.js                                   19.03 kB
+.svelte-kit/output/server/chunks/shared.js                                  27.07 kB
+.svelte-kit/output/server/chunks/root.js                                    27.91 kB
+.svelte-kit/output/server/chunks/index2.js                                  93.57 kB
+.svelte-kit/output/server/index.js                                         125.82 kB
+✓ built in 4.69s
+
+Run npm run preview to preview your production build locally.
+
+> Using @sveltejs/adapter-auto
+  Could not detect a supported production environment. See https://svelte.dev/docs/kit/adapters to learn how to configure your app to run on the platform of your choosing
+  ✔ done
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend>sr8 providers list
+openai | live=True | capabilities=text_generation, structured_output
+azure_openai | live=True | capabilities=text_generation, structured_output
+aws_bedrock | live=False | capabilities=text_generation, structured_output
+anthropic | live=True | capabilities=text_generation, structured_output
+gemini | live=True | capabilities=text_generation, structured_output
+ollama | live=True | capabilities=text_generation, structured_output
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend>sr8 providers probe
+openai | configured=False | available=False | live=True | missing=SR8_OPENAI_API_KEY,SR8_OPENAI_MODEL
+azure_openai | configured=False | available=False | live=True | missing=SR8_AZURE_OPENAI_API_KEY,SR8_AZURE_OPENAI_ENDPOINT,SR8_AZURE_OPENAI_DEPLOYMENT
+aws_bedrock | configured=False | available=False | live=False | missing=SR8_AWS_BEDROCK_REGION,SR8_AWS_BEDROCK_MODEL
+anthropic | configured=False | available=False | live=True | missing=SR8_ANTHROPIC_API_KEY,SR8_ANTHROPIC_MODEL
+gemini | configured=False | available=False | live=True | missing=SR8_GEMINI_API_KEY,SR8_GEMINI_MODEL
+ollama | configured=False | available=True | live=True | missing=SR8_OLLAMA_MODEL
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend>sr8 compile examples/product_prd.md --rule-only
+Artifact ID: art_2929f9cde00e2ec2fd36
+Profile: generic
+Target Class: product_spec
+Source Hash: e01fa34c968eddb023a2e4afee249a1f6970c6c4f40582029b22ae88a3099277
+Objective: examples/product_prd.md
+Scope Count: 0
+Constraints Count: 0
+Extraction Adapter: rule_based
+Extraction Trust: empty=9, explicit=1, inferred=1, weak=1
+Low Confidence Fields: scope, exclusions, constraints, context_package, authority_context, dependencies, assumptions, success_criteria, output_contract, governance_flags
+Validation: warn (errors=0, warnings=5)
+Summary: Validation warn: 0 error(s), 5 warning(s).
+
+C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\frontend>
