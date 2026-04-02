@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import tempfile
 from collections.abc import Iterable
 from pathlib import Path
@@ -28,16 +29,24 @@ def resolve_trusted_local_path(
     extra_roots: Iterable[str | Path] | None = None,
     must_exist: bool = False,
 ) -> Path:
-    candidate = Path(value).expanduser()
-    if candidate.is_absolute():
-        resolved = candidate.resolve(strict=False)
-    else:
-        resolved = (Path.cwd() / candidate).resolve(strict=False)
-
-    allowed_roots = trusted_local_roots(extra_roots)
-    if not any(resolved == root or resolved.is_relative_to(root) for root in allowed_roots):
-        msg = f"Path '{resolved}' is outside the trusted local roots."
+    candidate_text = os.path.normpath(os.path.expanduser(str(value).strip()))
+    if not candidate_text or "\x00" in candidate_text:
+        msg = "Path value must be a non-empty local path."
         raise ValueError(msg)
-    if must_exist and not resolved.exists():
-        raise FileNotFoundError(str(resolved))
-    return resolved
+    absolute_candidate = os.path.abspath(candidate_text)
+    allowed_roots = trusted_local_roots(extra_roots)
+    for root in allowed_roots:
+        root_text = os.path.abspath(str(root))
+        relative_tail = os.path.relpath(absolute_candidate, root_text)
+        if relative_tail == ".":
+            resolved = root
+        elif relative_tail.startswith("..") or os.path.isabs(relative_tail):
+            continue
+        else:
+            parts = [part for part in relative_tail.split(os.sep) if part not in {"", "."}]
+            resolved = root.joinpath(*parts).resolve(strict=False)
+        if must_exist and not resolved.exists():
+            raise FileNotFoundError(str(resolved))
+        return resolved
+    msg = f"Path '{absolute_candidate}' is outside the trusted local roots."
+    raise ValueError(msg)
