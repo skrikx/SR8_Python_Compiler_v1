@@ -4,14 +4,16 @@ import json
 from pathlib import Path
 
 from sr8.eval.types import BenchmarkCase, BenchmarkExpectation, BenchmarkSuite
+from sr8.utils.paths import resolve_trusted_local_path
 
 DEFAULT_CORPUS_ROOT = Path("benchmarks/corpus")
 DEFAULT_EXPECTED_ROOT = Path("benchmarks/expected")
 
 
 def list_available_suites(corpus_root: str | Path = DEFAULT_CORPUS_ROOT) -> tuple[str, ...]:
-    root = Path(corpus_root)
-    if not root.exists():
+    try:
+        root = resolve_trusted_local_path(corpus_root, must_exist=True)
+    except (FileNotFoundError, ValueError):
         return ()
     return tuple(sorted(path.name for path in root.iterdir() if path.is_dir()))
 
@@ -29,8 +31,8 @@ def load_benchmark_cases(
     corpus_root: str | Path = DEFAULT_CORPUS_ROOT,
     expected_root: str | Path = DEFAULT_EXPECTED_ROOT,
 ) -> list[BenchmarkCase]:
-    root = Path(corpus_root)
-    expected = Path(expected_root)
+    root = resolve_trusted_local_path(corpus_root, must_exist=True)
+    expected = resolve_trusted_local_path(expected_root)
     suites = [suite] if suite not in {None, "all"} else list_available_suites(root)
     cases: list[BenchmarkCase] = []
     for suite_name in suites:

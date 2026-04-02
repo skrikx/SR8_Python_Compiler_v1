@@ -22,6 +22,7 @@ from sr8.lint.engine import lint_artifact
 from sr8.models.intent_artifact import IntentArtifact
 from sr8.transform.engine import transform_artifact, write_derivative
 from sr8.utils.hash import stable_text_hash
+from sr8.utils.paths import resolve_trusted_local_path
 from sr8.version import __version__
 
 
@@ -84,7 +85,7 @@ def run_benchmark_case(
     output_path: str | None = None
     artifact_output_root: Path | None = None
     if out_dir is not None:
-        artifact_output_root = Path(out_dir)
+        artifact_output_root = resolve_trusted_local_path(out_dir)
         derivative_dir = artifact_output_root / "derivatives" / case.case_id
         artifact_dir = artifact_output_root / "artifacts" / case.case_id
         if artifact_dir.exists():

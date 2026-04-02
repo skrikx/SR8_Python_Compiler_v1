@@ -22,6 +22,7 @@ from sr8.utils.ids import (
     build_compile_run_id,
     build_receipt_id,
 )
+from sr8.utils.paths import resolve_trusted_local_path
 from sr8.validate.engine import validate_artifact
 
 from .recompile import recompile_artifact
@@ -166,13 +167,11 @@ def compile_intent(
             extracted_dimensions=ExtractedDimensions(),
         )
     if source_type is None and isinstance(source, (str, Path)):
-        candidate = Path(source)
-        candidate_exists = False
         try:
-            candidate_exists = candidate.exists()
-        except OSError:
-            candidate_exists = False
-        if candidate_exists and candidate.suffix.lower() in {".json", ".yaml", ".yml"}:
+            candidate = resolve_trusted_local_path(source, must_exist=True)
+        except (FileNotFoundError, OSError, ValueError):
+            candidate = None
+        if candidate is not None and candidate.suffix.lower() in {".json", ".yaml", ".yml"}:
             from sr8.io.exporters import load_artifact
 
             compiled_artifact = recompile_artifact(

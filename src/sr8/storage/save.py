@@ -6,10 +6,16 @@ from pathlib import Path
 from sr8.models.artifact_record import ArtifactRecord
 from sr8.models.derivative_artifact import DerivativeArtifact
 from sr8.models.intent_artifact import IntentArtifact
-from sr8.storage.atomic import atomic_write_text
+from sr8.storage.atomic import atomic_write_text, file_lock
 from sr8.storage.index import add_record
 from sr8.storage.paths import ensure_unique_path
 from sr8.storage.workspace import SR8Workspace
+
+
+def _write_latest_alias(workspace: SR8Workspace, path: Path, content: str) -> None:
+    lock_path = workspace.index_dir / f"{path.name}.lock"
+    with file_lock(lock_path):
+        atomic_write_text(path, content, workspace.tmp_dir)
 
 
 def save_canonical_artifact(
@@ -22,7 +28,7 @@ def save_canonical_artifact(
     artifact_path = ensure_unique_path(workspace.canonical_dir / f"{artifact.artifact_id}.json")
     latest_path = workspace.canonical_dir / "latest.json"
     atomic_write_text(artifact_path, payload, workspace.tmp_dir)
-    atomic_write_text(latest_path, payload, workspace.tmp_dir)
+    _write_latest_alias(workspace, latest_path, payload)
 
     indexed = add_record(
         workspace,
@@ -57,8 +63,8 @@ def save_derivative_artifact(
 
     atomic_write_text(json_path, payload, workspace.tmp_dir)
     atomic_write_text(markdown_path, derivative.content, workspace.tmp_dir)
-    atomic_write_text(latest_json, payload, workspace.tmp_dir)
-    atomic_write_text(latest_markdown, derivative.content, workspace.tmp_dir)
+    _write_latest_alias(workspace, latest_json, payload)
+    _write_latest_alias(workspace, latest_markdown, derivative.content)
 
     indexed = add_record(
         workspace,

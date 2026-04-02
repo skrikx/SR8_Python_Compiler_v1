@@ -4,6 +4,7 @@ from pathlib import Path
 
 from sr8.io.exporters import artifact_to_json, artifact_to_yaml
 from sr8.models.intent_artifact import IntentArtifact
+from sr8.utils.paths import resolve_trusted_local_path
 
 
 def write_artifact(
@@ -11,7 +12,7 @@ def write_artifact(
     out_dir: str | Path,
     export_format: str = "json",
 ) -> tuple[Path, Path]:
-    output_dir = Path(out_dir)
+    output_dir = resolve_trusted_local_path(out_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     fmt = export_format.lower()
