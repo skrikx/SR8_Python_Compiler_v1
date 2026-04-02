@@ -81,5 +81,26 @@ def test_ollama_normalization_extracts_text() -> None:
 
 def test_bedrock_normalization_extracts_text() -> None:
     adapter = BedrockAdapter(AWSBedrockProviderSettings(region="us-east-1", model="bedrock-model"))
-    result = adapter.normalize_response({"outputText": "bedrock", "modelId": "bedrock-model"})
+    result = adapter.normalize_response(
+        {
+            "modelId": "bedrock-model",
+            "output": {
+                "message": {
+                    "content": [{"text": "bedrock"}],
+                }
+            },
+            "stopReason": "end_turn",
+            "usage": {
+                "inputTokens": 5,
+                "outputTokens": 2,
+                "totalTokens": 7,
+            },
+        }
+    )
     assert result.content == "bedrock"
+    assert result.finish_reason == "end_turn"
+    assert result.usage == {
+        "input_tokens": 5,
+        "output_tokens": 2,
+        "total_tokens": 7,
+    }

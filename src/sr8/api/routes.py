@@ -7,12 +7,14 @@ from fastapi import APIRouter
 
 from sr8.adapters import list_provider_descriptors, probe_provider, probe_providers
 from sr8.api.dependencies import (
+    get_effective_settings_payload,
     get_settings,
     get_settings_payload,
     load_artifact_for_api,
     resolve_canonical_artifact_for_api,
     resolve_compile_config_for_request,
     resolve_compile_source,
+    resolve_inspect_artifact_for_api,
     resolve_workspace,
     validate_provider_name,
 )
@@ -84,7 +86,7 @@ def providers_probe_endpoint(provider: str | None = None) -> dict[str, object]:
 
 @router.get("/settings")
 def settings_endpoint() -> dict[str, object]:
-    return get_settings_payload()
+    return get_effective_settings_payload()
 
 
 @router.get("/artifacts")
@@ -140,22 +142,14 @@ def compile_endpoint(payload: CompileRequest) -> dict[str, object]:
 
 @router.post("/inspect")
 def inspect_endpoint(payload: InspectRequest) -> dict[str, object]:
-    candidate = Path(payload.target)
-    if candidate.suffix.lower() in {".json", ".yaml", ".yml"} or candidate.exists():
-        artifact = load_artifact_for_api(candidate)
-        return {"artifact": artifact.model_dump(mode="json"), "mode": "artifact"}
-    settings = get_settings()
-    result = compile_intent(
-        source=payload.target,
-        config=resolve_compile_config_for_request(
-            CompileRequest(source_text=payload.target, profile=settings.default_profile),
-            settings,
-        ),
+    artifact, artifact_ref = resolve_inspect_artifact_for_api(
+        payload.target,
+        payload.workspace_path,
     )
     return {
-        "artifact": result.artifact.model_dump(mode="json"),
-        "receipt": result.receipt.model_dump(mode="json"),
-        "mode": "compiled_source",
+        "artifact": artifact.model_dump(mode="json"),
+        "artifact_ref": artifact_ref,
+        "mode": "artifact",
     }
 
 

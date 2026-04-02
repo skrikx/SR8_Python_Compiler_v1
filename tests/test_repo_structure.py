@@ -24,9 +24,13 @@ def test_repo_structure_contract() -> None:
         "scripts/cleanup/prune_stale_outputs.py",
         "scripts/cleanup/check_repo_layout.py",
         "docs/ci-and-quality-gates.md",
+        "docs/install.md",
         "docs/repo-structure.md",
         "docs/release-automation.md",
         "docs/examples.md",
+        "docs/bedrock-setup.md",
+        "docs/public-api-exposure.md",
+        "RELEASE_CHECKLIST.md",
     ]
     for path in required_paths:
         assert Path(path).exists(), path

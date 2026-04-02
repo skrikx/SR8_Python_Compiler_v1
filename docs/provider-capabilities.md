@@ -6,7 +6,7 @@ SR8 declares provider capabilities explicitly so the CLI, API, and frontend can 
 | --- | --- | --- | --- | --- |
 | `openai` | yes | yes | yes | Uses chat completions HTTP surface |
 | `azure_openai` | yes | yes | yes | Uses deployment-scoped chat completions |
-| `aws_bedrock` | partial | yes | yes | Response normalization exists; live inference is not enabled in this runtime because SigV4 signing is not wired |
+| `aws_bedrock` | yes | yes | yes | Uses AWS-authenticated Converse runtime; readiness only flips after an optional live smoke succeeds |
 | `anthropic` | yes | yes | yes | Uses messages HTTP surface |
 | `gemini` | yes | yes | yes | Uses generateContent HTTP surface |
 | `ollama` | yes | yes | yes | Targets local Ollama runtime |
@@ -15,7 +15,9 @@ SR8 declares provider capabilities explicitly so the CLI, API, and frontend can 
 
 `registered=true` means the provider adapter exists in SR8.
 
-`configured=true` means required environment variables were found.
+`configured=true` means the provider has the configuration it needs to attempt runtime use. For AWS Bedrock that includes region, model, and resolved AWS credentials.
+
+`subscribed_or_accessible=true` means Bedrock access checks did not report IAM, model access, or subscription failure.
 
 `capable=true` means SR8 has a normalized adapter surface for that provider.
 
@@ -27,4 +29,4 @@ SR8 declares provider capabilities explicitly so the CLI, API, and frontend can 
 
 For `ollama`, availability stays visible even in local-only setups because the runtime is expected to be on localhost.
 
-For `aws_bedrock`, probe coverage exists, but `live_enabled=false`, `ready_for_runtime=false`, and `available=false` until SigV4 request signing support is added.
+For `aws_bedrock`, `live_enabled=true` once the SDK-backed runtime path exists in code. `ready_for_runtime=true` only after an actual Bedrock Converse smoke check succeeds. By default, probe stays cautious and requires `SR8_AWS_BEDROCK_PROBE_RUNTIME=true` to run that live smoke.

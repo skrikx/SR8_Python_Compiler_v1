@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
+from sr8.config.env import settings_config
 from sr8.models.compile_config import CompileConfig
 
 
 class SR8Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="SR8_", extra="ignore")
+    model_config = settings_config(env_prefix="SR8_")
 
     default_profile: str = "generic"
     extraction_adapter: str = "rule_based"

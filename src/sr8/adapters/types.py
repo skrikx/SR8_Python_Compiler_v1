@@ -50,6 +50,7 @@ class ProviderProbeResult(SR8Model):
     provider: str
     registered: bool = True
     configured: bool
+    subscribed_or_accessible: bool | None = None
     capable: bool = True
     live_enabled: bool
     ready_for_runtime: bool

@@ -38,7 +38,13 @@ sr8 providers probe --provider openai
 
 ## Environment Settings
 
-Provider credentials and defaults are resolved from environment variables only.
+Provider credentials and defaults are resolved from environment variables and
+optional local env files loaded at runtime:
+
+- `.env`
+- `.env.local`
+
+Use `.env.example` as the starter template and keep real secret files local only.
 SR8 does not persist secrets in repo state.
 
 Examples:

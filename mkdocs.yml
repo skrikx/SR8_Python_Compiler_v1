@@ -5,9 +5,11 @@ theme:
 nav:
   - Home: docs/index.md
   - Getting Started: docs/getting-started.md
-  - Installation: docs/installation.md
+  - Installation: docs/install.md
   - CLI Reference: docs/cli-reference.md
   - Python API: docs/python-api.md
+  - Public API Exposure: docs/public-api-exposure.md
+  - Bedrock Setup: docs/bedrock-setup.md
   - Concepts: docs/concepts.md
   - Artifact Schema: docs/artifact-schema.md
   - Profiles: docs/profiles.md

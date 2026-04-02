@@ -15,8 +15,13 @@ EXPECTED_PATHS = (
     ".pre-commit-config.yaml",
     ".editorconfig",
     ".gitattributes",
+    "RELEASE_CHECKLIST.md",
     "scripts/cleanup/repo_audit.py",
     "scripts/cleanup/prune_stale_outputs.py",
+    "docs/install.md",
+    "docs/repo-structure.md",
+    "docs/examples.md",
+    "docs/release-automation.md",
 )
 
 

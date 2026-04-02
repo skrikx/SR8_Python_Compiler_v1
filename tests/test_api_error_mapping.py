@@ -51,3 +51,38 @@ def test_api_binary_artifact_maps_to_415(tmp_path: Path) -> None:
 
     assert response.status_code == 415
     assert response.json()["error"]["code"] == "unsupported_artifact_content"
+
+
+def test_api_compile_invalid_configuration_maps_to_422() -> None:
+    client = TestClient(app)
+
+    response = client.post(
+        "/compile",
+        json={
+            "source": "Objective: Invalid configuration\nScope:\n- one\n",
+            "assist_provider": "openai",
+        },
+    )
+
+    assert response.status_code == 422
+    assert response.json()["error"]["code"] == "invalid_compile_configuration"
+
+
+def test_api_settings_invalid_configuration_maps_to_422(monkeypatch) -> None:
+    monkeypatch.setenv("SR8_ASSIST_PROVIDER", "openai")
+    monkeypatch.delenv("SR8_ASSIST_MODEL", raising=False)
+    client = TestClient(app)
+
+    response = client.get("/settings")
+
+    assert response.status_code == 422
+    assert response.json()["error"]["code"] == "invalid_compile_configuration"
+
+
+def test_api_inspect_rejects_inline_text_target() -> None:
+    client = TestClient(app)
+
+    response = client.post("/inspect", json={"target": "Objective: not an artifact"})
+
+    assert response.status_code == 422
+    assert response.json()["error"]["code"] == "inspect_target_must_be_artifact"

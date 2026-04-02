@@ -38,6 +38,18 @@ python -m pip install -e .
 python -m pip install -e ".[dev]"
 ```
 
+SR8 also supports repo-root `.env` and `.env.local` files for local settings and provider secrets.
+Start from `.env.example` and keep real secrets out of git.
+
+For full local product verification:
+
+```bash
+cd frontend
+npm ci
+```
+
+Install guide: [docs/install.md](docs/install.md)
+
 ## Quickstart
 
 First success path:
@@ -102,6 +114,7 @@ from sr8.api import app
 ```
 
 More detail: [docs/python-api.md](docs/python-api.md)
+API exposure guidance: [docs/public-api-exposure.md](docs/public-api-exposure.md)
 
 ## Profiles
 

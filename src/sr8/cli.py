@@ -135,20 +135,34 @@ def compile_command(
         "--rule-only",
         help="Force the deterministic local extraction path.",
     ),
+    assist_extract: bool = typer.Option(
+        False,
+        "--assist-extract",
+        help="Enable model-assisted extraction with provider and model options.",
+    ),
     assist_provider: str | None = typer.Option(
         None,
         "--assist-provider",
+        "--provider",
         help="Optional provider for model-assisted extraction.",
     ),
     assist_model: str | None = typer.Option(
         None,
         "--assist-model",
+        "--model",
         help="Optional model for model-assisted extraction.",
     ),
 ) -> None:
     """Compile source into canonical artifact, apply profile, validate, and optionally export."""
     settings = SR8Settings()
     normalized_source_type = cast(SourceType | None, source_type)
+    if assist_extract and not (
+        assist_provider or assist_model or settings.assist_provider or settings.assist_model
+    ):
+        raise typer.BadParameter(
+            "--assist-extract requires a provider and model from CLI flags or "
+            "SR8_ASSIST_PROVIDER and SR8_ASSIST_MODEL settings."
+        )
     try:
         compile_config = resolve_compile_config(
             settings,
@@ -251,10 +265,16 @@ def providers_probe_command(
     results = [probe_provider(provider)] if provider is not None else probe_providers()
     for result in results:
         missing = ",".join(result.missing_env_vars) if result.missing_env_vars else "-"
+        accessible = (
+            "-"
+            if result.subscribed_or_accessible is None
+            else str(result.subscribed_or_accessible)
+        )
         detail = f" | detail={result.detail}" if result.detail else ""
         typer.echo(
-            f"{result.provider} | configured={result.configured} | available={result.available} | "
-            f"live={result.supports_live_inference} | missing={missing}{detail}"
+            f"{result.provider} | configured={result.configured} | accessible={accessible} | "
+            f"live_enabled={result.live_enabled} | ready={result.ready_for_runtime} | "
+            f"available={result.available} | missing={missing}{detail}"
         )
 
 

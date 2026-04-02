@@ -2,9 +2,9 @@
 
 ## Project Purpose and Boundary
 
-SR8 is an intent compiler scaffold in this phase.
-W01 builds an installable package, CLI shell, typed model placeholders, and quality rails.
-Do not claim extraction, validation, transformation, or profile execution as complete until those workflows are implemented.
+SR8 is a local-first intent compiler in final ship phase.
+Compiler, frontend, workflow, and runtime hardening surfaces are real in this repository state.
+Do not claim broader API exposure, final release seal, or validation beyond the documented ship ladder and route policy.
 
 ## Directory Map
 
@@ -81,6 +81,15 @@ mypy src
 - For WF11-class closure work, use read-heavy parallel analysis first and integrate write-heavy changes sequentially.
 - Do not claim a gap is closed unless code and tests both exist for that gap.
 
+## Final Ship Law
+
+- `/compile` in the API must never read arbitrary user-supplied local filesystem paths.
+- `/inspect` in the API is trusted-local artifact inspection only. Do not let it compile inline source.
+- Route exposure claims must match `docs/public-api-exposure.md`.
+- `pytest`, `ruff check .`, `mypy src`, `python -m build`, `cd frontend && npm ci`, `cd frontend && npm run check`, and `cd frontend && npm run build` are final ship blockers.
+- Public release state must stay archive-clean. Do not ship `node_modules`, `.svelte-kit`, `dist`, build caches, `.sr8`, benchmark result outputs, transient example outputs, or ad hoc audit bundles.
+- Do not issue a final ship receipt unless the W17 ladder passes in a normal environment.
+
 ## Definition of Done by Workflow
 
 For each workflow, done means:
@@ -112,4 +121,20 @@ sr8 compile tests/fixtures/weak_inputs/minimal_directive.txt
 sr8 transform tests/fixtures/golden/canonical_prd.json --to markdown_prd
 sr8 transform tests/fixtures/golden/canonical_prd.json --to markdown_plan
 sr8 transform tests/fixtures/golden/canonical_prd.json --to markdown_prompt_pack
+```
+
+## WF17 Validation Commands
+
+```bash
+python -m pip install -e .
+pytest
+ruff check .
+mypy src
+python -m build
+sr8 providers probe
+sr8 compile examples/product_prd.md --rule-only
+cd frontend && npm ci
+cd frontend && npm run check
+cd frontend && npm run build
+pytest tests/test_release_archive_cleanliness.py
 ```

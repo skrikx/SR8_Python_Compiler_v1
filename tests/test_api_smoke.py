@@ -31,6 +31,11 @@ def test_api_health_compile_validate_transform(tmp_path: Path) -> None:
     assert validate_response.status_code == 200
     assert validate_response.json()["readiness_status"] in {"pass", "warn", "fail"}
 
+    inspect_response = client.post("/inspect", json={"target": str(artifact_path)})
+    assert inspect_response.status_code == 200
+    assert inspect_response.json()["mode"] == "artifact"
+    assert inspect_response.json()["artifact"]["artifact_id"] == artifact_payload["artifact_id"]
+
     transform_response = client.post(
         "/transform",
         json={"artifact_path": str(artifact_path), "target": "markdown_prd"},

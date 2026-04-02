@@ -6,8 +6,24 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 STALE_ROOTS = (
     REPO_ROOT / ".sr8" / "tmp",
+    REPO_ROOT / ".mypy_cache",
+    REPO_ROOT / ".pytest_cache",
+    REPO_ROOT / ".ruff_cache",
     REPO_ROOT / "dist",
     REPO_ROOT / "build",
+    REPO_ROOT / "frontend" / "node_modules",
+    REPO_ROOT / "frontend" / ".npm-cache",
+    REPO_ROOT / "frontend" / ".svelte-kit",
+)
+STALE_FILES = (
+    REPO_ROOT / "examples" / "outputs" / "latest.json",
+    REPO_ROOT / "examples" / "outputs" / "latest.md",
+    REPO_ROOT / "SR8_updated_zip_audit.md",
+    REPO_ROOT / "sr8_v1_compiler_first_run.txt",
+)
+STALE_GLOBS = (
+    "examples/outputs/art_*.json",
+    "*.zip",
 )
 
 
@@ -42,6 +58,20 @@ def main() -> int:
     for root in STALE_ROOTS:
         for removed in _remove_tree(root, dry_run=dry_run):
             print(f"{'would remove' if dry_run else 'removed'}: {removed}")
+    for path in STALE_FILES:
+        if path.exists():
+            rel = str(path.relative_to(REPO_ROOT))
+            print(f"{'would remove' if dry_run else 'removed'}: {rel}")
+            if not dry_run:
+                path.unlink()
+    for pattern in STALE_GLOBS:
+        for path in sorted(REPO_ROOT.glob(pattern)):
+            if not path.is_file():
+                continue
+            rel = str(path.relative_to(REPO_ROOT))
+            print(f"{'would remove' if dry_run else 'removed'}: {rel}")
+            if not dry_run:
+                path.unlink()
     if dry_run:
         print("dry run complete")
     return 0

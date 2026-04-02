@@ -20,7 +20,7 @@ class CompileRequest(BaseModel):
     assist_model: str | None = None
 
     @model_validator(mode="after")
-    def validate_single_source(self) -> "CompileRequest":
+    def validate_single_source(self) -> CompileRequest:
         source_count = int(self.source_text is not None) + int(self.source_payload is not None)
         if source_count != 1:
             msg = "Provide exactly one of source_text/source or source_payload."

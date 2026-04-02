@@ -21,11 +21,21 @@ This checklist is the baseline for cutting and validating a public SR8 release.
 
 - [ ] Run documented example flows from `README.md` and `docs/examples.md`.
 - [ ] Confirm example outputs in `examples/outputs/` are current.
+- [ ] Confirm `artifacts/` and `receipts/` contain only placeholder files in tracked repo state.
 - [ ] Confirm release and security docs are aligned:
   - `docs/release-automation.md`
   - `docs/security.md`
+  - `docs/install.md`
+  - `docs/public-api-exposure.md`
 
-## 4. Tag and Publish
+## 4. Release Sanitize
+
+- [ ] `pytest tests/test_release_archive_cleanliness.py tests/test_repo_structure.py tests/test_docs_commands.py tests/test_examples_roundtrip.py tests/test_install_path_contract.py`
+- [ ] `python scripts/cleanup/prune_stale_outputs.py --apply`
+- [ ] `python scripts/cleanup/repo_audit.py --check`
+- [ ] Confirm no nested workflow zips, audit dumps, or manual run transcripts remain in tracked release state.
+
+## 5. Tag and Publish
 
 - [ ] Create semantic tag `vX.Y.Z`.
 - [ ] Push tag to origin.
@@ -38,13 +48,13 @@ This checklist is the baseline for cutting and validating a public SR8 release.
   - publish to PyPI (OIDC trusted publishing)
   - GitHub Release artifacts
 
-## 5. Post-Release Verification
+## 6. Post-Release Verification
 
 - [ ] Confirm GitHub Release notes and attached artifacts.
 - [ ] Confirm PyPI version availability.
 - [ ] Smoke install and `sr8 version` on a clean environment.
 
-## 6. Rollback / Hotfix Baseline
+## 7. Rollback / Hotfix Baseline
 
 If a release has critical regression:
 

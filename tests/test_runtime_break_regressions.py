@@ -21,6 +21,10 @@ def test_runtime_break_regressions_close_together(tmp_path: Path, monkeypatch) -
     assert rejected.status_code == 422
     assert rejected.json()["error"]["code"] == "path_input_disallowed"
 
+    inspect_rejected = client.post("/inspect", json={"target": "Objective: Runtime regression"})
+    assert inspect_rejected.status_code == 422
+    assert inspect_rejected.json()["error"]["code"] == "inspect_target_must_be_artifact"
+
     compiled = compile_intent(
         "Objective: Runtime regression\nScope:\n- one\n",
         config=CompileConfig(profile="prd", extraction_adapter="rule_based"),

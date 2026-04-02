@@ -73,6 +73,24 @@ Maintainer setup checklist:
 3. Apply any desired environment protections (for example required reviewers).
 4. Verify project name alignment (`sr8`) before first publish.
 
+## Final Ship Checklist
+
+Run this ladder in a normal shell before calling SR8 sealed:
+
+1. `python -m pip install -e .`
+2. `pytest`
+3. `ruff check .`
+4. `mypy src`
+5. `python -m build`
+6. `sr8 providers probe`
+7. `sr8 compile examples/product_prd.md --rule-only`
+8. `cd frontend && npm ci`
+9. `cd frontend && npm run check`
+10. `cd frontend && npm run build`
+11. `pytest tests/test_release_archive_cleanliness.py`
+12. `python scripts/cleanup/prune_stale_outputs.py --apply`
+13. `python scripts/cleanup/repo_audit.py --check`
+
 ## Release Procedure
 
 1. Update version and changelog in-repo.
@@ -82,6 +100,12 @@ Maintainer setup checklist:
    - `pytest`
    - `ruff check .`
    - `mypy src`
+   - `cd frontend && npm ci`
+   - `cd frontend && npm run check`
+   - `cd frontend && npm run build`
+   - `pytest tests/test_release_archive_cleanliness.py`
+   - `python scripts/cleanup/prune_stale_outputs.py --apply`
+   - `python scripts/cleanup/repo_audit.py --check`
 3. Create and push a semantic tag:
    - `git tag vX.Y.Z`
    - `git push origin vX.Y.Z`

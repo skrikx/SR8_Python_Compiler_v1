@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
+from sr8.config.env import settings_config
 from sr8.models.base import SR8Model
 
 
 class OpenAIProviderSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="SR8_OPENAI_", extra="ignore")
+    model_config = settings_config(env_prefix="SR8_OPENAI_")
 
     api_key: str | None = None
     base_url: str = "https://api.openai.com/v1"
@@ -16,7 +17,7 @@ class OpenAIProviderSettings(BaseSettings):
 
 
 class AzureOpenAIProviderSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="SR8_AZURE_OPENAI_", extra="ignore")
+    model_config = settings_config(env_prefix="SR8_AZURE_OPENAI_")
 
     api_key: str | None = None
     endpoint: str | None = None
@@ -27,18 +28,22 @@ class AzureOpenAIProviderSettings(BaseSettings):
 
 
 class AWSBedrockProviderSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="SR8_AWS_BEDROCK_", extra="ignore")
+    model_config = settings_config(env_prefix="SR8_AWS_BEDROCK_")
 
     region: str | None = None
     model: str | None = None
     profile: str | None = None
     access_key_id: str | None = None
     secret_access_key: str | None = None
+    session_token: str | None = None
+    endpoint_url: str | None = None
+    probe_runtime: bool = False
+    probe_prompt: str = "Respond with the single word ready."
     timeout_seconds: float = 30.0
 
 
 class AnthropicProviderSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="SR8_ANTHROPIC_", extra="ignore")
+    model_config = settings_config(env_prefix="SR8_ANTHROPIC_")
 
     api_key: str | None = None
     base_url: str = "https://api.anthropic.com/v1"
@@ -47,7 +52,7 @@ class AnthropicProviderSettings(BaseSettings):
 
 
 class GeminiProviderSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="SR8_GEMINI_", extra="ignore")
+    model_config = settings_config(env_prefix="SR8_GEMINI_")
 
     api_key: str | None = None
     base_url: str = "https://generativelanguage.googleapis.com/v1beta"
@@ -56,7 +61,7 @@ class GeminiProviderSettings(BaseSettings):
 
 
 class OllamaProviderSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="SR8_OLLAMA_", extra="ignore")
+    model_config = settings_config(env_prefix="SR8_OLLAMA_")
 
     base_url: str = "http://127.0.0.1:11434"
     model: str | None = None

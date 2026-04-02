@@ -49,6 +49,14 @@ class InvalidProviderError(InvalidRequestError):
         )
 
 
+class InvalidConfigurationError(InvalidRequestError):
+    def __init__(self, message: str) -> None:
+        super().__init__(
+            code="invalid_compile_configuration",
+            message=message,
+        )
+
+
 class ArtifactNotFoundError(SR8APIError):
     def __init__(self, path_or_id: str) -> None:
         super().__init__(
@@ -86,3 +94,14 @@ class InvalidArtifactReferenceError(InvalidRequestError):
             details={"reference": reference},
         )
 
+
+class InvalidInspectTargetError(InvalidRequestError):
+    def __init__(self, target: str) -> None:
+        super().__init__(
+            code="inspect_target_must_be_artifact",
+            message=(
+                "/inspect accepts a trusted-local artifact path "
+                "or canonical artifact identifier."
+            ),
+            details={"target": target},
+        )

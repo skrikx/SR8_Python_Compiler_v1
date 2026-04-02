@@ -18,8 +18,37 @@ env/
 build/
 dist/
 
+# Checked-in placeholder dirs should stay empty in public release state
+artifacts/*
+!artifacts/.gitkeep
+receipts/*
+!receipts/.gitkeep
+
+# Local runtime and audit outputs
+.sr8/
+benchmarks/results/
+examples/outputs/art_*.json
+examples/outputs/latest.json
+examples/outputs/latest.md
+*.log
+*.zip
+*_audit.md
+sr8_v1_compiler_first_run.txt
+release_tree_audit.json
+
+# Coverage / local reports
+.coverage
+.coverage.*
+coverage/
+
 # OS / editor files
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+
+# Local secret env files
+.env
+.env.local
+.env.*
+!.env.example

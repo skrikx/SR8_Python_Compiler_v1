@@ -5,7 +5,7 @@ SR8 is a local-first intent compiler that converts weakly structured intent into
 ## Start Here
 
 1. [Getting Started](getting-started.md)
-2. [Installation](installation.md)
+2. [Installation](install.md)
 3. [CLI Reference](cli-reference.md)
 4. [Examples](examples.md)
 
@@ -20,6 +20,8 @@ SR8 is a local-first intent compiler that converts weakly structured intent into
 - [Storage and Receipts](storage-and-receipts.md)
 - [Diff and Lint](diff-and-lint.md)
 - [Python API](python-api.md)
+- [Public API Exposure](public-api-exposure.md)
+- [Bedrock Setup](bedrock-setup.md)
 - [Development](development.md)
 
 ## Release and Security

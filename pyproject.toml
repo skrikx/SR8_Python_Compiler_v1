@@ -25,6 +25,7 @@ classifiers = [
   "Topic :: Software Development :: Libraries"
 ]
 dependencies = [
+  "boto3>=1.35,<2.0",
   "build>=1.2,<2.0",
   "fastapi>=0.115,<1.0",
   "httpx>=0.27,<1.0",
@@ -58,6 +59,27 @@ addopts = "-q"
 testpaths = ["tests"]
 pythonpath = ["src"]
 
+[tool.hatch.build]
+exclude = [
+  "/.codex",
+  "/.venv",
+  "/.mypy_cache",
+  "/.pytest_cache",
+  "/.ruff_cache",
+  "/.sr8",
+  "/build",
+  "/dist",
+  "/frontend/node_modules",
+  "/frontend/.npm-cache",
+  "/frontend/.svelte-kit",
+  "/SR8_Compiler_v1_Workflows.zip",
+  "/SR8_updated_zip_audit.md",
+  "/sr8_v1_compiler_first_run.txt",
+  "/examples/outputs/art_*.json",
+  "/examples/outputs/latest.json",
+  "/examples/outputs/latest.md",
+]
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
@@ -80,4 +102,8 @@ pretty = true
 
 [[tool.mypy.overrides]]
 module = ["yaml"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["boto3", "botocore", "botocore.*"]
 ignore_missing_imports = true
