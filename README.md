@@ -1,6 +1,18 @@
 # SR8
 
+[![CI](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/ci.yml)
+[![Docs Check](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/docs-check.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/docs-check.yml)
+[![Frontend CI](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/frontend-ci.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/frontend-ci.yml)
+[![Hygiene](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/hygiene.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/hygiene.yml)
+[![Release](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/release.yml/badge.svg)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/release.yml)
+[![CodeQL](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/codeql.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/skrikx/SR8_Python_Compiler_v1)](https://github.com/skrikx/SR8_Python_Compiler_v1/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
+
 SR8 is a local-first intent compiler for turning weakly structured requests into canonical, inspectable artifacts and derivative outputs.
+
+Automation map: [assets/badges/README_BADGES.md](assets/badges/README_BADGES.md)
 
 ## What SR8 Is
 
@@ -153,7 +165,7 @@ See [ROADMAP.md](ROADMAP.md).
 
 ## Project Status
 
-SR8 v1.1.0 is a hardened local compiler release with extraction trust, artifact recompilation, and expanded profile coverage.
+SR8 is a hardened local-first compiler release with extraction trust, provider portability, local product surfaces, and OSS-grade automation rails.
 
 ## Release Notes
 

@@ -36,9 +36,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://example.com/sr8"
-Documentation = "https://example.com/sr8/docs"
-Changelog = "https://example.com/sr8/changelog"
+Homepage = "https://github.com/skrikx/SR8_Python_Compiler_v1"
+Documentation = "https://github.com/skrikx/SR8_Python_Compiler_v1/blob/main/docs/index.md"
+Changelog = "https://github.com/skrikx/SR8_Python_Compiler_v1/blob/main/CHANGELOG.md"
+Issues = "https://github.com/skrikx/SR8_Python_Compiler_v1/issues"
+Repository = "https://github.com/skrikx/SR8_Python_Compiler_v1"
 
 [project.optional-dependencies]
 dev = [

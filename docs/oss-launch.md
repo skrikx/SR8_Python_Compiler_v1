@@ -6,6 +6,7 @@ This page tracks the practical launch baseline for SR8.
 
 - public docs and contributor path
 - CI, release, and security workflows
+- README badge surface wired to the live workflow suite
 - changelog and release checklist
 - maintainer and triage docs
 

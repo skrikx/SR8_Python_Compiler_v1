@@ -11,6 +11,13 @@ def test_readme_references_core_public_docs() -> None:
     assert "SECURITY.md" in readme
     assert "ROADMAP.md" in readme
     assert "docs/index.md" in readme
+    assert "actions/workflows/ci.yml/badge.svg" in readme
+    assert "actions/workflows/docs-check.yml/badge.svg" in readme
+    assert "actions/workflows/frontend-ci.yml/badge.svg" in readme
+    assert "actions/workflows/hygiene.yml/badge.svg" in readme
+    assert "actions/workflows/release.yml/badge.svg" in readme
+    assert "actions/workflows/codeql.yml/badge.svg" in readme
+    assert "assets/badges/README_BADGES.md" in readme
 
 
 def test_docs_index_references_ops_pages() -> None:
@@ -28,3 +35,14 @@ def test_mkdocs_nav_includes_core_sections() -> None:
     assert "docs/python-api.md" in mkdocs
     assert "docs/examples.md" in mkdocs
     assert "docs/oss-launch.md" in mkdocs
+
+
+def test_badge_asset_tracks_live_badge_surface() -> None:
+    badge_plan = _read("assets/badges/README_BADGES.md")
+    assert "actions/workflows/ci.yml/badge.svg" in badge_plan
+    assert "actions/workflows/docs-check.yml/badge.svg" in badge_plan
+    assert "actions/workflows/frontend-ci.yml/badge.svg" in badge_plan
+    assert "actions/workflows/hygiene.yml/badge.svg" in badge_plan
+    assert "actions/workflows/release.yml/badge.svg" in badge_plan
+    assert "actions/workflows/codeql.yml/badge.svg" in badge_plan
+    assert "do not expose a dependency-review badge" in badge_plan.lower()

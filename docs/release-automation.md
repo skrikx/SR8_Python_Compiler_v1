@@ -11,7 +11,7 @@ Tagged releases rerun gates, build distributions, publish to PyPI through OIDC t
 - `.github/workflows/reusable-build.yml`
   - Shared `workflow_call` module for `python -m build` and optional artifact upload.
 - `.github/workflows/ci.yml`
-  - Runs on `pull_request` and `push` to `main` and `release/**`.
+  - Runs on `pull_request`, `push` to `main` and `release/**`, plus manual `workflow_dispatch`.
 - Jobs: lint, typecheck, tests (Python 3.11, 3.12, and 3.13), examples smoke, package build smoke.
 - `.github/workflows/release.yml`
   - Runs on semantic tag push (`v*.*.*`) and optional `workflow_dispatch`.
@@ -19,13 +19,29 @@ Tagged releases rerun gates, build distributions, publish to PyPI through OIDC t
 - `.github/workflows/dependency-review.yml`
   - Runs on pull requests and fails on high-severity dependency risk.
 - `.github/workflows/codeql.yml`
-  - Runs on push to `main`, pull requests targeting `main`, and weekly schedule.
+  - Runs on push to `main`, pull requests targeting `main`, weekly schedule, and manual `workflow_dispatch`.
 - `.github/workflows/docs-check.yml`
   - Verifies docs and workflow contract tests that guard the release surface.
 - `.github/workflows/hygiene.yml`
   - Verifies repo layout and cleanup audits.
 - `.github/workflows/frontend-ci.yml`
-  - Present for frontend CI wiring and intentionally defers when `frontend/package.json` is absent.
+  - Runs the frontend install, `npm run check`, and `npm run build` gates.
+
+## README Badge Surface
+
+`README.md` exposes badges for:
+
+1. `CI`
+2. `Docs Check`
+3. `Frontend CI`
+4. `Hygiene`
+5. `Release`
+6. `CodeQL`
+7. GitHub release version
+8. License
+9. Python support
+
+Dependency Review remains active but is not badged because it is pull-request scoped rather than a stable default-branch status surface.
 
 ## CI Validation Scope
 
