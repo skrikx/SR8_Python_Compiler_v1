@@ -184,6 +184,24 @@ export interface CompilationReceiptRecord {
   output_path: string;
 }
 
+export interface GovernanceDecision {
+  status: 'allow' | 'deny' | 'safe_alternative_compile';
+  reason: string;
+  notes: string[];
+}
+
+export interface FrontdoorCompileResult {
+  status: 'compiled' | 'intake_required' | 'safe_alternative';
+  entry_mode: string;
+  artifact_family: string;
+  delivery_target: string;
+  governance: GovernanceDecision;
+  intake_xml?: string | null;
+  promptunit_package_xml?: string | null;
+  sr8_prompt_xml?: string | null;
+  safe_alternative_package_xml?: string | null;
+}
+
 export interface TransformReceiptRecord {
   receipt_id: string;
   parent_artifact_id: string;
@@ -196,10 +214,11 @@ export interface TransformReceiptRecord {
 }
 
 export interface CompileResponse {
-  artifact: IntentArtifact;
-  receipt: CompilationReceiptRecord;
-  normalized_source: SourceIntent;
-  extracted_dimensions: ExtractedDimensions;
+  frontdoor?: FrontdoorCompileResult | null;
+  artifact?: IntentArtifact | null;
+  receipt?: CompilationReceiptRecord | null;
+  normalized_source?: SourceIntent | null;
+  extracted_dimensions?: ExtractedDimensions | null;
 }
 
 export interface CompileRequest {
@@ -266,4 +285,3 @@ export interface BenchmarkRunReport {
     failure_clusters: Record<string, number>;
   };
 }
-

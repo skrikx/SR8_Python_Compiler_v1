@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.4] - 2026-04-02
+
+### Added
+- Chat frontdoor integration with compile and resume intake flows, plus governance-aware package emission.
+- XML package renderers for promptunit_package, sr8_prompt, and safe alternative outputs.
+- Breadth registries for entry modes, artifact families, and delivery targets.
+- OSS chat compiler assets absorbed into specs, intake, rules, and examples.
+- WF19 acceptance tests and documentation for the frontdoor bridge.
+
+### Changed
+- CLI and API compile routes now detect chat frontdoor invocations and emit package outputs.
+- Transform engine now writes XML derivatives with .xml extensions.
+
 ## [1.2.2] - 2026-04-02
 
 ### Added

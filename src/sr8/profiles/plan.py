@@ -56,6 +56,12 @@ PLAN_PROFILE = ProfileDefinition(
             check=_has_success_criteria,
         ),
     ),
-    supported_transform_targets=("markdown_plan", "markdown_prompt_pack"),
+    supported_transform_targets=(
+        "markdown_plan",
+        "markdown_prompt_pack",
+        "xml_promptunit_package",
+        "xml_sr8_prompt",
+        "xml_safe_alternative_package",
+    ),
     section_order_hints=("objective", "scope", "dependencies", "success_criteria"),
 )

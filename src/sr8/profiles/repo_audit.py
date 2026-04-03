@@ -70,7 +70,13 @@ REPO_AUDIT_PROFILE = ProfileDefinition(
             check=_has_validation_gates,
         ),
     ),
-    supported_transform_targets=("markdown_research_brief", "markdown_plan"),
+    supported_transform_targets=(
+        "markdown_research_brief",
+        "markdown_plan",
+        "xml_promptunit_package",
+        "xml_sr8_prompt",
+        "xml_safe_alternative_package",
+    ),
     section_order_hints=(
         "objective",
         "scope",

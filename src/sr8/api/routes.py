@@ -31,6 +31,8 @@ from sr8.api.schemas import (
 from sr8.compiler import compile_intent
 from sr8.diff.engine import semantic_diff
 from sr8.eval import list_available_suites, run_benchmark_suite
+from sr8.frontdoor import chat_compile
+from sr8.frontdoor.command_parser import parse_chat_invocation
 from sr8.lint.engine import lint_artifact
 from sr8.storage.catalog import list_catalog, show_catalog_record
 from sr8.storage.load import load_by_id
@@ -127,17 +129,39 @@ def compile_endpoint(payload: CompileRequest) -> dict[str, object]:
     settings = get_settings()
     source, source_type = resolve_compile_source(payload)
     compile_config = resolve_compile_config_for_request(payload, settings)
-    result = compile_intent(
-        source=source,
-        source_type=source_type,
-        config=compile_config,
-    )
+    if isinstance(source, str) and _should_use_frontdoor(source):
+        frontdoor_result = chat_compile(source, config=compile_config)
+        return {
+            "frontdoor": frontdoor_result.model_dump(mode="json"),
+            "artifact": frontdoor_result.artifact.model_dump(mode="json")
+            if frontdoor_result.artifact
+            else None,
+            "receipt": frontdoor_result.receipt.model_dump(mode="json")
+            if frontdoor_result.receipt
+            else None,
+            "normalized_source": frontdoor_result.normalized_source.model_dump(mode="json")
+            if frontdoor_result.normalized_source
+            else None,
+            "extracted_dimensions": frontdoor_result.extracted_dimensions.model_dump(mode="json")
+            if frontdoor_result.extracted_dimensions
+            else None,
+        }
+
+    result = compile_intent(source=source, source_type=source_type, config=compile_config)
     return {
+        "frontdoor": None,
         "artifact": result.artifact.model_dump(mode="json"),
         "receipt": result.receipt.model_dump(mode="json"),
         "normalized_source": result.normalized_source.model_dump(mode="json"),
         "extracted_dimensions": result.extracted_dimensions.model_dump(mode="json"),
     }
+
+
+def _should_use_frontdoor(source_text: str) -> bool:
+    parsed = parse_chat_invocation(source_text)
+    return parsed.raw.strip().lower().startswith(("compile:", "resume:")) or (
+        "<compiler_input_form" in parsed.raw.lower()
+    )
 
 
 @router.post("/inspect")

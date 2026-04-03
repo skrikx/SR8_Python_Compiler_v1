@@ -7,7 +7,7 @@ from typing import cast
 import typer
 
 from sr8.adapters import list_provider_descriptors, probe_provider, probe_providers
-from sr8.compiler import CompileConfig, compile_intent, recompile_artifact
+from sr8.compiler import CompilationResult, CompileConfig, compile_intent, recompile_artifact
 from sr8.config.settings import SR8Settings, resolve_compile_config
 from sr8.diff.engine import semantic_diff
 from sr8.diff.render import render_diff_report
@@ -20,6 +20,8 @@ from sr8.eval import (
     write_run_report,
 )
 from sr8.extract.trace import summarize_extraction_trace
+from sr8.frontdoor import FrontdoorCompileResult, chat_compile
+from sr8.frontdoor.command_parser import parse_chat_invocation
 from sr8.io.exporters import load_artifact
 from sr8.io.writers import write_artifact
 from sr8.lint.engine import lint_artifact
@@ -123,6 +125,36 @@ def _resolve_canonical_artifact(value: str, workspace_path: str) -> tuple[Intent
     return loaded, value
 
 
+def _should_use_frontdoor(source: str, source_type: SourceType | None) -> bool:
+    if source_type is not None:
+        return False
+    if Path(source).exists():
+        return False
+    parsed = parse_chat_invocation(source)
+    lowered = parsed.raw.strip().lower()
+    return lowered.startswith(("compile:", "resume:")) or "<compiler_input_form" in lowered
+
+
+def _write_frontdoor_packages(out_dir: str, result: FrontdoorCompileResult) -> None:
+    output_path = Path(out_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+    if result.promptunit_package_xml:
+        (output_path / "promptunit_package.xml").write_text(
+            result.promptunit_package_xml,
+            encoding="utf-8",
+        )
+    if result.sr8_prompt_xml:
+        (output_path / "sr8_prompt.xml").write_text(
+            result.sr8_prompt_xml,
+            encoding="utf-8",
+        )
+    if result.safe_alternative_package_xml:
+        (output_path / "safe_alternative_package.xml").write_text(
+            result.safe_alternative_package_xml,
+            encoding="utf-8",
+        )
+
+
 @app.command("compile")
 def compile_command(
     source: str = typer.Argument(..., help="Source input path or inline text."),
@@ -156,6 +188,7 @@ def compile_command(
     """Compile source into canonical artifact, apply profile, validate, and optionally export."""
     settings = SR8Settings()
     normalized_source_type = cast(SourceType | None, source_type)
+    use_frontdoor = _should_use_frontdoor(source, normalized_source_type)
     if assist_extract and not (
         assist_provider or assist_model or settings.assist_provider or settings.assist_model
     ):
@@ -175,27 +208,58 @@ def compile_command(
         raise typer.BadParameter(
             str(exc)
         ) from exc
-    result = compile_intent(
-        source=source,
-        source_type=normalized_source_type,
-        config=compile_config,
-    )
-    artifact = result.artifact
-    _echo_artifact_summary(artifact)
+    if use_frontdoor:
+        frontdoor_result = chat_compile(source, config=compile_config)
+        if frontdoor_result.status == "intake_required":
+            typer.echo("Frontdoor intake required. Use the XML form to resume.")
+            typer.echo(frontdoor_result.intake_xml or "")
+            return
+        artifact = frontdoor_result.artifact
+        if artifact is None:
+            raise typer.BadParameter("Frontdoor compile did not return a canonical artifact.")
+        _echo_artifact_summary(artifact)
+        if frontdoor_result.governance.status != "allow":
+            typer.echo(f"Governance: {frontdoor_result.governance.status}")
+        if out is not None:
+            _write_frontdoor_packages(out, frontdoor_result)
+        if (
+            frontdoor_result.receipt
+            and frontdoor_result.normalized_source
+            and frontdoor_result.extracted_dimensions
+        ):
+            result = CompilationResult(
+                artifact=artifact,
+                receipt=frontdoor_result.receipt,
+                normalized_source=frontdoor_result.normalized_source,
+                extracted_dimensions=frontdoor_result.extracted_dimensions,
+            )
+        else:
+            result = None
+    else:
+        result = compile_intent(
+            source=source,
+            source_type=normalized_source_type,
+            config=compile_config,
+        )
+        artifact = result.artifact
+        _echo_artifact_summary(artifact)
     if out is not None:
         workspace_root = _find_workspace_root(out)
         if workspace_root is not None:
             workspace = init_workspace(workspace_root)
             artifact_path, latest_path, record = save_canonical_artifact(workspace, artifact)
-            receipt, receipt_path = write_compilation_receipt(
-                workspace,
-                result=result,
-                output_path=str(artifact_path),
-            )
             typer.echo(f"Written: {artifact_path}")
             typer.echo(f"Latest: {latest_path}")
             typer.echo(f"Indexed: {record.record_id}")
-            typer.echo(f"Receipt: {receipt_path} ({receipt.receipt_id})")
+            if result is not None:
+                receipt, receipt_path = write_compilation_receipt(
+                    workspace,
+                    result=result,
+                    output_path=str(artifact_path),
+                )
+                typer.echo(f"Receipt: {receipt_path} ({receipt.receipt_id})")
+            else:
+                typer.echo("Receipt: skipped (frontdoor result missing compilation details)")
         else:
             artifact_path, latest_path = write_artifact(
                 artifact,

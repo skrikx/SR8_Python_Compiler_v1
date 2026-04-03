@@ -54,6 +54,11 @@ PROMPT_PACK_PROFILE = ProfileDefinition(
             check=_has_reusable_structure,
         ),
     ),
-    supported_transform_targets=("markdown_prompt_pack",),
+    supported_transform_targets=(
+        "markdown_prompt_pack",
+        "xml_promptunit_package",
+        "xml_sr8_prompt",
+        "xml_safe_alternative_package",
+    ),
     section_order_hints=("objective", "constraints", "scope", "output_contract"),
 )

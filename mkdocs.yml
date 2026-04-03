@@ -16,6 +16,10 @@ nav:
   - Profile Authoring: docs/profile-authoring.md
   - Transforms: docs/transforms.md
   - Transform Authoring: docs/transform-authoring.md
+  - Chat Front Door: docs/chat-frontdoor.md
+  - XML Package Contract: docs/xml-package-contract.md
+  - Breadth Registries: docs/breadth-registries.md
+  - OSS Chat Compiler Integration: docs/oss-chat-compiler-integration.md
   - Storage and Receipts: docs/storage-and-receipts.md
   - Diff and Lint: docs/diff-and-lint.md
   - Development: docs/development.md

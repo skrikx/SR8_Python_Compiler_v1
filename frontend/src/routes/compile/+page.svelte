@@ -67,7 +67,7 @@
   </form>
 
   <div class="space-y-5">
-    <ValidationSummaryPanel report={form?.result?.artifact.validation ?? null} />
+    <ValidationSummaryPanel report={form?.result?.artifact?.validation ?? null} />
     <ConfidencePanel extracted={form?.result?.extracted_dimensions ?? null} />
   </div>
 </div>

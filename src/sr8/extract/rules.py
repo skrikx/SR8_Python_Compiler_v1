@@ -29,6 +29,11 @@ TARGET_HINTS: dict[str, tuple[str, ...]] = {
     "repo_audit": ("repository", "codebase", "lint", "typecheck", "tests"),
     "whitepaper_outline": ("whitepaper", "outline", "thesis", "architecture paper"),
     "code_task_graph": ("task graph", "dependency graph", "implementation graph", "scheduler"),
+    "landing_page": ("landing page", "landing-page", "landingpage"),
+    "mvp_builder": ("mvp", "minimum viable product", "mvp builder"),
+    "deep_research": ("deep research", "literature review", "research synthesis"),
+    "governed_request": ("governance", "policy", "compliance"),
+    "multimodal_brief": ("multimodal", "vision", "audio", "video"),
 }
 
 _HEADING_COLON_RE = re.compile(r"^\s*(?:#{1,6}\s*)?([A-Za-z][A-Za-z0-9 _/-]+?)\s*:\s*(.*)\s*$")

@@ -58,6 +58,12 @@ PROCEDURE_PROFILE = ProfileDefinition(
             check=_has_escalation_conditions,
         ),
     ),
-    supported_transform_targets=("markdown_procedure", "markdown_plan"),
+    supported_transform_targets=(
+        "markdown_procedure",
+        "markdown_plan",
+        "xml_promptunit_package",
+        "xml_sr8_prompt",
+        "xml_safe_alternative_package",
+    ),
     section_order_hints=("objective", "authority_context", "scope", "constraints"),
 )
