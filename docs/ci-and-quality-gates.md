@@ -11,9 +11,9 @@ SR8 uses small, explicit workflows so release and hygiene checks stay readable.
 - `codeql.yml` runs scheduled and branch-based Python code scanning.
 - `dependency-review.yml` blocks pull requests with high-severity dependency risk.
 
-## Deferred Gates
+## Frontend Gates
 
-- `frontend-ci.yml` is present and wired, but it intentionally degrades to a no-op until `frontend/package.json` exists.
+`frontend-ci.yml` installs frontend dependencies, runs `npm run check`, and builds the frontend on every PR and push to protected branches.
 
 ## Local Commands
 
@@ -21,4 +21,3 @@ SR8 uses small, explicit workflows so release and hygiene checks stay readable.
 - `pytest tests/test_docs_commands.py tests/test_repo_structure.py tests/test_release_workflow_contracts.py`
 - `python scripts/cleanup/check_repo_layout.py`
 - `python scripts/cleanup/repo_audit.py --check`
-
