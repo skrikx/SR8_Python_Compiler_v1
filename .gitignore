@@ -26,6 +26,7 @@ receipts/*
 
 # Local runtime and audit outputs
 .sr8/
+runs/
 benchmarks/results/
 examples/outputs/art_*.json
 examples/outputs/latest.json

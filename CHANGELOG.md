@@ -13,17 +13,6 @@
 - CLI and API compile routes now detect chat frontdoor invocations and emit package outputs.
 - Transform engine now writes XML derivatives with .xml extensions.
 
-## [1.2.2] - 2026-04-02
-
-### Added
-- Final public API exposure guidance covering deliberate exposure, trusted-local routes, and the sealed `/inspect` policy.
-- Release archive cleanliness contract test and repo skill for rerunning the final ship seal.
-
-### Changed
-- API compile and settings configuration failures now resolve to structured `422` responses instead of leaking as `500`.
-- API `/inspect` is now artifact-only and no longer compiles inline source.
-- Repo ship law, release checklist, and ignore policy now defend archive-clean release state.
-
 ## [1.2.3] - 2026-04-02
 
 ### Added
@@ -34,6 +23,17 @@
 ### Changed
 - Bedrock probe now distinguishes configuration, access, live enablement, and actual runtime readiness.
 - CLI Bedrock probe output now surfaces accessibility, live enablement, and ready state separately.
+
+## [1.2.2] - 2026-04-02
+
+### Added
+- Final public API exposure guidance covering deliberate exposure, trusted-local routes, and the sealed `/inspect` policy.
+- Release archive cleanliness contract test and repo skill for rerunning the final ship seal.
+
+### Changed
+- API compile and settings configuration failures now resolve to structured `422` responses instead of leaking as `500`.
+- API `/inspect` is now artifact-only and no longer compiles inline source.
+- Repo ship law, release checklist, and ignore policy now defend archive-clean release state.
 
 ## [1.2.1] - 2026-04-02
 

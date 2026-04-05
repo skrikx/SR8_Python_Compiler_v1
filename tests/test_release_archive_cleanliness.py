@@ -13,6 +13,7 @@ def test_root_gitignore_covers_local_runtime_and_audit_outputs() -> None:
         "receipts/*",
         "!receipts/.gitkeep",
         ".sr8/",
+        "runs/",
         "benchmarks/results/",
         "examples/outputs/art_*.json",
         "examples/outputs/latest.json",
@@ -52,3 +53,4 @@ def test_release_noise_files_are_absent_or_export_ignored() -> None:
     assert "/examples/outputs/art_*.json" in pyproject
     assert not Path("SR8_updated_zip_audit.md").exists()
     assert not Path("sr8_v1_compiler_first_run.txt").exists()
+    assert not Path("runs").exists()

@@ -1,5 +1,12 @@
 # SR8 Architecture
 
+SR8 is the product layer in this repository: a local-first intent compiler for AI systems.
+It should be read in three layers:
+
+1. Product layer: SR8 compiles intent into canonical artifacts and governed derivatives.
+2. Category layer: SR8 demonstrates governed artifact infrastructure through typed outputs, validation, lineage, receipts, and package emission.
+3. Horizon layer: SROS v2 is the broader governed execution direction, but it is not shipped as the runtime in this repository.
+
 ## Compiler Boundary
 
 SR8 compiles local source intent into canonical artifacts and derivative outputs.
@@ -19,6 +26,7 @@ Out of boundary:
 - remote orchestration services
 - non-local persistent infrastructure
 - default LLM-backed extraction
+- full SROS runtime execution substrate
 
 ## Canonical Artifact Model
 
@@ -79,6 +87,8 @@ They support:
 Transform targets are registered in `src/sr8/transform/registry.py`.
 A transform operation verifies both target compatibility and profile compatibility before emitting a `DerivativeArtifact` with parent lineage.
 
+WF19 extends the transform surface with XML package renderers that still originate from canonical SR8 artifacts rather than a parallel compiler lane.
+
 ## Storage, Index, and Receipt Model
 
 Workspace root defaults to `.sr8` and contains:
@@ -106,3 +116,4 @@ Lint provides explicit rule findings plus extraction-trust findings for weak, em
 - WF01-WF07: compiler, persistence, and release foundation
 - WF08-WF10: OSS launch and release rails
 - WF11: PRD closure, extraction trust, recompile hardening, profile completion, and acceptance proof
+- WF19: chat frontdoor integration, XML package outputs, breadth registries, and governance-aware package paths
