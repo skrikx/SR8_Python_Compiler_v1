@@ -10,29 +10,78 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
 
-SR8 is a local-first intent compiler for AI systems. It turns weakly structured requests into canonical, inspectable artifacts and governed derivative outputs.
+SR8 is an intent compiler for AI systems.
+
+It turns weakly structured requests into typed, validated, receipted, lineage-bearing artifacts that can be transformed, audited, and used safely downstream.
+
+Public packaging stays simple: SR8 is a local-first intent compiler. Deeper in the repo, SR8 is the working proof layer for what this project calls governed artifact infrastructure.
 
 Automation map: [assets/badges/README_BADGES.md](assets/badges/README_BADGES.md)
 
 ## What SR8 Is
 
-SR8 is the product layer. It compiles intent into a typed canonical artifact with:
+SR8 is a real installable Python package with:
 
-- deterministic ingest, normalization, extraction, and assembly
-- profile overlays and validation
-- transform outputs, including markdown derivatives and XML package surfaces
-- local storage, receipts, and catalog indexing
-- diff and lint quality gates
-- chat-frontdoor intake that still terminates in the canonical artifact path
+- deterministic ingest, normalization, extraction, and canonical assembly
+- profile overlays with readiness-aware validation
+- receipts, lineage, catalog persistence, semantic diff, and lint
+- transform outputs for markdown and XML package surfaces
+- local CLI, Python API, FastAPI, and local frontend surfaces
+- provider descriptors and readiness reporting across supported adapters
+- benchmark, self-hosting, and release-automation rails
+- chat-frontdoor and intake-resume flows that still terminate in canonical artifacts
+
+## What SR8 Is Not
+
+SR8 is not:
+
+- just a prompt formatter or markdown utility
+- a hosted multi-tenant orchestration platform
+- the full SROS runtime or a universal execution kernel
+- a claim that every downstream runtime path is already universally sealed
+
+SR8 is the proof layer. It compiles intent into governed artifacts that can feed larger systems safely.
 
 ## Why SR8 Exists
 
-Teams often need a repeatable way to convert intent into structured artifacts without relying on external services.
-SR8 provides that path with a local-first workflow that is easy to test, automate, and audit.
+Most teams do not fail because they lack prompts. They fail because weak requests enter downstream systems without typed structure, visible trust surfaces, or clear readiness boundaries.
 
-At the category layer, SR8 is the working proof of governed artifact infrastructure: intent becomes typed artifacts, validation results, lineage, and package outputs instead of disappearing into opaque prompt chains.
+SR8 exists to make that handoff legible. It gives operators a local-first path from messy intent to inspectable artifacts before those artifacts are transformed, reviewed, or handed into downstream execution.
 
-At the system horizon, SROS v2 remains the broader governed execution substrate. This repository does not claim to ship that full runtime.
+## What This Repository Proves Now
+
+This repository proves that SR8 can:
+
+- compile weakly structured input into typed canonical artifacts
+- apply profile-specific validation and readiness states
+- preserve receipts, lineage, and catalog records locally
+- generate derivative outputs for product, plan, research, procedure, prompt-pack, and XML package targets
+- expose the same core compiler through CLI, Python API, FastAPI, and a local frontend
+- surface provider truth honestly, including bounded AWS Bedrock readiness
+- support chat-native intake and resume flows without bypassing compiler-core truth
+- benchmark and self-host parts of its own workflow surface
+
+## Bounded Claims and Runtime Truth
+
+SR8 is local-first and honest about its limits.
+
+- Trusted-local API routes should stay behind operator control.
+- Model-assisted paths are additive, not the baseline truth path.
+- AWS Bedrock support is real, but runtime readiness remains credential, region, model-access, and live-smoke dependent.
+- This repository proves execution-prep and downstream handoff surfaces. Stronger claims about live governed runtime execution should be tied to runtime receipts outside this repo.
+
+## Use Cases
+
+SR8 is already suited to:
+
+- prompt and specification compilation
+- product PRD generation
+- research brief generation
+- repository audit and code task graph flows
+- operational procedure and governed request flows
+- chat-frontdoor intake, refine, and resume flows
+- XML package emission for downstream delivery targets
+- execution-prep artifacts that feed larger governed stacks
 
 ## Install
 
@@ -68,15 +117,39 @@ sr8 diff tests/fixtures/diff/base_artifact.json tests/fixtures/diff/changed_arti
 sr8 list
 ```
 
+Chat-frontdoor success path:
+
+```text
+compile: Objective: Draft a launch plan
+Scope:
+- Phase one
+Success Criteria:
+- Ready to ship
+```
+
+If the request is underspecified, SR8 returns an intake XML form. Submit the completed form again with `resume:`.
+
 ## Core Concepts
 
-- Canonical artifact: source of truth for compiled intent.
-- Profile overlay: applies profile constraints and validation semantics.
+- Canonical artifact: typed source of truth for compiled intent.
+- Profile overlay: validation and readiness behavior without forking schema.
 - Derivative artifact: rendered output from canonical input.
-- Receipt: machine-readable record of compile or transform persistence.
+- Receipt: machine-readable record of persistence and transform events.
 - Catalog: local index for artifact lookup and listing.
+- Breadth registries: code-owned maps for entry modes, artifact families, and delivery targets.
 
 More detail: [docs/index.md](docs/index.md)
+
+## Product Surfaces
+
+- CLI: [docs/cli-reference.md](docs/cli-reference.md)
+- Python API: [docs/python-api.md](docs/python-api.md)
+- Public API boundary: [docs/public-api-exposure.md](docs/public-api-exposure.md)
+- Frontend: [docs/frontend.md](docs/frontend.md)
+- Chat front door: [docs/chat-frontdoor.md](docs/chat-frontdoor.md)
+- XML package contract: [docs/xml-package-contract.md](docs/xml-package-contract.md)
+- Breadth registries: [docs/breadth-registries.md](docs/breadth-registries.md)
+- Benchmarking: [docs/benchmarking.md](docs/benchmarking.md)
 
 ## CLI Overview
 
@@ -95,12 +168,6 @@ sr8 show <record-or-artifact-id> [--path <workspace>]
 ```
 
 Full reference: [docs/cli-reference.md](docs/cli-reference.md)
-
-## Release Position
-
-- Product: SR8 is an intent compiler for AI systems.
-- Category: SR8 is the first working proof of governed artifact infrastructure in this repository.
-- Horizon: SROS v2 is the larger governed execution direction, not the shipped runtime in this repo.
 
 ## Python API Overview
 
@@ -146,13 +213,16 @@ Reference: [docs/profiles.md](docs/profiles.md)
 
 ## Transforms
 
-Built-in transform targets:
+Built-in transform targets include:
 
 - `markdown_prd`
 - `markdown_plan`
 - `markdown_research_brief`
 - `markdown_procedure`
 - `markdown_prompt_pack`
+- `xml_promptunit_package`
+- `xml_sr8_prompt`
+- `xml_safe_alternative_package`
 
 Reference: [docs/transforms.md](docs/transforms.md)
 
@@ -171,9 +241,16 @@ Reference: [docs/storage-and-receipts.md](docs/storage-and-receipts.md)
 ## Diff and Lint
 
 - `sr8 diff` compares semantic fields and classifies impact.
-- `sr8 lint` runs explicit lint rules and returns a structured report.
+- `sr8 lint` runs explicit lint rules and trust-surface checks.
 
 Reference: [docs/diff-and-lint.md](docs/diff-and-lint.md)
+
+## Architecture and Positioning
+
+- System boundary: [ARCHITECTURE.md](ARCHITECTURE.md)
+- Overview: [docs/overview.md](docs/overview.md)
+- Claims matrix: [assets/release/claims-matrix.md](assets/release/claims-matrix.md)
+- Release summary: [assets/release/release-summary.md](assets/release/release-summary.md)
 
 ## Contributing
 
@@ -189,8 +266,8 @@ See [ROADMAP.md](ROADMAP.md).
 
 ## Project Status
 
-SR8 is a hardened local-first compiler release with extraction trust, provider portability, chat-frontdoor intake, XML package outputs, breadth registries, local product surfaces, and OSS-grade automation rails.
+SR8 is a hardened local-first compiler release with real package surfaces across CLI, API, frontend, frontdoor, XML packaging, registries, benchmarking, and release automation.
 
 ## Release Notes
 
-See [CHANGELOG.md](CHANGELOG.md) and [docs/release-automation.md](docs/release-automation.md).
+See [CHANGELOG.md](CHANGELOG.md), [docs/release-automation.md](docs/release-automation.md), [assets/social/github-release-card.md](assets/social/github-release-card.md), and [assets/release/release-polish-receipt.md](assets/release/release-polish-receipt.md).
