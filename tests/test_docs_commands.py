@@ -78,6 +78,7 @@ def test_docs_command_flow(tmp_path: Path) -> None:
 def test_docs_examples_assets_exist() -> None:
     assert Path("docs/index.md").exists()
     assert Path("docs/examples.md").exists()
+    assert Path("docs/install.md").exists()
     assert Path("examples/outputs/canonical_repo_audit.json").exists()
     assert Path("examples/outputs/diff_summary.txt").exists()
     assert Path("examples/outputs/lint_report.txt").exists()

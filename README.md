@@ -1,30 +1,59 @@
 # SR8
 
-SR8 is a local-first intent compiler for turning weakly structured requests into canonical, inspectable artifacts and derivative outputs.
+[![CI](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/ci.yml)
+[![Docs Check](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/docs-check.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/docs-check.yml)
+[![Frontend CI](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/frontend-ci.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/frontend-ci.yml)
+[![Hygiene](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/hygiene.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/hygiene.yml)
+[![Release](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/release.yml/badge.svg?tag=v1.2.4)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/release.yml)
+[![CodeQL](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/skrikx/SR8_Python_Compiler_v1/actions/workflows/codeql.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/skrikx/SR8_Python_Compiler_v1)](https://github.com/skrikx/SR8_Python_Compiler_v1/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
+
+SR8 is a local-first intent compiler for AI systems. It turns weakly structured requests into canonical, inspectable artifacts and governed derivative outputs.
+
+Automation map: [assets/badges/README_BADGES.md](assets/badges/README_BADGES.md)
 
 ## What SR8 Is
 
-SR8 compiles intent into a typed canonical artifact with:
+SR8 is the product layer. It compiles intent into a typed canonical artifact with:
 
 - deterministic ingest, normalization, extraction, and assembly
 - profile overlays and validation
-- transform outputs (for example markdown PRD and plan formats)
+- transform outputs, including markdown derivatives and XML package surfaces
 - local storage, receipts, and catalog indexing
 - diff and lint quality gates
+- chat-frontdoor intake that still terminates in the canonical artifact path
 
 ## Why SR8 Exists
 
 Teams often need a repeatable way to convert intent into structured artifacts without relying on external services.
 SR8 provides that path with a local-first workflow that is easy to test, automate, and audit.
 
+At the category layer, SR8 is the working proof of governed artifact infrastructure: intent becomes typed artifacts, validation results, lineage, and package outputs instead of disappearing into opaque prompt chains.
+
+At the system horizon, SROS v2 remains the broader governed execution substrate. This repository does not claim to ship that full runtime.
+
 ## Install
 
-SR8 requires Python 3.12 or newer.
+SR8 requires Python 3.11 or newer.
 
 ```bash
 python -m pip install -e .
 python -m pip install -e ".[dev]"
 ```
+
+SR8 also supports repo-root `.env` and `.env.local` files for local settings and provider secrets.
+Start from `.env.example` and keep real secrets out of git.
+
+For full local product verification:
+
+```bash
+cd frontend
+npm ci
+```
+
+Install guide: [docs/install.md](docs/install.md)
 
 ## Quickstart
 
@@ -67,6 +96,12 @@ sr8 show <record-or-artifact-id> [--path <workspace>]
 
 Full reference: [docs/cli-reference.md](docs/cli-reference.md)
 
+## Release Position
+
+- Product: SR8 is an intent compiler for AI systems.
+- Category: SR8 is the first working proof of governed artifact infrastructure in this repository.
+- Horizon: SROS v2 is the larger governed execution direction, not the shipped runtime in this repo.
+
 ## Python API Overview
 
 Minimal compile usage:
@@ -90,6 +125,7 @@ from sr8.api import app
 ```
 
 More detail: [docs/python-api.md](docs/python-api.md)
+API exposure guidance: [docs/public-api-exposure.md](docs/public-api-exposure.md)
 
 ## Profiles
 
@@ -103,6 +139,8 @@ Built-in profiles:
 - `procedure`
 - `media_spec`
 - `prompt_pack`
+- `whitepaper_outline`
+- `code_task_graph`
 
 Reference: [docs/profiles.md](docs/profiles.md)
 
@@ -151,7 +189,7 @@ See [ROADMAP.md](ROADMAP.md).
 
 ## Project Status
 
-SR8 v1.0.0 is production-grade for local compiler workflows documented in this repository.
+SR8 is a hardened local-first compiler release with extraction trust, provider portability, chat-frontdoor intake, XML package outputs, breadth registries, local product surfaces, and OSS-grade automation rails.
 
 ## Release Notes
 

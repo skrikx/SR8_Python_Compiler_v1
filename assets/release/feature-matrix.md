@@ -3,6 +3,7 @@
 | Surface | Status | Notes |
 | --- | --- | --- |
 | CLI compile | Available | `sr8 compile` with profile selection and output path support |
+| Chat frontdoor compile | Available | `compile:` and intake-resume flows terminate in canonical artifacts |
 | CLI validate | Available | `sr8 validate` for artifact validation |
 | CLI inspect | Available | Supports artifact paths and source inputs |
 | CLI transform | Available | Transform targets enforced by profile compatibility |
@@ -11,6 +12,9 @@
 | Workspace storage | Available | `.sr8` local persistence, catalog, receipts |
 | Python compile API | Available | `sr8.compiler.compile_intent` |
 | FastAPI endpoints | Available | `/health`, `/compile`, `/validate`, `/transform` |
+| XML package outputs | Available | promptunit_package, `sr8_prompt`, and safe alternative package renderers |
+| Breadth registries | Available | entry modes, artifact families, and delivery targets are code-owned |
 | CI quality gates | Available | lint, mypy, pytest, examples smoke, build smoke |
-| Release publish | Available | tag-driven release and trusted publishing path |
+| Frontend compile surface | Available | local Svelte product surface validated by `npm run check` and `npm run build` |
+| Release publish | Bounded | tag-driven release path exists, but public publish still depends on GitHub release creation and PyPI trusted publisher configuration |
 | Code scanning | Available | CodeQL and dependency review workflows |

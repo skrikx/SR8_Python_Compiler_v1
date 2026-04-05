@@ -7,6 +7,7 @@ from typing import cast
 import yaml
 
 from sr8.models.intent_artifact import IntentArtifact
+from sr8.utils.paths import resolve_trusted_local_path
 
 
 def artifact_to_json(artifact: IntentArtifact) -> str:
@@ -21,7 +22,7 @@ def artifact_to_yaml(artifact: IntentArtifact) -> str:
 
 
 def load_artifact(path: str | Path) -> IntentArtifact:
-    artifact_path = Path(path)
+    artifact_path = resolve_trusted_local_path(path, must_exist=True)
     content = artifact_path.read_text(encoding="utf-8")
     suffix = artifact_path.suffix.lower()
     if suffix == ".json":

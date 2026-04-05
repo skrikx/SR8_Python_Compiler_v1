@@ -13,6 +13,8 @@ They enforce profile intent through validation rules and transform compatibility
 - `procedure`
 - `media_spec`
 - `prompt_pack`
+- `whitepaper_outline`
+- `code_task_graph`
 
 ## How Profiles Work
 
@@ -45,3 +47,9 @@ If either gate fails, transform raises an explicit `ValueError`.
 ## Extension
 
 See [profile-authoring.md](profile-authoring.md) for adding new profiles.
+
+
+## WF11 Profile Notes
+
+- `whitepaper_outline` targets outline-style artifacts and supports `markdown_plan` plus `markdown_prompt_pack`.
+- `code_task_graph` targets implementation-task artifacts and supports `markdown_plan` plus `markdown_prompt_pack`.

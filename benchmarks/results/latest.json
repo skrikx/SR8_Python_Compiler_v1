@@ -1,0 +1,611 @@
+{
+  "run_id": "bench_a572baabf08a",
+  "suite": "all",
+  "compiler_version": "1.2.0",
+  "rubric_id": "wf12.default",
+  "generated_at": "2026-03-20T03:31:50.895663Z",
+  "results": [
+    {
+      "case_id": "founder_launch",
+      "suite": "founder",
+      "profile": "prd",
+      "artifact_id": "art_848f90d9d277cf6f9a6b",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_prd",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\founder_launch\\markdown_prd\\drv_42e23f846bd168571092.md.",
+          "derivative_id": "drv_42e23f846bd168571092"
+        },
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\founder_launch\\markdown_plan\\drv_7ea6ad69625454ef9790.md.",
+          "derivative_id": "drv_7ea6ad69625454ef9790"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\founder_launch\\art_848f90d9d277cf6f9a6b.json",
+      "source_hash": "b935bde0075a71e3e6b4ec09e2322c67241049697cffbc1674c21c480c9b76b6"
+    },
+    {
+      "case_id": "procedure_rollback",
+      "suite": "procedure",
+      "profile": "procedure",
+      "artifact_id": "art_92a0f43394912a148c47",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_procedure",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\procedure_rollback\\markdown_procedure\\drv_b48148a9ea8ff8b3415e.md.",
+          "derivative_id": "drv_b48148a9ea8ff8b3415e"
+        },
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\procedure_rollback\\markdown_plan\\drv_01859ec1e0e67275834f.md.",
+          "derivative_id": "drv_01859ec1e0e67275834f"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\procedure_rollback\\art_92a0f43394912a148c47.json",
+      "source_hash": "7022f8adccc70e7c73b512ea19ed973ed43445298567d2ae98e9cabd2720ad7d"
+    },
+    {
+      "case_id": "repo_task_graph",
+      "suite": "repo",
+      "profile": "code_task_graph",
+      "artifact_id": "art_9df02ab8432e89fdc73a",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\repo_task_graph\\markdown_plan\\drv_dc6382fae06859984e35.md.",
+          "derivative_id": "drv_dc6382fae06859984e35"
+        },
+        {
+          "target": "markdown_prompt_pack",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\repo_task_graph\\markdown_prompt_pack\\drv_2608c0925eafb220bdba.md.",
+          "derivative_id": "drv_2608c0925eafb220bdba"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\repo_task_graph\\art_9df02ab8432e89fdc73a.json",
+      "source_hash": "4ba4827c5ff7e710deb3a2cbbc20b078243626ca4494774272fd64109f88a891"
+    },
+    {
+      "case_id": "research_outline",
+      "suite": "research",
+      "profile": "whitepaper_outline",
+      "artifact_id": "art_f62c7dbfab5eade63167",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 0.8,
+          "passed": true,
+          "findings": [
+            "Trust status mismatch for target_class: expected explicit, got inferred"
+          ]
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 0.967,
+      "passed": true,
+      "findings": [
+        "Trust status mismatch for target_class: expected explicit, got inferred"
+      ],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\research_outline\\markdown_plan\\drv_ece9a225bf7fb5054259.md.",
+          "derivative_id": "drv_ece9a225bf7fb5054259"
+        },
+        {
+          "target": "markdown_prompt_pack",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\research_outline\\markdown_prompt_pack\\drv_910facb05c9a371285ce.md.",
+          "derivative_id": "drv_910facb05c9a371285ce"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\research_outline\\art_f62c7dbfab5eade63167.json",
+      "source_hash": "1afcef2ce31f59ea0e8a2748577ac2ad2bc17ad79d945a20d6e9df5d8d60cc1b"
+    },
+    {
+      "case_id": "sr8_artifact_eval",
+      "suite": "self_hosting",
+      "profile": "prd",
+      "artifact_id": "art_5e17b68d1db674cba5e0",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [],
+      "output_path": "benchmarks\\results\\artifacts\\sr8_artifact_eval\\art_5e17b68d1db674cba5e0.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_recompile_whitepaper",
+      "suite": "self_hosting",
+      "profile": "whitepaper_outline",
+      "artifact_id": "art_5e17b68d1db674cba5e0",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_recompile_whitepaper\\markdown_plan\\drv_0c5f436a98bd237eb478.md.",
+          "derivative_id": "drv_0c5f436a98bd237eb478"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\sr8_recompile_whitepaper\\art_5e17b68d1db674cba5e0.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_release_transform",
+      "suite": "self_hosting",
+      "profile": "prd",
+      "artifact_id": "art_5e17b68d1db674cba5e0",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_prd",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_release_transform\\markdown_prd\\drv_c9dee6dc72a144576c6c.md.",
+          "derivative_id": "drv_c9dee6dc72a144576c6c"
+        },
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_release_transform\\markdown_plan\\drv_0c5f436a98bd237eb478.md.",
+          "derivative_id": "drv_0c5f436a98bd237eb478"
+        },
+        {
+          "target": "markdown_prompt_pack",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_release_transform\\markdown_prompt_pack\\drv_2fc3f2d4b47c30b3102f.md.",
+          "derivative_id": "drv_2fc3f2d4b47c30b3102f"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\sr8_release_transform\\art_5e17b68d1db674cba5e0.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_workflow_compile",
+      "suite": "self_hosting",
+      "profile": "plan",
+      "artifact_id": "art_a82b1505fbb3d6d14f21",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_workflow_compile\\markdown_plan\\drv_d341d18fba450c271a43.md.",
+          "derivative_id": "drv_d341d18fba450c271a43"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\sr8_workflow_compile\\art_a82b1505fbb3d6d14f21.json",
+      "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c"
+    },
+    {
+      "case_id": "weak_contradictory",
+      "suite": "weak_inputs",
+      "profile": "generic",
+      "artifact_id": "art_0bce7938275213e2ea1b",
+      "readiness_status": "fail",
+      "lint_status": "fail",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 0.05,
+          "passed": false,
+          "findings": [
+            "scope and exclusions conflict on at least one item",
+            "output_contract is empty",
+            "success_criteria extraction trust is weak; downstream output may need manual review",
+            "Output contract is absent or underspecified",
+            "Scope and exclusions contradict each other",
+            "Extraction trust for success_criteria is weak",
+            "Readiness below expected minimum: fail < warn"
+          ]
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 0.842,
+      "passed": false,
+      "findings": [
+        "scope and exclusions conflict on at least one item",
+        "output_contract is empty",
+        "success_criteria extraction trust is weak; downstream output may need manual review",
+        "Output contract is absent or underspecified",
+        "Scope and exclusions contradict each other",
+        "Extraction trust for success_criteria is weak",
+        "Readiness below expected minimum: fail < warn"
+      ],
+      "failure_clusters": [
+        "readiness"
+      ],
+      "transform_checks": [],
+      "output_path": "benchmarks\\results\\artifacts\\weak_contradictory\\art_0bce7938275213e2ea1b.json",
+      "source_hash": "82c19c8d280123b5f53305138aeb0da9fd9fbd3abde952756dda0f49cf4f11c4"
+    }
+  ],
+  "summary": {
+    "suite": "all",
+    "total_cases": 9,
+    "passed_cases": 8,
+    "failed_cases": 1,
+    "average_score": 0.979,
+    "average_dimension_scores": {
+      "completeness": 1.0,
+      "constraint_integrity": 1.0,
+      "faithfulness": 1.0,
+      "readiness": 0.894,
+      "transform_utility": 1.0,
+      "trust_surface": 0.978
+    },
+    "failure_clusters": {
+      "readiness": 1
+    }
+  }
+}

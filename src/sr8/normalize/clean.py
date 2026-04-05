@@ -40,11 +40,11 @@ def normalize_source(source_intent: SourceIntent) -> SourceIntent:
     metadata["normalized_char_count"] = len(normalized)
     metadata["normalized_line_count"] = normalized.count("\n") + (1 if normalized else 0)
     metadata["normalization"] = "whitespace+wrapper-clean"
+    metadata["normalized_source_hash"] = normalized_hash
 
     return source_intent.model_copy(
         update={
             "normalized_content": normalized,
-            "source_hash": normalized_hash,
             "metadata": metadata,
         }
     )

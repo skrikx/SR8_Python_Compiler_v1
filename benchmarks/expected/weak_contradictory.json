@@ -1,0 +1,13 @@
+{
+  "source_terms": ["ship evaluation lab"],
+  "required_fields": ["objective", "scope", "exclusions", "constraints", "success_criteria"],
+  "constraint_terms": ["TBD"],
+  "trust_field_statuses": {
+    "objective": "weak",
+    "scope": "contradictory",
+    "constraints": "weak",
+    "success_criteria": "weak"
+  },
+  "expect_human_review": false,
+  "minimum_readiness": "warn"
+}

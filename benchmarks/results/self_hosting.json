@@ -1,0 +1,270 @@
+{
+  "run_id": "bench_80f6fbfa01ff",
+  "suite": "self_hosting",
+  "compiler_version": "1.2.0",
+  "rubric_id": "wf12.default",
+  "generated_at": "2026-03-20T03:31:50.752140Z",
+  "results": [
+    {
+      "case_id": "sr8_artifact_eval",
+      "suite": "self_hosting",
+      "profile": "prd",
+      "artifact_id": "art_5e17b68d1db674cba5e0",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [],
+      "output_path": "benchmarks\\results\\artifacts\\sr8_artifact_eval\\art_5e17b68d1db674cba5e0.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_recompile_whitepaper",
+      "suite": "self_hosting",
+      "profile": "whitepaper_outline",
+      "artifact_id": "art_5e17b68d1db674cba5e0",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_recompile_whitepaper\\markdown_plan\\drv_0c5f436a98bd237eb478.md.",
+          "derivative_id": "drv_0c5f436a98bd237eb478"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\sr8_recompile_whitepaper\\art_5e17b68d1db674cba5e0.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_release_transform",
+      "suite": "self_hosting",
+      "profile": "prd",
+      "artifact_id": "art_5e17b68d1db674cba5e0",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_prd",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_release_transform\\markdown_prd\\drv_c9dee6dc72a144576c6c.md.",
+          "derivative_id": "drv_c9dee6dc72a144576c6c"
+        },
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_release_transform\\markdown_plan\\drv_0c5f436a98bd237eb478.md.",
+          "derivative_id": "drv_0c5f436a98bd237eb478"
+        },
+        {
+          "target": "markdown_prompt_pack",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_release_transform\\markdown_prompt_pack\\drv_2fc3f2d4b47c30b3102f.md.",
+          "derivative_id": "drv_2fc3f2d4b47c30b3102f"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\sr8_release_transform\\art_5e17b68d1db674cba5e0.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_workflow_compile",
+      "suite": "self_hosting",
+      "profile": "plan",
+      "artifact_id": "art_a82b1505fbb3d6d14f21",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to benchmarks\\results\\derivatives\\sr8_workflow_compile\\markdown_plan\\drv_d341d18fba450c271a43.md.",
+          "derivative_id": "drv_d341d18fba450c271a43"
+        }
+      ],
+      "output_path": "benchmarks\\results\\artifacts\\sr8_workflow_compile\\art_a82b1505fbb3d6d14f21.json",
+      "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c"
+    }
+  ],
+  "summary": {
+    "suite": "self_hosting",
+    "total_cases": 4,
+    "passed_cases": 4,
+    "failed_cases": 0,
+    "average_score": 1.0,
+    "average_dimension_scores": {
+      "completeness": 1.0,
+      "constraint_integrity": 1.0,
+      "faithfulness": 1.0,
+      "readiness": 1.0,
+      "transform_utility": 1.0,
+      "trust_surface": 1.0
+    },
+    "failure_clusters": {}
+  }
+}

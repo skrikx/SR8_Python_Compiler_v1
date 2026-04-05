@@ -1,38 +1,64 @@
 # SR8 Architecture
 
+SR8 is the product layer in this repository: a local-first intent compiler for AI systems.
+It should be read in three layers:
+
+1. Product layer: SR8 compiles intent into canonical artifacts and governed derivatives.
+2. Category layer: SR8 demonstrates governed artifact infrastructure through typed outputs, validation, lineage, receipts, and package emission.
+3. Horizon layer: SROS v2 is the broader governed execution direction, but it is not shipped as the runtime in this repository.
+
 ## Compiler Boundary
 
-SR8 compiles source intent into canonical artifacts.
+SR8 compiles local source intent into canonical artifacts and derivative outputs.
 Core boundary responsibilities:
 
-1. ingest input (`src/sr8/ingest/`)
-2. normalize content (`src/sr8/normalize/`)
-3. extract dimensions (`src/sr8/extract/`)
-4. assemble canonical model (`src/sr8/compiler/`)
-5. apply profile overlay and validation (`src/sr8/profiles/`, `src/sr8/validate/`)
-6. optional transform (`src/sr8/transform/`)
-7. local persistence and indexing (`src/sr8/storage/`)
-8. quality analysis via diff and lint (`src/sr8/diff/`, `src/sr8/lint/`)
+1. ingest source and compute deterministic source hash
+2. normalize content without mutating the ingest hash
+3. extract typed dimensions through a swappable adapter interface
+4. assemble canonical models and lineage
+5. apply profile overlays plus validation and lint
+6. recompile canonical artifacts while preserving lineage
+7. transform canonical artifacts into derivative outputs
+8. persist artifacts, receipts, and catalog records locally
 
 Out of boundary:
 
 - remote orchestration services
 - non-local persistent infrastructure
+- default LLM-backed extraction
+- full SROS runtime execution substrate
 
 ## Canonical Artifact Model
 
 Primary model: `IntentArtifact` in `src/sr8/models/intent_artifact.py`.
-It includes:
+The canonical model includes:
 
 - identity and version fields
-- source metadata
-- semantic fields (objective, scope, constraints, and related dimensions)
+- source metadata with stable `source_hash`
+- semantic dimensions including `context_package`
 - governance flags
 - validation report
 - lineage
-- freeform metadata
+- freeform metadata including extraction trust
 
-Canonical artifacts are the source of truth for validation, transforms, diff, lint, and storage records.
+Canonical artifacts remain the source of truth for validation, transforms, diff, lint, and storage records.
+
+## Extraction and Trust Model
+
+Extraction is adapter-based. The default adapter is rule-first and local.
+Each extraction run can emit:
+
+- `ExtractedDimensions`
+- `ExtractionTrace`
+- field-level confidence signals with explicit, inferred, weak, empty, or contradictory status
+
+Trust output is surfaced in:
+
+- `metadata.extraction_trace`
+- CLI inspect output
+- validation warnings
+- lint findings
+- persisted compilation receipts
 
 ## Profile Overlay Model
 
@@ -43,20 +69,25 @@ Each profile declares:
 - target class behavior
 - supported transform targets
 
-`apply_profile_overlay` updates profile-target context before validation.
-Profiles do not fork the artifact schema.
+WF11 adds:
 
-## Transform Model
+- `whitepaper_outline`
+- `code_task_graph`
 
-Transform targets are registered in `src/sr8/transform/registry.py` with `TransformTargetSpec`.
-A transform operation:
+Profiles do not fork the canonical schema.
 
-1. verifies target exists
-2. verifies profile compatibility
-3. renders content via target renderer
-4. emits `DerivativeArtifact` with parent lineage
+## Recompile and Transform Model
 
-Derivative outputs are always traceable to canonical source and compile lineage.
+Recompile paths live in `src/sr8/compiler/recompile.py`.
+They support:
+
+- `recompile_artifact(artifact, profile=None, config=None)`
+- recompilation from artifact objects or artifact paths via `compile_intent`
+
+Transform targets are registered in `src/sr8/transform/registry.py`.
+A transform operation verifies both target compatibility and profile compatibility before emitting a `DerivativeArtifact` with parent lineage.
+
+WF19 extends the transform surface with XML package renderers that still originate from canonical SR8 artifacts rather than a parallel compiler lane.
 
 ## Storage, Index, and Receipt Model
 
@@ -68,27 +99,21 @@ Workspace root defaults to `.sr8` and contains:
 - `receipts/transform/`
 - `index/catalog.json`
 
-`SR8Workspace` initializes deterministic local structure.
-Save operations append artifacts and receipts while maintaining a catalog for list/show lookups.
+Compilation receipts now persist:
+
+- source hash
+- validation summary
+- extraction trust summary
+- lineage summary
 
 ## Diff and Lint Model
 
-Diff:
+Diff provides semantic field-level comparison over a fixed field set.
+Lint provides explicit rule findings plus extraction-trust findings for weak, empty, or contradictory fields.
 
-- semantic field-level comparison over a fixed field set
-- change classes: `added`, `removed`, `modified`, `unchanged`
-- impact levels: `low`, `medium`, `high`
+## Workflow Lineage
 
-Lint:
-
-- explicit rules (`L001` to `L010`)
-- structured findings with severity and suggested fix
-- read-only analysis that does not mutate artifacts
-
-## Workflow Lineage (WF01 to WF08)
-
-- WF01-WF04: compiler foundation, profile and transform rails
-- WF05-WF07: persistence, receipts, packaging, release readiness
-- WF08: CI, reusable workflows, release automation, code scanning, dependency review
-
-This architecture document reflects the implemented v1.0.0 state.
+- WF01-WF07: compiler, persistence, and release foundation
+- WF08-WF10: OSS launch and release rails
+- WF11: PRD closure, extraction trust, recompile hardening, profile completion, and acceptance proof
+- WF19: chat frontdoor integration, XML package outputs, breadth registries, and governance-aware package paths

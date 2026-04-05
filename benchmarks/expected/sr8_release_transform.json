@@ -1,0 +1,14 @@
+{
+  "source_terms": ["release proof pack", "source hash lineage", "release notes"],
+  "required_fields": ["objective", "scope", "exclusions", "constraints", "success_criteria", "output_contract"],
+  "constraint_terms": ["local-first", "source hash lineage"],
+  "required_transform_targets": ["markdown_prd", "markdown_plan", "markdown_prompt_pack"],
+  "trust_field_statuses": {
+    "objective": "explicit",
+    "scope": "explicit",
+    "constraints": "explicit",
+    "output_contract": "explicit"
+  },
+  "expect_human_review": false,
+  "minimum_readiness": "pass"
+}

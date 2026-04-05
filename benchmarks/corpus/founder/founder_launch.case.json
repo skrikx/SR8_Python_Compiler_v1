@@ -1,0 +1,10 @@
+{
+  "case_id": "founder_launch",
+  "suite": "founder",
+  "name": "Founder launch brief to PRD",
+  "description": "Messy founder-style launch brief compiled into a usable PRD artifact.",
+  "source_path": "benchmarks/corpus/founder/founder_launch_brief.md",
+  "profile": "prd",
+  "transform_targets": ["markdown_prd", "markdown_plan"],
+  "tags": ["founder", "prd", "pilot"]
+}

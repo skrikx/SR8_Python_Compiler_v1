@@ -1,0 +1,199 @@
+{
+  "artifact_id": "art_a82b1505fbb3d6d14f21",
+  "artifact_version": "1.0.0",
+  "assumptions": [
+    "Rule-first extraction remains the default path"
+  ],
+  "authority_context": "founder sponsor",
+  "compiler_version": "1.2.0",
+  "constraints": [
+    "Keep evaluation local-first and reproducible",
+    "Do not hide weak confidence or contradictory intent"
+  ],
+  "context_package": [
+    "WF11 gap closure receipt",
+    "Architecture notes",
+    "Benchmark rubric definitions"
+  ],
+  "created_at": "2026-03-20T03:31:50.887663Z",
+  "dependencies": [
+    "Current compile, transform, and lint rails"
+  ],
+  "exclusions": [
+    "Hosted SaaS benchmark portal"
+  ],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "lineage": {
+    "compile_run_id": "run_4e184a4a51e3086e27ca",
+    "parent_artifact_ids": [],
+    "parent_source_hash": null,
+    "pipeline_version": "1.2.0",
+    "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c",
+    "steps": [
+      {
+        "detail": "Loaded source_type=text",
+        "occurred_at": "2026-03-20T03:31:50.887663Z",
+        "stage": "ingest"
+      },
+      {
+        "detail": "Normalized whitespace and wrappers",
+        "occurred_at": "2026-03-20T03:31:50.887663Z",
+        "stage": "normalize"
+      },
+      {
+        "detail": "Applied rule-first extraction",
+        "occurred_at": "2026-03-20T03:31:50.887663Z",
+        "stage": "extract"
+      },
+      {
+        "detail": "Assembled artifact_id=art_a82b1505fbb3d6d14f21",
+        "occurred_at": "2026-03-20T03:31:50.887663Z",
+        "stage": "assemble"
+      }
+    ]
+  },
+  "metadata": {
+    "extraction_trace": {
+      "adapter_name": "rule_based",
+      "confidence": [
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "objective",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
+          "field_name": "scope",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "exclusions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "constraints",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
+          "field_name": "context_package",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "medium",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "target_class",
+          "notes": "Value was inferred from keyword heuristics.",
+          "status": "inferred"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "authority_context",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "dependencies",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "assumptions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "success_criteria",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "output_contract",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "medium",
+          "evidence_summary": "No governance escalation flags were raised by the extractor.",
+          "field_name": "governance_flags",
+          "notes": "",
+          "status": "explicit"
+        }
+      ]
+    },
+    "extraction_trust_summary": {
+      "adapter_name": "rule_based",
+      "low_confidence_fields": [],
+      "status_counts": {
+        "explicit": 11,
+        "inferred": 1
+      }
+    },
+    "normalized_char_count": 993,
+    "pipeline_mode": "rule-first",
+    "source_metadata": {
+      "detected_source_type": "text",
+      "normalization": "whitespace+wrapper-clean",
+      "normalized_char_count": 993,
+      "normalized_line_count": 35,
+      "normalized_source_hash": "aa19e4e85df32205e4b2afa96dc36090e9a4ec6840fc4a2a131e35042cade149",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\self_hosting\\wf12_workflow_spec.txt",
+      "raw_char_count": 994
+    }
+  },
+  "objective": "Build the SR8 proof lane so benchmark runs are local-first, reproducible, and useful to operators.",
+  "output_contract": [
+    "Canonical artifact",
+    "Self-hosting proof pack"
+  ],
+  "profile": "plan",
+  "scope": [
+    "Phase 1. Add an evaluation harness for compile, validate, lint, and transform",
+    "Phase 2. Add a benchmark corpus across founder, research, repo, procedure, weak, and self-hosting tracks",
+    "Phase 3. Add regression comparison and self-hosting proof cases"
+  ],
+  "source": {
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\self_hosting\\wf12_workflow_spec.txt",
+    "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c",
+    "source_id": "src_fe15eef3c73b59cc",
+    "source_type": "text"
+  },
+  "success_criteria": [
+    "Benchmark runs emit scored JSON and markdown reports",
+    "Self-hosting cases prove compile, transform, and recompile flows"
+  ],
+  "target_class": "plan",
+  "validation": {
+    "errors": [],
+    "generated_at": "2026-03-20T03:31:50.887663Z",
+    "readiness_status": "pass",
+    "report_id": "rcpt_793b3124bcbb7ac54a98",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "warnings": []
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "source_terms": ["release proof pack", "source hash lineage", "markdown proof pack"],
+  "required_fields": ["objective", "scope", "success_criteria", "output_contract"],
+  "constraint_terms": ["source hash lineage"],
+  "required_transform_targets": ["markdown_plan"],
+  "trust_field_statuses": {},
+  "expect_human_review": false,
+  "minimum_readiness": "pass"
+}

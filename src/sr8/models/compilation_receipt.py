@@ -16,6 +16,8 @@ class CompilationReceiptRecord(SR8Model):
     target_class: str
     created_at: datetime = Field(default_factory=utc_now)
     extracted_dimensions_summary: dict[str, object] = Field(default_factory=dict)
+    extraction_trust_summary: dict[str, object] = Field(default_factory=dict)
+    lineage_summary: dict[str, object] = Field(default_factory=dict)
     validation_summary: str
     warnings: list[str] = Field(default_factory=list)
     output_path: str

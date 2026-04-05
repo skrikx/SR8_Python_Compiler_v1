@@ -1,0 +1,23 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: repo-audit
+        name: repo-audit
+        entry: python scripts/cleanup/repo_audit.py --check
+        language: system
+        pass_filenames: false
+      - id: repo-layout
+        name: repo-layout
+        entry: python scripts/cleanup/check_repo_layout.py
+        language: system
+        pass_filenames: false

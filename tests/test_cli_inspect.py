@@ -19,3 +19,5 @@ def test_cli_inspect_artifact_path(tmp_path: Path) -> None:
     assert output.exit_code == 0
     assert "Artifact ID:" in output.stdout
     assert "Profile:" in output.stdout
+    assert "Source Hash:" in output.stdout
+    assert "Extraction Trust:" in output.stdout

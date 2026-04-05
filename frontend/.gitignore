@@ -1,0 +1,5 @@
+node_modules/
+.npm-cache/
+.svelte-kit/
+build/
+dist/

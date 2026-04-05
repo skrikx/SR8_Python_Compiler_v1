@@ -1,0 +1,8 @@
+{
+  "source_terms": ["release proof pack", "local-first", "release notes"],
+  "required_fields": ["objective", "scope", "constraints", "success_criteria", "output_contract"],
+  "constraint_terms": ["local-first", "source hash lineage"],
+  "trust_field_statuses": {},
+  "expect_human_review": false,
+  "minimum_readiness": "pass"
+}

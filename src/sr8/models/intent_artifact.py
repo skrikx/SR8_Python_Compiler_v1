@@ -34,6 +34,7 @@ class IntentArtifact(SR8Model):
     scope: list[str] = Field(default_factory=list)
     exclusions: list[str] = Field(default_factory=list)
     constraints: list[str] = Field(default_factory=list)
+    context_package: list[str] = Field(default_factory=list)
     target_class: str = ""
     authority_context: str = ""
     dependencies: list[str] = Field(default_factory=list)

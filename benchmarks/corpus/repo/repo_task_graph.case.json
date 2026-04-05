@@ -1,0 +1,10 @@
+{
+  "case_id": "repo_task_graph",
+  "suite": "repo",
+  "name": "Repo benchmark lane to code task graph",
+  "description": "Engineering intent compiled into the code task graph target class.",
+  "source_path": "benchmarks/corpus/repo/repo_task_graph_request.md",
+  "profile": "code_task_graph",
+  "transform_targets": ["markdown_plan", "markdown_prompt_pack"],
+  "tags": ["repo", "engineering", "task-graph"]
+}

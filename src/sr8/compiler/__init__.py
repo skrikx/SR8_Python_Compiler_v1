@@ -5,7 +5,9 @@ from sr8.compiler.compile import (
     load_source,
     normalize_source,
 )
-from sr8.compiler.types import CompilationResult, CompileConfig
+from sr8.compiler.recompile import recompile_artifact
+from sr8.compiler.types import CompilationResult
+from sr8.models.compile_config import CompileConfig
 
 __all__ = [
     "CompilationResult",
@@ -15,4 +17,5 @@ __all__ = [
     "extract_dimensions",
     "load_source",
     "normalize_source",
+    "recompile_artifact",
 ]

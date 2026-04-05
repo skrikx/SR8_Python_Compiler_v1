@@ -5,6 +5,7 @@ import json
 from sr8.models.artifact_record import ArtifactRecord
 from sr8.models.derivative_artifact import DerivativeArtifact
 from sr8.models.intent_artifact import IntentArtifact
+from sr8.storage.atomic import atomic_write_text, file_lock
 from sr8.storage.workspace import SR8Workspace
 
 
@@ -28,9 +29,10 @@ def load_records(workspace: SR8Workspace) -> list[ArtifactRecord]:
 
 def save_records(workspace: SR8Workspace, records: list[ArtifactRecord]) -> None:
     payload = {"records": [record.model_dump(mode="json") for record in records]}
-    workspace.catalog_path.write_text(
+    atomic_write_text(
+        workspace.catalog_path,
         json.dumps(payload, indent=2, sort_keys=True),
-        encoding="utf-8",
+        workspace.tmp_dir,
     )
 
 
@@ -46,13 +48,15 @@ def _next_record_id(records: list[ArtifactRecord], kind: str) -> str:
 
 
 def add_record(workspace: SR8Workspace, record: ArtifactRecord) -> ArtifactRecord:
-    records = load_records(workspace)
-    assigned = record.model_copy(
-        update={"record_id": _next_record_id(records, record.artifact_kind)}
-    )
-    records.append(assigned)
-    save_records(workspace, records)
-    return assigned
+    workspace.initialize()
+    with file_lock(workspace.catalog_lock_path):
+        records = load_records(workspace)
+        assigned = record.model_copy(
+            update={"record_id": _next_record_id(records, record.artifact_kind)}
+        )
+        records.append(assigned)
+        save_records(workspace, records)
+        return assigned
 
 
 def query_records(
@@ -113,7 +117,7 @@ def rebuild_index(workspace: SR8Workspace) -> list[ArtifactRecord]:
                 artifact_id=derivative.derivative_id,
                 artifact_kind="derivative",
                 profile=derivative.profile,
-                target_class=derivative.profile,
+                target_class=None,
                 transform_target=derivative.transform_target,
                 source_hash=derivative.lineage.parent_source_hash,
                 created_at=derivative.created_at,
@@ -128,5 +132,6 @@ def rebuild_index(workspace: SR8Workspace) -> list[ArtifactRecord]:
         records.append(
             record.model_copy(update={"record_id": _next_record_id(records, record.artifact_kind)})
         )
-    save_records(workspace, records)
+    with file_lock(workspace.catalog_lock_path):
+        save_records(workspace, records)
     return records

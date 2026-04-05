@@ -1,0 +1,40 @@
+{
+  "artifact_id": "art_01cc8a598120973536a4",
+  "compiler_version": "1.2.0",
+  "created_at": "2026-03-21T20:55:43.430702Z",
+  "extracted_dimensions_summary": {
+    "constraints_count": 2,
+    "objective": "Produce a product requirement artifact for onboarding improvements that reduce first-session drop-off for new users.",
+    "scope_count": 4,
+    "success_criteria_count": 2
+  },
+  "extraction_trust_summary": {
+    "adapter_name": "rule_based",
+    "low_confidence_fields": [
+      "context_package"
+    ],
+    "status_counts": {
+      "empty": 1,
+      "explicit": 10,
+      "inferred": 1
+    }
+  },
+  "lineage_summary": {
+    "compile_run_id": "run_a6a874e0224dc47fc16d",
+    "parent_artifact_count": 0,
+    "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
+    "steps": [
+      "ingest",
+      "normalize",
+      "extract",
+      "assemble"
+    ]
+  },
+  "output_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\.sr8\\artifacts\\canonical\\art_01cc8a598120973536a4.json",
+  "profile": "prd",
+  "receipt_id": "crpt_cf6e0bb4a42e06e1e59b",
+  "source_hash": "f7439100a2e4a7ff4e8068e073e64d98a0633039dc1e4382f27e26ab04940593",
+  "target_class": "prd",
+  "validation_summary": "Validation pass: 0 error(s), 0 warning(s).",
+  "warnings": []
+}

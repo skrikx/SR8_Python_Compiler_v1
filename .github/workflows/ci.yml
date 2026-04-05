@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - "release/**"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -35,7 +36,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        python-version: ["3.12", "3.13"]
+        python-version: ["3.11", "3.12", "3.13"]
     uses: ./.github/workflows/reusable-test.yml
     with:
       python-version: ${{ matrix.python-version }}
@@ -50,9 +51,24 @@ jobs:
       python-version: "3.12"
       run-examples-smoke: true
 
+  docs-check:
+    name: docs-check
+    needs: [lint, typecheck]
+    uses: ./.github/workflows/docs-check.yml
+
+  hygiene:
+    name: hygiene
+    needs: [lint, typecheck]
+    uses: ./.github/workflows/hygiene.yml
+
+  frontend-ci:
+    name: frontend-ci
+    needs: [lint, typecheck]
+    uses: ./.github/workflows/frontend-ci.yml
+
   package-build-smoke:
     name: package-build-smoke
-    needs: [tests, examples-smoke]
+    needs: [tests, examples-smoke, docs-check, hygiene, frontend-ci]
     uses: ./.github/workflows/reusable-build.yml
     with:
       python-version: "3.12"

@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sr8"
-version = "1.0.0"
+version = "1.2.4"
 description = "SR8 local-first intent compiler"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 license = "MIT"
 authors = [
   { name = "SR8 Engineering" }
@@ -18,25 +18,30 @@ classifiers = [
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Compilers",
   "Topic :: Software Development :: Libraries"
 ]
 dependencies = [
+  "boto3>=1.35,<2.0",
   "build>=1.2,<2.0",
   "fastapi>=0.115,<1.0",
   "httpx>=0.27,<1.0",
   "pydantic>=2.7,<3.0",
+  "pydantic-settings>=2.4,<3.0",
   "PyYAML>=6.0,<7.0",
   "typer>=0.12,<1.0",
   "uvicorn>=0.30,<1.0"
 ]
 
 [project.urls]
-Homepage = "https://example.com/sr8"
-Documentation = "https://example.com/sr8/docs"
-Changelog = "https://example.com/sr8/changelog"
+Homepage = "https://github.com/skrikx/SR8_Python_Compiler_v1"
+Documentation = "https://github.com/skrikx/SR8_Python_Compiler_v1/blob/main/docs/index.md"
+Changelog = "https://github.com/skrikx/SR8_Python_Compiler_v1/blob/main/CHANGELOG.md"
+Issues = "https://github.com/skrikx/SR8_Python_Compiler_v1/issues"
+Repository = "https://github.com/skrikx/SR8_Python_Compiler_v1"
 
 [project.optional-dependencies]
 dev = [
@@ -54,16 +59,37 @@ addopts = "-q"
 testpaths = ["tests"]
 pythonpath = ["src"]
 
+[tool.hatch.build]
+exclude = [
+  "/.codex",
+  "/.venv",
+  "/.mypy_cache",
+  "/.pytest_cache",
+  "/.ruff_cache",
+  "/.sr8",
+  "/build",
+  "/dist",
+  "/frontend/node_modules",
+  "/frontend/.npm-cache",
+  "/frontend/.svelte-kit",
+  "/SR8_Compiler_v1_Workflows.zip",
+  "/SR8_updated_zip_audit.md",
+  "/sr8_v1_compiler_first_run.txt",
+  "/examples/outputs/art_*.json",
+  "/examples/outputs/latest.json",
+  "/examples/outputs/latest.md",
+]
+
 [tool.ruff]
 line-length = 100
-target-version = "py312"
+target-version = "py311"
 src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.11"
 files = ["src"]
 disallow_untyped_defs = true
 check_untyped_defs = true
@@ -76,4 +102,8 @@ pretty = true
 
 [[tool.mypy.overrides]]
 module = ["yaml"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["boto3", "botocore", "botocore.*"]
 ignore_missing_imports = true

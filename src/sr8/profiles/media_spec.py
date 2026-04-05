@@ -54,6 +54,11 @@ MEDIA_SPEC_PROFILE = ProfileDefinition(
             check=_has_style_requirements,
         ),
     ),
-    supported_transform_targets=("markdown_prompt_pack",),
+    supported_transform_targets=(
+        "markdown_prompt_pack",
+        "xml_promptunit_package",
+        "xml_sr8_prompt",
+        "xml_safe_alternative_package",
+    ),
     section_order_hints=("objective", "scope", "constraints", "output_contract"),
 )

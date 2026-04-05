@@ -5,7 +5,7 @@ This guide covers clean-machine setup, development workflow, extension authoring
 
 ## Prerequisites
 
-- Python 3.12 or newer
+- Python 3.11 or newer
 - Git
 
 ## Local Setup

@@ -9,6 +9,7 @@ from sr8.profiles.registry import get_profile
 from sr8.transform.registry import get_transform_target
 from sr8.transform.types import TransformResult
 from sr8.utils.hash import stable_text_hash
+from sr8.utils.paths import resolve_trusted_local_path
 
 
 def _build_derivative_id(parent_artifact_id: str, target: str, content: str) -> str:
@@ -34,6 +35,7 @@ def transform_artifact(artifact: IntentArtifact, target: str) -> TransformResult
         raise ValueError(msg)
 
     rendered_content = spec.renderer(artifact)
+    output_format = "xml" if target.startswith("xml_") else "markdown"
     derivative_id = _build_derivative_id(artifact.artifact_id, target, rendered_content)
     derivative = DerivativeArtifact(
         derivative_id=derivative_id,
@@ -52,6 +54,7 @@ def transform_artifact(artifact: IntentArtifact, target: str) -> TransformResult
             "renderer_version": "w04.v1",
             "transform_target": target,
             "parent_profile": artifact.profile,
+            "output_format": output_format,
         },
     )
     return TransformResult(derivative=derivative, target=spec)
@@ -70,10 +73,12 @@ def write_derivative(
     derivative: DerivativeArtifact,
     out_dir: str | Path,
 ) -> tuple[Path, Path]:
-    output_dir = Path(out_dir)
+    output_dir = resolve_trusted_local_path(out_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    derivative_path = output_dir / f"{derivative.derivative_id}.md"
-    latest_path = output_dir / "latest_transform.md"
+    output_format = str(derivative.metadata.get("output_format") or "markdown")
+    extension = ".xml" if output_format == "xml" else ".md"
+    derivative_path = output_dir / f"{derivative.derivative_id}{extension}"
+    latest_path = output_dir / f"latest_transform{extension}"
     derivative_path.write_text(derivative.content, encoding="utf-8")
     latest_path.write_text(derivative.content, encoding="utf-8")
     return derivative_path, latest_path

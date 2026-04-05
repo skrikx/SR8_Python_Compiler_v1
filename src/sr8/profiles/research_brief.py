@@ -54,6 +54,12 @@ RESEARCH_BRIEF_PROFILE = ProfileDefinition(
             check=_has_report_structure,
         ),
     ),
-    supported_transform_targets=("markdown_research_brief", "markdown_plan"),
+    supported_transform_targets=(
+        "markdown_research_brief",
+        "markdown_plan",
+        "xml_promptunit_package",
+        "xml_sr8_prompt",
+        "xml_safe_alternative_package",
+    ),
     section_order_hints=("objective", "constraints", "success_criteria", "output_contract"),
 )

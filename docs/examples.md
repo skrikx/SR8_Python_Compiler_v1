@@ -18,6 +18,10 @@ SR8 includes runnable examples in `examples/`.
 - `examples/outputs/diff_summary.txt`
 - `examples/outputs/lint_report.txt`
 
+These checked-in outputs are curated examples. Transient `art_*.json` and `latest.*` files are rebuildable local outputs and are not part of the intended public release surface.
+
+Top-level `artifacts/` and `receipts/` directories are local placeholder directories. Public examples live under `examples/outputs/`.
+
 ## Rebuild Example Outputs
 
 ```bash
