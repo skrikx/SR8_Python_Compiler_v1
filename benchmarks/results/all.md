@@ -1,7 +1,7 @@
 # Benchmark Report: all
 
-- Run ID: `bench_a572baabf08a`
-- Compiler Version: `1.2.0`
+- Run ID: `bench_f0d57368bf4b`
+- Compiler Version: `1.2.4`
 - Rubric: `wf12.default`
 - Total Cases: 9
 - Passed Cases: 8

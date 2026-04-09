@@ -31,5 +31,7 @@
       {/if}
     </form>
   </TransformRunner>
-  <DerivativePreview content={form?.result?.content ?? 'Run a transform to preview derivative content.'} />
+  <DerivativePreview
+    content={form?.result?.payload?.content ?? 'Run a transform to preview derivative content.'}
+  />
 </div>

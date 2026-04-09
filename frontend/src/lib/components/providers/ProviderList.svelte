@@ -21,6 +21,9 @@
           <div class="mt-3 text-sm text-ink-700">
             Capabilities: {provider.capabilities.join(', ')}
           </div>
+          <div class="mt-2 text-xs text-ink-500">
+            Transport: {provider.runtime_transport} | Model env: {provider.default_model_env_var ?? 'n/a'}
+          </div>
         </div>
       {/each}
     </div>

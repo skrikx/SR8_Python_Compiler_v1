@@ -1,11 +1,11 @@
 {
-  "artifact_id": "art_f62c7dbfab5eade63167",
+  "artifact_id": "art_197ec222e3a2f0b97ff3",
   "artifact_version": "1.0.0",
   "assumptions": [
     "Audience is technical research leads"
   ],
   "authority_context": "cto",
-  "compiler_version": "1.2.0",
+  "compiler_version": "1.2.4",
   "constraints": [
     "Cite only auditable local artifacts"
   ],
@@ -13,7 +13,7 @@
     "Architecture notes",
     "Workflow receipts"
   ],
-  "created_at": "2026-03-20T03:31:50.857661Z",
+  "created_at": "2026-04-05T10:21:35.511131Z",
   "dependencies": [
     "Existing benchmark corpus"
   ],
@@ -27,27 +27,27 @@
     "compile_run_id": "run_fff0f268ec3278b31c90",
     "parent_artifact_ids": [],
     "parent_source_hash": null,
-    "pipeline_version": "1.2.0",
+    "pipeline_version": "1.2.4",
     "source_hash": "1afcef2ce31f59ea0e8a2748577ac2ad2bc17ad79d945a20d6e9df5d8d60cc1b",
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-20T03:31:50.857661Z",
+        "occurred_at": "2026-04-05T10:21:35.511131Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-20T03:31:50.857661Z",
+        "occurred_at": "2026-04-05T10:21:35.511131Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-20T03:31:50.857661Z",
+        "occurred_at": "2026-04-05T10:21:35.511131Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_f62c7dbfab5eade63167",
-        "occurred_at": "2026-03-20T03:31:50.857661Z",
+        "detail": "Assembled artifact_id=art_197ec222e3a2f0b97ff3",
+        "occurred_at": "2026-04-05T10:21:35.511131Z",
         "stage": "assemble"
       }
     ]
@@ -140,13 +140,15 @@
           "notes": "",
           "status": "explicit"
         }
-      ]
+      ],
+      "metadata": {}
     },
     "extraction_trust_summary": {
       "adapter_name": "rule_based",
       "low_confidence_fields": [
         "exclusions"
       ],
+      "provider": null,
       "status_counts": {
         "empty": 1,
         "explicit": 9,
@@ -155,6 +157,7 @@
     },
     "normalized_char_count": 627,
     "pipeline_mode": "rule-first",
+    "provider_assist": {},
     "source_metadata": {
       "detected_source_type": "markdown",
       "normalization": "whitespace+wrapper-clean",
@@ -188,9 +191,9 @@
   "target_class": "whitepaper_outline",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-20T03:31:50.857661Z",
+    "generated_at": "2026-04-05T10:21:35.512131Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_d699ad07b2bbba3dee32",
+    "report_id": "rcpt_1c441f2f19360e30e642",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

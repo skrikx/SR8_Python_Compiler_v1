@@ -12,6 +12,7 @@ class DiffFieldChange(SR8Model):
     field: str
     change_class: Literal["added", "removed", "modified", "unchanged"]
     impact: Literal["low", "medium", "high"]
+    semantic_class: Literal["breaking", "additive", "editorial", "unchanged"] = "unchanged"
     left: object | None = None
     right: object | None = None
     note: str = ""

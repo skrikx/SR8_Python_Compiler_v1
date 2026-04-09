@@ -32,5 +32,5 @@
 </div>
 
 <div class="mt-5">
-  <BenchmarkScoreTable report={form?.result ?? null} />
+  <BenchmarkScoreTable report={form?.result?.payload ?? null} />
 </div>

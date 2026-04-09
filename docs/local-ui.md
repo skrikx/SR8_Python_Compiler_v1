@@ -31,6 +31,20 @@ The UI keeps weak states visible:
 - lineage
 - receipt summaries
 - provider readiness
+- route exposure and path policy
+- async compile job state and replay keys when used
+
+## Operator Paths
+
+The artifact detail route now acts as the inspect surface for local operators. It loads the indexed artifact, shows lineage and receipt metadata, and re-runs validation for canonical artifacts so readiness remains visible without guessing.
+
+The compile route exposes backend-owned trust state directly:
+
+- route contract
+- request identity mode
+- assist-extract status
+- weak-intent recovery guidance
+- async job identifiers when compile is queued
 
 ## Frontend CI
 

@@ -1,11 +1,11 @@
 {
-  "artifact_id": "art_9df02ab8432e89fdc73a",
+  "artifact_id": "art_dd13818236e425f6eb12",
   "artifact_version": "1.0.0",
   "assumptions": [
     "Local filesystem only"
   ],
   "authority_context": "cto",
-  "compiler_version": "1.2.0",
+  "compiler_version": "1.2.4",
   "constraints": [
     "Keep CLI stable",
     "Do not add network services"
@@ -14,7 +14,7 @@
     "Current CLI commands",
     "Existing receipt persistence tests"
   ],
-  "created_at": "2026-03-20T03:31:50.850660Z",
+  "created_at": "2026-04-05T10:21:35.501127Z",
   "dependencies": [
     "Typer app wiring",
     "pytest coverage"
@@ -29,27 +29,27 @@
     "compile_run_id": "run_b360c82b54a4ed0e9b8b",
     "parent_artifact_ids": [],
     "parent_source_hash": null,
-    "pipeline_version": "1.2.0",
+    "pipeline_version": "1.2.4",
     "source_hash": "4ba4827c5ff7e710deb3a2cbbc20b078243626ca4494774272fd64109f88a891",
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-20T03:31:50.850660Z",
+        "occurred_at": "2026-04-05T10:21:35.501127Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-20T03:31:50.850660Z",
+        "occurred_at": "2026-04-05T10:21:35.501127Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-20T03:31:50.850660Z",
+        "occurred_at": "2026-04-05T10:21:35.501127Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_9df02ab8432e89fdc73a",
-        "occurred_at": "2026-03-20T03:31:50.850660Z",
+        "detail": "Assembled artifact_id=art_dd13818236e425f6eb12",
+        "occurred_at": "2026-04-05T10:21:35.501127Z",
         "stage": "assemble"
       }
     ]
@@ -142,13 +142,15 @@
           "notes": "",
           "status": "explicit"
         }
-      ]
+      ],
+      "metadata": {}
     },
     "extraction_trust_summary": {
       "adapter_name": "rule_based",
       "low_confidence_fields": [
         "exclusions"
       ],
+      "provider": null,
       "status_counts": {
         "empty": 1,
         "explicit": 10,
@@ -157,6 +159,7 @@
     },
     "normalized_char_count": 579,
     "pipeline_mode": "rule-first",
+    "provider_assist": {},
     "source_metadata": {
       "detected_source_type": "markdown",
       "normalization": "whitespace+wrapper-clean",
@@ -190,9 +193,9 @@
   "target_class": "code_task_graph",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-20T03:31:50.850660Z",
+    "generated_at": "2026-04-05T10:21:35.501127Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_57ae41233abda3d19f42",
+    "report_id": "rcpt_d88a07f8ec9d41730676",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

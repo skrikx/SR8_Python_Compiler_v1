@@ -12,6 +12,8 @@ class CompilationReceipt(SR8Model):
     receipt_id: str
     artifact_id: str
     source_hash: str
+    compile_run_id: str = ""
     status: Literal["accepted", "rejected"] = "accepted"
     notes: list[str] = Field(default_factory=list)
+    parent_artifact_ids: list[str] = Field(default_factory=list)
     compiled_at: datetime = Field(default_factory=utc_now)

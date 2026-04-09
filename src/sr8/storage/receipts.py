@@ -31,6 +31,7 @@ def write_compilation_receipt(
         artifact_id=artifact.artifact_id,
         compiler_version=artifact.compiler_version,
         source_hash=artifact.source.source_hash,
+        compile_run_id=artifact.lineage.compile_run_id,
         profile=artifact.profile,
         target_class=artifact.target_class,
         extracted_dimensions_summary={
@@ -42,9 +43,14 @@ def write_compilation_receipt(
         extraction_trust_summary=summarize_extraction_trace(
             cast(Mapping[str, object] | None, artifact.metadata.get("extraction_trace"))
         ),
+        recovery_summary=cast(
+            dict[str, object],
+            artifact.metadata.get("weak_intent_recovery", {}),
+        ),
         lineage_summary={
             "compile_run_id": artifact.lineage.compile_run_id,
             "source_hash": artifact.lineage.source_hash,
+            "parent_compile_run_id": artifact.lineage.parent_compile_run_id,
             "parent_artifact_count": len(artifact.lineage.parent_artifact_ids),
             "steps": [step.stage for step in artifact.lineage.steps],
         },
@@ -70,6 +76,8 @@ def write_transform_receipt(
         derivative_id=derivative.derivative_id,
         transform_target=derivative.transform_target,
         profile=derivative.profile,
+        parent_source_hash=derivative.lineage.parent_source_hash,
+        parent_compile_run_id=derivative.lineage.parent_compile_run_id,
         renderer_version=renderer_version,
         output_path=output_path,
     )

@@ -12,9 +12,9 @@ export async function load({ fetch }) {
   return {
     status: status.ok ? status.data : null,
     statusError: status.ok ? '' : status.error ?? 'SR8 API unavailable',
-    settings: settings.ok ? settings.data : null,
+    settings: settings.ok ? settings.data?.settings ?? null : null,
     settingsError: settings.ok ? '' : settings.error ?? '',
-    providers: providers.ok ? providers.data : [],
+    providers: providers.ok ? providers.data?.providers ?? [] : [],
     providersError: providers.ok ? '' : providers.error ?? ''
   };
 }

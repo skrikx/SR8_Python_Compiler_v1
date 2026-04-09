@@ -1,11 +1,11 @@
 {
-  "artifact_id": "art_848f90d9d277cf6f9a6b",
+  "artifact_id": "art_42b9381e78f51c2c7a3d",
   "artifact_version": "1.0.0",
   "assumptions": [
     "Pilot cohort stays under 50 sites"
   ],
   "authority_context": "founder sponsor",
-  "compiler_version": "1.2.0",
+  "compiler_version": "1.2.4",
   "constraints": [
     "Ship in 6 weeks",
     "Keep local-first data export"
@@ -14,7 +14,7 @@
     "Interview notes from field ops teams",
     "Pilot support ticket digest"
   ],
-  "created_at": "2026-03-20T03:31:50.833664Z",
+  "created_at": "2026-04-05T10:21:35.445998Z",
   "dependencies": [
     "Existing auth service",
     "Device enrollment API"
@@ -31,27 +31,27 @@
     "compile_run_id": "run_baf78042fa35a37a326e",
     "parent_artifact_ids": [],
     "parent_source_hash": null,
-    "pipeline_version": "1.2.0",
+    "pipeline_version": "1.2.4",
     "source_hash": "b935bde0075a71e3e6b4ec09e2322c67241049697cffbc1674c21c480c9b76b6",
     "steps": [
       {
         "detail": "Loaded source_type=markdown",
-        "occurred_at": "2026-03-20T03:31:50.833664Z",
+        "occurred_at": "2026-04-05T10:21:35.445998Z",
         "stage": "ingest"
       },
       {
         "detail": "Normalized whitespace and wrappers",
-        "occurred_at": "2026-03-20T03:31:50.833664Z",
+        "occurred_at": "2026-04-05T10:21:35.445998Z",
         "stage": "normalize"
       },
       {
         "detail": "Applied rule-first extraction",
-        "occurred_at": "2026-03-20T03:31:50.833664Z",
+        "occurred_at": "2026-04-05T10:21:35.445998Z",
         "stage": "extract"
       },
       {
-        "detail": "Assembled artifact_id=art_848f90d9d277cf6f9a6b",
-        "occurred_at": "2026-03-20T03:31:50.833664Z",
+        "detail": "Assembled artifact_id=art_42b9381e78f51c2c7a3d",
+        "occurred_at": "2026-04-05T10:21:35.445998Z",
         "stage": "assemble"
       }
     ]
@@ -144,11 +144,13 @@
           "notes": "",
           "status": "explicit"
         }
-      ]
+      ],
+      "metadata": {}
     },
     "extraction_trust_summary": {
       "adapter_name": "rule_based",
       "low_confidence_fields": [],
+      "provider": null,
       "status_counts": {
         "explicit": 11,
         "inferred": 1
@@ -156,6 +158,7 @@
     },
     "normalized_char_count": 755,
     "pipeline_mode": "rule-first",
+    "provider_assist": {},
     "source_metadata": {
       "detected_source_type": "markdown",
       "normalization": "whitespace+wrapper-clean",
@@ -190,9 +193,9 @@
   "target_class": "prd",
   "validation": {
     "errors": [],
-    "generated_at": "2026-03-20T03:31:50.833664Z",
+    "generated_at": "2026-04-05T10:21:35.450027Z",
     "readiness_status": "pass",
-    "report_id": "rcpt_9cd180987a27590ebf07",
+    "report_id": "rcpt_41c79bda1f9ca998fdd3",
     "summary": "Validation pass: 0 error(s), 0 warning(s).",
     "warnings": []
   }

@@ -42,8 +42,8 @@ def test_runtime_break_regressions_close_together(tmp_path: Path, monkeypatch) -
     probe_response = client.get("/providers/probe", params={"provider": "aws_bedrock"})
     assert probe_response.status_code == 200
     probe_payload = probe_response.json()
-    assert probe_payload["ready_for_runtime"] is False
-    assert probe_payload["available"] is False
+    assert probe_payload["result"]["ready_for_runtime"] is False
+    assert probe_payload["result"]["available"] is False
 
     catalog_payload = json.loads(workspace.catalog_path.read_text(encoding="utf-8"))
     assert len(catalog_payload["records"]) == 2

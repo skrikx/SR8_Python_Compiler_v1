@@ -44,5 +44,7 @@ SR8_API_BASE_URL=http://127.0.0.1:8000
 ## Contract
 
 - The frontend fetches backend data through `src/lib/api/client.ts`.
-- Server load functions use the backend directly and do not duplicate compiler logic.
+- Server load functions use the backend directly and unwrap the exact API envelopes they depend on.
 - Empty or unavailable backend states remain visible instead of being replaced with fake data.
+- Compile, lint, diff, transform, settings, provider probe, and benchmark views all respect route-contract envelopes instead of assuming flat payloads.
+- The artifact detail view is the trusted-local inspect surface and refreshes canonical validation on load.

@@ -5,7 +5,7 @@ from sr8.models.compile_config import CompileConfig
 from sr8.models.intent_artifact import IntentArtifact
 from sr8.models.lineage import LineageStep
 from sr8.profiles.registry import apply_profile_overlay
-from sr8.utils.ids import build_artifact_id, build_compile_run_id
+from sr8.utils.ids import build_compile_run_id, build_recompile_artifact_id
 from sr8.validate.engine import validate_artifact
 
 
@@ -16,16 +16,24 @@ def recompile_artifact(
 ) -> IntentArtifact:
     active_config = config or CompileConfig()
     effective_profile = profile or active_config.profile or artifact.profile
-    rebuilt_id = build_artifact_id(
+    rebuilt_id = build_recompile_artifact_id(
+        parent_artifact_id=artifact.artifact_id,
         source_hash=artifact.source.source_hash,
         artifact_version=active_config.artifact_version,
         compiler_version=active_config.compiler_version,
+        profile=effective_profile,
     )
     lineage = artifact.lineage.model_copy(
         update={
-            "compile_run_id": build_compile_run_id(artifact.source.source_hash),
+            "compile_run_id": build_compile_run_id(
+                artifact.source.source_hash,
+                stage="recompile",
+                parent_artifact_id=artifact.artifact_id,
+            ),
             "pipeline_version": active_config.compiler_version,
             "source_hash": artifact.source.source_hash,
+            "parent_source_hash": artifact.lineage.source_hash,
+            "parent_compile_run_id": artifact.lineage.compile_run_id,
             "parent_artifact_ids": [*artifact.lineage.parent_artifact_ids, artifact.artifact_id],
             "steps": [
                 *artifact.lineage.steps,
@@ -42,9 +50,14 @@ def recompile_artifact(
             "artifact_id": rebuilt_id,
             "artifact_version": active_config.artifact_version,
             "compiler_version": active_config.compiler_version,
+            "profile": effective_profile,
             "created_at": utc_now(),
             "lineage": lineage,
-            "metadata": artifact.metadata | {"recompiled_from": artifact.artifact_id},
+            "metadata": artifact.metadata
+            | {
+                "recompiled_from": artifact.artifact_id,
+                "recompile_parent_compile_run_id": artifact.lineage.compile_run_id,
+            },
         }
     )
     profiled = apply_profile_overlay(rebuilt, effective_profile)

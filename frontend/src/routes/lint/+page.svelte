@@ -21,6 +21,5 @@
       {/if}
     </div>
   </form>
-  <LintReportPanel report={form?.result ?? null} />
+  <LintReportPanel report={form?.result?.payload ?? null} />
 </div>
-

@@ -10,7 +10,12 @@ from sr8.adapters.errors import (
     ProviderNormalizationError,
     ProviderNotConfiguredError,
 )
-from sr8.adapters.types import ProviderProbeResult, ProviderRequest, ProviderResponse
+from sr8.adapters.types import (
+    ProviderProbeResult,
+    ProviderProbeStatus,
+    ProviderRequest,
+    ProviderResponse,
+)
 from sr8.config.provider_settings import AWSBedrockProviderSettings
 
 
@@ -18,6 +23,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
     name = "aws_bedrock"
     label = "AWS Bedrock"
     required_env_vars = ("SR8_AWS_BEDROCK_REGION", "SR8_AWS_BEDROCK_MODEL")
+    default_model_env_var = "SR8_AWS_BEDROCK_MODEL"
+    runtime_transport = "sdk"
     supports_live_inference = True
 
     def __init__(self, settings: AWSBedrockProviderSettings) -> None:
@@ -29,6 +36,7 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
         if missing:
             return ProviderProbeResult(
                 provider=self.name,
+                status="missing_config",
                 configured=False,
                 subscribed_or_accessible=None,
                 capable=True,
@@ -36,6 +44,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                 ready_for_runtime=False,
                 available=False,
                 supports_live_inference=self.supports_live_inference,
+                configured_model=self.settings.model,
+                requires_live_probe=False,
                 missing_env_vars=missing,
                 detail="Missing required Bedrock region or model configuration.",
                 capabilities=list(self.capabilities),
@@ -46,6 +56,7 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
         except ProviderNotConfiguredError as exc:
             return ProviderProbeResult(
                 provider=self.name,
+                status="missing_config",
                 configured=False,
                 subscribed_or_accessible=None,
                 capable=True,
@@ -53,6 +64,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                 ready_for_runtime=False,
                 available=False,
                 supports_live_inference=self.supports_live_inference,
+                configured_model=self.settings.model,
+                requires_live_probe=False,
                 missing_env_vars=[],
                 detail=str(exc),
                 capabilities=list(self.capabilities),
@@ -60,6 +73,7 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
         except ProviderExecutionError as exc:
             return ProviderProbeResult(
                 provider=self.name,
+                status="degraded",
                 configured=False,
                 subscribed_or_accessible=None,
                 capable=True,
@@ -67,6 +81,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                 ready_for_runtime=False,
                 available=False,
                 supports_live_inference=self.supports_live_inference,
+                configured_model=self.settings.model,
+                requires_live_probe=False,
                 missing_env_vars=[],
                 detail=str(exc),
                 capabilities=list(self.capabilities),
@@ -76,6 +92,7 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
         if not configured:
             return ProviderProbeResult(
                 provider=self.name,
+                status="missing_config",
                 configured=False,
                 subscribed_or_accessible=None,
                 capable=True,
@@ -83,6 +100,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                 ready_for_runtime=False,
                 available=False,
                 supports_live_inference=self.supports_live_inference,
+                configured_model=self.settings.model,
+                requires_live_probe=False,
                 missing_env_vars=[],
                 detail=(
                     "AWS credentials could not be resolved. Use the standard boto3 credential "
@@ -95,9 +114,10 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
             control_client = self._create_client(session, "bedrock", self.settings.timeout_seconds)
             control_client.get_foundation_model(modelIdentifier=str(self.settings.model))
         except Exception as exc:
-            subscribed_or_accessible, detail = self._probe_detail_from_exception(exc)
+            subscribed_or_accessible, detail, status = self._probe_detail_from_exception(exc)
             return ProviderProbeResult(
                 provider=self.name,
+                status=status,
                 configured=True,
                 subscribed_or_accessible=subscribed_or_accessible,
                 capable=True,
@@ -105,6 +125,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                 ready_for_runtime=False,
                 available=False,
                 supports_live_inference=self.supports_live_inference,
+                configured_model=self.settings.model,
+                requires_live_probe=False,
                 missing_env_vars=[],
                 detail=detail,
                 capabilities=list(self.capabilities),
@@ -113,6 +135,7 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
         if not self.settings.probe_runtime:
             return ProviderProbeResult(
                 provider=self.name,
+                status="bounded",
                 configured=True,
                 subscribed_or_accessible=True,
                 capable=True,
@@ -120,6 +143,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                 ready_for_runtime=False,
                 available=False,
                 supports_live_inference=self.supports_live_inference,
+                configured_model=self.settings.model,
+                requires_live_probe=True,
                 missing_env_vars=[],
                 detail=(
                     "Configured and model access appears available. Set "
@@ -136,9 +161,10 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
             )
             response = runtime_client.converse(**self._build_probe_payload())
         except Exception as exc:
-            subscribed_or_accessible, detail = self._probe_detail_from_exception(exc)
+            subscribed_or_accessible, detail, status = self._probe_detail_from_exception(exc)
             return ProviderProbeResult(
                 provider=self.name,
+                status=status,
                 configured=True,
                 subscribed_or_accessible=subscribed_or_accessible,
                 capable=True,
@@ -146,6 +172,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                 ready_for_runtime=False,
                 available=False,
                 supports_live_inference=self.supports_live_inference,
+                configured_model=self.settings.model,
+                requires_live_probe=True,
                 missing_env_vars=[],
                 detail=detail,
                 capabilities=list(self.capabilities),
@@ -154,6 +182,7 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
         normalized = self.normalize_response(cast(Mapping[str, object], response))
         return ProviderProbeResult(
             provider=self.name,
+            status="ready",
             configured=True,
             subscribed_or_accessible=True,
             capable=True,
@@ -161,6 +190,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
             ready_for_runtime=True,
             available=True,
             supports_live_inference=self.supports_live_inference,
+            configured_model=self.settings.model,
+            requires_live_probe=False,
             missing_env_vars=[],
             detail=f"Live runtime smoke succeeded with model '{normalized.model}'.",
             capabilities=list(self.capabilities),
@@ -347,7 +378,10 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
             )
         )
 
-    def _probe_detail_from_exception(self, exc: Exception) -> tuple[bool | None, str]:
+    def _probe_detail_from_exception(
+        self,
+        exc: Exception,
+    ) -> tuple[bool | None, str, ProviderProbeStatus]:
         code = self._error_code(exc)
         if code in {"AccessDeniedException", "NotAuthorized"}:
             return (
@@ -356,6 +390,7 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                     "AWS credentials resolved, but Bedrock model access was denied. Check IAM "
                     "permissions, model access, and any Marketplace prerequisites."
                 ),
+                "degraded",
             )
         if code in {"ValidationException", "ResourceNotFoundException"}:
             return (
@@ -364,13 +399,15 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
                     "Bedrock rejected the configured model or runtime shape. Verify the model ID "
                     "and that the target supports Converse."
                 ),
+                "degraded",
             )
         if code in {"ThrottlingException", "ModelNotReadyException"}:
             return (
                 None,
                 f"Bedrock runtime is reachable but not yet ready: {self._error_message(exc)}",
+                "bounded",
             )
-        return (None, f"Bedrock probe failed: {self._error_message(exc)}")
+        return (None, f"Bedrock probe failed: {self._error_message(exc)}", "degraded")
 
     def _execution_error_from_exception(self, exc: Exception) -> ProviderError:
         code = self._error_code(exc)

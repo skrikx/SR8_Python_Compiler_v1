@@ -1,4 +1,4 @@
-# Plan - art_a82b1505fbb3d6d14f21
+# Plan - art_fbf4d275cb9a5cd96799
 ## Goal
 Build the SR8 proof lane so benchmark runs are local-first, reproducible, and useful to operators.
 ## Scope

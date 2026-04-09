@@ -13,6 +13,7 @@ class OpenAIAdapter(ProviderAdapter[OpenAIProviderSettings]):
     name = "openai"
     label = "OpenAI"
     required_env_vars = ("SR8_OPENAI_API_KEY", "SR8_OPENAI_MODEL")
+    default_model_env_var = "SR8_OPENAI_MODEL"
 
     def __init__(self, settings: OpenAIProviderSettings) -> None:
         super().__init__(settings)

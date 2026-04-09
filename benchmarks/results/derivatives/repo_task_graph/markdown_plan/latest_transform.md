@@ -1,4 +1,4 @@
-# Plan - art_9df02ab8432e89fdc73a
+# Plan - art_dd13818236e425f6eb12
 ## Goal
 Build a code task graph for the SR8 benchmark lane.
 ## Scope

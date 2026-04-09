@@ -17,7 +17,7 @@ def test_frontend_api_contracts(tmp_path: Path, monkeypatch) -> None:
 
     providers_response = client.get("/providers")
     assert providers_response.status_code == 200
-    assert any(item["name"] == "openai" for item in providers_response.json())
+    assert any(item["name"] == "openai" for item in providers_response.json()["providers"])
 
     probe_response = client.get("/providers/probe")
     assert probe_response.status_code == 200
@@ -25,15 +25,15 @@ def test_frontend_api_contracts(tmp_path: Path, monkeypatch) -> None:
 
     settings_response = client.get("/settings")
     assert settings_response.status_code == 200
-    assert "workspace_path" in settings_response.json()
+    assert "workspace_path" in settings_response.json()["settings"]
 
     artifacts_response = client.get("/artifacts")
     assert artifacts_response.status_code == 200
-    assert artifacts_response.json() == {"records": []}
+    assert artifacts_response.json()["records"] == []
 
     receipts_response = client.get("/receipts")
     assert receipts_response.status_code == 200
-    assert receipts_response.json() == {"receipts": []}
+    assert receipts_response.json()["receipts"] == []
 
     compile_response = client.post(
         "/compile",

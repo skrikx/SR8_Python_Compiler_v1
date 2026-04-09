@@ -13,6 +13,7 @@ class AnthropicAdapter(ProviderAdapter[AnthropicProviderSettings]):
     name = "anthropic"
     label = "Anthropic"
     required_env_vars = ("SR8_ANTHROPIC_API_KEY", "SR8_ANTHROPIC_MODEL")
+    default_model_env_var = "SR8_ANTHROPIC_MODEL"
 
     def __init__(self, settings: AnthropicProviderSettings) -> None:
         super().__init__(settings)

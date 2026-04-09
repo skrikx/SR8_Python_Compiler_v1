@@ -12,6 +12,23 @@ app = FastAPI(title="SR8 API", version=__version__)
 app.include_router(router)
 
 
+def _sanitize_json_value(value: object) -> object:
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    if isinstance(value, BaseException):
+        return str(value)
+    if isinstance(value, list):
+        return [_sanitize_json_value(item) for item in value]
+    if isinstance(value, tuple):
+        return [_sanitize_json_value(item) for item in value]
+    if isinstance(value, dict):
+        return {
+            str(key): _sanitize_json_value(item)
+            for key, item in value.items()
+        }
+    return str(value)
+
+
 @app.exception_handler(SR8APIError)
 async def handle_sr8_api_error(_: Request, exc: SR8APIError) -> JSONResponse:
     return JSONResponse(status_code=exc.status_code, content=exc.to_response())
@@ -25,7 +42,7 @@ async def handle_request_validation_error(_: Request, exc: RequestValidationErro
             "error": {
                 "code": "invalid_request",
                 "message": "Request validation failed.",
-                "details": {"issues": exc.errors()},
+                "details": {"issues": _sanitize_json_value(exc.errors())},
             }
         },
     )

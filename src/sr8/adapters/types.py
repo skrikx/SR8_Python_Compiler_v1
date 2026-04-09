@@ -14,6 +14,8 @@ ProviderName = Literal[
     "gemini",
     "ollama",
 ]
+ProviderRuntimeTransport = Literal["http", "sdk"]
+ProviderProbeStatus = Literal["ready", "bounded", "degraded", "missing_config"]
 
 
 class ProviderRequest(SR8Model):
@@ -42,12 +44,16 @@ class ProviderDescriptor(SR8Model):
     label: str
     capabilities: list[str] = Field(default_factory=list)
     required_env_vars: list[str] = Field(default_factory=list)
+    default_model_env_var: str | None = None
+    runtime_transport: ProviderRuntimeTransport = "http"
+    assist_extract_supported: bool = True
     supports_live_inference: bool = True
     optional: bool = True
 
 
 class ProviderProbeResult(SR8Model):
     provider: str
+    status: ProviderProbeStatus = "missing_config"
     registered: bool = True
     configured: bool
     subscribed_or_accessible: bool | None = None
@@ -56,6 +62,8 @@ class ProviderProbeResult(SR8Model):
     ready_for_runtime: bool
     available: bool
     supports_live_inference: bool
+    configured_model: str | None = None
+    requires_live_probe: bool = False
     missing_env_vars: list[str] = Field(default_factory=list)
     detail: str = ""
     capabilities: list[str] = Field(default_factory=list)

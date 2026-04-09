@@ -16,6 +16,15 @@ class SR8Settings(BaseSettings):
     assist_model: str | None = None
     assist_fallback_to_rule_based: bool = True
     workspace_path: str = ".sr8"
+    api_auth_token: str | None = None
+    api_rate_limit_requests: int = 0
+    api_rate_limit_window_seconds: int = 60
+    api_allow_workspace_override: bool = False
+    api_allow_multi_tenant: bool = False
+    api_max_source_chars: int = 200_000
+    api_max_payload_nodes: int = 1_024
+    api_max_concurrent_operations: int = 4
+    api_async_jobs_enabled: bool = True
 
 
 def resolve_compile_config(
@@ -64,6 +73,15 @@ def build_settings_payload(settings: SR8Settings) -> dict[str, object]:
         "assist_fallback_to_rule_based": settings.assist_fallback_to_rule_based,
         "include_raw_source": settings.include_raw_source,
         "workspace_path": settings.workspace_path,
+        "api_auth_token_configured": settings.api_auth_token is not None,
+        "api_rate_limit_requests": settings.api_rate_limit_requests,
+        "api_rate_limit_window_seconds": settings.api_rate_limit_window_seconds,
+        "api_allow_workspace_override": settings.api_allow_workspace_override,
+        "api_allow_multi_tenant": settings.api_allow_multi_tenant,
+        "api_max_source_chars": settings.api_max_source_chars,
+        "api_max_payload_nodes": settings.api_max_payload_nodes,
+        "api_max_concurrent_operations": settings.api_max_concurrent_operations,
+        "api_async_jobs_enabled": settings.api_async_jobs_enabled,
     }
     try:
         compile_config = resolve_compile_config(settings)

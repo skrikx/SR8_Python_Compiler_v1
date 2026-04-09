@@ -25,6 +25,7 @@ from sr8.utils.ids import (
 from sr8.utils.paths import resolve_trusted_local_path
 from sr8.validate.engine import validate_artifact
 
+from .errors import SR8CompileError
 from .recompile import recompile_artifact
 from .types import CompilationResult
 
@@ -70,7 +71,7 @@ def assemble_artifact(
         compiler_version=active_config.compiler_version,
     )
 
-    compile_run_id = build_compile_run_id(source_intent.source_hash)
+    compile_run_id = build_compile_run_id(source_intent.source_hash, stage="compile")
     lineage = Lineage(
         compile_run_id=compile_run_id,
         pipeline_version=active_config.compiler_version,
@@ -87,6 +88,7 @@ def assemble_artifact(
         "source_metadata": source_intent.metadata,
         "normalized_char_count": len(source_intent.normalized_content),
         "pipeline_mode": "rule-first",
+        "normalized_source_hash": source_intent.metadata.get("normalized_source_hash"),
     }
     if active_config.include_raw_source:
         metadata["raw_content"] = source_intent.raw_content
@@ -129,6 +131,30 @@ def assemble_artifact(
     )
 
 
+def _assert_assembly_invariants(
+    artifact: IntentArtifact,
+    source_intent: SourceIntent,
+) -> None:
+    if artifact.source.source_hash != source_intent.source_hash:
+        raise SR8CompileError(
+            code="artifact_assembly_invariant_failed",
+            message="Artifact source hash diverged from the ingested source hash.",
+            details={
+                "artifact_source_hash": artifact.source.source_hash,
+                "source_hash": source_intent.source_hash,
+            },
+        )
+    if artifact.lineage.source_hash != source_intent.source_hash:
+        raise SR8CompileError(
+            code="lineage_source_hash_mismatch",
+            message="Artifact lineage source hash diverged from the ingested source hash.",
+            details={
+                "lineage_source_hash": artifact.lineage.source_hash,
+                "source_hash": source_intent.source_hash,
+            },
+        )
+
+
 def compile_intent(
     source: SourceInput,
     source_type: SourceType | None = None,
@@ -148,8 +174,10 @@ def compile_intent(
             ),
             artifact_id=compiled_artifact.artifact_id,
             source_hash=compiled_artifact.source.source_hash,
+            compile_run_id=compiled_artifact.lineage.compile_run_id,
             status="accepted",
             notes=["Recompiled from in-memory canonical artifact source."],
+            parent_artifact_ids=compiled_artifact.lineage.parent_artifact_ids,
         )
         fallback_source = SourceIntent(
             source_id=compiled_artifact.source.source_id,
@@ -186,8 +214,10 @@ def compile_intent(
                 ),
                 artifact_id=compiled_artifact.artifact_id,
                 source_hash=compiled_artifact.source.source_hash,
+                compile_run_id=compiled_artifact.lineage.compile_run_id,
                 status="accepted",
                 notes=["Recompiled from canonical artifact source."],
+                parent_artifact_ids=compiled_artifact.lineage.parent_artifact_ids,
             )
             fallback_source = SourceIntent(
                 source_id=compiled_artifact.source.source_id,
@@ -212,12 +242,15 @@ def compile_intent(
         config=active_config,
     )
     assembled = assemble_artifact(normalized, extracted, config=active_config)
+    _assert_assembly_invariants(assembled, normalized)
+    trust_summary = summarize_extraction_trace(extraction_trace)
     assembled = assembled.model_copy(
         update={
             "metadata": assembled.metadata
             | {
                 "extraction_trace": extraction_trace.model_dump(mode="json"),
-                "extraction_trust_summary": summarize_extraction_trace(extraction_trace),
+                "extraction_trust_summary": trust_summary,
+                "weak_intent_recovery": trust_summary["recovery"],
                 "provider_assist": extraction_trace.metadata,
             }
         }
@@ -229,8 +262,17 @@ def compile_intent(
         receipt_id=build_receipt_id(artifact.artifact_id, normalized.source_hash),
         artifact_id=artifact.artifact_id,
         source_hash=normalized.source_hash,
+        compile_run_id=artifact.lineage.compile_run_id,
         status="accepted",
-        notes=["Compiled with deterministic rule-first pipeline."],
+        notes=[
+            "Compiled with deterministic rule-first pipeline.",
+            *(
+                ["Weak intent recovery metadata attached."]
+                if bool(trust_summary["intake_required"])
+                else []
+            ),
+        ],
+        parent_artifact_ids=artifact.lineage.parent_artifact_ids,
     )
     return CompilationResult(
         artifact=artifact,

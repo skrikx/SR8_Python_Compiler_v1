@@ -34,6 +34,9 @@ SR8 follows the standard boto3 credential chain. That means explicit session par
 - `subscribed_or_accessible=true` means the Bedrock access check did not report model-access failure.
 - `live_enabled=true` means SR8 has a real Converse runtime path available in code.
 - `ready_for_runtime=true` means a live Bedrock smoke call succeeded.
+- `status=bounded` means SR8 can see Bedrock configuration and control-plane access, but has not yet sealed runtime truth with a live smoke.
+- `status=degraded` means Bedrock returned a real access, model, or runtime failure that blocks trustworthy live use.
+- `requires_live_probe=true` means Bedrock is intentionally not marked ready until a real runtime smoke is allowed.
 
 By default, `sr8 providers probe` does not spend money or make a live Bedrock inference call. Set `SR8_AWS_BEDROCK_PROBE_RUNTIME=true` when you want the probe to verify runtime readiness with a real signed Converse request.
 

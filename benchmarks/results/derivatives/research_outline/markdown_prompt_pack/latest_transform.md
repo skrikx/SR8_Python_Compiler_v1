@@ -1,4 +1,4 @@
-# Prompt Pack - art_f62c7dbfab5eade63167
+# Prompt Pack - art_197ec222e3a2f0b97ff3
 ## Objective
 Produce a whitepaper outline on deterministic intent compilation for research operators.
 ## Constraints

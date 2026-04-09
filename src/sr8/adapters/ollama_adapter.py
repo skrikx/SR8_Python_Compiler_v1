@@ -12,6 +12,7 @@ class OllamaAdapter(ProviderAdapter[OllamaProviderSettings]):
     name = "ollama"
     label = "Ollama"
     required_env_vars = ("SR8_OLLAMA_MODEL",)
+    default_model_env_var = "SR8_OLLAMA_MODEL"
 
     def __init__(self, settings: OllamaProviderSettings) -> None:
         super().__init__(settings)

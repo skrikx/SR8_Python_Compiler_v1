@@ -5,6 +5,6 @@ export async function load({ fetch }) {
   const client = createApiClient(fetch, getServerApiBaseUrl());
   const settings = await client.settings();
   return {
-    settings: settings.ok ? settings.data : null
+    settings: settings.ok ? settings.data?.settings ?? null : null
   };
 }

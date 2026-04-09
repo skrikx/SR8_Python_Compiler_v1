@@ -17,6 +17,23 @@ SR8 security posture is built on automated repository checks plus private disclo
   - `.github/workflows/ci.yml`
   - Lint, typecheck, tests, examples smoke, and package build smoke on pull requests.
 
+## API Runtime Boundaries
+
+- Trusted-local by default:
+  - Workspace override is denied unless explicitly enabled through runtime settings.
+  - Multi-tenant workspace access is denied by default.
+- Auth-ready hooks:
+  - Setting `SR8_API_AUTH_TOKEN` turns on bearer-token checks for non-safe routes.
+  - Safe routes such as `/health` remain available without auth.
+- Rate-limit hook:
+  - `SR8_API_RATE_LIMIT_REQUESTS` and `SR8_API_RATE_LIMIT_WINDOW_SECONDS` enable a process-local fixed-window limiter.
+- Compile budget controls:
+  - `SR8_API_MAX_SOURCE_CHARS` bounds inline source size.
+  - `SR8_API_MAX_PAYLOAD_NODES` bounds structured payload size.
+- Concurrency and replay:
+  - `SR8_API_MAX_CONCURRENT_OPERATIONS` bounds compile concurrency.
+  - Async compile jobs and idempotency keys prevent duplicate execution drift in the local runtime model.
+
 ## Supply Chain Notes
 
 - Release publishing uses PyPI Trusted Publishing via OIDC in `.github/workflows/release.yml`.

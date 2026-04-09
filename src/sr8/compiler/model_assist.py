@@ -74,6 +74,9 @@ def run_model_assisted_extraction(
             "provider": provider_name,
             "model": model_name,
             "finish_reason": response.finish_reason,
+            "assist_extract_status": "assisted",
+            "assist_extract_route": "provider_live",
+            "fallback": None,
         },
     )
     return ModelAssistResult(extracted=extracted, trace=trace, provider_response=response)

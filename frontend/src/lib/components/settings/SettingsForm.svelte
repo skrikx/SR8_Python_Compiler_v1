@@ -36,6 +36,23 @@
         <div class="font-semibold text-ink-900">Assist model</div>
         <div class="mt-1">{settings.assist_model ?? 'unset'}</div>
       </div>
+      <div class="rounded-2xl border border-ink-200 bg-white/90 p-4 text-sm text-ink-700">
+        <div class="font-semibold text-ink-900">Auth and rate limit</div>
+        <div class="mt-1">
+          {settings.api_auth_token_configured ? 'bearer-token enabled' : 'trusted-local only'}
+        </div>
+        <div class="mt-1">{settings.api_rate_limit_requests} requests / {settings.api_rate_limit_window_seconds}s</div>
+      </div>
+      <div class="rounded-2xl border border-ink-200 bg-white/90 p-4 text-sm text-ink-700">
+        <div class="font-semibold text-ink-900">Async and concurrency</div>
+        <div class="mt-1">Async jobs: {settings.api_async_jobs_enabled ? 'enabled' : 'disabled'}</div>
+        <div class="mt-1">Concurrent operations: {settings.api_max_concurrent_operations}</div>
+      </div>
+      <div class="rounded-2xl border border-ink-200 bg-white/90 p-4 text-sm text-ink-700">
+        <div class="font-semibold text-ink-900">Workspace policy</div>
+        <div class="mt-1">Override: {settings.api_allow_workspace_override ? 'allowed' : 'denied'}</div>
+        <div class="mt-1">Multi-tenant: {settings.api_allow_multi_tenant ? 'enabled' : 'denied'}</div>
+      </div>
     </div>
   {:else}
     <div class="mt-4 rounded-2xl border border-dashed border-ink-300 bg-white/70 p-4 text-sm text-ink-600">

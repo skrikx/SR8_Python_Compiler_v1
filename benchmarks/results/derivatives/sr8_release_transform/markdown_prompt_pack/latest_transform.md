@@ -1,4 +1,4 @@
-# Prompt Pack - art_5e17b68d1db674cba5e0
+# Prompt Pack - art_768d3966d0ca60ca0be5
 ## Objective
 Compile a PRD for the SR8 self-hosting release proof pack used by users and reviewers.
 ## Constraints

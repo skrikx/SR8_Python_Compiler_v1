@@ -1,4 +1,4 @@
-# Plan - art_f62c7dbfab5eade63167
+# Plan - art_197ec222e3a2f0b97ff3
 ## Goal
 Produce a whitepaper outline on deterministic intent compilation for research operators.
 ## Scope

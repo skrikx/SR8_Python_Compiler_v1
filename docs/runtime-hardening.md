@@ -1,32 +1,33 @@
 # Runtime Hardening
 
-WF16 hardens the SR8 runtime surface where the local API, storage catalog, settings resolution, and provider readiness can diverge from compiler-core truth.
+P3 extends runtime hardening from route safety into provider truth, operator visibility, replay stability, and chaos coverage.
 
-## What WF16 Seals
+## What P3 Seals
 
-- API `/compile` now accepts inline source text or structured payloads only.
-- API file-based routes return structured `4xx` responses for expected client failures.
-- Catalog writes use a lock plus atomic replace so concurrent saves do not leave partial JSON on disk.
-- CLI and API compile paths share one settings-to-`CompileConfig` resolution flow.
-- Derivative catalog records preserve derivative semantics instead of overloading canonical `target_class`.
-- AWS Bedrock now uses an SDK-backed Converse runtime path, but only reports ready after a live smoke succeeds.
+- Provider descriptors and probes now expose parity metadata such as runtime transport, configured model, bounded readiness state, and whether a live probe is still required.
+- Model-assisted extraction records whether provider assist succeeded live or fell back to rule-based extraction, with bounded failure metadata preserved for inspection.
+- The local frontend now unwraps real API envelopes, shows route-contract truth, surfaces weak-intent recovery, and keeps inspect and validation behavior aligned with trusted-local backend policy.
+- Replay and async execution remain traceable through idempotency keys, job state, and stable result payload reuse.
+- End-to-end, chaos, and replay tests now cover malformed compile input, provider outage fallback, compile-to-derivative flow, and replay truth.
 
-## Remaining Runtime Limits
+## Trusted Runtime Boundary
 
-- CLI and direct library usage still allow local filesystem paths for compile and inspect flows.
-- API `/inspect`, `/validate`, `/transform`, `/diff`, `/lint`, `/artifacts`, and `/receipts` remain trusted-local routes tied to local artifact and workspace state.
-- API `/inspect` no longer compiles inline source. It accepts trusted-local artifact paths or canonical artifact identifiers only.
-- AWS Bedrock readiness stays false until credentials, region, model access, and a live smoke check all line up.
+- API `/compile` still accepts inline source text or structured payloads only. It never reads caller-supplied filesystem paths.
+- API `/inspect`, `/validate`, `/transform`, `/diff`, `/lint`, `/artifacts`, and `/receipts` remain trusted-local routes tied to local workspace state.
+- AWS Bedrock remains deliberately bounded until a live Converse smoke succeeds. `status=bounded` is intentional and truthful, not a half-ready success signal.
+- Async jobs remain in-process and local-first. They are replay-safe, not distributed.
 
 ## Validation Commands
 
 ```bash
 python -m pip install -e .
-pytest tests/test_api_compile_security.py tests/test_catalog_concurrency.py tests/test_api_error_mapping.py tests/test_api_cli_settings_parity.py tests/test_derivative_record_semantics.py tests/test_bedrock_readiness_reporting.py tests/test_runtime_break_regressions.py
+pytest tests/e2e/test_hardening_gauntlet.py tests/chaos/test_malformed_input_matrix.py tests/replay/test_compile_replay_matrix.py tests/test_provider_parity.py tests/test_bedrock_runtime.py tests/test_frontend_contracts.py tests/test_frontend_operator_paths.py
 pytest
 ruff check .
 mypy src
 python -m build
 sr8 providers probe
 sr8 compile examples/product_prd.md --rule-only
+cd frontend && npm run check
+cd frontend && npm run build
 ```

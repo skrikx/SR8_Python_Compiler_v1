@@ -13,6 +13,8 @@ class TransformReceiptRecord(SR8Model):
     derivative_id: str
     transform_target: str
     profile: str
+    parent_source_hash: str
+    parent_compile_run_id: str
     created_at: datetime = Field(default_factory=utc_now)
     renderer_version: str
     output_path: str

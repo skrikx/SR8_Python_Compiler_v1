@@ -18,3 +18,14 @@
 | Frontend compile surface | Available | local Svelte product surface validated by `npm run check` and `npm run build` |
 | Release publish | Bounded | tag-driven release path exists, but public publish still depends on GitHub release creation and PyPI trusted publisher configuration |
 | Code scanning | Available | CodeQL and dependency review workflows |
+
+## Hardening Confidence Matrix
+
+| Area | Confidence | Notes |
+| --- | --- | --- |
+| Compiler core truth | High | Canonical schema, weak-intent recovery, lineage, receipts, diff, lint, and readiness are test-backed |
+| API route truth | High | Route contracts, exposure classes, and 4xx/5xx behavior are explicit and tested |
+| Provider parity | Medium-high | Providers expose truthful readiness metadata; Bedrock remains intentionally bounded until live smoke succeeds |
+| Operator console | Medium-high | Frontend now tracks real route envelopes, trust metadata, validation, and async job state |
+| Replay safety | High | Idempotent compile replay and async job reuse are covered by replay tests |
+| Chaos resilience | Medium-high | Malformed inputs and provider outage fallback are covered, but distributed and multi-process chaos is still out of scope |

@@ -23,7 +23,7 @@ def test_api_settings_and_compile_share_runtime_resolution(monkeypatch) -> None:
     assert settings_response.status_code == 200
     assert compile_response.status_code == 200
 
-    payload = settings_response.json()
+    payload = settings_response.json()["settings"]
     artifact = compile_response.json()["artifact"]
     trace = artifact["metadata"]["extraction_trace"]
 
@@ -35,4 +35,3 @@ def test_api_settings_and_compile_share_runtime_resolution(monkeypatch) -> None:
     assert artifact["profile"] == resolved.profile
     assert artifact["metadata"]["raw_content"].startswith("Objective: Settings parity")
     assert trace["metadata"]["provider"] == resolved.assist_provider
-

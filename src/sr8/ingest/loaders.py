@@ -7,6 +7,7 @@ from typing import cast
 
 import yaml
 
+from sr8.compiler.errors import InvalidSourceInputError, InvalidStructuredInputError
 from sr8.models.source_intent import SourceIntent, SourceType
 from sr8.utils.hash import stable_object_hash, stable_text_hash
 from sr8.utils.ids import build_source_id
@@ -40,6 +41,16 @@ def _detect_source_type(
     elif isinstance(source, str) and _path_exists(source):
         suffix = Path(source).suffix.lower()
     else:
+        if isinstance(source, str):
+            stripped = source.strip()
+            if stripped.startswith(("{", "[")):
+                try:
+                    parsed = json.loads(stripped)
+                except json.JSONDecodeError:
+                    pass
+                else:
+                    if isinstance(parsed, (Mapping, list)):
+                        return "json"
         return "text"
 
     if suffix in {".md", ".markdown"}:
@@ -84,18 +95,60 @@ def _mapping_to_intent_text(payload: Mapping[str, object]) -> str:
 
 
 def _load_json(content: str) -> tuple[str, dict[str, object]]:
-    parsed = json.loads(content)
+    try:
+        parsed = json.loads(content)
+    except json.JSONDecodeError as exc:
+        raise InvalidStructuredInputError(
+            "json",
+            "JSON source could not be parsed.",
+            details={"reason": "invalid_json", "line": exc.lineno, "column": exc.colno},
+        ) from exc
     if isinstance(parsed, Mapping):
         payload = dict(parsed)
+        if not payload:
+            raise InvalidStructuredInputError(
+                "json",
+                "JSON source must contain at least one field.",
+                details={"reason": "empty_object"},
+            )
         return _mapping_to_intent_text(payload), payload
+    if isinstance(parsed, list):
+        if not parsed:
+            raise InvalidStructuredInputError(
+                "json",
+                "JSON source list must contain at least one item.",
+                details={"reason": "empty_list"},
+            )
+        return _mapping_to_intent_text({"payload": parsed}), {"payload": parsed}
     return str(parsed), {"payload": parsed}
 
 
 def _load_yaml(content: str) -> tuple[str, dict[str, object]]:
-    parsed = yaml.safe_load(content)
+    try:
+        parsed = yaml.safe_load(content)
+    except yaml.YAMLError as exc:
+        raise InvalidStructuredInputError(
+            "yaml",
+            "YAML source could not be parsed.",
+            details={"reason": "invalid_yaml"},
+        ) from exc
     if isinstance(parsed, Mapping):
         payload = dict(parsed)
+        if not payload:
+            raise InvalidStructuredInputError(
+                "yaml",
+                "YAML source must contain at least one field.",
+                details={"reason": "empty_object"},
+            )
         return _mapping_to_intent_text(payload), payload
+    if isinstance(parsed, list):
+        if not parsed:
+            raise InvalidStructuredInputError(
+                "yaml",
+                "YAML source list must contain at least one item.",
+                details={"reason": "empty_list"},
+            )
+        return _mapping_to_intent_text({"payload": parsed}), {"payload": parsed}
     return str(parsed), {"payload": parsed}
 
 
@@ -110,17 +163,31 @@ def load_source(
 
     if isinstance(source, Mapping):
         payload = dict(source)
+        if not payload:
+            raise InvalidSourceInputError(
+                "Structured source payload is empty.",
+                details={"source_type": resolved_type},
+            )
         raw_content = _mapping_to_intent_text(payload)
         metadata["parsed_payload"] = payload
         source_hash = stable_object_hash(payload)
+        metadata["ingest_mode"] = "mapping"
     else:
         text_input = str(source)
         if _path_exists(text_input):
             path_obj = Path(text_input)
             origin = str(path_obj.resolve())
             content = path_obj.read_text(encoding="utf-8")
+            metadata["ingest_mode"] = "path"
         else:
             content = text_input
+            metadata["ingest_mode"] = "inline"
+
+        if not content.strip():
+            raise InvalidSourceInputError(
+                "Source text is empty after trimming whitespace.",
+                details={"source_type": resolved_type},
+            )
 
         if resolved_type in {"text", "markdown"}:
             raw_content = content
@@ -129,10 +196,12 @@ def load_source(
             raw_content, payload = _load_json(content)
             metadata["parsed_payload"] = payload
             source_hash = stable_object_hash(payload)
+            metadata["structured_payload_kind"] = "json"
         else:
             raw_content, payload = _load_yaml(content)
             metadata["parsed_payload"] = payload
             source_hash = stable_object_hash(payload)
+            metadata["structured_payload_kind"] = "yaml"
 
     metadata["origin"] = origin or "inline"
     metadata["raw_char_count"] = len(raw_content)

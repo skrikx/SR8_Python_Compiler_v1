@@ -56,6 +56,32 @@ def _build_trust_warnings(artifact: IntentArtifact) -> list[ValidationIssue]:
     return warnings
 
 
+def _build_recovery_warnings(artifact: IntentArtifact) -> list[ValidationIssue]:
+    raw_recovery = artifact.metadata.get("weak_intent_recovery")
+    if not isinstance(raw_recovery, Mapping):
+        return []
+    if not bool(raw_recovery.get("intake_required")):
+        return []
+    missing_fields = raw_recovery.get("missing_fields")
+    weak_fields = raw_recovery.get("weak_fields")
+    prompt = raw_recovery.get("suggested_prompt")
+    details: list[str] = []
+    if isinstance(missing_fields, list) and missing_fields:
+        details.append(f"missing={', '.join(str(item) for item in missing_fields)}")
+    if isinstance(weak_fields, list) and weak_fields:
+        details.append(f"weak={', '.join(str(item) for item in weak_fields)}")
+    suffix = f" ({'; '.join(details)})" if details else ""
+    prompt_suffix = f" Prompt: {prompt}" if isinstance(prompt, str) and prompt else ""
+    return [
+        ValidationIssue(
+            code="VAL-REC-001",
+            message=f"weak intent recovery path is active{suffix}.{prompt_suffix}".strip(),
+            severity="warning",
+            path="metadata.weak_intent_recovery",
+        )
+    ]
+
+
 def validate_artifact(
     artifact: IntentArtifact,
     profile_name: str | None = None,
@@ -66,9 +92,10 @@ def validate_artifact(
     canonical_errors, canonical_warnings = execute_rules(artifact, CANONICAL_RULES)
     profile_errors, profile_warnings = profile.validate(artifact)
     trust_warnings = _build_trust_warnings(artifact)
+    recovery_warnings = _build_recovery_warnings(artifact)
 
     all_errors = canonical_errors + profile_errors
-    all_warnings = canonical_warnings + profile_warnings + trust_warnings
+    all_warnings = canonical_warnings + profile_warnings + trust_warnings + recovery_warnings
     return build_validation_report(
         artifact_id=artifact.artifact_id,
         source_hash=artifact.source.source_hash,

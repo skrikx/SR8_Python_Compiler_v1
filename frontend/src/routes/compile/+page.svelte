@@ -4,6 +4,7 @@
   import ProviderSelector from '$lib/components/compile/ProviderSelector.svelte';
   import CompileResultPanel from '$lib/components/compile/CompileResultPanel.svelte';
   import ConfidencePanel from '$lib/components/compile/ConfidencePanel.svelte';
+  import TrustPanel from '$lib/components/compile/TrustPanel.svelte';
   import ValidationSummaryPanel from '$lib/components/compile/ValidationSummaryPanel.svelte';
   import type { CompileResponse, ProviderDescriptor } from '$lib/api/types';
 
@@ -17,6 +18,8 @@
   let rule_only = true;
   let assist_provider = data.settings?.assist_provider ?? '';
   let assist_model = data.settings?.assist_model ?? '';
+  let async_mode = false;
+  let idempotency_key = '';
   let providers: ProviderDescriptor[] = data.providers;
 </script>
 
@@ -49,6 +52,27 @@
         <div class="mb-2 text-sm font-semibold text-ink-700">Assist model</div>
         <input bind:value={assist_model} class="w-full rounded-2xl border border-ink-200 bg-white/90 px-4 py-3 text-sm outline-none focus:border-moss-300" placeholder="e.g. gpt-5-mini" />
       </label>
+      <div class="grid gap-4 md:grid-cols-2">
+        <label class="block rounded-2xl border border-ink-200 bg-white/80 p-4 text-sm text-ink-700">
+          <input
+            bind:checked={async_mode}
+            type="checkbox"
+            name="async_mode"
+            class="mr-2 align-middle"
+            disabled={!data.settings?.api_async_jobs_enabled}
+          />
+          Queue as async job
+        </label>
+        <label class="block">
+          <div class="mb-2 text-sm font-semibold text-ink-700">Idempotency key</div>
+          <input
+            bind:value={idempotency_key}
+            name="idempotency_key"
+            class="w-full rounded-2xl border border-ink-200 bg-white/90 px-4 py-3 text-sm outline-none focus:border-moss-300"
+            placeholder="optional replay key"
+          />
+        </label>
+      </div>
       <input type="hidden" name="source" bind:value={source} />
       <input type="hidden" name="profile" bind:value={profile} />
       <input type="hidden" name="source_type" bind:value={source_type} />
@@ -68,6 +92,7 @@
 
   <div class="space-y-5">
     <ValidationSummaryPanel report={form?.result?.artifact?.validation ?? null} />
+    <TrustPanel result={form?.result ?? null} />
     <ConfidencePanel extracted={form?.result?.extracted_dimensions ?? null} />
   </div>
 </div>

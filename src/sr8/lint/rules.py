@@ -74,6 +74,16 @@ def _excessive_ambiguity_without_fallback(artifact: IntentArtifact) -> bool:
     return ambiguity_hits >= 2 and not has_fallback
 
 
+def _has_structured_recovery_prompt(artifact: IntentArtifact) -> bool:
+    recovery = artifact.metadata.get("weak_intent_recovery")
+    if not artifact.governance_flags.requires_human_review:
+        return True
+    if not isinstance(recovery, dict):
+        return False
+    prompt = recovery.get("suggested_prompt")
+    return isinstance(prompt, str) and prompt.strip() != ""
+
+
 LINT_RULES: tuple[PredicateRule, ...] = (
     PredicateRule(
         rule_id="L001",
@@ -154,6 +164,14 @@ LINT_RULES: tuple[PredicateRule, ...] = (
         message="Ambiguity markers present without fallback structure",
         suggested_fix="Add fallback constraints and remove ambiguous placeholders.",
         predicate=lambda artifact: not _excessive_ambiguity_without_fallback(artifact),
+    ),
+    PredicateRule(
+        rule_id="L011",
+        severity="warn",
+        artifact_field="metadata.weak_intent_recovery",
+        message="Weak artifacts should carry a structured recovery prompt",
+        suggested_fix="Attach structured recovery guidance for underspecified intent.",
+        predicate=_has_structured_recovery_prompt,
     ),
 )
 

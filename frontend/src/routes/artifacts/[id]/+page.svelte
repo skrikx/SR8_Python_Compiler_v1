@@ -9,4 +9,4 @@
   </section>
 {/if}
 
-<ArtifactDetail record={data.record} artifact={data.artifact} />
+<ArtifactDetail record={data.record} artifact={data.artifact} validation={data.validation} />

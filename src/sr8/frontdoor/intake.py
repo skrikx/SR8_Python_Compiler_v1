@@ -4,22 +4,48 @@ import re
 from pathlib import Path
 from xml.etree import ElementTree
 
+from sr8.extract.adapters.rule_based import RuleBasedExtractionAdapter
 from sr8.frontdoor.xml_renderer import escape_xml_text
 
 WORD_RE = re.compile(r"\w+")
+
+
+def analyze_intent_surface(text: str) -> dict[str, object]:
+    candidate = text.strip()
+    if not candidate:
+        return {
+            "word_count": 0,
+            "intake_required": True,
+            "recovery": {
+                "intake_required": True,
+                "missing_fields": ["objective", "scope", "constraints"],
+                "weak_fields": [],
+                "contradictory_fields": [],
+                "suggested_prompt": (
+                    "Provide a stronger intent package with explicit objective, "
+                    "scope, constraints, success criteria, and output contract."
+                ),
+            },
+        }
+    adapter = RuleBasedExtractionAdapter()
+    _, trace = adapter.extract(candidate)
+    return {
+        "word_count": len(WORD_RE.findall(candidate)),
+        "intake_required": trace.recovery.intake_required,
+        "recovery": trace.recovery.model_dump(mode="json"),
+    }
 
 
 def is_under_specified(text: str) -> bool:
     candidate = text.strip()
     if not candidate:
         return True
-    word_count = len(WORD_RE.findall(candidate))
+    analysis = analyze_intent_surface(candidate)
+    raw_word_count = analysis.get("word_count", 0)
+    word_count = raw_word_count if isinstance(raw_word_count, int) else 0
     if word_count < 6:
         return True
-    lowered = candidate.lower()
-    if "objective" not in lowered and "goal" not in lowered and "scope" not in lowered:
-        return True
-    return False
+    return bool(analysis["intake_required"])
 
 
 def _project_root() -> Path:

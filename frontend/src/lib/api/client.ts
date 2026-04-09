@@ -1,22 +1,31 @@
 import type {
   ApiResult,
+  ArtifactDetailResponse,
   ArtifactRecord,
+  ArtifactsResponse,
   BenchmarkRunReport,
   BenchmarkRunRequest,
+  BenchmarkRunResponse,
+  BenchmarkSuitesResponse,
   CompileRequest,
   CompileResponse,
   DerivativeArtifact,
   DiffRequest,
-  ExtractedDimensions,
+  JobResponse,
   CompilationReceiptRecord,
-  IntentArtifact,
   InspectRequest,
+  InspectResponse,
   JsonObject,
   LintRequest,
   ProviderDescriptor,
   ProviderProbeResult,
+  ProvidersProbeResponse,
+  ProvidersResponse,
+  ReceiptsResponse,
+  ReportEnvelope,
+  RouteContract,
+  SettingsResponse,
   SettingsSnapshot,
-  SourceIntent,
   StatusSnapshot,
   TransformRequest,
   TransformReceiptRecord,
@@ -70,12 +79,12 @@ async function request<T>(
 export function createApiClient(fetchFn: FetchLike, baseUrl = DEFAULT_API_BASE_URL) {
   return {
     baseUrl,
-    health: () => request<{ status: string }>(fetchFn, baseUrl, '/health'),
+    health: () => request<{ route_contract: RouteContract; status: string }>(fetchFn, baseUrl, '/health'),
     status: () => request<StatusSnapshot>(fetchFn, baseUrl, '/status'),
-    settings: () => request<SettingsSnapshot>(fetchFn, baseUrl, '/settings'),
-    providers: () => request<ProviderDescriptor[]>(fetchFn, baseUrl, '/providers'),
+    settings: () => request<SettingsResponse>(fetchFn, baseUrl, '/settings'),
+    providers: () => request<ProvidersResponse>(fetchFn, baseUrl, '/providers'),
     providerProbe: (provider?: string) =>
-      request<{ results?: ProviderProbeResult[] } | ProviderProbeResult>(
+      request<ProvidersProbeResponse>(
         fetchFn,
         baseUrl,
         provider ? `/providers/probe?provider=${encodeURIComponent(provider)}` : '/providers/probe'
@@ -85,15 +94,16 @@ export function createApiClient(fetchFn: FetchLike, baseUrl = DEFAULT_API_BASE_U
       if (kind) search.set('kind', kind);
       if (profile) search.set('profile', profile);
       const query = search.toString();
-      return request<{ records: ArtifactRecord[] }>(
+      return request<ArtifactsResponse>(
         fetchFn,
         baseUrl,
         `/artifacts${query ? `?${query}` : ''}`
       );
     },
-    artifactDetail: (id: string) => request<{ record: ArtifactRecord; payload: IntentArtifact | DerivativeArtifact }>(fetchFn, baseUrl, `/artifacts/${encodeURIComponent(id)}`),
+    artifactDetail: (id: string) =>
+      request<ArtifactDetailResponse>(fetchFn, baseUrl, `/artifacts/${encodeURIComponent(id)}`),
     receipts: (kind: 'compile' | 'transform' = 'compile') =>
-      request<{ receipts: (CompilationReceiptRecord | TransformReceiptRecord)[] }>(
+      request<ReceiptsResponse>(
         fetchFn,
         baseUrl,
         `/receipts?kind=${kind}`
@@ -104,40 +114,37 @@ export function createApiClient(fetchFn: FetchLike, baseUrl = DEFAULT_API_BASE_U
         body: JSON.stringify(payload)
       }),
     inspect: (payload: InspectRequest) =>
-      request<{ artifact: IntentArtifact | DerivativeArtifact; receipt?: JsonObject; mode: string }>(
-        fetchFn,
-        baseUrl,
-        '/inspect',
-        {
-          method: 'POST',
-          body: JSON.stringify(payload)
-        }
-      ),
+      request<InspectResponse>(fetchFn, baseUrl, '/inspect', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      }),
     validate: (payload: ValidateRequest) =>
-      request<ValidationReport>(fetchFn, baseUrl, '/validate', {
+      request<ReportEnvelope<ValidationReport>>(fetchFn, baseUrl, '/validate', {
         method: 'POST',
         body: JSON.stringify(payload)
       }),
     transform: (payload: TransformRequest) =>
-      request<DerivativeArtifact>(fetchFn, baseUrl, '/transform', {
+      request<ReportEnvelope<DerivativeArtifact>>(fetchFn, baseUrl, '/transform', {
         method: 'POST',
         body: JSON.stringify(payload)
       }),
     diff: (payload: DiffRequest) =>
-      request<JsonObject>(fetchFn, baseUrl, '/diff', {
+      request<ReportEnvelope<JsonObject>>(fetchFn, baseUrl, '/diff', {
         method: 'POST',
         body: JSON.stringify(payload)
       }),
     lint: (payload: LintRequest) =>
-      request<JsonObject>(fetchFn, baseUrl, '/lint', {
+      request<ReportEnvelope<JsonObject>>(fetchFn, baseUrl, '/lint', {
         method: 'POST',
         body: JSON.stringify(payload)
       }),
-    benchmarkSuites: () => request<{ suites: string[] }>(fetchFn, baseUrl, '/benchmarks/suites'),
+    benchmarkSuites: () => request<BenchmarkSuitesResponse>(fetchFn, baseUrl, '/benchmarks/suites'),
     benchmarkRun: (payload: BenchmarkRunRequest) =>
-      request<BenchmarkRunReport>(fetchFn, baseUrl, '/benchmarks/run', {
+      request<BenchmarkRunResponse>(fetchFn, baseUrl, '/benchmarks/run', {
         method: 'POST',
         body: JSON.stringify(payload)
-      })
+      }),
+    jobDetail: (jobId: string) =>
+      request<JobResponse>(fetchFn, baseUrl, `/jobs/${encodeURIComponent(jobId)}`)
   };
 }

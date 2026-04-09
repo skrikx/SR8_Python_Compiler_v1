@@ -21,8 +21,8 @@ export async function load({ fetch }) {
   return {
     source: DEFAULT_SOURCE,
     status: status.ok ? status.data : null,
-    providers: providers.ok ? providers.data ?? [] : [],
-    settings: settings.ok ? settings.data : null
+    providers: providers.ok ? providers.data?.providers ?? [] : [],
+    settings: settings.ok ? settings.data?.settings ?? null : null
   };
 }
 
@@ -35,6 +35,8 @@ export const actions = {
     const ruleOnly = String(form.get('rule_only') ?? '') === 'on';
     const assistProvider = String(form.get('assist_provider') ?? '').trim() || null;
     const assistModel = String(form.get('assist_model') ?? '').trim() || null;
+    const asyncMode = String(form.get('async_mode') ?? '') === 'on';
+    const idempotencyKey = String(form.get('idempotency_key') ?? '').trim() || null;
 
     if (!source) {
       return fail(400, { error: 'Source is required.' });
@@ -47,7 +49,9 @@ export const actions = {
       source_type: sourceType,
       rule_only: ruleOnly,
       assist_provider: assistProvider,
-      assist_model: assistModel
+      assist_model: assistModel,
+      async_mode: asyncMode,
+      idempotency_key: idempotencyKey
     });
 
     if (!result.ok) {

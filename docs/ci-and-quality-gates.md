@@ -19,5 +19,14 @@ SR8 uses small, explicit workflows so release and hygiene checks stay readable.
 
 - `python -m pip install -e ".[dev]"`
 - `pytest tests/test_docs_commands.py tests/test_repo_structure.py tests/test_release_workflow_contracts.py`
+- `pytest tests/e2e/test_hardening_gauntlet.py tests/chaos/test_malformed_input_matrix.py tests/replay/test_compile_replay_matrix.py`
 - `python scripts/cleanup/check_repo_layout.py`
 - `python scripts/cleanup/repo_audit.py --check`
+
+## Hardening Confidence Gates
+
+The hardening pass now relies on three dedicated regression buckets:
+
+- `tests/e2e/` for compile-to-operator-path gauntlets
+- `tests/chaos/` for malformed input and provider outage handling
+- `tests/replay/` for idempotent replay and receipt stability

@@ -57,6 +57,86 @@ class InvalidConfigurationError(InvalidRequestError):
         )
 
 
+class CompileBudgetExceededError(SR8APIError):
+    def __init__(self, message: str, details: dict[str, object] | None = None) -> None:
+        super().__init__(
+            status_code=413,
+            code="compile_budget_exceeded",
+            message=message,
+            details=details,
+        )
+
+
+class AuthenticationRequiredError(SR8APIError):
+    def __init__(self) -> None:
+        super().__init__(
+            status_code=403,
+            code="authentication_required",
+            message="This route requires configured API authentication.",
+            details={},
+        )
+
+
+class WorkspaceAccessDeniedError(SR8APIError):
+    def __init__(self, requested_path: str) -> None:
+        super().__init__(
+            status_code=403,
+            code="workspace_access_denied",
+            message="Workspace override is denied by the current trusted-local policy.",
+            details={"workspace_path": requested_path},
+        )
+
+
+class RateLimitExceededError(SR8APIError):
+    def __init__(self, route_id: str, retry_after_seconds: int) -> None:
+        super().__init__(
+            status_code=429,
+            code="rate_limit_exceeded",
+            message="Rate limit exceeded for this route.",
+            details={"route_id": route_id, "retry_after_seconds": retry_after_seconds},
+        )
+
+
+class ConcurrencyLimitExceededError(SR8APIError):
+    def __init__(self) -> None:
+        super().__init__(
+            status_code=429,
+            code="concurrency_limit_exceeded",
+            message="Concurrent operation limit reached. Retry later.",
+            details={},
+        )
+
+
+class IdempotencyConflictError(SR8APIError):
+    def __init__(self) -> None:
+        super().__init__(
+            status_code=409,
+            code="idempotency_conflict",
+            message="Idempotency key cannot be reused with a different request payload.",
+            details={},
+        )
+
+
+class AsyncJobsDisabledError(SR8APIError):
+    def __init__(self) -> None:
+        super().__init__(
+            status_code=422,
+            code="async_jobs_disabled",
+            message="Async job mode is disabled in the current runtime configuration.",
+            details={},
+        )
+
+
+class AsyncJobNotFoundError(SR8APIError):
+    def __init__(self, job_id: str) -> None:
+        super().__init__(
+            status_code=404,
+            code="job_not_found",
+            message=f"Job '{job_id}' was not found.",
+            details={"job_id": job_id},
+        )
+
+
 class ArtifactNotFoundError(SR8APIError):
     def __init__(self, path_or_id: str) -> None:
         super().__init__(

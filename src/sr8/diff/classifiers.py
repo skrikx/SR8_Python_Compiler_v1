@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+from typing import Literal
 
 from sr8.diff.types import (
     HIGH_IMPACT_FIELDS,
@@ -57,3 +58,37 @@ def classify_impact(field: str, change_class: DiffClass) -> ImpactLevel:
     if field in MEDIUM_IMPACT_FIELDS:
         return "medium"
     return "low"
+
+
+def classify_semantic_change(
+    field: str,
+    change_class: DiffClass,
+    left: object | None,
+    right: object | None,
+) -> Literal["breaking", "additive", "editorial", "unchanged"]:
+    if change_class == "unchanged":
+        return "unchanged"
+    if field == "validation.readiness_status":
+        ordering = {"pass": 0, "warn": 1, "fail": 2}
+        left_rank = ordering.get(str(left), 0)
+        right_rank = ordering.get(str(right), 0)
+        if right_rank > left_rank:
+            return "breaking"
+        if right_rank < left_rank:
+            return "additive"
+        return "editorial"
+    if field == "governance_flags":
+        left_text = str(normalize_semantic_value(left)).lower()
+        right_text = str(normalize_semantic_value(right)).lower()
+        if "true" in right_text and "true" not in left_text:
+            return "breaking"
+        if "true" in left_text and "true" not in right_text:
+            return "additive"
+        return "editorial"
+    if change_class == "added":
+        return "additive"
+    if change_class == "removed":
+        return "breaking"
+    if field in HIGH_IMPACT_FIELDS or field in MEDIUM_IMPACT_FIELDS:
+        return "breaking"
+    return "editorial"

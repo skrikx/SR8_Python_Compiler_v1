@@ -16,8 +16,10 @@ from sr8.adapters.errors import (
 from sr8.adapters.types import (
     ProviderDescriptor,
     ProviderProbeResult,
+    ProviderProbeStatus,
     ProviderRequest,
     ProviderResponse,
+    ProviderRuntimeTransport,
 )
 
 TProviderSettings = TypeVar("TProviderSettings", bound=BaseSettings)
@@ -28,6 +30,9 @@ class ProviderAdapter(ABC, Generic[TProviderSettings]):
     label: str
     required_env_vars: tuple[str, ...] = ()
     capabilities: tuple[str, ...] = ("text_generation", "structured_output")
+    default_model_env_var: str | None = None
+    runtime_transport: ProviderRuntimeTransport = "http"
+    assist_extract_supported: bool = True
     supports_live_inference: bool = True
 
     def __init__(self, settings: TProviderSettings) -> None:
@@ -39,6 +44,9 @@ class ProviderAdapter(ABC, Generic[TProviderSettings]):
             label=self.label,
             capabilities=list(self.capabilities),
             required_env_vars=list(self.required_env_vars),
+            default_model_env_var=self.default_model_env_var,
+            runtime_transport=self.runtime_transport,
+            assist_extract_supported=self.assist_extract_supported,
             supports_live_inference=self.supports_live_inference,
         )
 
@@ -47,14 +55,19 @@ class ProviderAdapter(ABC, Generic[TProviderSettings]):
         configured = not missing
         live_enabled = self.supports_live_inference
         ready_for_runtime = configured and live_enabled
+        status: ProviderProbeStatus
         if ready_for_runtime:
+            status = "ready"
             detail = "Ready for runtime."
         elif configured:
+            status = "bounded"
             detail = "Configured, but live runtime is disabled."
         else:
+            status = "missing_config"
             detail = "Missing required environment variables."
         return ProviderProbeResult(
             provider=self.name,
+            status=status,
             registered=True,
             configured=configured,
             capable=True,
@@ -62,6 +75,8 @@ class ProviderAdapter(ABC, Generic[TProviderSettings]):
             ready_for_runtime=ready_for_runtime,
             available=ready_for_runtime,
             supports_live_inference=self.supports_live_inference,
+            configured_model=getattr(self.settings, "model", None),
+            requires_live_probe=False,
             missing_env_vars=missing,
             detail=detail,
             capabilities=list(self.capabilities),

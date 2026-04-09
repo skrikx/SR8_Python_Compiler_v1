@@ -17,6 +17,7 @@ class AzureOpenAIAdapter(ProviderAdapter[AzureOpenAIProviderSettings]):
         "SR8_AZURE_OPENAI_ENDPOINT",
         "SR8_AZURE_OPENAI_DEPLOYMENT",
     )
+    default_model_env_var = "SR8_AZURE_OPENAI_MODEL"
 
     def __init__(self, settings: AzureOpenAIProviderSettings) -> None:
         super().__init__(settings)

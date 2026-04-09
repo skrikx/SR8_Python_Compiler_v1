@@ -18,5 +18,6 @@ class Lineage(SR8Model):
     pipeline_version: str
     source_hash: str
     parent_source_hash: str | None = None
+    parent_compile_run_id: str | None = None
     steps: list[LineageStep] = Field(default_factory=list)
     parent_artifact_ids: list[str] = Field(default_factory=list)

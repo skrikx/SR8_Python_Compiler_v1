@@ -27,5 +27,5 @@
       {/if}
     </form>
   </DiffRunner>
-  <DiffSummary report={form?.result ?? null} />
+  <DiffSummary report={form?.result?.payload ?? null} />
 </div>

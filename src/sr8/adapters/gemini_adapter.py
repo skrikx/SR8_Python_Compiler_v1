@@ -12,6 +12,7 @@ class GeminiAdapter(ProviderAdapter[GeminiProviderSettings]):
     name = "gemini"
     label = "Gemini"
     required_env_vars = ("SR8_GEMINI_API_KEY", "SR8_GEMINI_MODEL")
+    default_model_env_var = "SR8_GEMINI_MODEL"
 
     def __init__(self, settings: GeminiProviderSettings) -> None:
         super().__init__(settings)

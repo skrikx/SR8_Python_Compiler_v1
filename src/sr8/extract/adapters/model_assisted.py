@@ -17,6 +17,25 @@ if TYPE_CHECKING:
 class ModelAssistedExtractionAdapter(ExtractionAdapter):
     name = "model_assisted"
 
+    def _fallback_metadata(
+        self,
+        *,
+        provider_name: str,
+        model_name: str,
+        exc: ProviderError,
+        trace: ExtractionTrace,
+    ) -> dict[str, object]:
+        return {
+            **trace.metadata,
+            "provider": provider_name,
+            "model": model_name,
+            "fallback": "rule_based",
+            "assist_extract_status": "fallback_rule_based",
+            "assist_extract_route": "provider_failed_then_rule_based",
+            "error_type": type(exc).__name__,
+            "error_message": str(exc)[:240],
+        }
+
     def extract(
         self,
         normalized_source: str,
@@ -41,7 +60,7 @@ class ModelAssistedExtractionAdapter(ExtractionAdapter):
                 model_name=model_name,
             )
             return result.extracted, result.trace
-        except ProviderError:
+        except ProviderError as exc:
             if config is not None and not config.assist_fallback_to_rule_based:
                 raise
             extracted, trace = RuleBasedExtractionAdapter().extract(
@@ -51,11 +70,11 @@ class ModelAssistedExtractionAdapter(ExtractionAdapter):
             return extracted, trace.model_copy(
                 update={
                     "adapter_name": f"model_assisted:{provider_name}:fallback:rule_based",
-                    "metadata": {
-                        **trace.metadata,
-                        "provider": provider_name,
-                        "model": model_name,
-                        "fallback": "rule_based",
-                    },
+                    "metadata": self._fallback_metadata(
+                        provider_name=provider_name,
+                        model_name=model_name,
+                        exc=exc,
+                        trace=trace,
+                    ),
                 }
             )

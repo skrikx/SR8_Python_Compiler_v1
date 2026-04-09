@@ -14,6 +14,7 @@ def render_diff_report(report: DiffReport) -> str:
         if change.change_class == "unchanged":
             continue
         lines.append(
-            f"- {change.field}: {change.change_class} (impact={change.impact})"
+            f"- {change.field}: {change.change_class} "
+            f"(impact={change.impact}, semantic={change.semantic_class})"
         )
     return "\n".join(lines)

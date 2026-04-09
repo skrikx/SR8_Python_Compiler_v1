@@ -1,10 +1,12 @@
 <script lang="ts">
   import LineagePanel from './LineagePanel.svelte';
   import ReceiptPanel from './ReceiptPanel.svelte';
-  import type { ArtifactRecord, DerivativeArtifact, IntentArtifact } from '$lib/api/types';
+  import ValidationSummaryPanel from '$lib/components/compile/ValidationSummaryPanel.svelte';
+  import type { ArtifactRecord, DerivativeArtifact, IntentArtifact, ValidationReport } from '$lib/api/types';
 
   export let record: ArtifactRecord | null = null;
   export let artifact: IntentArtifact | DerivativeArtifact | null = null;
+  export let validation: ValidationReport | null = null;
 </script>
 
 <section class="grid gap-5 xl:grid-cols-[minmax(0,1.4fr)_minmax(24rem,0.8fr)]">
@@ -12,6 +14,15 @@
     {#if artifact && 'artifact_id' in artifact}
       <div class="text-xs uppercase tracking-[0.3em] text-ink-500">Artifact Detail</div>
       <h2 class="mt-2 font-display text-3xl font-semibold text-ink-900">{artifact.profile}</h2>
+      <div class="mt-4 rounded-2xl border border-ink-200 bg-white/90 p-4 text-sm text-ink-700">
+        <div class="font-semibold text-ink-900">{artifact.objective}</div>
+        <div class="mt-2 grid gap-2 md:grid-cols-2">
+          <div>Artifact ID: {artifact.artifact_id}</div>
+          <div>Readiness: {artifact.validation.readiness_status}</div>
+          <div>Target class: {artifact.target_class}</div>
+          <div>Source hash: {artifact.source.source_hash}</div>
+        </div>
+      </div>
       <pre class="mt-4 overflow-auto rounded-2xl border border-ink-200 bg-white/90 p-4 text-xs leading-6 text-ink-800">{JSON.stringify(artifact, null, 2)}</pre>
     {:else if artifact}
       <div class="text-xs uppercase tracking-[0.3em] text-ink-500">Derivative Detail</div>
@@ -24,6 +35,7 @@
     {/if}
   </div>
   <div class="space-y-5">
+    <ValidationSummaryPanel report={validation} />
     <ReceiptPanel {record} />
     <LineagePanel artifact={artifact} />
   </div>

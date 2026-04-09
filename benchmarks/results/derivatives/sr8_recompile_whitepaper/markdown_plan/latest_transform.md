@@ -1,4 +1,4 @@
-# Plan - art_5e17b68d1db674cba5e0
+# Plan - art_768d3966d0ca60ca0be5
 ## Goal
 Compile a PRD for the SR8 self-hosting release proof pack used by users and reviewers.
 ## Scope
