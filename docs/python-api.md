@@ -14,7 +14,11 @@ result = compile_intent(
 
 artifact = result.artifact
 receipt = result.receipt
-print(artifact.artifact_id, receipt.receipt_id)
+print(
+    artifact.artifact_id,
+    receipt.compile_kind,
+    receipt.compile_truth_summary,
+)
 ```
 
 `CompileConfig` fields:
@@ -30,6 +34,15 @@ print(artifact.artifact_id, receipt.receipt_id)
 - `receipt`
 - `normalized_source`
 - `extracted_dimensions`
+
+Truthful compile metadata is exposed on `artifact.metadata` and `receipt`, including:
+
+- `compile_kind`
+- `semantic_transform_applied`
+- `source_supplied_fields`
+- `compiler_derived_fields`
+- `unresolved_fields`
+- `compile_truth_summary`
 
 ## Transform API
 

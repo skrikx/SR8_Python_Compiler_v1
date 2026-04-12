@@ -19,6 +19,18 @@ def _receipt_id(prefix: str, payload: str) -> str:
     return f"{prefix}_{stable_text_hash(payload)[:20]}"
 
 
+def _metadata_list(metadata: Mapping[str, object], key: str) -> list[str]:
+    value = metadata.get(key)
+    if not isinstance(value, list):
+        return []
+    return [str(item) for item in value]
+
+
+def _metadata_int(metadata: Mapping[str, object], key: str) -> int:
+    value = metadata.get(key)
+    return value if isinstance(value, int) else 0
+
+
 def write_compilation_receipt(
     workspace: SR8Workspace,
     result: CompilationResult,
@@ -56,6 +68,22 @@ def write_compilation_receipt(
         },
         validation_summary=report.summary,
         warnings=[warning.message for warning in report.warnings],
+        compile_kind=str(artifact.metadata.get("compile_kind", "canonicalize_structured")),
+        semantic_transform_applied=bool(
+            artifact.metadata.get("semantic_transform_applied", False)
+        ),
+        source_structure_kind=str(artifact.metadata.get("source_structure_kind", "raw_text")),
+        source_supplied_fields=_metadata_list(artifact.metadata, "source_supplied_fields"),
+        compiler_derived_fields=_metadata_list(artifact.metadata, "compiler_derived_fields"),
+        unresolved_fields=_metadata_list(artifact.metadata, "unresolved_fields"),
+        derived_field_count=_metadata_int(artifact.metadata, "derived_field_count"),
+        source_supplied_field_count=_metadata_int(
+            artifact.metadata,
+            "source_supplied_field_count",
+        ),
+        assist_route=str(artifact.metadata.get("assist_route", "not_used")),
+        intake_route=str(artifact.metadata.get("intake_route", "not_required")),
+        compile_truth_summary=str(artifact.metadata.get("compile_truth_summary", "")),
         output_path=output_path,
     )
     payload = json.dumps(receipt.model_dump(mode="json"), indent=2, sort_keys=True)

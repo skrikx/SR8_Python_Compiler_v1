@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
 
-SR8 is a local-first intent compiler for AI systems. It turns weakly structured requests into canonical, inspectable artifacts and governed derivative outputs.
+SR8 is a local-first intent compiler for AI systems. It truthfully routes raw text, markdown, JSON, and YAML into semantic compile, structured canonicalization, or explicit intake-required outcomes.
 
 Automation map: [assets/badges/README_BADGES.md](assets/badges/README_BADGES.md)
 
@@ -19,6 +19,7 @@ Automation map: [assets/badges/README_BADGES.md](assets/badges/README_BADGES.md)
 SR8 is the product layer. It compiles intent into a typed canonical artifact with:
 
 - deterministic ingest, normalization, extraction, and assembly
+- explicit compile kinds for semantic compile, structured canonicalization, and intake-required rejection
 - profile overlays and validation
 - transform outputs, including markdown derivatives and XML package surfaces
 - local storage, receipts, and catalog indexing
@@ -115,7 +116,11 @@ result = compile_intent(
 )
 
 artifact = result.artifact
-print(artifact.artifact_id, artifact.validation.readiness_status)
+print(
+    artifact.artifact_id,
+    artifact.metadata["compile_kind"],
+    artifact.validation.readiness_status,
+)
 ```
 
 FastAPI app entrypoint:

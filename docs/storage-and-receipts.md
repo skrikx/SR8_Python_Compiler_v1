@@ -26,6 +26,8 @@ When compiling to a `.sr8` path:
 - appends catalog record
 - writes compile receipt
 
+Compile receipts record route truth, including compile kind, semantic transform status, provenance counts, and the operator-facing compile truth summary.
+
 ## Derivative Save Behavior
 
 When transforming to a `.sr8` path:

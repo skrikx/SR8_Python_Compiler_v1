@@ -22,4 +22,15 @@ class CompilationReceiptRecord(SR8Model):
     lineage_summary: dict[str, object] = Field(default_factory=dict)
     validation_summary: str
     warnings: list[str] = Field(default_factory=list)
+    compile_kind: str = "canonicalize_structured"
+    semantic_transform_applied: bool = False
+    source_structure_kind: str = "raw_text"
+    source_supplied_fields: list[str] = Field(default_factory=list)
+    compiler_derived_fields: list[str] = Field(default_factory=list)
+    unresolved_fields: list[str] = Field(default_factory=list)
+    derived_field_count: int = 0
+    source_supplied_field_count: int = 0
+    assist_route: str = "not_used"
+    intake_route: str = "not_required"
+    compile_truth_summary: str = ""
     output_path: str

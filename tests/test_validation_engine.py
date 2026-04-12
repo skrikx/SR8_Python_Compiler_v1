@@ -10,13 +10,13 @@ def test_validation_pass_status_for_complete_generic_fixture() -> None:
     assert result.artifact.validation.errors == []
 
 
-def test_validation_warn_status_for_ambiguous_request() -> None:
+def test_validation_fail_status_for_intake_required_request() -> None:
     result = compile_intent(
         source="tests/fixtures/ambiguous_request.txt",
         config=CompileConfig(profile="generic"),
     )
-    assert result.artifact.validation.readiness_status == "warn"
-    assert len(result.artifact.validation.warnings) >= 1
+    assert result.artifact.validation.readiness_status == "fail"
+    assert any(issue.code == "VAL-ROUTE-004" for issue in result.artifact.validation.errors)
 
 
 def test_validation_fail_for_scope_exclusion_contradiction() -> None:

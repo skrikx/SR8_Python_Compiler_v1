@@ -82,11 +82,32 @@ def _echo_validation(artifact: IntentArtifact) -> None:
 def _echo_artifact_summary(artifact: IntentArtifact) -> None:
     typer.echo(f"Artifact ID: {artifact.artifact_id}")
     typer.echo(f"Profile: {artifact.profile}")
+    compile_kind = str(artifact.metadata.get("compile_kind", "canonicalize_structured"))
+    raw_source_count = artifact.metadata.get("source_supplied_field_count", 0)
+    source_count = raw_source_count if isinstance(raw_source_count, int) else 0
+    raw_derived_count = artifact.metadata.get("derived_field_count", 0)
+    derived_count = raw_derived_count if isinstance(raw_derived_count, int) else 0
+    unresolved_value = artifact.metadata.get("unresolved_fields", [])
+    unresolved_count = len(unresolved_value) if isinstance(unresolved_value, list) else 0
+    typer.echo(f"Compile Kind: {compile_kind}")
+    typer.echo(
+        "Semantic Transform: "
+        f"{'yes' if bool(artifact.metadata.get('semantic_transform_applied', False)) else 'no'}"
+    )
+    typer.echo(
+        "Provenance Counts: "
+        f"source={source_count}, "
+        f"derived={derived_count}, "
+        f"unresolved={unresolved_count}"
+    )
     typer.echo(f"Target Class: {artifact.target_class}")
     typer.echo(f"Source Hash: {artifact.source.source_hash}")
     typer.echo(f"Objective: {artifact.objective or '(empty)'}")
     typer.echo(f"Scope Count: {len(artifact.scope)}")
     typer.echo(f"Constraints Count: {len(artifact.constraints)}")
+    compile_truth_summary = str(artifact.metadata.get("compile_truth_summary", "")).strip()
+    if compile_truth_summary:
+        typer.echo(f"Compile Truth: {compile_truth_summary}")
     trust_summary = summarize_extraction_trace(
         cast(Mapping[str, object] | None, artifact.metadata.get("extraction_trace"))
     )
@@ -243,6 +264,8 @@ def compile_command(
         )
         artifact = result.artifact
         _echo_artifact_summary(artifact)
+    if result is not None:
+        typer.echo(f"Receipt Status: {result.receipt.status}")
     if out is not None:
         workspace_root = _find_workspace_root(out)
         if workspace_root is not None:

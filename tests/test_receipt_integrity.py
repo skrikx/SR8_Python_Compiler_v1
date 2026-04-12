@@ -20,7 +20,12 @@ def test_receipts_preserve_lineage_and_recovery_fields(tmp_path: Path) -> None:
 
     assert compile_receipt.compile_run_id == result.artifact.lineage.compile_run_id
     assert compile_receipt.lineage_summary["source_hash"] == result.artifact.source.source_hash
-    assert compile_receipt.recovery_summary["intake_required"] is True
+    assert compile_receipt.compile_kind == result.artifact.metadata["compile_kind"]
+    assert (
+        compile_receipt.derived_field_count
+        == result.artifact.metadata["derived_field_count"]
+    )
+    assert compile_receipt.recovery_summary["intake_required"] is False
 
     derivative = transform_artifact(result.artifact, target="markdown_plan").derivative
     derivative_path, _, _, _ = save_derivative_artifact(workspace, derivative)

@@ -43,6 +43,13 @@ def test_canonical_artifact_contract_is_complete() -> None:
     assert "extraction_trace" in payload["metadata"]
     assert "extraction_trust_summary" in payload["metadata"]
     assert "weak_intent_recovery" in payload["metadata"]
+    assert "compile_kind" in payload["metadata"]
+    assert "semantic_transform_applied" in payload["metadata"]
+    assert "source_structure_kind" in payload["metadata"]
+    assert "source_supplied_fields" in payload["metadata"]
+    assert "compiler_derived_fields" in payload["metadata"]
+    assert "unresolved_fields" in payload["metadata"]
+    assert "compile_truth_summary" in payload["metadata"]
 
 
 def test_canonical_artifact_contract_round_trips_as_json() -> None:

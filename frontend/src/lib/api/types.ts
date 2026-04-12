@@ -226,6 +226,17 @@ export interface CompilationReceiptRecord {
   status?: string;
   notes?: string[];
   parent_artifact_ids?: string[];
+  compile_kind?: string;
+  semantic_transform_applied?: boolean;
+  source_structure_kind?: string;
+  source_supplied_fields?: string[];
+  compiler_derived_fields?: string[];
+  unresolved_fields?: string[];
+  derived_field_count?: number;
+  source_supplied_field_count?: number;
+  assist_route?: string;
+  intake_route?: string;
+  compile_truth_summary?: string;
 }
 
 export interface GovernanceDecision {

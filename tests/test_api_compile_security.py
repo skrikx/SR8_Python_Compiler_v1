@@ -35,3 +35,4 @@ def test_api_compile_accepts_structured_payload() -> None:
 
     assert response.status_code == 200
     assert response.json()["artifact"]["objective"] == "Structured compile contract"
+    assert response.json()["receipt"]["compile_kind"] == "canonicalize_structured"

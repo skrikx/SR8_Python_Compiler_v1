@@ -29,6 +29,11 @@ sr8 list
 - canonical artifact: `.sr8/artifacts/canonical/latest.json`
 - derivative markdown: `.sr8/artifacts/derivative/latest.md`
 - catalog: `.sr8/index/catalog.json`
+- compile truth metadata on the artifact:
+  - `metadata.compile_kind`
+  - `metadata.source_supplied_fields`
+  - `metadata.compiler_derived_fields`
+  - `metadata.compile_truth_summary`
 - receipts:
   - `.sr8/receipts/compile/`
   - `.sr8/receipts/transform/`

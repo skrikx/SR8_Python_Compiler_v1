@@ -3,7 +3,7 @@ from __future__ import annotations
 from sr8.compiler import CompileConfig, compile_intent
 from sr8.frontdoor.command_parser import parse_chat_invocation
 from sr8.frontdoor.governance import evaluate_governance, suggest_safe_alternative
-from sr8.frontdoor.intake import extract_refined_intent, is_under_specified, render_intake_xml
+from sr8.frontdoor.intake import analyze_intent_surface, extract_refined_intent, render_intake_xml
 from sr8.frontdoor.package_models import (
     FrontdoorCompileResult,
     FrontdoorStatus,
@@ -38,7 +38,8 @@ def chat_compile(source_text: str, config: CompileConfig | None = None) -> Front
             )
         content = refined
 
-    if is_under_specified(content):
+    surface_analysis = analyze_intent_surface(content)
+    if surface_analysis["intake_required"]:
         intake_xml = render_intake_xml(content)
         return FrontdoorCompileResult(
             status="intake_required",
@@ -56,6 +57,20 @@ def chat_compile(source_text: str, config: CompileConfig | None = None) -> Front
         source_type="text",
         config=active_config,
     )
+    if (
+        compile_result.receipt.status == "rejected"
+        or compile_result.artifact.metadata.get("compile_kind") == "needs_intake"
+    ):
+        intake_xml = render_intake_xml(content)
+        return FrontdoorCompileResult(
+            status="intake_required",
+            entry_mode=entry_mode,
+            artifact_family=require_artifact_family("governed_request_package"),
+            delivery_target=require_delivery_target("xml_package"),
+            governance=GovernanceDecision(status="deny", reason="intake_required"),
+            intake_xml=intake_xml,
+            compile_config=active_config,
+        )
 
     governance = evaluate_governance(compile_result.artifact)
     promptunit_xml = render_promptunit_package_xml(

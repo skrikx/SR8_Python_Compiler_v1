@@ -19,6 +19,10 @@ def test_api_health_compile_validate_transform(tmp_path: Path) -> None:
         json={"source_text": source_text, "profile": "prd"},
     )
     assert compile_response.status_code == 200
+    assert compile_response.json()["receipt"]["compile_kind"] in {
+        "semantic_compile",
+        "canonicalize_structured",
+    }
     artifact_payload = compile_response.json()["artifact"]
 
     artifact_path = tmp_path / "artifact.json"

@@ -45,3 +45,4 @@ def test_frontend_api_contracts(tmp_path: Path, monkeypatch) -> None:
     )
     assert compile_response.status_code == 200
     assert compile_response.json()["artifact"]["objective"] == "Frontend contract"
+    assert compile_response.json()["receipt"]["compile_kind"] == "semantic_compile"

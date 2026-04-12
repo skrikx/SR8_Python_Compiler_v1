@@ -4,8 +4,9 @@ import re
 from pathlib import Path
 from xml.etree import ElementTree
 
-from sr8.extract.adapters.rule_based import RuleBasedExtractionAdapter
+from sr8.compiler.planner import build_compile_preview, build_recovery_summary
 from sr8.frontdoor.xml_renderer import escape_xml_text
+from sr8.ingest.loaders import load_source as ingest_load_source
 
 WORD_RE = re.compile(r"\w+")
 
@@ -16,6 +17,7 @@ def analyze_intent_surface(text: str) -> dict[str, object]:
         return {
             "word_count": 0,
             "intake_required": True,
+            "compile_kind": "needs_intake",
             "recovery": {
                 "intake_required": True,
                 "missing_fields": ["objective", "scope", "constraints"],
@@ -27,12 +29,29 @@ def analyze_intent_surface(text: str) -> dict[str, object]:
                 ),
             },
         }
-    adapter = RuleBasedExtractionAdapter()
-    _, trace = adapter.extract(candidate)
+    preview = build_compile_preview(ingest_load_source(candidate, source_type="text"))
+    unresolved_fields = [
+        field_name
+        for field_name in (
+            "objective",
+            "scope",
+            "constraints",
+            "success_criteria",
+            "output_contract",
+        )
+        if field_name not in preview.source_supplied_fields
+    ]
     return {
         "word_count": len(WORD_RE.findall(candidate)),
-        "intake_required": trace.recovery.intake_required,
-        "recovery": trace.recovery.model_dump(mode="json"),
+        "intake_required": preview.compile_kind == "needs_intake",
+        "compile_kind": preview.compile_kind,
+        "recovery": build_recovery_summary(
+            compile_kind=preview.compile_kind,
+            source_supplied_fields=preview.source_supplied_fields,
+            compiler_derived_fields=[],
+            unresolved_fields=unresolved_fields,
+            weak_signal_hits=preview.weak_signal_hits,
+        ),
     }
 
 

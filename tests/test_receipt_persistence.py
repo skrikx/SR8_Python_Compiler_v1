@@ -24,6 +24,11 @@ def test_receipts_persist_for_compile_and_transform(tmp_path: Path) -> None:
     assert compile_receipt.source_hash == result.artifact.source.source_hash
     assert compile_receipt.lineage_summary["source_hash"] == result.artifact.source.source_hash
     assert "status_counts" in compile_receipt.extraction_trust_summary
+    assert compile_receipt.compile_kind == result.artifact.metadata["compile_kind"]
+    assert (
+        compile_receipt.source_supplied_field_count
+        == result.artifact.metadata["source_supplied_field_count"]
+    )
 
     transform_result = transform_artifact(result.artifact, target="markdown_prd")
     derivative_json_path, _, _, _ = save_derivative_artifact(workspace, transform_result.derivative)

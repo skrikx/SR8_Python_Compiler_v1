@@ -1,6 +1,6 @@
 # Chat Front Door
 
-SR8 now supports a chat-native front door that accepts `compile:` and `resume:` invocations. The front door parses chat intent, validates if the request is underspecified, and either compiles into the canonical SR8 artifact or returns an intake XML form for refinement.
+SR8 now supports a chat-native front door that accepts `compile:` and `resume:` invocations. The front door uses the same compile route contract as the core compiler, so chat input either reaches semantic compile, truthfully canonicalizes already-structured input, or returns intake XML when the request still needs refinement.
 
 ## Invocation
 

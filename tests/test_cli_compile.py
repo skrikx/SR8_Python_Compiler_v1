@@ -25,6 +25,7 @@ def test_cli_compile_writes_json_artifact(tmp_path: Path) -> None:
 
     assert result.exit_code == 0
     assert (out_dir / "latest.json").exists()
+    assert "Compile Kind:" in result.stdout
     assert "Validation:" in result.stdout
 
 

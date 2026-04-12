@@ -8,4 +8,5 @@ def test_rule_only_compile_still_works_without_provider_configuration() -> None:
     )
 
     assert result.artifact.objective == "Ship local compile"
+    assert result.artifact.metadata["compile_kind"] == "semantic_compile"
     assert result.artifact.metadata["extraction_trust_summary"]["provider"] is None

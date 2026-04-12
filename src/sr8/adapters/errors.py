@@ -1,6 +1,14 @@
 from __future__ import annotations
 
-import httpx
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    import httpx
+else:  # pragma: no cover - import guard for local rule-only paths
+    try:
+        import httpx
+    except ModuleNotFoundError:  # pragma: no cover - optional runtime dependency
+        httpx = None  # type: ignore[assignment]
 
 
 class ProviderError(RuntimeError):
@@ -21,8 +29,8 @@ class ProviderNormalizationError(ProviderError):
     pass
 
 
-def map_http_error(provider: str, error: httpx.HTTPError) -> ProviderError:
-    if isinstance(error, httpx.HTTPStatusError):
+def map_http_error(provider: str, error: Any) -> ProviderError:
+    if httpx is not None and isinstance(error, httpx.HTTPStatusError):
         status_code = error.response.status_code
         if status_code in {401, 403}:
             return ProviderNotConfiguredError(

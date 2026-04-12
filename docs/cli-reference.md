@@ -19,7 +19,7 @@ sr8 init [--path .sr8]
 
 ## `sr8 compile`
 
-Compile source into canonical artifact.
+Compile source into a canonical artifact with a truthful route result.
 
 ```bash
 sr8 compile <source> [--profile generic] [--source-type text|markdown|json|yaml] [--format json|yaml] [--out <dir>]
@@ -29,6 +29,8 @@ Notes:
 
 - if `--out` is inside a `.sr8` workspace, compile also writes catalog and receipt records
 - otherwise artifact files are written directly to the provided output directory
+- CLI output includes `Compile Kind`, semantic transform status, provenance counts, and receipt status
+- compile kinds are `semantic_compile`, `canonicalize_structured`, and `needs_intake`
 
 ## `sr8 validate`
 
