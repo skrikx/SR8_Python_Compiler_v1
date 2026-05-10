@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import Literal
 from xml.etree import ElementTree
 
-from sr8.frontdoor.xml_renderer import sanitize_xml_text
 from sr8.models.intent_artifact import IntentArtifact
 
 SRXML_NAMESPACE = "https://platxp.ai/srxml/v1"
@@ -106,6 +105,11 @@ PROFILE_ARTIFACT_TYPE: dict[str, str] = {
 }
 
 PLACEHOLDER_RE = re.compile(r"\{\{[^}]+\}\}")
+CONTROL_CHAR_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+
+
+def sanitize_xml_text(text: str) -> str:
+    return CONTROL_CHAR_RE.sub("", text)
 
 
 @dataclass(frozen=True)

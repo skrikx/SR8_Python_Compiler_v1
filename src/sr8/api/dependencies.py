@@ -113,6 +113,8 @@ def resolve_compile_config_for_request(
         resolved = resolve_compile_config(
             active_settings,
             profile=payload.profile,
+            target=payload.target,
+            validate_target=payload.validate_target,
             rule_only=payload.rule_only,
             assist_provider=payload.assist_provider,
             assist_model=payload.assist_model,

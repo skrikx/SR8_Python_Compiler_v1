@@ -84,6 +84,11 @@ def write_compilation_receipt(
         assist_route=str(artifact.metadata.get("assist_route", "not_used")),
         intake_route=str(artifact.metadata.get("intake_route", "not_required")),
         compile_truth_summary=str(artifact.metadata.get("compile_truth_summary", "")),
+        compile_target=cast(str | None, artifact.metadata.get("compile_target")),
+        compile_target_validation=cast(
+            dict[str, object] | None,
+            artifact.metadata.get("compile_target_validation"),
+        ),
         output_path=output_path,
     )
     payload = json.dumps(receipt.model_dump(mode="json"), indent=2, sort_keys=True)

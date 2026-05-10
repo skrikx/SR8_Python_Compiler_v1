@@ -9,6 +9,8 @@ class CompileConfig(SR8Model):
     artifact_version: str = SchemaVersion().canonical_schema
     compiler_version: str = __version__
     profile: str = "generic"
+    target: str | None = None
+    validate_target: bool = False
     include_raw_source: bool = False
     extraction_adapter: str = "rule_based"
     assist_provider: str | None = None

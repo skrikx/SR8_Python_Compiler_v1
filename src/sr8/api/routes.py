@@ -253,6 +253,7 @@ def _build_compile_payload(
                         )
                         if frontdoor_result.extracted_dimensions
                         else None,
+                        "target_validation": None,
                         "job": None,
                         "request_identity": identity_payload,
                         "replayed": False,
@@ -269,6 +270,9 @@ def _build_compile_payload(
             "receipt": result.receipt.model_dump(mode="json"),
             "normalized_source": result.normalized_source.model_dump(mode="json"),
             "extracted_dimensions": result.extracted_dimensions.model_dump(mode="json"),
+            "target_validation": result.target_validation.model_dump(mode="json")
+            if result.target_validation
+            else None,
             "job": None,
             "request_identity": identity_payload,
             "replayed": False,
@@ -535,6 +539,8 @@ def compile_endpoint(payload: CompileRequest, request: Request) -> JSONResponse 
             "rule_only": payload.rule_only,
             "assist_provider": payload.assist_provider,
             "assist_model": payload.assist_model,
+            "target": payload.target,
+            "validate_target": payload.validate_target,
             "async_mode": payload.async_mode,
         }
     )
@@ -566,6 +572,7 @@ def compile_endpoint(payload: CompileRequest, request: Request) -> JSONResponse 
                 "receipt": None,
                 "normalized_source": None,
                 "extracted_dimensions": None,
+                "target_validation": None,
                 "job": job.model_dump(mode="json"),
                 "request_identity": identity.model_dump(mode="json"),
                 "replayed": reused,
@@ -589,6 +596,7 @@ def compile_endpoint(payload: CompileRequest, request: Request) -> JSONResponse 
                         "receipt": None,
                         "normalized_source": None,
                         "extracted_dimensions": None,
+                        "target_validation": None,
                         "job": job.model_dump(mode="json"),
                         "request_identity": identity.model_dump(mode="json"),
                         "replayed": True,

@@ -31,6 +31,11 @@ class CompileRequest(BaseModel):
     )
     source_payload: dict[str, object] | None = None
     profile: str | None = None
+    target: str | None = None
+    validate_target: bool = Field(
+        default=False,
+        validation_alias=AliasChoices("validate_target", "validate"),
+    )
     source_type: Literal["text", "markdown", "json", "yaml"] | None = None
     rule_only: bool = False
     assist_provider: str | None = None
@@ -133,6 +138,7 @@ class CompileResponse(BaseModel):
     receipt: dict[str, object] | None = None
     normalized_source: dict[str, object] | None = None
     extracted_dimensions: dict[str, object] | None = None
+    target_validation: dict[str, object] | None = None
     job: dict[str, object] | None = None
     request_identity: RequestIdentity
     replayed: bool = False

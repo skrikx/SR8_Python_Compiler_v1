@@ -162,6 +162,14 @@ Built-in transform targets:
 
 Reference: [docs/transforms.md](docs/transforms.md)
 
+SRXML RC2 can also be requested during compile as a validation target:
+
+```bash
+sr8 compile examples/product_prd.md --target xml_srxml_rc2 --validate --out ./.sr8/artifacts/canonical/
+```
+
+This keeps SR8's canonical artifact as the internal compiler model, then renders and validates SRXML RC2 before the compile target is treated as complete.
+
 ## Storage and Receipts
 
 Default workspace layout:

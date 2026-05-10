@@ -31,6 +31,16 @@ sr8 transform ./.sr8/artifacts/canonical/latest.json --to xml_srxml_rc2 --out ./
 
 If output path is inside `.sr8`, transform persistence writes derivative record and transform receipt.
 
+## Compile-Stage Target Validation
+
+`xml_srxml_rc2` is not limited to passive transform export. It can be requested during compile:
+
+```bash
+sr8 compile examples/product_prd.md --target xml_srxml_rc2 --validate --out ./.sr8/artifacts/canonical/
+```
+
+The compile path still produces a canonical SR8 artifact first. It then renders SRXML RC2, validates the rendered XML, writes `latest_xml_srxml_rc2.xml` when `--out` is provided, and rejects the compile receipt when the SRXML target is invalid or blocked.
+
 ## Failure Modes
 
 Transform returns explicit errors for:

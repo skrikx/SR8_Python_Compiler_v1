@@ -31,6 +31,8 @@ def resolve_compile_config(
     settings: SR8Settings,
     *,
     profile: str | None = None,
+    target: str | None = None,
+    validate_target: bool = False,
     rule_only: bool = False,
     assist_provider: str | None = None,
     assist_model: str | None = None,
@@ -39,6 +41,13 @@ def resolve_compile_config(
     effective_provider = assist_provider or settings.assist_provider
     effective_model = assist_model or settings.assist_model
     extraction_adapter = settings.extraction_adapter
+
+    if target is not None and not validate_target:
+        msg = "--validate is required when --target is provided."
+        raise ValueError(msg)
+    if target is not None and target.strip().lower() != "xml_srxml_rc2":
+        msg = "Unsupported compile target. Expected xml_srxml_rc2."
+        raise ValueError(msg)
 
     if rule_only:
         extraction_adapter = "rule_based"
@@ -56,6 +65,8 @@ def resolve_compile_config(
 
     return CompileConfig(
         profile=effective_profile,
+        target=target,
+        validate_target=validate_target,
         include_raw_source=settings.include_raw_source,
         extraction_adapter=extraction_adapter,
         assist_provider=effective_provider,

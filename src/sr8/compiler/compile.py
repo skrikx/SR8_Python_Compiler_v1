@@ -33,6 +33,7 @@ from sr8.models.source_intent import SourceIntent, SourceType
 from sr8.models.validation import ValidationReport
 from sr8.normalize.clean import normalize_source as normalize_source_core
 from sr8.profiles.registry import apply_profile_overlay
+from sr8.srxml import classify_srxml_route, render_srxml_rc2_artifact, validate_srxml_text
 from sr8.utils.ids import (
     build_artifact_id,
     build_compile_run_id,
@@ -43,7 +44,7 @@ from sr8.validate.engine import validate_artifact
 
 from .errors import SR8CompileError
 from .recompile import recompile_artifact
-from .types import CompilationResult
+from .types import CompilationResult, CompileTargetValidation
 
 SourceInput = str | Path | Mapping[str, object] | IntentArtifact
 ReceiptStatus = Literal["accepted", "rejected"]
@@ -52,6 +53,7 @@ CompileKind = Literal[
     "canonicalize_structured",
     "needs_intake",
 ]
+SRXML_RC2_TARGET = "xml_srxml_rc2"
 
 
 def load_source(source: SourceInput, source_type: SourceType | None = None) -> SourceIntent:
@@ -442,10 +444,104 @@ def _build_receipt_from_artifact(
     )
 
 
+def _build_compile_target_validation(
+    artifact: IntentArtifact,
+    *,
+    target: str,
+) -> CompileTargetValidation:
+    normalized_target = target.strip().lower()
+    if normalized_target != SRXML_RC2_TARGET:
+        msg = (
+            f"Unsupported compile target '{target}'. "
+            f"Expected '{SRXML_RC2_TARGET}'."
+        )
+        raise ValueError(msg)
+
+    srxml = render_srxml_rc2_artifact(artifact)
+    validation = validate_srxml_text(srxml)
+    route = classify_srxml_route(artifact)
+    repair_actions = [
+        *route.blocked_reasons,
+        *(f"{error.rule_id}: {error.remediation}" for error in validation.errors),
+    ]
+    status = (
+        "accepted"
+        if validation.valid and not route.blocked
+        else "blocked"
+        if route.blocked
+        else "rejected"
+    )
+    return CompileTargetValidation(
+        target=SRXML_RC2_TARGET,
+        output_format="xml",
+        content=srxml,
+        valid=validation.valid and not route.blocked,
+        status=status,
+        artifact_type=validation.artifact_type,
+        depth_tier=validation.depth_tier,
+        errors=[error.as_dict() for error in validation.errors],
+        warnings=[warning.as_dict() for warning in validation.warnings],
+        repair_actions=repair_actions,
+    )
+
+
+def _apply_compile_target_validation(
+    result: CompilationResult,
+    *,
+    config: CompileConfig,
+) -> CompilationResult:
+    if config.target is None:
+        return result
+    if not config.validate_target:
+        msg = "--validate is required when a compile target is requested."
+        raise ValueError(msg)
+
+    target_validation = _build_compile_target_validation(
+        result.artifact,
+        target=config.target,
+    )
+    metadata = result.artifact.metadata | {
+        "compile_target": target_validation.target,
+        "compile_target_validation": target_validation.model_dump(
+            mode="json",
+            exclude={"content"},
+        ),
+        "compile_target_validation_requested": config.validate_target,
+    }
+    artifact = result.artifact.model_copy(update={"metadata": metadata})
+    notes = [
+        *result.receipt.notes,
+        (
+            f"Compile target {target_validation.target} validation "
+            f"{target_validation.status}."
+        ),
+    ]
+    receipt_status: ReceiptStatus = (
+        "accepted"
+        if result.receipt.status == "accepted"
+        and target_validation.status == "accepted"
+        else "rejected"
+    )
+    receipt = result.receipt.model_copy(
+        update={
+            "status": receipt_status,
+            "notes": notes,
+        }
+    )
+    return result.model_copy(
+        update={
+            "artifact": artifact,
+            "receipt": receipt,
+            "target_validation": target_validation,
+        }
+    )
+
+
 def _recompile_result(
     compiled_artifact: IntentArtifact,
     *,
     note: str,
+    config: CompileConfig | None = None,
 ) -> CompilationResult:
     receipt = _build_receipt_from_artifact(
         compiled_artifact,
@@ -462,11 +558,15 @@ def _recompile_result(
         origin=compiled_artifact.source.origin,
         metadata={},
     )
-    return CompilationResult(
+    result = CompilationResult(
         artifact=compiled_artifact,
         receipt=receipt,
         normalized_source=fallback_source,
         extracted_dimensions=ExtractedDimensions(),
+    )
+    return _apply_compile_target_validation(
+        result,
+        config=config or CompileConfig(),
     )
 
 
@@ -487,6 +587,7 @@ def _try_recompile_artifact_path(
     return _recompile_result(
         compiled_artifact,
         note="Recompiled from canonical artifact source.",
+        config=active_config,
     )
 
 
@@ -505,6 +606,7 @@ def compile_intent(
         return _recompile_result(
             compiled_artifact,
             note="Recompiled from in-memory canonical artifact source.",
+            config=active_config,
         )
 
     if source_type is None and isinstance(source, (str, Path)):
@@ -648,9 +750,10 @@ def compile_intent(
         status=receipt_status,
         notes=notes,
     )
-    return CompilationResult(
+    result = CompilationResult(
         artifact=artifact,
         receipt=receipt,
         normalized_source=normalized,
         extracted_dimensions=compiled_dimensions,
     )
+    return _apply_compile_target_validation(result, config=active_config)

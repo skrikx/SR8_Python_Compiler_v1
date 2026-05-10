@@ -33,4 +33,6 @@ class CompilationReceiptRecord(SR8Model):
     assist_route: str = "not_used"
     intake_route: str = "not_required"
     compile_truth_summary: str = ""
+    compile_target: str | None = None
+    compile_target_validation: dict[str, object] | None = None
     output_path: str

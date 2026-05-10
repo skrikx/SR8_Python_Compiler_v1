@@ -26,3 +26,13 @@ These XML outputs are available as transform targets:
 
 The renderers are thin wrappers around the front door XML renderers to ensure consistency with chat compile packages.
 The `xml_srxml_rc2` renderer is backed by `sr8.srxml`, which classifies canonical SR8 artifacts into RC2 artifact families, preserves lineage fields, emits D2 validation and receipt sections, and returns a blocked-state receipt when the canonical artifact is incomplete or failed.
+
+## Compile Validation Target
+
+SRXML RC2 is also available as a compile-stage validation target:
+
+```bash
+sr8 compile examples/product_prd.md --target xml_srxml_rc2 --validate --out ./.sr8/artifacts/canonical/
+```
+
+This path preserves SR8's canonical artifact as the internal AST. Compile then renders the canonical artifact to SRXML RC2, validates that XML with `sr8.srxml.validate_srxml_text`, stores the target validation summary in artifact metadata, and records it in the compile receipt. If SRXML validation fails or the SR8 artifact is incomplete, the compile receipt is rejected and the SRXML output contains a repair or blocked-state receipt.

@@ -176,10 +176,50 @@ def _write_frontdoor_packages(out_dir: str, result: FrontdoorCompileResult) -> N
         )
 
 
+def _echo_compile_target_validation(result: CompilationResult) -> None:
+    target_validation = result.target_validation
+    if target_validation is None:
+        return
+    typer.echo(
+        "Target Validation: "
+        f"{target_validation.target} {target_validation.status} "
+        f"(valid={target_validation.valid}, errors={len(target_validation.errors)}, "
+        f"warnings={len(target_validation.warnings)})"
+    )
+    if target_validation.artifact_type:
+        typer.echo(f"SRXML Artifact Type: {target_validation.artifact_type}")
+    if target_validation.depth_tier:
+        typer.echo(f"SRXML Depth Tier: {target_validation.depth_tier}")
+    for repair_action in target_validation.repair_actions:
+        typer.echo(f"Repair: {repair_action}")
+
+
+def _write_compile_target_output(out_dir: str, result: CompilationResult) -> Path | None:
+    target_validation = result.target_validation
+    if target_validation is None:
+        return None
+    output_path = Path(out_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+    extension = ".xml" if target_validation.output_format == "xml" else ".txt"
+    target_path = output_path / f"latest_{target_validation.target}{extension}"
+    target_path.write_text(target_validation.content, encoding="utf-8")
+    return target_path
+
+
 @app.command("compile")
 def compile_command(
     source: str = typer.Argument(..., help="Source input path or inline text."),
     profile: str | None = typer.Option(None, "--profile", help="Profile overlay."),
+    target: str | None = typer.Option(
+        None,
+        "--target",
+        help="Optional compile validation target, currently xml_srxml_rc2.",
+    ),
+    validate_target: bool = typer.Option(
+        False,
+        "--validate",
+        help="Validate the requested compile target before treating it as complete.",
+    ),
     source_type: str | None = typer.Option(None, "--source-type", help="text|markdown|json|yaml"),
     export_format: str = typer.Option("json", "--format", help="json|yaml"),
     out: str | None = typer.Option(None, "--out", help="Output directory for artifact export."),
@@ -221,6 +261,8 @@ def compile_command(
         compile_config = resolve_compile_config(
             settings,
             profile=profile,
+            target=target,
+            validate_target=validate_target,
             rule_only=rule_only,
             assist_provider=assist_provider,
             assist_model=assist_model,
@@ -266,6 +308,7 @@ def compile_command(
         _echo_artifact_summary(artifact)
     if result is not None:
         typer.echo(f"Receipt Status: {result.receipt.status}")
+        _echo_compile_target_validation(result)
     if out is not None:
         workspace_root = _find_workspace_root(out)
         if workspace_root is not None:
@@ -283,6 +326,10 @@ def compile_command(
                 typer.echo(f"Receipt: {receipt_path} ({receipt.receipt_id})")
             else:
                 typer.echo("Receipt: skipped (frontdoor result missing compilation details)")
+            if result is not None:
+                target_path = _write_compile_target_output(out, result)
+                if target_path is not None:
+                    typer.echo(f"Target Output: {target_path}")
         else:
             artifact_path, latest_path = write_artifact(
                 artifact,
@@ -291,6 +338,19 @@ def compile_command(
             )
             typer.echo(f"Written: {artifact_path}")
             typer.echo(f"Latest: {latest_path}")
+            if result is not None:
+                target_path = _write_compile_target_output(out, result)
+                if target_path is not None:
+                    typer.echo(f"Target Output: {target_path}")
+    elif result is not None and result.target_validation is not None:
+        typer.echo("")
+        typer.echo(result.target_validation.content)
+    if (
+        result is not None
+        and result.target_validation is not None
+        and result.target_validation.status != "accepted"
+    ):
+        raise typer.Exit(1)
 
 
 @app.command("validate")
