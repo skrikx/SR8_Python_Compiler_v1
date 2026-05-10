@@ -155,6 +155,7 @@ Built-in transform targets:
 
 - `markdown_prd`
 - `markdown_plan`
+- `xml_srxml_rc2`
 - `markdown_research_brief`
 - `markdown_procedure`
 - `markdown_prompt_pack`

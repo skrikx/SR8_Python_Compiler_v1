@@ -39,5 +39,6 @@ CODE_TASK_GRAPH_PROFILE = ProfileDefinition(
         "xml_promptunit_package",
         "xml_sr8_prompt",
         "xml_safe_alternative_package",
+        "xml_srxml_rc2",
     ),
 )

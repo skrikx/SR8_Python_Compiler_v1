@@ -9,6 +9,10 @@ SR8 transforms render derivative artifacts from canonical artifacts.
 - `markdown_research_brief`
 - `markdown_procedure`
 - `markdown_prompt_pack`
+- `xml_promptunit_package`
+- `xml_sr8_prompt`
+- `xml_safe_alternative_package`
+- `xml_srxml_rc2`
 
 ## Transform Flow
 
@@ -22,6 +26,7 @@ SR8 transforms render derivative artifacts from canonical artifacts.
 
 ```bash
 sr8 transform ./.sr8/artifacts/canonical/latest.json --to markdown_prd --out ./.sr8/artifacts/derivative/
+sr8 transform ./.sr8/artifacts/canonical/latest.json --to xml_srxml_rc2 --out ./.sr8/artifacts/derivative/
 ```
 
 If output path is inside `.sr8`, transform persistence writes derivative record and transform receipt.

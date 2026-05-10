@@ -60,6 +60,7 @@ RESEARCH_BRIEF_PROFILE = ProfileDefinition(
         "xml_promptunit_package",
         "xml_sr8_prompt",
         "xml_safe_alternative_package",
+        "xml_srxml_rc2",
     ),
     section_order_hints=("objective", "constraints", "success_criteria", "output_contract"),
 )

@@ -10,6 +10,7 @@ from sr8.transform.renderers.xml_safe_alternative_package import (
     render_xml_safe_alternative_package,
 )
 from sr8.transform.renderers.xml_sr8_prompt import render_xml_sr8_prompt
+from sr8.transform.renderers.xml_srxml_rc2 import render_xml_srxml_rc2
 from sr8.transform.types import TransformTargetSpec
 
 TRANSFORM_REGISTRY: dict[str, TransformTargetSpec] = {
@@ -98,6 +99,23 @@ TRANSFORM_REGISTRY: dict[str, TransformTargetSpec] = {
         target="xml_safe_alternative_package",
         description="Render governance-safe alternative XML package.",
         renderer=render_xml_safe_alternative_package,
+        compatible_profiles=(
+            "generic",
+            "plan",
+            "prd",
+            "procedure",
+            "prompt_pack",
+            "research_brief",
+            "repo_audit",
+            "whitepaper_outline",
+            "code_task_graph",
+            "media_spec",
+        ),
+    ),
+    "xml_srxml_rc2": TransformTargetSpec(
+        target="xml_srxml_rc2",
+        description="Render SRXML v1.0 RC2 artifact XML with lineage and validation receipt.",
+        renderer=render_xml_srxml_rc2,
         compatible_profiles=(
             "generic",
             "plan",
