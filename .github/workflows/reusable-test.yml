@@ -49,16 +49,16 @@ jobs:
     steps:
       - name: Checkout (workflow ref)
         if: inputs.checkout-ref == ''
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Checkout (explicit ref)
         if: inputs.checkout-ref != ''
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ inputs.checkout-ref }}
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ inputs.python-version }}
           cache: pip
