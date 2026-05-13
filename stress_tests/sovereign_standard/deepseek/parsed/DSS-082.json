@@ -1,0 +1,56 @@
+{
+  "artifact_type": "sales_offer_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-082",
+  "compiled_intent": "Objective: Generate a governed sales_offer_prompt artifact for a developer in the United States, using the compiler_lens to resolve multi_runtime_confusion from chaotic input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce an SR8-compilable directive with explicit validation gates.\nScope:\n- The artifact must be a sales_offer_prompt that includes all required SR8 sections: Objective, Scope, Constraints, Success Criteria, and Output Contract. It must handle the chaos input type 'multi_runtime_confusion' by normalizing missing context, urgent language, partial constraints, and ambiguous acceptance criteria into a structured, governed format. The prompt must be suitable for Codex runtime execution.\nConstraints:\n- Must include explicit validation gates for each SR8 section (e.g., completeness checks, consistency checks, ambiguity resolution).\n- Must not assume any missing context; instead, define placeholders or default behaviors for missing data.\n- Urgent language must be translated into priority levels and deadlines within the Constraints section.\n- Partial constraints must be expanded to full constraint statements with fallback defaults.\n- Ambiguous acceptance criteria must be clarified with at least two possible interpretations and a resolution rule.\n- Must be a single JSON object with no markdown fences.\n- Must comply with US legal and regulatory standards for sales offers (e.g., truth-in-advertising, data privacy).\nSuccess Criteria:\n- The artifact is a valid sales_offer_prompt with artifact_type, depth_tier, runtime_target, should_block, blocked_reason, and compiled_intent fields.\n- compiled_intent contains Objective, Scope, Constraints, Success Criteria, and Output Contract sections.\n- All chaos input types (missing context, urgent language, partial constraints, ambiguous acceptance criteria) are explicitly addressed in the artifact.\n- Validation gates are present and clearly defined for each SR8 section.\n- The artifact can be directly compiled by SR8 into a runnable directive.\n- No markdown fences or extraneous text outside the JSON object.\nOutput Contract:\n- format: JSON object with keys: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent\n- compiled_intent: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and compiled_intent fields\n- validation_gates: Gate 1: Verify all required keys are present and non-null.; Gate 2: Ensure compiled_intent contains all five required sections.; Gate 3: Check that each constraint is a complete sentence with no ambiguity.; Gate 4: Confirm success criteria are measurable and testable.; Gate 5: Validate that output contract specifies format and structure.; Gate 6: Ensure no markdown fences or external formatting.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sales_offer_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must include explicit validation gates for each SR8 section (e.g., completeness checks, consistency checks, ambiguity resolution).",
+        "Must not assume any missing context; instead, define placeholders or default behaviors for missing data.",
+        "Urgent language must be translated into priority levels and deadlines within the Constraints section.",
+        "Partial constraints must be expanded to full constraint statements with fallback defaults.",
+        "Ambiguous acceptance criteria must be clarified with at least two possible interpretations and a resolution rule.",
+        "Must be a single JSON object with no markdown fences.",
+        "Must comply with US legal and regulatory standards for sales offers (e.g., truth-in-advertising, data privacy)."
+      ],
+      "Objective": "Generate a governed sales_offer_prompt artifact for a developer in the United States, using the compiler_lens to resolve multi_runtime_confusion from chaotic input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce an SR8-compilable directive with explicit validation gates.",
+      "Output Contract": {
+        "compiled_intent": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "Output Contract": "object with format and compiled_intent fields",
+          "Scope": "string",
+          "Success Criteria": "array of strings"
+        },
+        "format": "JSON object with keys: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent",
+        "validation_gates": [
+          "Gate 1: Verify all required keys are present and non-null.",
+          "Gate 2: Ensure compiled_intent contains all five required sections.",
+          "Gate 3: Check that each constraint is a complete sentence with no ambiguity.",
+          "Gate 4: Confirm success criteria are measurable and testable.",
+          "Gate 5: Validate that output contract specifies format and structure.",
+          "Gate 6: Ensure no markdown fences or external formatting."
+        ]
+      },
+      "Scope": "The artifact must be a sales_offer_prompt that includes all required SR8 sections: Objective, Scope, Constraints, Success Criteria, and Output Contract. It must handle the chaos input type 'multi_runtime_confusion' by normalizing missing context, urgent language, partial constraints, and ambiguous acceptance criteria into a structured, governed format. The prompt must be suitable for Codex runtime execution.",
+      "Success Criteria": [
+        "The artifact is a valid sales_offer_prompt with artifact_type, depth_tier, runtime_target, should_block, blocked_reason, and compiled_intent fields.",
+        "compiled_intent contains Objective, Scope, Constraints, Success Criteria, and Output Contract sections.",
+        "All chaos input types (missing context, urgent language, partial constraints, ambiguous acceptance criteria) are explicitly addressed in the artifact.",
+        "Validation gates are present and clearly defined for each SR8 section.",
+        "The artifact can be directly compiled by SR8 into a runnable directive.",
+        "No markdown fences or extraneous text outside the JSON object."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

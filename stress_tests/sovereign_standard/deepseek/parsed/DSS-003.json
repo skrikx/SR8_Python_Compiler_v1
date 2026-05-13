@@ -1,0 +1,24 @@
+{
+  "artifact_type": "srx_ace_v3_agent",
+  "blocked_reason": "Contradictory constraints: agency_owner in United Kingdom implies UK legal jurisdiction and regulatory compliance (e.g., SRA, GDPR), but market_lens is undefined and may conflict with UK-specific legal workflow requirements. Missing context: no details on legal workflow type (e.g., contract review, litigation, compliance), no client data handling scope, no integration endpoints. Urgent language without concrete deadlines or escalation paths. Ambiguous acceptance criteria: no measurable success metrics, no output format specification. Unsafe certainty: cannot guarantee lawful operation under UK law without explicit compliance mapping. Repair receipt: requires clarification of legal workflow domain, market_lens definition, data protection measures, and acceptance criteria with verifiable thresholds.",
+  "case_id": "DSS-003",
+  "compiled_intent": "Objective: Build an SRX ACE v3 agent for legal workflow in the United Kingdom, using the market_lens, that can be compiled by SR8 into a deployable sovereign agent.\nScope:\n- Agent must handle legal workflow tasks within UK jurisdiction, comply with UK legal and regulatory standards, and integrate with specified systems (undefined).\nConstraints:\n- Must operate under UK law (e.g., SRA, GDPR, Data Protection Act 2018). Must not process data outside UK/EU without explicit consent. Must log all decisions for audit. Must handle contradictory inputs gracefully.\nSuccess Criteria:\n- Agent passes UK legal compliance audit. Agent processes legal workflow with <1% error rate. Agent generates auditable receipts for all blocked or uncertain actions.\nOutput Contract:\n- Returns a JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (with Objective, Scope, Constraints, Success Criteria, Output Contract).",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_v3_agent",
+    "blocked_reason": "Contradictory constraints: agency_owner in United Kingdom implies UK legal jurisdiction and regulatory compliance (e.g., SRA, GDPR), but market_lens is undefined and may conflict with UK-specific legal workflow requirements. Missing context: no details on legal workflow type (e.g., contract review, litigation, compliance), no client data handling scope, no integration endpoints. Urgent language without concrete deadlines or escalation paths. Ambiguous acceptance criteria: no measurable success metrics, no output format specification. Unsafe certainty: cannot guarantee lawful operation under UK law without explicit compliance mapping. Repair receipt: requires clarification of legal workflow domain, market_lens definition, data protection measures, and acceptance criteria with verifiable thresholds.",
+    "compiled_intent": {
+      "Constraints": "Must operate under UK law (e.g., SRA, GDPR, Data Protection Act 2018). Must not process data outside UK/EU without explicit consent. Must log all decisions for audit. Must handle contradictory inputs gracefully.",
+      "Objective": "Build an SRX ACE v3 agent for legal workflow in the United Kingdom, using the market_lens, that can be compiled by SR8 into a deployable sovereign agent.",
+      "Output Contract": "Returns a JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (with Objective, Scope, Constraints, Success Criteria, Output Contract).",
+      "Scope": "Agent must handle legal workflow tasks within UK jurisdiction, comply with UK legal and regulatory standards, and integrate with specified systems (undefined).",
+      "Success Criteria": "Agent passes UK legal compliance audit. Agent processes legal workflow with <1% error rate. Agent generates auditable receipts for all blocked or uncertain actions."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

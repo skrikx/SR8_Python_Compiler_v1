@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-003">
+  <source_intent>
+    <raw_intent>Case 003: I am a agency_owner in United Kingdom. Build a srx_ace_v3_agent for legal_workflow using the market_lens. Chaos input type is contradictory_constraints. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>legal_workflow</domain>
+    <user_type>agency_owner</user_type>
+    <geography>United Kingdom</geography>
+    <chaos_type>contradictory_constraints</chaos_type>
+    <lens>market_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_v3_agent</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Contradictory constraints: agency_owner in United Kingdom implies UK legal jurisdiction and regulatory compliance (e.g., SRA, GDPR), but market_lens is undefined and may conflict with UK-specific legal workflow requirements. Missing context: no details on legal workflow type (e.g., contract review, litigation, compliance), no client data handling scope, no integration endpoints. Urgent language without concrete deadlines or escalation paths. Ambiguous acceptance criteria: no measurable success metrics, no output format specification. Unsafe certainty: cannot guarantee lawful operation under UK law without explicit compliance mapping. Repair receipt: requires clarification of legal workflow domain, market_lens definition, data protection measures, and acceptance criteria with verifiable thresholds.</blocked_reason>
+    <compiled_intent>Objective: Build an SRX ACE v3 agent for legal workflow in the United Kingdom, using the market_lens, that can be compiled by SR8 into a deployable sovereign agent.
+Scope:
+- Agent must handle legal workflow tasks within UK jurisdiction, comply with UK legal and regulatory standards, and integrate with specified systems (undefined).
+Constraints:
+- Must operate under UK law (e.g., SRA, GDPR, Data Protection Act 2018). Must not process data outside UK/EU without explicit consent. Must log all decisions for audit. Must handle contradictory inputs gracefully.
+Success Criteria:
+- Agent passes UK legal compliance audit. Agent processes legal workflow with &lt;1% error rate. Agent generates auditable receipts for all blocked or uncertain actions.
+Output Contract:
+- Returns a JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (with Objective, Scope, Constraints, Success Criteria, Output Contract).</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_117dfe49f8edeb515b75</artifact_id>
+    <source_hash>2d9759d4f105986f5cb5d2fbb0876c287ce017a4a4c6d8ae71784edd661d2652</source_hash>
+    <compile_run_id>run_cbc3f302ac24fd831bb4</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-003.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-003.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,8 @@
+{
+  "artifact_ref": "proof\\sr8-v1-local-proof\\rules_baseline\\canonical\\artifact.json",
+  "created_at": "2026-05-13T07:51:27.596891Z",
+  "findings": [],
+  "report_id": "lint_d47654ce78519139",
+  "status": "pass",
+  "summary": "Lint pass: 0 finding(s)."
+}

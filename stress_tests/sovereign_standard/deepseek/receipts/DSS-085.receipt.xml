@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-085">
+  <source_intent>
+    <raw_intent>Case 085: I am a finance_operator in Middle East. Build a content_prompt for visual_generation using the compliance_lens. Chaos input type is memory_write_risk. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>visual_generation</domain>
+    <user_type>finance_operator</user_type>
+    <geography>Middle East</geography>
+    <chaos_type>memory_write_risk</chaos_type>
+    <lens>compliance_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>content_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Memory_write_risk detected: raw_intent contains urgent language ('I am a finance_operator in Middle East') with missing context (no jurisdiction, no data classification, no specific compliance framework). Partial constraints and ambiguous acceptance criteria create unsafe certainty for visual generation under compliance_lens. Blocking to prevent unauthorized memory engrave or regulatory exposure.</blocked_reason>
+    <compiled_intent>Objective: Produce a content_prompt for visual_generation that adheres to compliance_lens, but block execution due to memory_write_risk and incomplete context.
+Scope:
+- Single content_prompt artifact for visual generation; no deployment or memory write.
+Constraints:
+- Must not generate or output any visual content.
+- Must not write to memory or storage.
+- Must flag missing jurisdiction and data classification.
+- Must reject ambiguous acceptance criteria.
+Success Criteria:
+- Artifact is a valid content_prompt JSON.
+- should_block is true.
+- blocked_reason documents the memory_write_risk and missing context.
+- No visual generation or memory write occurs.
+Output Contract:
+- artifact_type: content_prompt
+- depth_tier: D2_PRODUCTION
+- runtime_target: Codex
+- should_block: True
+- blocked_reason: Memory_write_risk detected: raw_intent contains urgent language ('I am a finance_operator in Middle East') with missing context (no jurisdiction, no data classification, no specific compliance framework). Partial constraints and ambiguous acceptance criteria create unsafe certainty for visual generation under compliance_lens. Blocking to prevent unauthorized memory engrave or regulatory exposure.
+- compiled_intent: See above.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_aa7453a870ba80800b3f</artifact_id>
+    <source_hash>b44630fa88a3d8dec39b9ba1b0ec95830d7524f9390977c28280c955ec8a727d</source_hash>
+    <compile_run_id>run_dcd52d9fa5b3426e6d6c</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-085.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-085.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

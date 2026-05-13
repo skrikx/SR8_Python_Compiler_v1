@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-037">
+  <source_intent>
+    <raw_intent>Case 037: I am a student_builder in East Asia. Build a srx_ace_v3_agent for sales_offer using the compiler_lens. Chaos input type is multi_runtime_confusion. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>sales_offer</domain>
+    <user_type>student_builder</user_type>
+    <geography>East Asia</geography>
+    <chaos_type>multi_runtime_confusion</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_v3_agent</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build an SRX ACE v3 agent that generates a sales offer artifact from a chaotic multi-runtime input, using the compiler_lens to enforce governance and validation gates.
+Scope:
+- The agent must accept a raw intent with missing context, urgent language, partial constraints, and ambiguous acceptance criteria; parse and normalize it; produce a structured sales_offer artifact with explicit validation gates; and output a compiled SR8 directive with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.
+Constraints:
+- Must operate within the SR8 Sovereign Standard framework.
+- Must use the compiler_lens for governance and validation.
+- Must handle multi_runtime_confusion input type.
+- Must not assume complete or consistent input.
+- Must produce a governed artifact with explicit validation gates.
+- Output must be SR8-compilable.
+Success Criteria:
+- Agent accepts chaotic input and produces a valid sales_offer artifact.
+- Artifact includes explicit validation gates.
+- Compiled intent contains all five required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.
+- No hallucinated or unverified content from missing context.
+- Agent logs or flags unresolved ambiguities for human review.
+Output Contract:
+- artifact_type: srx_ace_v3_agent
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: False
+- blocked_reason: None
+- compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: object</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_6777ae514254815314dd</artifact_id>
+    <source_hash>0dfa05bb8472143ebde73186342f0055de1394f8e4224fb841c3dbc6c7df02b9</source_hash>
+    <compile_run_id>run_af7e86125ba037a1d2b0</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-037.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-037.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

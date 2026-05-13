@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-094">
+  <source_intent>
+    <raw_intent>Case 094: I am a law_firm_operator in European Union. Build a lovable_build_prompt for finance_ops using the compliance_lens. Chaos input type is overbroad_one_pass_lock. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>finance_ops</domain>
+    <user_type>law_firm_operator</user_type>
+    <geography>European Union</geography>
+    <chaos_type>overbroad_one_pass_lock</chaos_type>
+    <lens>compliance_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>lovable_build_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build a lovable_build_prompt for finance_ops of a law firm operating in the European Union, using the compliance_lens to ensure full regulatory adherence, with explicit validation gates to handle overbroad_one_pass_lock chaos input.
+Scope:
+- The prompt must generate a finance operations workflow that includes automated transaction monitoring, client fund segregation, invoice validation, and periodic compliance reporting. It must incorporate EU regulatory frameworks (e.g., GDPR, AML Directives, PSD2) and be resilient to ambiguous, urgent, and partially constrained inputs.
+Constraints:
+- Must use compliance_lens as the primary validation perspective.
+- Must include explicit validation gates at each stage of the finance ops workflow.
+- Must handle overbroad_one_pass_lock chaos input by requiring multi-step verification before any single-pass approval.
+- Must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+- Must not assume complete or clean input; must include fallback and clarification steps.
+- Must be compatible with Codex runtime target.
+Success Criteria:
+- The generated prompt passes all validation gates defined in the artifact.
+- The prompt can be compiled by SR8 into a structured directive with all required sections.
+- The prompt correctly interprets and handles ambiguous, urgent, and partially constrained inputs.
+- The prompt enforces EU compliance requirements for finance operations in a law firm context.
+- The prompt prevents single-pass lock approval without multi-step verification.
+Output Contract:
+- format: JSON
+- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and sections
+- validation_gates: gate_1: input_ambiguity_check; gate_2: urgency_parser; gate_3: constraint_extraction; gate_4: compliance_lens_validation; gate_5: overbroad_lock_prevention; gate_6: sr8_compilability_check</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_868d590d57c5bba0d96e</artifact_id>
+    <source_hash>db9c1e388bd59fa80566f955441cef79657280bed51487c0ed19bf2094c233ce</source_hash>
+    <compile_run_id>run_0f20e6f1187fbd7b93af</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-094.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-094.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

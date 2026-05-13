@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-049">
+  <source_intent>
+    <raw_intent>Case 049: I am a enterprise_compliance_lead in Latin America. Build a blueprint_design_doc for finance_ops using the compliance_lens. Chaos input type is overbroad_one_pass_lock. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>finance_ops</domain>
+    <user_type>enterprise_compliance_lead</user_type>
+    <geography>Latin America</geography>
+    <chaos_type>overbroad_one_pass_lock</chaos_type>
+    <lens>compliance_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>blueprint_design_doc</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Design a governed blueprint for finance operations in Latin America, using a compliance lens, that can be compiled by SR8 into a deployable artifact with explicit validation gates.
+Scope:
+- Covers finance operations workflows (e.g., transaction processing, reconciliation, reporting) for an enterprise in Latin America, incorporating local regulatory compliance (e.g., tax, anti-money laundering, data privacy). Includes validation gates at each stage to ensure compliance before proceeding.
+Constraints:
+- Must comply with Latin American financial regulations (e.g., SAT in Mexico, SUNAT in Peru, RFB in Brazil).
+- Must include explicit validation gates (e.g., compliance checkpoints, audit trails).
+- Must be implementable on Codex runtime.
+- Must handle overbroad one-pass lock scenario (i.e., single pass through all gates without branching).
+- Must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Success Criteria:
+- Blueprint document contains all required SR8 sections: Objective, Scope, Constraints, Success Criteria, Output Contract.
+- Each finance operation step has a corresponding validation gate defined.
+- Validation gates are testable and auditable.
+- Artifact can be directly compiled by SR8 without manual intervention.
+Output Contract:
+- format: blueprint_design_doc
+- sections: Objective; Scope; Constraints; Success Criteria; Output Contract
+- validation_gates: Gate 1: Input validation (transaction data completeness and format); Gate 2: Regulatory compliance check (local tax and AML rules); Gate 3: Authorization and approval workflow; Gate 4: Audit trail generation and logging; Gate 5: Final reconciliation and reporting
+- runtime: Codex
+- compliance_lens: Latin America financial regulations</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_090f4701ed935db2e461</artifact_id>
+    <source_hash>a76f362aba5a6d035ea8b0af91ee5babe6acb09dd71475b899726ba03000cbb3</source_hash>
+    <compile_run_id>run_154ab56e7ec2f36bbcb4</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-049.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-049.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

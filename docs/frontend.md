@@ -1,6 +1,6 @@
 # Frontend
 
-SR8 now includes a local SvelteKit frontend in `frontend/`.
+SR8 includes a local SvelteKit frontend in `frontend/`.
 
 ## Goals
 
@@ -8,6 +8,7 @@ SR8 now includes a local SvelteKit frontend in `frontend/`.
 - SSR-first local web app
 - visible trust surfaces for confidence, validation, lineage, and receipts
 - usable with zero provider configuration
+- local compile, inspect, validate, provider, artifact, receipt, lint, diff, transform, and benchmark workflows
 
 ## Routes
 
@@ -48,3 +49,4 @@ SR8_API_BASE_URL=http://127.0.0.1:8000
 - Empty or unavailable backend states remain visible instead of being replaced with fake data.
 - Compile, lint, diff, transform, settings, provider probe, and benchmark views all respect route-contract envelopes instead of assuming flat payloads.
 - The artifact detail view is the trusted-local inspect surface and refreshes canonical validation on load.
+- The frontend is a local SR8 UI, not a SaaS platform or SROS console.

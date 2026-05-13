@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:59:41Z",
+  "case_id": "DSS-099",
+  "content": "{\n  \"artifact_type\": \"sales_offer_prompt\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": false,\n  \"blocked_reason\": null,\n  \"compiled_intent\": {\n    \"Objective\": \"Generate a sales offer prompt for compliance evidence collection tailored to an enterprise compliance lead in Latin America, using the sovereign lens to ensure regulatory alignment and audit readiness.\",\n    \"Scope\": \"The prompt must address high-urgency, low-context scenarios with missing details, urgent language, partial constraints, and ambiguous acceptance criteria. It must include explicit validation gates for SR8 compilation.\",\n    \"Constraints\": [\n      \"Must use sovereign_lens framework for Latin American compliance (e.g., LGPD, local data sovereignty).\",\n      \"Must handle incomplete or ambiguous input without hallucinating missing data.\",\n      \"Must produce a structured artifact with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.\",\n      \"Must include validation gates (e.g., compliance check, evidence completeness, audit trail).\"\n    ],\n    \"Success Criteria\": [\n      \"Artifact is a valid sales_offer_prompt for compliance evidence.\",\n      \"All SR8-required sections are present and compilable.\",\n      \"Validation gates are explicitly defined and actionable.\",\n      \"Output is ready for Codex runtime execution.\"\n    ],\n    \"Output Contract\": {\n      \"format\": \"JSON\",\n      \"sections\": [\n        \"artifact_type\",\n        \"depth_tier\",\n        \"runtime_target\",\n        \"should_block\",\n        \"blocked_reason\",\n        \"compiled_intent\"\n      ],\n      \"compiled_intent_structure\": {\n        \"Objective\": \"string\",\n        \"Scope\": \"string\",\n        \"Constraints\": \"array of strings\",\n        \"Success Criteria\": \"array of strings\",\n        \"Output Contract\": \"object with format and sections\"\n      }\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

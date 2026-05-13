@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-091">
+  <source_intent>
+    <raw_intent>Case 091: I am a founder_operator in Canada. Build a srx_ace_audit_agent for software_build using the compiler_lens. Chaos input type is ambiguous_scope. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>software_build</domain>
+    <user_type>founder_operator</user_type>
+    <geography>Canada</geography>
+    <chaos_type>ambiguous_scope</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_audit_agent</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build an SRX ACE audit agent for software build processes using the compiler lens, capable of handling ambiguous scope inputs and producing a governed artifact with explicit validation gates.
+Scope:
+- The agent shall ingest ambiguous scope inputs (e.g., missing context, urgent language, partial constraints, ambiguous acceptance criteria) from a founder_operator in Canada, and output a structured artifact that includes objective, scope, constraints, success criteria, and output contract sections suitable for SR8 compilation.
+Constraints:
+- Must operate within Canadian legal and regulatory frameworks.
+- Must handle ambiguous or incomplete input without hallucinating missing details.
+- Must produce output in strict JSON format with no markdown fences.
+- Must include explicit validation gates to ensure artifact completeness and correctness.
+- Must not generate or rely on any external data beyond the provided input.
+Success Criteria:
+- Artifact contains all five required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.
+- Validation gates are explicitly defined and actionable.
+- Output is valid JSON and can be directly compiled by SR8.
+- Ambiguous input is resolved through clear, conservative defaults or explicit flags.
+Output Contract:
+- format: JSON
+- required_fields: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object
+- validation_gates: Gate 1: Verify all five compiled_intent sections are present and non-empty.; Gate 2: Confirm artifact_type matches expected value from case.; Gate 3: Ensure should_block is false and blocked_reason is null.; Gate 4: Validate JSON structure against schema.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_08ab8bd40d1a15c99262</artifact_id>
+    <source_hash>4905035bd36a4a3d5c9310e915f2add138828a0eaf692200d4b8887d1a90211e</source_hash>
+    <compile_run_id>run_0ce9727293efdf13cd8b</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-091.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-091.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

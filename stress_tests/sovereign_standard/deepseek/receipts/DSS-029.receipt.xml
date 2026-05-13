@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-029">
+  <source_intent>
+    <raw_intent>Case 029: I am a enterprise_compliance_lead in Latin America. Build a compliance_evidence_prompt for audit_agent using the operator_lens. Chaos input type is artifact_type_ambiguity. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>audit_agent</domain>
+    <user_type>enterprise_compliance_lead</user_type>
+    <geography>Latin America</geography>
+    <chaos_type>artifact_type_ambiguity</chaos_type>
+    <lens>operator_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>compliance_evidence_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a compliance evidence prompt for an audit agent operating under the operator lens, targeting Latin American enterprise compliance requirements, with explicit validation gates and SR8-compilable structure.
+Scope:
+- The prompt must handle artifact_type_ambiguity, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. It must produce a governed artifact with clear objective, scope, constraints, success criteria, and output contract sections.
+Constraints:
+- Must comply with Latin American regulatory frameworks (e.g., LGPD, GDPR-equivalent local laws).
+- Must include validation gates for source policy and claim limits.
+- Must reject or flag ambiguous or incomplete inputs with explicit reasoning.
+- Must be SR8-compilable: all sections must be machine-parseable and actionable.
+Success Criteria:
+- Output is a valid compliance_evidence_prompt artifact.
+- All five compiled_intent sections are present and populated.
+- Validation gates are explicitly defined and trigger on policy/claim violations.
+- Artifact can be directly consumed by an audit agent without manual interpretation.
+Output Contract:
+- type: compliance_evidence_prompt
+- sections: objective; scope; constraints; success_criteria; output_contract
+- validation_gates: source_policy_check; claim_limit_check; ambiguity_resolution_check
+- format: strict JSON with no markdown fences</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_7c26e0ffab05db15098f</artifact_id>
+    <source_hash>30c7ae20f7b8f0269259e8c65d75d2aeaa9d6251ca2d36d515080701daaddd98</source_hash>
+    <compile_run_id>run_caa8b1a58e31a29e3bae</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-029.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-029.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

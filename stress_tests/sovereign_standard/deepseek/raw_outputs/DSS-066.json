@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:57:15Z",
+  "case_id": "DSS-066",
+  "content": "{\n  \"artifact_type\": \"blueprint_design_doc\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Fake test risk detected: raw_intent contains ambiguous, incomplete, and contradictory constraints (e.g., 'healthcare_admin' role undefined, 'market_lens' unspecified, 'local_business_site' scope unclear, urgent language without context). Cannot produce a valid SR8-compilable blueprint without resolving these gaps. Blocking to prevent hallucination or unsafe deployment.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Design a blueprint for a local business website for a healthcare administration entity in South Asia, using market-lens analysis, with full governance and validation gates.\",\n    \"Scope\": \"Define site architecture, compliance requirements, user flows, and deployment constraints for a small-to-medium healthcare business in South Asia.\",\n    \"Constraints\": \"Must comply with local data protection laws (e.g., India's DPDP Act), use cost-effective hosting, support multilingual content, and include accessibility standards. No patient data storage without explicit consent.\",\n    \"Success Criteria\": \"Blueprint includes: (1) validated user personas, (2) compliance checklist, (3) technical stack recommendation, (4) risk mitigation plan for fake-test scenarios, (5) SR8-compilable sections for objective, scope, constraints, success criteria, and output contract.\",\n    \"Output Contract\": \"Deliver a structured design document with sections: Executive Summary, Market Lens Analysis, User Personas, Compliance & Validation Gates, Technical Architecture, Deployment Plan, and SR8 Directive Compilation. All sections must be auditable and pass a governance review.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

@@ -1,0 +1,61 @@
+{
+  "artifact_type": "sr8_compiler_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-001",
+  "compiled_intent": "Objective: Build a governed SR8 compiler prompt for software build using the compiler lens, handling ambiguous scope and chaotic input from a founder-operator in Canada.\nScope:\n- Parse the raw intent (missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce a structured artifact with explicit validation gates. The output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must include explicit validation gates for each section.\n- Must handle ambiguous_scope chaos input type.\n- Must be suitable for a founder-operator in Canada (consider timezone, legal, and business context).\n- Output must be strict JSON with no markdown fences.\n- All sections must be present and non-empty.\nSuccess Criteria:\n- Artifact is valid JSON with required fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.\n- compiled_intent contains Objective, Scope, Constraints, Success Criteria, and Output Contract.\n- Validation gates are explicitly defined within the artifact.\n- No markdown fences or extraneous text in output.\nOutput Contract:\n- format: JSON\n- fields: artifact_type: sr8_compiler_prompt; depth_tier: D2_PRODUCTION; runtime_target: Codex; should_block: False; blocked_reason: None; compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: object\n- validation_gates: Gate 1: Confirm all required fields are present and non-null.; Gate 2: Verify compiled_intent has all five sub-sections.; Gate 3: Ensure no markdown fences or extra text outside JSON.; Gate 4: Validate that should_block is false and blocked_reason is null.",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr8_compiler_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must include explicit validation gates for each section.",
+        "Must handle ambiguous_scope chaos input type.",
+        "Must be suitable for a founder-operator in Canada (consider timezone, legal, and business context).",
+        "Output must be strict JSON with no markdown fences.",
+        "All sections must be present and non-empty."
+      ],
+      "Objective": "Build a governed SR8 compiler prompt for software build using the compiler lens, handling ambiguous scope and chaotic input from a founder-operator in Canada.",
+      "Output Contract": {
+        "fields": {
+          "artifact_type": "sr8_compiler_prompt",
+          "blocked_reason": null,
+          "compiled_intent": {
+            "Constraints": [
+              "string"
+            ],
+            "Objective": "string",
+            "Output Contract": "object",
+            "Scope": "string",
+            "Success Criteria": [
+              "string"
+            ]
+          },
+          "depth_tier": "D2_PRODUCTION",
+          "runtime_target": "Codex",
+          "should_block": false
+        },
+        "format": "JSON",
+        "validation_gates": [
+          "Gate 1: Confirm all required fields are present and non-null.",
+          "Gate 2: Verify compiled_intent has all five sub-sections.",
+          "Gate 3: Ensure no markdown fences or extra text outside JSON.",
+          "Gate 4: Validate that should_block is false and blocked_reason is null."
+        ]
+      },
+      "Scope": "Parse the raw intent (missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce a structured artifact with explicit validation gates. The output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "Artifact is valid JSON with required fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.",
+        "compiled_intent contains Objective, Scope, Constraints, Success Criteria, and Output Contract.",
+        "Validation gates are explicitly defined within the artifact.",
+        "No markdown fences or extraneous text in output."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

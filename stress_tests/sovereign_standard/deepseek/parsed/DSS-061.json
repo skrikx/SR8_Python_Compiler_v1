@@ -1,0 +1,110 @@
+{
+  "artifact_type": "codex_build_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-061",
+  "compiled_intent": "Objective: Build a governed software artifact for a Canadian founder-operator using the memory_lens, resolving ambiguous scope and partial constraints into a validated, production-ready codex build prompt.\nScope:\n- The artifact must include explicit validation gates, handle missing context and urgent language, and produce a compilable directive with objective, scope, constraints, success criteria, and output contract. The build targets a software system for a Canadian founder-operator context, leveraging memory_lens for traceability and governance.\nConstraints:\n- Must operate within Canadian legal and regulatory frameworks (e.g., PIPEDA, provincial privacy laws).\n- Must use memory_lens to track decisions and assumptions.\n- Must include explicit validation gates at each stage of the build.\n- Must resolve ambiguous acceptance criteria into testable conditions.\n- Must not assume complete context; must flag and handle missing information.\n- Must output strict JSON without markdown fences.\n- Must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.\nSuccess Criteria:\n- All ambiguous scope elements are identified and resolved or flagged with fallback defaults.\n- Validation gates are defined and documented (e.g., input validation, integration test gates, deployment gates).\n- The output contract specifies exact JSON schema and field types.\n- The artifact compiles without error into an SR8 directive.\n- The memory_lens records all decisions, assumptions, and unresolved items.\nOutput Contract:\n- type: object\n- properties: artifact_type: type: string; enum: codex_build_prompt; depth_tier: type: string; enum: D2_PRODUCTION; runtime_target: type: string; enum: Codex; should_block: type: boolean; blocked_reason: type: string; null; compiled_intent: type: object; properties: Objective: type: string; Scope: type: string; Constraints: type: array; items: type: string; Success Criteria: type: array; items: type: string; Output Contract: type: object; required: Objective; Scope; Constraints; Success Criteria; Output Contract\n- required: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "codex_build_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate within Canadian legal and regulatory frameworks (e.g., PIPEDA, provincial privacy laws).",
+        "Must use memory_lens to track decisions and assumptions.",
+        "Must include explicit validation gates at each stage of the build.",
+        "Must resolve ambiguous acceptance criteria into testable conditions.",
+        "Must not assume complete context; must flag and handle missing information.",
+        "Must output strict JSON without markdown fences.",
+        "Must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections."
+      ],
+      "Objective": "Build a governed software artifact for a Canadian founder-operator using the memory_lens, resolving ambiguous scope and partial constraints into a validated, production-ready codex build prompt.",
+      "Output Contract": {
+        "properties": {
+          "artifact_type": {
+            "enum": [
+              "codex_build_prompt"
+            ],
+            "type": "string"
+          },
+          "blocked_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "compiled_intent": {
+            "properties": {
+              "Constraints": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "Objective": {
+                "type": "string"
+              },
+              "Output Contract": {
+                "type": "object"
+              },
+              "Scope": {
+                "type": "string"
+              },
+              "Success Criteria": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "Objective",
+              "Scope",
+              "Constraints",
+              "Success Criteria",
+              "Output Contract"
+            ],
+            "type": "object"
+          },
+          "depth_tier": {
+            "enum": [
+              "D2_PRODUCTION"
+            ],
+            "type": "string"
+          },
+          "runtime_target": {
+            "enum": [
+              "Codex"
+            ],
+            "type": "string"
+          },
+          "should_block": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "type": "object"
+      },
+      "Scope": "The artifact must include explicit validation gates, handle missing context and urgent language, and produce a compilable directive with objective, scope, constraints, success criteria, and output contract. The build targets a software system for a Canadian founder-operator context, leveraging memory_lens for traceability and governance.",
+      "Success Criteria": [
+        "All ambiguous scope elements are identified and resolved or flagged with fallback defaults.",
+        "Validation gates are defined and documented (e.g., input validation, integration test gates, deployment gates).",
+        "The output contract specifies exact JSON schema and field types.",
+        "The artifact compiles without error into an SR8 directive.",
+        "The memory_lens records all decisions, assumptions, and unresolved items."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

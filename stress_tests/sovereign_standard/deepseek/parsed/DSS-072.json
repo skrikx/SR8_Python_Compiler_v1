@@ -1,0 +1,39 @@
+{
+  "artifact_type": "srx_ace_build_agent",
+  "blocked_reason": "Unsafe certainty detected: raw_intent contains unsupported_roi_claim as chaos input type, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Sovereign_lens requires complete, validated inputs for D3 compilation. Blocking to prevent hallucinated or insecure agent generation. Repair receipt: record intent as blocked; require resubmission with clarified ROI claim, full context, non-urgent framing, complete constraints, and unambiguous success criteria.",
+  "case_id": "DSS-072",
+  "compiled_intent": "Objective: Block compilation of srx_ace_build_agent for research_agent due to unsafe certainty from unsupported_roi_claim and incomplete inputs.\nScope:\n- This block applies only to the current raw_intent DSS-072. No agent or workflow is generated.\nConstraints:\n- Sovereign_lens requires fully validated, non-ambiguous inputs at D3 tier.\n- Unsupported_roi_claim is not a recognized chaos input type for SR8 compilation.\n- Urgent language and missing context violate D3 operational safety protocols.\nSuccess Criteria:\n- Block is recorded with a clear repair receipt.\n- No partial or hallucinated agent is emitted.\n- Resubmission path is documented for the developer.\nOutput Contract:\n- artifact_type: srx_ace_build_agent\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- should_block: True\n- blocked_reason: Unsafe certainty detected: unsupported_roi_claim, missing context, urgent language, partial constraints, ambiguous acceptance criteria.\n- repair_receipt: Blocked at D3. Resubmit with: (1) valid chaos input type, (2) full context, (3) non-urgent language, (4) complete constraints, (5) unambiguous success criteria.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_build_agent",
+    "blocked_reason": "Unsafe certainty detected: raw_intent contains unsupported_roi_claim as chaos input type, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Sovereign_lens requires complete, validated inputs for D3 compilation. Blocking to prevent hallucinated or insecure agent generation. Repair receipt: record intent as blocked; require resubmission with clarified ROI claim, full context, non-urgent framing, complete constraints, and unambiguous success criteria.",
+    "compiled_intent": {
+      "Constraints": [
+        "Sovereign_lens requires fully validated, non-ambiguous inputs at D3 tier.",
+        "Unsupported_roi_claim is not a recognized chaos input type for SR8 compilation.",
+        "Urgent language and missing context violate D3 operational safety protocols."
+      ],
+      "Objective": "Block compilation of srx_ace_build_agent for research_agent due to unsafe certainty from unsupported_roi_claim and incomplete inputs.",
+      "Output Contract": {
+        "artifact_type": "srx_ace_build_agent",
+        "blocked_reason": "Unsafe certainty detected: unsupported_roi_claim, missing context, urgent language, partial constraints, ambiguous acceptance criteria.",
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "repair_receipt": "Blocked at D3. Resubmit with: (1) valid chaos input type, (2) full context, (3) non-urgent language, (4) complete constraints, (5) unambiguous success criteria.",
+        "runtime_target": "Codex",
+        "should_block": true
+      },
+      "Scope": "This block applies only to the current raw_intent DSS-072. No agent or workflow is generated.",
+      "Success Criteria": [
+        "Block is recorded with a clear repair receipt.",
+        "No partial or hallucinated agent is emitted.",
+        "Resubmission path is documented for the developer."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

@@ -33,6 +33,19 @@ class CompilationReceiptRecord(SR8Model):
     assist_route: str = "not_used"
     intake_route: str = "not_required"
     compile_truth_summary: str = ""
+    assist_mode: str = "auto"
+    llm_used: bool = False
+    provider: str | None = None
+    model: str | None = None
+    adapter: str = "rule_based"
+    prompt_template_id: str | None = None
+    prompt_hash: str | None = None
+    raw_response_hash: str | None = None
+    parsed_response_hash: str | None = None
+    repair_attempts: int = 0
+    schema_validation_status: str = "pass"
+    fallback_used: bool = False
+    confidence: float | None = None
     compile_target: str | None = None
     compile_target_validation: dict[str, object] | None = None
     output_path: str

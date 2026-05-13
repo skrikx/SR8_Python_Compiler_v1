@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-047">
+  <source_intent>
+    <raw_intent>Case 047: I am a student_builder in East Asia. Build a memory_engrave_prompt for repo_refactor using the operator_lens. Chaos input type is missing_inputs. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>repo_refactor</domain>
+    <user_type>student_builder</user_type>
+    <geography>East Asia</geography>
+    <chaos_type>missing_inputs</chaos_type>
+    <lens>operator_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>memory_engrave_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>The raw_intent contains missing_inputs (no repo name, no refactor scope, no operator_lens parameters), ambiguous acceptance criteria, and urgent language that precludes safe compilation. The student_builder role and East Asia context introduce unverified compliance and memory constraints. Blocking to prevent unsafe execution.</blocked_reason>
+    <compiled_intent>Objective: Blocked due to missing_inputs and unsafe certainty. No valid objective can be compiled.
+Scope:
+- Blocked. Required inputs: repo name, refactor scope, operator_lens parameters, acceptance criteria.
+Constraints:
+- Blocked. Missing compliance, memory, and ROI constraints. Urgent language overrides safe defaults.
+Success Criteria:
+- Blocked. No measurable criteria provided; ambiguous acceptance criteria cannot be validated.
+Output Contract:
+- Blocked. Cannot produce a valid memory_engrave_prompt without complete and safe inputs.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_70e2e64f6e4e4727007b</artifact_id>
+    <source_hash>bde9f7211201850ccae63c485390d95588def68170b42cf34e9264126211a823</source_hash>
+    <compile_run_id>run_e178ba3fb1d851ec9af5</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-047.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-047.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

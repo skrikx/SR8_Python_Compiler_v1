@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-064">
+  <source_intent>
+    <raw_intent>Case 064: I am a law_firm_operator in European Union. Build a memory_engrave_prompt for finance_ops using the compiler_lens. Chaos input type is overbroad_one_pass_lock. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>finance_ops</domain>
+    <user_type>law_firm_operator</user_type>
+    <geography>European Union</geography>
+    <chaos_type>overbroad_one_pass_lock</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>memory_engrave_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Engrave a governed memory artifact for finance operations within a European Union law firm, using the compiler_lens to resolve overbroad_one_pass_lock chaos input into a structured, validated SR8 directive.
+Scope:
+- Single memory engrave operation targeting finance_ops domain. Input is a messy, overbroad one-pass lock with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Output must be a validated artifact with explicit gates for memory safety and overwrite policy compliance.
+Constraints:
+- Must comply with EU data protection regulations (GDPR) and law firm confidentiality requirements.
+- Memory engrave must enforce overwrite policy: no destructive overwrite of existing critical memory without explicit validation gate approval.
+- All validation gates must be explicitly defined and logged.
+- The artifact must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+- No hallucination or fabrication of missing context; use placeholder markers for unresolved inputs.
+Success Criteria:
+- Memory engrave artifact is produced with all required sections (objective, scope, constraints, success criteria, output contract).
+- Validation gates are present and testable for memory safety and overwrite policy.
+- Artifact passes SR8 compilation without errors.
+- Overbroad_one_pass_lock input is resolved into a governed structure without data loss or policy violation.
+Output Contract:
+- format: JSON
+- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; SuccessCriteria: array of strings; OutputContract: object with format and sections
+- validation_gates: memory_safety_check: verify no existing critical memory is overwritten without approval; overwrite_policy_check: confirm overwrite policy compliance; completeness_check: ensure all required fields are present; sr8_compilability_check: validate structure against SR8 schema</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_b3df735cb1f36b2a2c86</artifact_id>
+    <source_hash>f127ed2f88f1feafbaacb404f527a5c3a486e2de2c982d09680a8a0a3982c41b</source_hash>
+    <compile_run_id>run_8d993c21650b380f0b46</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-064.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-064.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

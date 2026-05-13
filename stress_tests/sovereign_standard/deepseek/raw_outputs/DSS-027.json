@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:54:31Z",
+  "case_id": "DSS-027",
+  "content": "{\n  \"artifact_type\": \"codex_build_prompt\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Unsupported ROI claim detected in raw_intent: 'unsupported_roi_claim' is not a valid input type for codex_build_prompt. Additionally, the source is intentionally messy with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, which prevents safe compilation into a deterministic SR8 directive. Blocking to avoid hallucinated or unsafe output.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Block compilation due to unsupported ROI claim and chaotic input; record a repair receipt for the student_builder.\",\n    \"Scope\": \"This prompt is not compiled; it serves as a blocked-state receipt only.\",\n    \"Constraints\": \"No valid input type; missing context; ambiguous criteria; urgent language; must not proceed to production.\",\n    \"Success Criteria\": \"Block is recorded with clear reason; no SR8 directive is emitted.\",\n    \"Output Contract\": \"Return a JSON receipt with should_block true, blocked_reason, and no compiled_intent beyond this receipt.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

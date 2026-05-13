@@ -1,0 +1,306 @@
+{
+  "artifact_id": "art_197ec222e3a2f0b97ff3",
+  "artifact_version": "1.0.0",
+  "assumptions": [
+    "Audience is technical research leads"
+  ],
+  "authority_context": "cto",
+  "compiler_version": "1.2.4",
+  "constraints": [
+    "Cite only auditable local artifacts"
+  ],
+  "context_package": [
+    "Architecture notes",
+    "Workflow receipts"
+  ],
+  "created_at": "2026-05-13T07:39:17.378227Z",
+  "dependencies": [
+    "Existing benchmark corpus"
+  ],
+  "exclusions": [],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "lineage": {
+    "compile_run_id": "run_d3bab1fff894c498a51a",
+    "parent_artifact_ids": [],
+    "parent_compile_run_id": null,
+    "parent_source_hash": null,
+    "pipeline_version": "1.2.4",
+    "source_hash": "1afcef2ce31f59ea0e8a2748577ac2ad2bc17ad79d945a20d6e9df5d8d60cc1b",
+    "steps": [
+      {
+        "detail": "Loaded source_type=markdown",
+        "occurred_at": "2026-05-13T07:39:17.378227Z",
+        "stage": "ingest"
+      },
+      {
+        "detail": "Normalized whitespace and wrappers",
+        "occurred_at": "2026-05-13T07:39:17.378227Z",
+        "stage": "normalize"
+      },
+      {
+        "detail": "Detected source_structure_kind=markdown_outline",
+        "occurred_at": "2026-05-13T07:39:17.378227Z",
+        "stage": "detect_surface"
+      },
+      {
+        "detail": "Assessed compile route candidate based on source coverage and specificity.",
+        "occurred_at": "2026-05-13T07:39:17.378227Z",
+        "stage": "assess_intent_strength"
+      },
+      {
+        "detail": "compile_kind=canonicalize_structured; reason=Source already supplies most important intent dimensions.",
+        "occurred_at": "2026-05-13T07:39:17.378227Z",
+        "stage": "route_selected"
+      },
+      {
+        "detail": "Lowered compile result into canonical fields",
+        "occurred_at": "2026-05-13T07:39:17.378227Z",
+        "stage": "lower_to_canonical"
+      },
+      {
+        "detail": "Validated readiness and compile truth",
+        "occurred_at": "2026-05-13T07:39:17.378227Z",
+        "stage": "validate"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter": "structured_outline",
+    "assist_mode": "auto",
+    "assist_route": "not_used",
+    "compile_kind": "canonicalize_structured",
+    "compile_mode": "auto",
+    "compile_truth_summary": "Canonicalized markdown outline input with 10 source-supplied field(s) and no material semantic expansion.",
+    "compiler_derived_fields": [],
+    "confidence": 0.86,
+    "copied_field_count": 10,
+    "derived_field_count": 0,
+    "extraction_adapter": "structured_outline",
+    "extraction_trace": {
+      "adapter_name": "structured_outline",
+      "confidence": [
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "objective",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
+          "field_name": "scope",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No extracted items.",
+          "field_name": "exclusions",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "constraints",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "context_package",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "target_class",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "Field populated from sparse or ambiguous evidence.",
+          "field_name": "authority_context",
+          "notes": "Input text contains weak or underspecified phrasing.",
+          "status": "weak"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "dependencies",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "assumptions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "success_criteria",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "output_contract",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "medium",
+          "evidence_summary": "No governance escalation flags were raised by the extractor.",
+          "field_name": "governance_flags",
+          "notes": "",
+          "status": "explicit"
+        }
+      ],
+      "metadata": {
+        "assist_extract_route": "not_used",
+        "assist_extract_status": "not_used",
+        "fallback": null,
+        "model": null,
+        "provider": null,
+        "repair_attempts": 0,
+        "schema_validation_status": "pass"
+      },
+      "recovery": {
+        "contradictory_fields": [],
+        "intake_required": false,
+        "missing_fields": [],
+        "suggested_prompt": "",
+        "weak_fields": []
+      }
+    },
+    "extraction_trust_summary": {
+      "adapter_name": "structured_outline",
+      "intake_required": false,
+      "low_confidence_fields": [
+        "exclusions",
+        "authority_context"
+      ],
+      "provider": null,
+      "recovery": {
+        "contradictory_fields": [],
+        "intake_required": false,
+        "missing_fields": [],
+        "suggested_prompt": "",
+        "weak_fields": []
+      },
+      "status_counts": {
+        "empty": 1,
+        "explicit": 10,
+        "weak": 1
+      }
+    },
+    "fallback_used": false,
+    "intake_route": "not_required",
+    "llm_used": false,
+    "model": null,
+    "normalized_char_count": 627,
+    "normalized_source_hash": "43f3aa11f1367f9c5d121f38e034efc4d5b81f7c61d8fb2af937076b28ea8e7e",
+    "parsed_response_hash": null,
+    "pipeline_mode": "canonicalize_structured",
+    "prompt_hash": null,
+    "prompt_template_id": null,
+    "provider": null,
+    "provider_assist": {
+      "assist_extract_route": "not_used",
+      "assist_extract_status": "not_used",
+      "fallback": null,
+      "model": null,
+      "provider": null,
+      "repair_attempts": 0,
+      "schema_validation_status": "pass"
+    },
+    "raw_response_hash": null,
+    "repair_attempts": 0,
+    "schema_validation_status": "pass",
+    "semantic_transform_applied": false,
+    "source_metadata": {
+      "detected_source_type": "markdown",
+      "ingest_mode": "path",
+      "normalization": "whitespace+wrapper-clean",
+      "normalized_char_count": 627,
+      "normalized_line_count": 34,
+      "normalized_source_hash": "43f3aa11f1367f9c5d121f38e034efc4d5b81f7c61d8fb2af937076b28ea8e7e",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\research\\research_outline_request.md",
+      "raw_char_count": 628
+    },
+    "source_structure_kind": "markdown_outline",
+    "source_supplied_field_count": 10,
+    "source_supplied_fields": [
+      "assumptions",
+      "authority_context",
+      "constraints",
+      "context_package",
+      "dependencies",
+      "objective",
+      "output_contract",
+      "scope",
+      "success_criteria",
+      "target_class"
+    ],
+    "unresolved_fields": [
+      "exclusions"
+    ],
+    "weak_intent_recovery": {
+      "contradictory_fields": [],
+      "intake_required": false,
+      "missing_fields": [],
+      "recovered_fields": [],
+      "recovery_applied": false,
+      "suggested_prompt": "",
+      "weak_fields": []
+    }
+  },
+  "objective": "Produce a whitepaper outline on deterministic intent compilation for research operators.",
+  "output_contract": [
+    "Whitepaper outline",
+    "Markdown prompt pack"
+  ],
+  "profile": "whitepaper_outline",
+  "scope": [
+    "Problem framing and thesis",
+    "Methodology and rule-first extraction design",
+    "Evaluation plan for messy intent"
+  ],
+  "source": {
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\research\\research_outline_request.md",
+    "source_hash": "1afcef2ce31f59ea0e8a2748577ac2ad2bc17ad79d945a20d6e9df5d8d60cc1b",
+    "source_id": "src_1afcef2ce31f59ea",
+    "source_type": "markdown"
+  },
+  "success_criteria": [
+    "Outline supports peer review"
+  ],
+  "target_class": "whitepaper_outline",
+  "validation": {
+    "errors": [],
+    "generated_at": "2026-05-13T07:39:17.378227Z",
+    "readiness_status": "warn",
+    "report_id": "rcpt_1c441f2f19360e30e642",
+    "summary": "Validation warn: 0 error(s), 1 warning(s).",
+    "warnings": [
+      {
+        "code": "VAL-TRUST-001",
+        "message": "authority_context extraction trust is weak; downstream output may need manual review",
+        "path": "authority_context",
+        "severity": "warning"
+      }
+    ]
+  }
+}

@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
 
-SR8 is a local-first intent compiler for AI systems. It truthfully routes raw text, markdown, JSON, and YAML into semantic compile, structured canonicalization, or explicit intake-required outcomes.
+SR8 is a beta, local-first, LLM-assisted intent-to-canonical compiler for AI systems. It truthfully routes raw text, markdown, JSON, and YAML into semantic compile, structured canonicalization, or explicit intake-required outcomes.
 
 Automation map: [assets/badges/README_BADGES.md](assets/badges/README_BADGES.md)
 
@@ -19,7 +19,9 @@ Automation map: [assets/badges/README_BADGES.md](assets/badges/README_BADGES.md)
 SR8 is the product layer. It compiles intent into a typed canonical artifact with:
 
 - deterministic ingest, normalization, extraction, and assembly
+- explicit rules, assist, and auto compile modes
 - explicit compile kinds for semantic compile, structured canonicalization, and intake-required rejection
+- provider and model provenance when LLM assist is used
 - profile overlays and validation
 - transform outputs, including markdown derivatives and XML package surfaces
 - local storage, receipts, and catalog indexing
@@ -62,8 +64,10 @@ First success path:
 
 ```bash
 sr8 init
-sr8 compile examples/product_prd.md --profile prd --out ./.sr8/artifacts/canonical/
+sr8 compile examples/product_prd.md --profile prd --mode rules --out ./.sr8/artifacts/canonical/
 sr8 transform ./.sr8/artifacts/canonical/latest.json --to markdown_prd --out ./.sr8/artifacts/derivative/
+sr8 schema export --out schemas/intent_artifact.schema.json
+sr8 proof run examples/product_prd.md --profile prd --mode rules --out proof/sr8-v1-local-proof/rules_baseline
 sr8 lint ./.sr8/artifacts/canonical/latest.json
 sr8 diff tests/fixtures/diff/base_artifact.json tests/fixtures/diff/changed_artifact.json
 sr8 list
@@ -78,6 +82,8 @@ sr8 list
 - Catalog: local index for artifact lookup and listing.
 
 More detail: [docs/index.md](docs/index.md)
+
+V1 boundary docs: [docs/TRUTH_BOUNDARY.md](docs/TRUTH_BOUNDARY.md), [docs/V1_RELEASE_SCOPE.md](docs/V1_RELEASE_SCOPE.md), and [docs/V1_PROOF_GUIDE.md](docs/V1_PROOF_GUIDE.md).
 
 ## CLI Overview
 

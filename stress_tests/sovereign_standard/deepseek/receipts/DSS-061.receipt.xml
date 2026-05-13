@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-061">
+  <source_intent>
+    <raw_intent>Case 061: I am a founder_operator in Canada. Build a codex_build_prompt for software_build using the memory_lens. Chaos input type is ambiguous_scope. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>software_build</domain>
+    <user_type>founder_operator</user_type>
+    <geography>Canada</geography>
+    <chaos_type>ambiguous_scope</chaos_type>
+    <lens>memory_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>codex_build_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build a governed software artifact for a Canadian founder-operator using the memory_lens, resolving ambiguous scope and partial constraints into a validated, production-ready codex build prompt.
+Scope:
+- The artifact must include explicit validation gates, handle missing context and urgent language, and produce a compilable directive with objective, scope, constraints, success criteria, and output contract. The build targets a software system for a Canadian founder-operator context, leveraging memory_lens for traceability and governance.
+Constraints:
+- Must operate within Canadian legal and regulatory frameworks (e.g., PIPEDA, provincial privacy laws).
+- Must use memory_lens to track decisions and assumptions.
+- Must include explicit validation gates at each stage of the build.
+- Must resolve ambiguous acceptance criteria into testable conditions.
+- Must not assume complete context; must flag and handle missing information.
+- Must output strict JSON without markdown fences.
+- Must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.
+Success Criteria:
+- All ambiguous scope elements are identified and resolved or flagged with fallback defaults.
+- Validation gates are defined and documented (e.g., input validation, integration test gates, deployment gates).
+- The output contract specifies exact JSON schema and field types.
+- The artifact compiles without error into an SR8 directive.
+- The memory_lens records all decisions, assumptions, and unresolved items.
+Output Contract:
+- type: object
+- properties: artifact_type: type: string; enum: codex_build_prompt; depth_tier: type: string; enum: D2_PRODUCTION; runtime_target: type: string; enum: Codex; should_block: type: boolean; blocked_reason: type: string; null; compiled_intent: type: object; properties: Objective: type: string; Scope: type: string; Constraints: type: array; items: type: string; Success Criteria: type: array; items: type: string; Output Contract: type: object; required: Objective; Scope; Constraints; Success Criteria; Output Contract
+- required: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_82926b8efc5cbb19f975</artifact_id>
+    <source_hash>b6c02a043cf2383ef1ff3a31c2f630d68c5439931ecfc28fbb844cb85b21f031</source_hash>
+    <compile_run_id>run_68dd57eedb379c06dc8c</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-061.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-061.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

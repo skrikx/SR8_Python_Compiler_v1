@@ -1,0 +1,24 @@
+{
+  "artifact_type": "lovable_build_prompt",
+  "blocked_reason": "Missing critical inputs: no repo URL, no current architecture description, no specific refactor goal, no language/framework stack, no test coverage baseline, no performance metrics. Ambiguous acceptance criteria and urgent language without concrete deliverables. Cannot safely compile a production-grade refactor prompt without these fundamentals.",
+  "case_id": "DSS-077",
+  "compiled_intent": "Objective: Blocked due to insufficient inputs; repair receipt recorded.\nScope:\n- Undefined.\nConstraints:\n- Cannot proceed without repo context, architecture, and measurable success criteria.\nSuccess Criteria:\n- Not established.\nOutput Contract:\n- Repair receipt: request repo URL, current architecture summary, refactor goal, language/framework, test coverage, and performance baselines before re-submission.",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "lovable_build_prompt",
+    "blocked_reason": "Missing critical inputs: no repo URL, no current architecture description, no specific refactor goal, no language/framework stack, no test coverage baseline, no performance metrics. Ambiguous acceptance criteria and urgent language without concrete deliverables. Cannot safely compile a production-grade refactor prompt without these fundamentals.",
+    "compiled_intent": {
+      "Constraints": "Cannot proceed without repo context, architecture, and measurable success criteria.",
+      "Objective": "Blocked due to insufficient inputs; repair receipt recorded.",
+      "Output Contract": "Repair receipt: request repo URL, current architecture summary, refactor goal, language/framework, test coverage, and performance baselines before re-submission.",
+      "Scope": "Undefined.",
+      "Success Criteria": "Not established."
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

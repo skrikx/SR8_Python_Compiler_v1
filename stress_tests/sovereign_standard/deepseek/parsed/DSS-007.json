@@ -1,0 +1,64 @@
+{
+  "artifact_type": "sr9_orchestration_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-007",
+  "compiled_intent": "Objective: Generate a governed SR9 orchestration prompt for a sales offer using the memory_lens, enabling a student_builder in East Asia to produce a validated, compilable artifact despite multi-runtime confusion and incomplete input.\nScope:\n- The prompt must accept chaotic, multi-runtime input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) and output a structured SR8-compilable directive with explicit validation gates. It must incorporate memory_lens to recall and reconcile fragmented constraints.\nConstraints:\n- Must include explicit validation gates for each SR8 section (Objective, Scope, Constraints, Success Criteria, Output Contract).\n- Must handle multi-runtime confusion by disambiguating runtime targets (e.g., Codex, Lovable, DeepSeek).\n- Must not assume complete input; must flag missing or ambiguous fields for human review.\n- Must be self-contained and executable by a student_builder with limited context.\nSuccess Criteria:\n- Output is a valid SR9 orchestration prompt that can be fed into SR8 compiler.\n- All SR8 sections are present and populated with placeholders or resolved values.\n- Validation gates produce clear pass/fail indicators for each section.\n- Memory_lens successfully recalls at least one prior constraint from the chaotic input.\nOutput Contract:\n- format: JSON\n- schema: artifact_type: sr9_orchestration_prompt; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; should_block: False; blocked_reason: None; compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: format: string; schema: object\n- validation_gates: Gate 1: Objective must be non-empty and actionable.; Gate 2: Scope must define boundaries and exclusions.; Gate 3: Constraints must be specific and testable.; Gate 4: Success Criteria must be measurable.; Gate 5: Output Contract must specify format and schema.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr9_orchestration_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must include explicit validation gates for each SR8 section (Objective, Scope, Constraints, Success Criteria, Output Contract).",
+        "Must handle multi-runtime confusion by disambiguating runtime targets (e.g., Codex, Lovable, DeepSeek).",
+        "Must not assume complete input; must flag missing or ambiguous fields for human review.",
+        "Must be self-contained and executable by a student_builder with limited context."
+      ],
+      "Objective": "Generate a governed SR9 orchestration prompt for a sales offer using the memory_lens, enabling a student_builder in East Asia to produce a validated, compilable artifact despite multi-runtime confusion and incomplete input.",
+      "Output Contract": {
+        "format": "JSON",
+        "schema": {
+          "artifact_type": "sr9_orchestration_prompt",
+          "blocked_reason": null,
+          "compiled_intent": {
+            "Constraints": [
+              "string"
+            ],
+            "Objective": "string",
+            "Output Contract": {
+              "format": "string",
+              "schema": "object"
+            },
+            "Scope": "string",
+            "Success Criteria": [
+              "string"
+            ]
+          },
+          "depth_tier": "D3_SOVEREIGN_CORE",
+          "runtime_target": "Codex",
+          "should_block": false
+        },
+        "validation_gates": [
+          "Gate 1: Objective must be non-empty and actionable.",
+          "Gate 2: Scope must define boundaries and exclusions.",
+          "Gate 3: Constraints must be specific and testable.",
+          "Gate 4: Success Criteria must be measurable.",
+          "Gate 5: Output Contract must specify format and schema."
+        ]
+      },
+      "Scope": "The prompt must accept chaotic, multi-runtime input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) and output a structured SR8-compilable directive with explicit validation gates. It must incorporate memory_lens to recall and reconcile fragmented constraints.",
+      "Success Criteria": [
+        "Output is a valid SR9 orchestration prompt that can be fed into SR8 compiler.",
+        "All SR8 sections are present and populated with placeholders or resolved values.",
+        "Validation gates produce clear pass/fail indicators for each section.",
+        "Memory_lens successfully recalls at least one prior constraint from the chaotic input."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

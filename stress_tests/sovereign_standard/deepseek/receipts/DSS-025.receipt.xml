@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-025">
+  <source_intent>
+    <raw_intent>Case 025: I am a finance_operator in Middle East. Build a mirroros_analysis_prompt for visual_generation using the memory_lens. Chaos input type is memory_write_risk. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>visual_generation</domain>
+    <user_type>finance_operator</user_type>
+    <geography>Middle East</geography>
+    <chaos_type>memory_write_risk</chaos_type>
+    <lens>memory_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>mirroros_analysis_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Unsafe certainty: raw_intent lacks clear context for memory_write_risk in Middle East finance operations, uses urgent language without defined scope, and contains ambiguous acceptance criteria. Cannot compile a safe mirroros_analysis_prompt without resolving missing context, clarifying constraints, and specifying success criteria. Blocked to prevent hallucinated or harmful generation.</blocked_reason>
+    <compiled_intent>Objective: Produce a mirroros_analysis_prompt for visual_generation using memory_lens, but blocked due to unsafe certainty.
+Scope:
+- Not defined; raw_intent missing context and constraints.
+Constraints:
+- Ambiguous; memory_write_risk type requires explicit risk parameters and jurisdiction.
+Success Criteria:
+- Not specified; acceptance criteria are ambiguous.
+Output Contract:
+- Blocked; repair receipt required before compilation.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_179391ba4b71383bb475</artifact_id>
+    <source_hash>2b36f8fb97d48476e8eb30dc69e4875b1f6b66ba644677840a942de4fefde738</source_hash>
+    <compile_run_id>run_c9fe5322125e61db407a</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-025.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-025.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

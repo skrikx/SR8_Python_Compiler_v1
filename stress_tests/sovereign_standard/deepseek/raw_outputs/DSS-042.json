@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:55:34Z",
+  "case_id": "DSS-042",
+  "content": "{\n  \"artifact_type\": \"mirroros_analysis_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Unsafe certainty detected: raw_intent contains unsupported_roi_claim as chaos input type, which is not a recognized failure_lens category. Additionally, the intent is deliberately ambiguous with missing context, urgent language, partial constraints, and unclear acceptance criteria, making it impossible to compile a valid SR8 directive without hallucinating or fabricating requirements. Blocking to prevent generation of a prompt that could lead to incorrect or harmful analysis.\",\n  \"compiled_intent\": {\n    \"Objective\": \"N/A - blocked\",\n    \"Scope\": \"N/A - blocked\",\n    \"Constraints\": \"N/A - blocked\",\n    \"Success Criteria\": \"N/A - blocked\",\n    \"Output Contract\": \"N/A - blocked\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

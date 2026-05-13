@@ -1,0 +1,55 @@
+{
+  "artifact_type": "research_agent_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-045",
+  "compiled_intent": "Objective: Design a sovereign-lens blueprint document for a Middle East finance operator, capturing regional compliance, risk, and operational constraints.\nScope:\n- Research and produce a blueprint_design_doc covering regulatory frameworks (e.g., local financial authority rules), data sovereignty requirements, and integration patterns for financial systems in the Middle East.\nConstraints:\n- Must adhere to sovereign_lens principles: data localization, jurisdictional control, and auditability.\n- All outputs must be verifiable against known Middle East financial regulations (e.g., Saudi Central Bank, UAE Central Bank).\n- No assumptions about specific institution; use generic but region-accurate references.\n- Validation gates: source policy check, claim limit verification, and compliance cross-reference.\nSuccess Criteria:\n- Blueprint document includes explicit sections: regulatory landscape, data sovereignty map, integration architecture, and risk controls.\n- Each claim in the blueprint is backed by a verifiable source or policy reference.\n- Document passes automated validation gates for source policy and claim limits.\n- Output is SR8-compilable into objective, scope, constraints, success criteria, and output contract.\nOutput Contract:\n- format: JSON\n- fields: blueprint_id: string; region: Middle East; domain: finance_operations; lens: sovereign_lens; regulatory_references: array of strings; data_sovereignty_map: object; integration_patterns: array of objects; risk_controls: array of objects; validation_gates: source_policy_check; claim_limit_verification; compliance_cross_reference; compiled_intent: object\n- validation_required: True",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "research_agent_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must adhere to sovereign_lens principles: data localization, jurisdictional control, and auditability.",
+        "All outputs must be verifiable against known Middle East financial regulations (e.g., Saudi Central Bank, UAE Central Bank).",
+        "No assumptions about specific institution; use generic but region-accurate references.",
+        "Validation gates: source policy check, claim limit verification, and compliance cross-reference."
+      ],
+      "Objective": "Design a sovereign-lens blueprint document for a Middle East finance operator, capturing regional compliance, risk, and operational constraints.",
+      "Output Contract": {
+        "fields": {
+          "blueprint_id": "string",
+          "compiled_intent": "object",
+          "data_sovereignty_map": "object",
+          "domain": "finance_operations",
+          "integration_patterns": "array of objects",
+          "lens": "sovereign_lens",
+          "region": "Middle East",
+          "regulatory_references": [
+            "array of strings"
+          ],
+          "risk_controls": "array of objects",
+          "validation_gates": [
+            "source_policy_check",
+            "claim_limit_verification",
+            "compliance_cross_reference"
+          ]
+        },
+        "format": "JSON",
+        "validation_required": true
+      },
+      "Scope": "Research and produce a blueprint_design_doc covering regulatory frameworks (e.g., local financial authority rules), data sovereignty requirements, and integration patterns for financial systems in the Middle East.",
+      "Success Criteria": [
+        "Blueprint document includes explicit sections: regulatory landscape, data sovereignty map, integration architecture, and risk controls.",
+        "Each claim in the blueprint is backed by a verifiable source or policy reference.",
+        "Document passes automated validation gates for source policy and claim limits.",
+        "Output is SR8-compilable into objective, scope, constraints, success criteria, and output contract."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

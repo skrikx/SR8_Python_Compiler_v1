@@ -1,0 +1,62 @@
+{
+  "artifact_type": "lovable_build_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-094",
+  "compiled_intent": "Objective: Build a lovable_build_prompt for finance_ops of a law firm operating in the European Union, using the compliance_lens to ensure full regulatory adherence, with explicit validation gates to handle overbroad_one_pass_lock chaos input.\nScope:\n- The prompt must generate a finance operations workflow that includes automated transaction monitoring, client fund segregation, invoice validation, and periodic compliance reporting. It must incorporate EU regulatory frameworks (e.g., GDPR, AML Directives, PSD2) and be resilient to ambiguous, urgent, and partially constrained inputs.\nConstraints:\n- Must use compliance_lens as the primary validation perspective.\n- Must include explicit validation gates at each stage of the finance ops workflow.\n- Must handle overbroad_one_pass_lock chaos input by requiring multi-step verification before any single-pass approval.\n- Must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.\n- Must not assume complete or clean input; must include fallback and clarification steps.\n- Must be compatible with Codex runtime target.\nSuccess Criteria:\n- The generated prompt passes all validation gates defined in the artifact.\n- The prompt can be compiled by SR8 into a structured directive with all required sections.\n- The prompt correctly interprets and handles ambiguous, urgent, and partially constrained inputs.\n- The prompt enforces EU compliance requirements for finance operations in a law firm context.\n- The prompt prevents single-pass lock approval without multi-step verification.\nOutput Contract:\n- format: JSON\n- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and sections\n- validation_gates: gate_1: input_ambiguity_check; gate_2: urgency_parser; gate_3: constraint_extraction; gate_4: compliance_lens_validation; gate_5: overbroad_lock_prevention; gate_6: sr8_compilability_check",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "lovable_build_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must use compliance_lens as the primary validation perspective.",
+        "Must include explicit validation gates at each stage of the finance ops workflow.",
+        "Must handle overbroad_one_pass_lock chaos input by requiring multi-step verification before any single-pass approval.",
+        "Must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.",
+        "Must not assume complete or clean input; must include fallback and clarification steps.",
+        "Must be compatible with Codex runtime target."
+      ],
+      "Objective": "Build a lovable_build_prompt for finance_ops of a law firm operating in the European Union, using the compliance_lens to ensure full regulatory adherence, with explicit validation gates to handle overbroad_one_pass_lock chaos input.",
+      "Output Contract": {
+        "compiled_intent_structure": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "Output Contract": "object with format and sections",
+          "Scope": "string",
+          "Success Criteria": "array of strings"
+        },
+        "format": "JSON",
+        "sections": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "validation_gates": [
+          "gate_1: input_ambiguity_check",
+          "gate_2: urgency_parser",
+          "gate_3: constraint_extraction",
+          "gate_4: compliance_lens_validation",
+          "gate_5: overbroad_lock_prevention",
+          "gate_6: sr8_compilability_check"
+        ]
+      },
+      "Scope": "The prompt must generate a finance operations workflow that includes automated transaction monitoring, client fund segregation, invoice validation, and periodic compliance reporting. It must incorporate EU regulatory frameworks (e.g., GDPR, AML Directives, PSD2) and be resilient to ambiguous, urgent, and partially constrained inputs.",
+      "Success Criteria": [
+        "The generated prompt passes all validation gates defined in the artifact.",
+        "The prompt can be compiled by SR8 into a structured directive with all required sections.",
+        "The prompt correctly interprets and handles ambiguous, urgent, and partially constrained inputs.",
+        "The prompt enforces EU compliance requirements for finance operations in a law firm context.",
+        "The prompt prevents single-pass lock approval without multi-step verification."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

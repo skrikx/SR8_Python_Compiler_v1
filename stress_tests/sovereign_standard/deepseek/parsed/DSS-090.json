@@ -1,0 +1,59 @@
+{
+  "artifact_type": "srx_ace_workflow",
+  "blocked_reason": "",
+  "case_id": "DSS-090",
+  "compiled_intent": "Objective: Produce a governed srx_ace_workflow artifact for blueprint_design_doc using the sovereign_lens, handling chaotic input with depth_tier_ambiguity and explicit validation gates.\nScope:\n- Parse messy input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured workflow with validation gates. Output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must use sovereign_lens for governance and validation.\n- Must include explicit validation gates at each workflow step.\n- Must handle depth_tier_ambiguity by resolving to D3_SOVEREIGN_CORE.\n- Output must be strict JSON with no markdown fences.\n- Must not claim completion if any blocker exists.\nSuccess Criteria:\n- Workflow artifact is valid srx_ace_workflow type.\n- All sections (objective, scope, constraints, success criteria, output contract) are present and compilable.\n- Validation gates are explicitly defined and traceable.\n- Chaotic input is resolved without loss of governance.\nOutput Contract:\n- artifact_type: srx_ace_workflow\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- should_block: False\n- blocked_reason: None\n- compiled_intent: objective: Produce a governed srx_ace_workflow artifact for blueprint_design_doc using the sovereign_lens, handling chaotic input with depth_tier_ambiguity and explicit validation gates.; scope: Parse messy input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured workflow with validation gates. Output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.; constraints: Must use sovereign_lens for governance and validation.; Must include explicit validation gates at each workflow step.; Must handle depth_tier_ambiguity by resolving to D3_SOVEREIGN_CORE.; Output must be strict JSON with no markdown fences.; Must not claim completion if any blocker exists.; success_criteria: Workflow artifact is valid srx_ace_workflow type.; All sections (objective, scope, constraints, success criteria, output contract) are present and compilable.; Validation gates are explicitly defined and traceable.; Chaotic input is resolved without loss of governance.; output_contract: This JSON object.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_workflow",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must use sovereign_lens for governance and validation.",
+        "Must include explicit validation gates at each workflow step.",
+        "Must handle depth_tier_ambiguity by resolving to D3_SOVEREIGN_CORE.",
+        "Output must be strict JSON with no markdown fences.",
+        "Must not claim completion if any blocker exists."
+      ],
+      "Objective": "Produce a governed srx_ace_workflow artifact for blueprint_design_doc using the sovereign_lens, handling chaotic input with depth_tier_ambiguity and explicit validation gates.",
+      "Output Contract": {
+        "artifact_type": "srx_ace_workflow",
+        "blocked_reason": null,
+        "compiled_intent": {
+          "constraints": [
+            "Must use sovereign_lens for governance and validation.",
+            "Must include explicit validation gates at each workflow step.",
+            "Must handle depth_tier_ambiguity by resolving to D3_SOVEREIGN_CORE.",
+            "Output must be strict JSON with no markdown fences.",
+            "Must not claim completion if any blocker exists."
+          ],
+          "objective": "Produce a governed srx_ace_workflow artifact for blueprint_design_doc using the sovereign_lens, handling chaotic input with depth_tier_ambiguity and explicit validation gates.",
+          "output_contract": "This JSON object.",
+          "scope": "Parse messy input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured workflow with validation gates. Output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.",
+          "success_criteria": [
+            "Workflow artifact is valid srx_ace_workflow type.",
+            "All sections (objective, scope, constraints, success criteria, output contract) are present and compilable.",
+            "Validation gates are explicitly defined and traceable.",
+            "Chaotic input is resolved without loss of governance."
+          ]
+        },
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "runtime_target": "Codex",
+        "should_block": false
+      },
+      "Scope": "Parse messy input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured workflow with validation gates. Output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "Workflow artifact is valid srx_ace_workflow type.",
+        "All sections (objective, scope, constraints, success criteria, output contract) are present and compilable.",
+        "Validation gates are explicitly defined and traceable.",
+        "Chaotic input is resolved without loss of governance."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

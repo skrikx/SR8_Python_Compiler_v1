@@ -12,9 +12,9 @@ license = "MIT"
 authors = [
   { name = "SR8 Engineering" }
 ]
-keywords = ["compiler", "intent", "artifacts", "local-first", "cli"]
+keywords = ["compiler", "intent", "canonical", "local-first", "llm-assisted", "cli"]
 classifiers = [
-  "Development Status :: 5 - Production/Stable",
+  "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",

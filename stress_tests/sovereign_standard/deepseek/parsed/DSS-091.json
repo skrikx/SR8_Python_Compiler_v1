@@ -1,0 +1,58 @@
+{
+  "artifact_type": "srx_ace_audit_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-091",
+  "compiled_intent": "Objective: Build an SRX ACE audit agent for software build processes using the compiler lens, capable of handling ambiguous scope inputs and producing a governed artifact with explicit validation gates.\nScope:\n- The agent shall ingest ambiguous scope inputs (e.g., missing context, urgent language, partial constraints, ambiguous acceptance criteria) from a founder_operator in Canada, and output a structured artifact that includes objective, scope, constraints, success criteria, and output contract sections suitable for SR8 compilation.\nConstraints:\n- Must operate within Canadian legal and regulatory frameworks.\n- Must handle ambiguous or incomplete input without hallucinating missing details.\n- Must produce output in strict JSON format with no markdown fences.\n- Must include explicit validation gates to ensure artifact completeness and correctness.\n- Must not generate or rely on any external data beyond the provided input.\nSuccess Criteria:\n- Artifact contains all five required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.\n- Validation gates are explicitly defined and actionable.\n- Output is valid JSON and can be directly compiled by SR8.\n- Ambiguous input is resolved through clear, conservative defaults or explicit flags.\nOutput Contract:\n- format: JSON\n- required_fields: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object\n- validation_gates: Gate 1: Verify all five compiled_intent sections are present and non-empty.; Gate 2: Confirm artifact_type matches expected value from case.; Gate 3: Ensure should_block is false and blocked_reason is null.; Gate 4: Validate JSON structure against schema.",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_audit_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate within Canadian legal and regulatory frameworks.",
+        "Must handle ambiguous or incomplete input without hallucinating missing details.",
+        "Must produce output in strict JSON format with no markdown fences.",
+        "Must include explicit validation gates to ensure artifact completeness and correctness.",
+        "Must not generate or rely on any external data beyond the provided input."
+      ],
+      "Objective": "Build an SRX ACE audit agent for software build processes using the compiler lens, capable of handling ambiguous scope inputs and producing a governed artifact with explicit validation gates.",
+      "Output Contract": {
+        "compiled_intent_structure": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "Output Contract": "object",
+          "Scope": "string",
+          "Success Criteria": "array of strings"
+        },
+        "format": "JSON",
+        "required_fields": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "validation_gates": [
+          "Gate 1: Verify all five compiled_intent sections are present and non-empty.",
+          "Gate 2: Confirm artifact_type matches expected value from case.",
+          "Gate 3: Ensure should_block is false and blocked_reason is null.",
+          "Gate 4: Validate JSON structure against schema."
+        ]
+      },
+      "Scope": "The agent shall ingest ambiguous scope inputs (e.g., missing context, urgent language, partial constraints, ambiguous acceptance criteria) from a founder_operator in Canada, and output a structured artifact that includes objective, scope, constraints, success criteria, and output contract sections suitable for SR8 compilation.",
+      "Success Criteria": [
+        "Artifact contains all five required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.",
+        "Validation gates are explicitly defined and actionable.",
+        "Output is valid JSON and can be directly compiled by SR8.",
+        "Ambiguous input is resolved through clear, conservative defaults or explicit flags."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

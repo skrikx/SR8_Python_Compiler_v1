@@ -1,0 +1,43 @@
+{
+  "artifact_type": "visual_generation_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-084",
+  "compiled_intent": "Objective: Generate a visual compliance evidence artifact for a European Union law firm operator using the market_lens framework, suitable for regulatory audit and internal governance.\nScope:\n- The prompt must produce a single visual (diagram, infographic, or dashboard mockup) that maps EU regulatory obligations (e.g., GDPR, AML directives) to operational controls, with explicit validation gates for completeness, accuracy, and traceability.\nConstraints:\n- Must reference EU legal frameworks (GDPR, AML5/6, MiFID II) and include at least three compliance domains.\n- Visual must be interpretable by non-technical stakeholders and auditors.\n- No personally identifiable information (PII) or client-specific data in the output.\n- Output must include a legend, source citations, and a version/date stamp.\n- Must pass a validation gate checklist: (1) regulatory mapping complete, (2) control descriptions accurate, (3) evidence traceable to source documents.\nSuccess Criteria:\n- The generated visual contains at least three EU regulatory domains mapped to at least five operational controls.\n- Each control has a corresponding evidence source (e.g., policy ID, audit log reference).\n- Validation gates are explicitly listed and marked as passed/failed in the output metadata.\n- The visual is self-contained and can be exported as a PNG or PDF for audit submission.\nOutput Contract:\n- format: JSON with fields: visual_type (string), regulatory_domains (array of strings), controls (array of objects with fields: control_id, description, evidence_source, validation_status), metadata (object with fields: version, date, author, validation_gates_passed), base64_encoded_image (string, optional placeholder).\n- validation_gates: Gate 1: All regulatory domains are correctly cited with article numbers.; Gate 2: Each control has a non-empty evidence_source field.; Gate 3: Metadata includes version, date, and author.; Gate 4: No PII or client data present in any field.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "visual_generation_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must reference EU legal frameworks (GDPR, AML5/6, MiFID II) and include at least three compliance domains.",
+        "Visual must be interpretable by non-technical stakeholders and auditors.",
+        "No personally identifiable information (PII) or client-specific data in the output.",
+        "Output must include a legend, source citations, and a version/date stamp.",
+        "Must pass a validation gate checklist: (1) regulatory mapping complete, (2) control descriptions accurate, (3) evidence traceable to source documents."
+      ],
+      "Objective": "Generate a visual compliance evidence artifact for a European Union law firm operator using the market_lens framework, suitable for regulatory audit and internal governance.",
+      "Output Contract": {
+        "format": "JSON with fields: visual_type (string), regulatory_domains (array of strings), controls (array of objects with fields: control_id, description, evidence_source, validation_status), metadata (object with fields: version, date, author, validation_gates_passed), base64_encoded_image (string, optional placeholder).",
+        "validation_gates": [
+          "Gate 1: All regulatory domains are correctly cited with article numbers.",
+          "Gate 2: Each control has a non-empty evidence_source field.",
+          "Gate 3: Metadata includes version, date, and author.",
+          "Gate 4: No PII or client data present in any field."
+        ]
+      },
+      "Scope": "The prompt must produce a single visual (diagram, infographic, or dashboard mockup) that maps EU regulatory obligations (e.g., GDPR, AML directives) to operational controls, with explicit validation gates for completeness, accuracy, and traceability.",
+      "Success Criteria": [
+        "The generated visual contains at least three EU regulatory domains mapped to at least five operational controls.",
+        "Each control has a corresponding evidence source (e.g., policy ID, audit log reference).",
+        "Validation gates are explicitly listed and marked as passed/failed in the output metadata.",
+        "The visual is self-contained and can be exported as a PNG or PDF for audit submission."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

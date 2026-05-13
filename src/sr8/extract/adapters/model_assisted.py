@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from sr8.adapters.errors import ProviderError
-from sr8.compiler.model_assist import run_model_assisted_extraction
+from sr8.compiler.model_assist import MODEL_ASSIST_SYSTEM_PROMPT, run_model_assisted_extraction
 from sr8.config.settings import SR8Settings
 from sr8.extract.adapters.base import ExtractionAdapter
 from sr8.extract.adapters.rule_based import RuleBasedExtractionAdapter
@@ -59,6 +59,14 @@ class ModelAssistedExtractionAdapter(ExtractionAdapter):
                 provider_name=provider_name,
                 model_name=model_name,
             )
+            if config is not None and config.save_llm_trace:
+                result.trace.metadata.update(
+                    {
+                        "raw_prompt": normalized_source,
+                        "raw_system_prompt": MODEL_ASSIST_SYSTEM_PROMPT,
+                        "raw_response": result.provider_response.content,
+                    }
+                )
             return result.extracted, result.trace
         except ProviderError as exc:
             if config is not None and not config.assist_fallback_to_rule_based:

@@ -217,6 +217,23 @@ def _metadata_int(metadata: Mapping[str, object], key: str) -> int:
     return value if isinstance(value, int) else 0
 
 
+def _metadata_bool(metadata: Mapping[str, object], key: str) -> bool:
+    value = metadata.get(key)
+    return value if isinstance(value, bool) else False
+
+
+def _trace_confidence_score(trace: ExtractionTrace) -> float | None:
+    if not trace.confidence:
+        return None
+    weights = {"high": 1.0, "medium": 0.66, "low": 0.33}
+    score = sum(weights.get(signal.confidence_band, 0.0) for signal in trace.confidence)
+    return round(score / len(trace.confidence), 3)
+
+
+def _effective_compile_mode(config: CompileConfig) -> str:
+    return config.compile_mode
+
+
 def _assist_route(
     trace_adapter: str,
     trace_metadata: Mapping[str, object],
@@ -274,6 +291,9 @@ def _build_compile_metadata(
     semantic_transform_applied: bool,
     assist_route: str,
     weak_signal_hits: list[str],
+    compile_mode: str,
+    extraction_adapter_name: str,
+    extraction_trace: ExtractionTrace,
 ) -> dict[str, object]:
     source_supplied_fields = _sorted_fields(preview_source_fields)
     compiler_derived_fields = _sorted_fields(
@@ -300,6 +320,7 @@ def _build_compile_metadata(
         else "not_required"
     )
     source_supplied_field_count = len(source_supplied_fields)
+    trace_metadata = extraction_trace.metadata
     compile_truth_summary = _build_truth_summary(
         compile_kind=compile_kind,
         source_structure_kind=source_structure_kind,
@@ -315,6 +336,7 @@ def _build_compile_metadata(
         weak_signal_hits=weak_signal_hits,
     )
     return {
+        "compile_mode": compile_mode,
         "compile_kind": compile_kind,
         "semantic_transform_applied": semantic_transform_applied,
         "source_structure_kind": source_structure_kind,
@@ -325,6 +347,19 @@ def _build_compile_metadata(
         "source_supplied_field_count": source_supplied_field_count,
         "copied_field_count": source_supplied_field_count,
         "assist_route": assist_route,
+        "assist_mode": compile_mode,
+        "llm_used": trace_metadata.get("assist_extract_status") == "assisted",
+        "provider": trace_metadata.get("provider"),
+        "model": trace_metadata.get("model"),
+        "adapter": extraction_adapter_name,
+        "prompt_template_id": trace_metadata.get("prompt_template_id"),
+        "prompt_hash": trace_metadata.get("prompt_hash"),
+        "raw_response_hash": trace_metadata.get("raw_response_hash"),
+        "parsed_response_hash": trace_metadata.get("parsed_response_hash"),
+        "repair_attempts": trace_metadata.get("repair_attempts", 0),
+        "schema_validation_status": trace_metadata.get("schema_validation_status", "pass"),
+        "fallback_used": trace_metadata.get("fallback") is not None,
+        "confidence": _trace_confidence_score(extraction_trace),
         "intake_route": intake_route,
         "compile_truth_summary": compile_truth_summary,
         "weak_intent_recovery": recovery_summary,
@@ -398,6 +433,9 @@ def _structured_trace(
         "assist_extract_route": "not_used",
         "provider": None,
         "model": None,
+        "repair_attempts": 0,
+        "schema_validation_status": "pass",
+        "fallback": None,
     }
     trace = build_extraction_trace(
         adapter_name=adapter_name,
@@ -441,6 +479,19 @@ def _build_receipt_from_artifact(
         assist_route=str(metadata.get("assist_route", "not_used")),
         intake_route=str(metadata.get("intake_route", "not_required")),
         compile_truth_summary=str(metadata.get("compile_truth_summary", "")),
+        assist_mode=str(metadata.get("assist_mode", metadata.get("compile_mode", "auto"))),
+        llm_used=_metadata_bool(metadata, "llm_used"),
+        provider=cast(str | None, metadata.get("provider")),
+        model=cast(str | None, metadata.get("model")),
+        adapter=str(metadata.get("adapter", metadata.get("extraction_adapter", "rule_based"))),
+        prompt_template_id=cast(str | None, metadata.get("prompt_template_id")),
+        prompt_hash=cast(str | None, metadata.get("prompt_hash")),
+        raw_response_hash=cast(str | None, metadata.get("raw_response_hash")),
+        parsed_response_hash=cast(str | None, metadata.get("parsed_response_hash")),
+        repair_attempts=_metadata_int(metadata, "repair_attempts"),
+        schema_validation_status=str(metadata.get("schema_validation_status", "pass")),
+        fallback_used=_metadata_bool(metadata, "fallback_used"),
+        confidence=cast(float | None, metadata.get("confidence")),
     )
 
 
@@ -626,6 +677,7 @@ def compile_intent(
     normalized = normalize_source(loaded)
     preview = build_compile_preview(normalized)
     source_text = normalized.normalized_content or normalized.raw_content
+    compile_mode = _effective_compile_mode(active_config)
 
     used_extraction = False
     if preview.compile_kind == "canonicalize_structured":
@@ -635,10 +687,20 @@ def compile_intent(
             source_structure_kind=preview.source_structure_kind,
         )
     else:
-        adapter = get_extraction_adapter(active_config.extraction_adapter)
+        initial_adapter_name = (
+            "model_assisted"
+            if compile_mode == "assist" or active_config.extraction_adapter == "model_assisted"
+            else "rule_based"
+        )
+        adapter = get_extraction_adapter(initial_adapter_name)
+        extraction_config = (
+            active_config.model_copy(update={"assist_fallback_to_rule_based": False})
+            if compile_mode == "assist"
+            else active_config
+        )
         extracted, extraction_trace = adapter.extract(
             source_text,
-            config=active_config,
+            config=extraction_config,
         )
         used_extraction = True
         extraction_adapter_name = extraction_trace.adapter_name
@@ -662,6 +724,43 @@ def compile_intent(
         material_derived_fields = semantic_candidate_fields & set(MATERIAL_DERIVED_FIELDS)
         if len(material_derived_fields) < SEMANTIC_IMPORTANT_DERIVED_MIN:
             compile_kind = "needs_intake"
+
+    if (
+        compile_mode == "auto"
+        and compile_kind == "needs_intake"
+        and active_config.assist_provider
+        and active_config.assist_model
+    ):
+        assisted_config = active_config.model_copy(
+            update={
+                "compile_mode": "assist",
+                "extraction_adapter": "model_assisted",
+                "assist_fallback_to_rule_based": False,
+            }
+        )
+        assisted = compile_intent(source=source, source_type=source_type, config=assisted_config)
+        assisted_metadata = assisted.artifact.metadata | {
+            "compile_mode": "auto",
+            "assist_mode": "auto",
+            "pipeline_mode": "auto_rules_then_assist",
+        }
+        assisted_artifact = assisted.artifact.model_copy(update={"metadata": assisted_metadata})
+        assisted_receipt = _build_receipt_from_artifact(
+            assisted_artifact,
+            source_hash=normalized.source_hash,
+            status=assisted.receipt.status,
+            notes=["Auto mode used rules first, then LLM assist.", *assisted.receipt.notes],
+        )
+        return _apply_compile_target_validation(
+            assisted.model_copy(
+                update={
+                    "artifact": assisted_artifact,
+                    "receipt": assisted_receipt,
+                    "normalized_source": normalized,
+                }
+            ),
+            config=active_config,
+        )
 
     semantic_transform_applied = (
         compile_kind == "semantic_compile"
@@ -716,6 +815,7 @@ def compile_intent(
             "extraction_trust_summary": trust_summary,
             "provider_assist": extraction_trace.metadata,
             "pipeline_mode": pipeline_mode,
+            "compile_mode": compile_mode,
             "extraction_adapter": extraction_adapter_name,
         },
     )
@@ -729,6 +829,9 @@ def compile_intent(
         semantic_transform_applied=semantic_transform_applied,
         assist_route=assist_route,
         weak_signal_hits=preview.weak_signal_hits,
+        compile_mode=compile_mode,
+        extraction_adapter_name=extraction_adapter_name,
+        extraction_trace=extraction_trace,
     )
     profiled = profiled.model_copy(update={"metadata": profiled.metadata | compile_metadata})
     validation_report = validate_artifact(profiled, profile_name=active_config.profile)

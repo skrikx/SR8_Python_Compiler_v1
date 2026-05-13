@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-021">
+  <source_intent>
+    <raw_intent>Case 021: I am a founder_operator in Canada. Build a srx_ace_build_agent for local_business_site using the market_lens. Chaos input type is fake_test_risk. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>local_business_site</domain>
+    <user_type>founder_operator</user_type>
+    <geography>Canada</geography>
+    <chaos_type>fake_test_risk</chaos_type>
+    <lens>market_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_build_agent</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build an SRX ACE build agent that generates a local business website for a Canadian founder-operator, using the market_lens framework to adapt content and structure to local market conditions.
+Scope:
+- The agent must accept a business profile (name, industry, location, services, target audience) and produce a complete static website with homepage, about, services, contact, and a local SEO metadata block. It must validate inputs against a market_lens schema (region, language, cultural cues, competitor density) and reject or flag ambiguous or missing fields.
+Constraints:
+- Must run on Codex runtime with no external API calls beyond static asset generation.
+- All output must be in valid HTML5, CSS3, and plain JavaScript (no frameworks).
+- Must include a validation gate that checks for at least 80% of required fields before generation.
+- Must handle fake_test_risk inputs by logging a warning and returning a partial scaffold with placeholders instead of failing.
+- Must comply with Canadian accessibility standards (WCAG 2.1 AA) and include a language attribute of 'en-CA' or 'fr-CA' based on location.
+Success Criteria:
+- Agent produces a zip file containing index.html, about.html, services.html, contact.html, style.css, and a local-seo.json metadata file.
+- All pages pass W3C validation with zero errors.
+- Market_lens fields (region, language, competitor_count) are reflected in the SEO metadata and page content.
+- Fake_test_risk input triggers a warning log and generates a scaffold with '[PLACEHOLDER]' markers instead of crashing.
+- Validation gate rejects input with fewer than 4 of 6 required fields and returns a structured error report.
+Output Contract:
+- format: zip archive
+- contents: index.html; about.html; services.html; contact.html; style.css; local-seo.json
+- metadata: generated_by: srx_ace_build_agent; runtime: Codex; market_lens_version: 1.0; validation_status: passed|partial|failed; risk_flag: none|fake_test_risk
+- error_report: missing_fields: ; warnings: ; blockers:</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_51ec39b72662eda9badb</artifact_id>
+    <source_hash>73ae928256530f3f450b99ef197afb2908f66ca73358e5fc14511f54b14fc027</source_hash>
+    <compile_run_id>run_bd4700cb7ea98b158a33</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-021.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-021.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

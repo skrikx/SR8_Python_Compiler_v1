@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-076">
+  <source_intent>
+    <raw_intent>Case 076: I am a healthcare_admin in South Asia. Build a mirroros_analysis_prompt for software_build using the compliance_lens. Chaos input type is ambiguous_scope. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>software_build</domain>
+    <user_type>healthcare_admin</user_type>
+    <geography>South Asia</geography>
+    <chaos_type>ambiguous_scope</chaos_type>
+    <lens>compliance_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>mirroros_analysis_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Analyze the ambiguous healthcare administration software build request from South Asia using the compliance lens, and produce a structured mirrorOS analysis prompt that resolves missing context, urgent language, partial constraints, and ambiguous acceptance criteria into a governed artifact with explicit validation gates.
+Scope:
+- The analysis covers the healthcare administration domain in South Asia, focusing on compliance requirements (e.g., data privacy, regulatory standards), software build feasibility, and the transformation of chaotic input into a compilable SR8 directive. It does not include actual software implementation or deployment.
+Constraints:
+- Must use compliance_lens as the primary analytical framework.
+- Must handle ambiguous_scope input type without assuming missing details.
+- Must produce explicit validation gates for each section of the output.
+- Must not generate executable code or deployment instructions.
+- Must adhere to SR8 compilation standards for objective, scope, constraints, success criteria, and output contract.
+Success Criteria:
+- All ambiguous elements (missing context, urgent language, partial constraints, ambiguous acceptance criteria) are identified and flagged with resolution paths.
+- Validation gates are defined for each section of the mirrorOS analysis prompt.
+- The output is a valid SR8-compilable directive with all required sections.
+- The artifact is governed and traceable to the original chaotic input.
+Output Contract:
+- format: JSON
+- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and sections
+- validation_gates: Gate 1: Confirm artifact_type is mirroros_analysis_prompt.; Gate 2: Confirm depth_tier is D3_SOVEREIGN_CORE.; Gate 3: Confirm runtime_target is Codex.; Gate 4: Confirm should_block is false.; Gate 5: Confirm compiled_intent contains all five required sections.; Gate 6: Confirm each section in compiled_intent is non-empty and logically consistent.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_a28644fd91b49cd9440f</artifact_id>
+    <source_hash>8d7bf1c10dcb60bc5b7ebed1a3562e607e1a021fd29a6aad5e4925fe9a1b8459</source_hash>
+    <compile_run_id>run_5aa2335143bbe0995a52</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-076.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-076.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

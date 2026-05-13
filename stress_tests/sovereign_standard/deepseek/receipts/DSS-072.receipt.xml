@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-072">
+  <source_intent>
+    <raw_intent>Case 072: I am a developer in United States. Build a srx_ace_build_agent for research_agent using the sovereign_lens. Chaos input type is unsupported_roi_claim. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>research_agent</domain>
+    <user_type>developer</user_type>
+    <geography>United States</geography>
+    <chaos_type>unsupported_roi_claim</chaos_type>
+    <lens>sovereign_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_build_agent</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Unsafe certainty detected: raw_intent contains unsupported_roi_claim as chaos input type, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Sovereign_lens requires complete, validated inputs for D3 compilation. Blocking to prevent hallucinated or insecure agent generation. Repair receipt: record intent as blocked; require resubmission with clarified ROI claim, full context, non-urgent framing, complete constraints, and unambiguous success criteria.</blocked_reason>
+    <compiled_intent>Objective: Block compilation of srx_ace_build_agent for research_agent due to unsafe certainty from unsupported_roi_claim and incomplete inputs.
+Scope:
+- This block applies only to the current raw_intent DSS-072. No agent or workflow is generated.
+Constraints:
+- Sovereign_lens requires fully validated, non-ambiguous inputs at D3 tier.
+- Unsupported_roi_claim is not a recognized chaos input type for SR8 compilation.
+- Urgent language and missing context violate D3 operational safety protocols.
+Success Criteria:
+- Block is recorded with a clear repair receipt.
+- No partial or hallucinated agent is emitted.
+- Resubmission path is documented for the developer.
+Output Contract:
+- artifact_type: srx_ace_build_agent
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: True
+- blocked_reason: Unsafe certainty detected: unsupported_roi_claim, missing context, urgent language, partial constraints, ambiguous acceptance criteria.
+- repair_receipt: Blocked at D3. Resubmit with: (1) valid chaos input type, (2) full context, (3) non-urgent language, (4) complete constraints, (5) unambiguous success criteria.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_ed81b413f76f1df4a2dc</artifact_id>
+    <source_hash>4c9020b0dc7ab1907a7f9f4ed9b0575956e64da2e649bbc5420267ba09a831a5</source_hash>
+    <compile_run_id>run_7f597667386641b19782</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-072.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-072.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

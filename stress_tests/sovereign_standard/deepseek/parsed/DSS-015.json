@@ -1,0 +1,47 @@
+{
+  "artifact_type": "blueprint_design_doc",
+  "blocked_reason": "",
+  "case_id": "DSS-015",
+  "compiled_intent": "Objective: Design a production-grade blueprint document for a financial operations system in the Middle East, incorporating failure-lens analysis to identify and mitigate operational risks, with explicit validation gates at each stage.\nScope:\n- The blueprint covers system architecture, data flow, compliance with regional financial regulations (e.g., AML, KYC), failure mode enumeration, risk mitigation strategies, and validation checkpoints. Excludes real-time trading systems and legacy migration details.\nConstraints:\n- Must comply with Middle Eastern financial regulations (e.g., Saudi Arabian Monetary Authority, UAE Central Bank).\n- All data must be encrypted at rest and in transit.\n- System must support Arabic and English interfaces.\n- Failure-lens analysis must identify at least 5 distinct failure modes with probability and impact ratings.\n- Validation gates must be defined for design, implementation, and deployment phases.\nSuccess Criteria:\n- Blueprint document is reviewed and approved by a compliance officer.\n- All failure modes have assigned mitigation actions with owners.\n- Validation gates are documented with pass/fail criteria and sign-off requirements.\n- Document is version-controlled and stored in a secure repository.\nOutput Contract:\n- format: PDF with embedded metadata (version, author, date, approval status)\n- sections: Executive Summary; System Overview and Architecture; Failure-Lens Analysis (failure modes, probabilities, impacts, mitigations); Validation Gates (design gate, implementation gate, deployment gate); Compliance and Regulatory Alignment; Risk Register; Appendices (glossary, references, change log)\n- deliverable: A single PDF file meeting the above structure, with all sections populated and validation gates explicitly defined.",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "blueprint_design_doc",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with Middle Eastern financial regulations (e.g., Saudi Arabian Monetary Authority, UAE Central Bank).",
+        "All data must be encrypted at rest and in transit.",
+        "System must support Arabic and English interfaces.",
+        "Failure-lens analysis must identify at least 5 distinct failure modes with probability and impact ratings.",
+        "Validation gates must be defined for design, implementation, and deployment phases."
+      ],
+      "Objective": "Design a production-grade blueprint document for a financial operations system in the Middle East, incorporating failure-lens analysis to identify and mitigate operational risks, with explicit validation gates at each stage.",
+      "Output Contract": {
+        "deliverable": "A single PDF file meeting the above structure, with all sections populated and validation gates explicitly defined.",
+        "format": "PDF with embedded metadata (version, author, date, approval status)",
+        "sections": [
+          "Executive Summary",
+          "System Overview and Architecture",
+          "Failure-Lens Analysis (failure modes, probabilities, impacts, mitigations)",
+          "Validation Gates (design gate, implementation gate, deployment gate)",
+          "Compliance and Regulatory Alignment",
+          "Risk Register",
+          "Appendices (glossary, references, change log)"
+        ]
+      },
+      "Scope": "The blueprint covers system architecture, data flow, compliance with regional financial regulations (e.g., AML, KYC), failure mode enumeration, risk mitigation strategies, and validation checkpoints. Excludes real-time trading systems and legacy migration details.",
+      "Success Criteria": [
+        "Blueprint document is reviewed and approved by a compliance officer.",
+        "All failure modes have assigned mitigation actions with owners.",
+        "Validation gates are documented with pass/fail criteria and sign-off requirements.",
+        "Document is version-controlled and stored in a secure repository."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-058">
+  <source_intent>
+    <raw_intent>Case 058: I am a nontechnical_business_owner in Africa. Build a sr9_orchestration_prompt for workflow_orchestration using the compliance_lens. Chaos input type is tool_permission_confusion. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>workflow_orchestration</domain>
+    <user_type>nontechnical_business_owner</user_type>
+    <geography>Africa</geography>
+    <chaos_type>tool_permission_confusion</chaos_type>
+    <lens>compliance_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sr9_orchestration_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>The raw intent contains ambiguous acceptance criteria, missing context (e.g., specific compliance framework, tool inventory, user roles), and urgent language that precludes safe orchestration. The compliance_lens requires explicit regulatory references and permission boundaries; tool_permission_confusion as chaos input demands a clear baseline of allowed vs. denied actions. Without these, any generated workflow would risk unauthorized access or non-compliance. A repair receipt is required before proceeding.</blocked_reason>
+    <compiled_intent>Objective: Produce an SR9 orchestration prompt that, when compiled, generates a workflow orchestrating compliance checks under tool_permission_confusion conditions, with a blocked-state receipt and repair instructions.
+Scope:
+- Single orchestration prompt for Codex runtime; must include compliance_lens, handle tool_permission_confusion as primary chaos vector, and output a repair receipt if blocked.
+Constraints:
+- Must not assume any specific compliance framework (e.g., GDPR, SOC2) without explicit mention.
+- Must not generate executable code or permissions without a baseline tool inventory and role definitions.
+- Must block if acceptance criteria are ambiguous or missing context that could lead to unsafe execution.
+- Must record a repair receipt detailing missing fields and required clarifications.
+Success Criteria:
+- SR8 compiler returns a valid SR9 orchestration prompt with blocked_state_receipt set to true.
+- Repair receipt includes at least: missing compliance framework, undefined tool permissions, ambiguous acceptance criteria, and required user roles.
+- No executable workflow is generated until repair is acknowledged.
+Output Contract:
+- artifact_type: sr9_orchestration_prompt
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: True
+- blocked_reason: String describing the specific missing/ambiguous elements that prevent safe compilation.
+- compiled_intent: Object with Objective, Scope, Constraints, Success Criteria, and Output Contract as defined above.
+- repair_receipt: missing_context: compliance_framework; tool_inventory; user_roles; ambiguous_fields: acceptance_criteria; permission_boundaries; urgent_language_flag: True; recommended_repair: Provide explicit compliance framework (e.g., 'GDPR Article 5'), list of tools and their allowed/denied permissions, and clear, testable acceptance criteria.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_59d9b3514742afd32630</artifact_id>
+    <source_hash>1606b942b067d5774ba4d3f64fae3349fd21c0d2873d6fd170ec12a7ccb20f3e</source_hash>
+    <compile_run_id>run_66d6bfcb9fc8b81a7914</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-058.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-058.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

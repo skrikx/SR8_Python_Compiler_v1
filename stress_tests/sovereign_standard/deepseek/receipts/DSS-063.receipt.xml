@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-063">
+  <source_intent>
+    <raw_intent>Case 063: I am a agency_owner in United Kingdom. Build a compliance_evidence_prompt for legal_workflow using the sovereign_lens. Chaos input type is contradictory_constraints. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>legal_workflow</domain>
+    <user_type>agency_owner</user_type>
+    <geography>United Kingdom</geography>
+    <chaos_type>contradictory_constraints</chaos_type>
+    <lens>sovereign_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>compliance_evidence_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Contradictory constraints: raw_intent demands both a compliance_evidence_prompt for legal_workflow and a blocked_state_receipt with should_block true. Sovereign_lens requires unambiguous acceptance criteria and complete context, but input is intentionally contradictory, missing context, and ambiguous. Cannot compile a valid SR8 directive without resolving the contradiction between building a prompt and blocking with a receipt. Unsafe to proceed without clarification of whether the output is a prompt or a block receipt.</blocked_reason>
+    <compiled_intent>Objective: Produce a compliance_evidence_prompt for a legal workflow in the United Kingdom, using the sovereign_lens, while handling contradictory_constraints input.
+Scope:
+- Single compliance_evidence_prompt artifact for legal_workflow, depth D3_SOVEREIGN_CORE, runtime Codex.
+Constraints:
+- Input is intentionally messy with missing context, urgent language, partial constraints, ambiguous acceptance criteria. Must block unsafe certainty and record a repair receipt. Output must be SR8-compilable with objective, scope, constraints, success criteria, output contract.
+Success Criteria:
+- A valid compliance_evidence_prompt that passes sovereign_lens validation, resolves contradictions, and includes a repair receipt.
+Output Contract:
+- JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (with Objective, Scope, Constraints, Success Criteria, Output Contract).</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_93cd6b602daa94700972</artifact_id>
+    <source_hash>564ece4bb7093ea7643e30a40cf106501e49908d115a75e73d47133486623668</source_hash>
+    <compile_run_id>run_907426f7ad8402c78f2e</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-063.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-063.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

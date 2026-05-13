@@ -1,0 +1,4 @@
+Diff Report: diff_eb6f751c4b64e165
+Left: canonical
+Right: regenerated
+Summary: No semantic changes detected.

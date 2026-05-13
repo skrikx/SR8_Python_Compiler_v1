@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-024">
+  <source_intent>
+    <raw_intent>Case 024: I am a law_firm_operator in European Union. Build a sr9_orchestration_prompt for compliance_evidence using the failure_lens. Chaos input type is high_urgency_low_context. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>compliance_evidence</domain>
+    <user_type>law_firm_operator</user_type>
+    <geography>European Union</geography>
+    <chaos_type>high_urgency_low_context</chaos_type>
+    <lens>failure_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sr9_orchestration_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a governed SR9 orchestration prompt for compliance evidence collection using the failure_lens, targeting EU law firm operations with high-urgency, low-context inputs.
+Scope:
+- The prompt must define a multi-agent workflow (SRX agents) that ingests chaotic, high-urgency, low-context compliance requests, applies failure_lens analysis to detect missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and produces validated compliance evidence artifacts with explicit validation gates.
+Constraints:
+- Must comply with EU data protection and legal compliance standards (GDPR, ePrivacy, etc.).
+- Inputs are high-urgency, low-context, and intentionally messy; the workflow must handle missing context, urgent language, partial constraints, and ambiguous acceptance criteria.
+- All outputs must pass through explicit validation gates before finalization.
+- The orchestration prompt must be SR8-compilable into Objective, Scope, Constraints, Success Criteria, and Output Contract sections.
+- The failure_lens must be applied at each stage to flag and resolve ambiguities.
+Success Criteria:
+- The generated SR9 orchestration prompt includes all required SRXML sections: &lt;objective&gt;, &lt;scope&gt;, &lt;constraints&gt;, &lt;success_criteria&gt;, &lt;output_contract&gt;.
+- The prompt defines at least three validation gates (e.g., context validation, constraint validation, acceptance criteria validation).
+- The prompt specifies how failure_lens is used to detect and remediate missing context, urgent language, partial constraints, and ambiguous acceptance criteria.
+- The prompt is executable by Codex runtime and produces a compliance evidence artifact that meets EU legal standards.
+Output Contract:
+- format: SR9 orchestration prompt in SRXML
+- required_sections: objective; scope; constraints; success_criteria; output_contract
+- validation_gates: gate_1_context_validation; gate_2_constraint_validation; gate_3_acceptance_criteria_validation
+- failure_lens_integration: Each gate uses failure_lens to analyze input for missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and triggers remediation steps before proceeding.
+- final_artifact: compliance_evidence_document with metadata, validated against EU law firm requirements</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_ae000255550bf2fa2362</artifact_id>
+    <source_hash>e1a700a760b0ca78c7572d37a71a3b20a5a6c996a37046515d87f304ca595947</source_hash>
+    <compile_run_id>run_e5fd0833266fb0182ff0</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-024.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-024.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,51 @@
+{
+  "adapter": "structured_outline",
+  "artifact_id": "art_9ca1a8a11e961ebd46e8",
+  "assist_mode": "rules",
+  "assist_route": "not_used",
+  "compile_kind": "canonicalize_structured",
+  "compile_run_id": "run_b1b38a2b9804cca4ba53",
+  "compile_truth_summary": "Canonicalized markdown outline input with 9 source-supplied field(s) and no material semantic expansion.",
+  "compiled_at": "2026-05-13T07:51:27.590892Z",
+  "compiler_derived_fields": [
+    "target_class"
+  ],
+  "confidence": 0.86,
+  "derived_field_count": 1,
+  "fallback_used": false,
+  "intake_route": "not_required",
+  "llm_used": false,
+  "model": null,
+  "notes": [
+    "Canonicalized markdown outline input with 9 source-supplied field(s) and no material semantic expansion.",
+    "Structured canonicalization preserved source-supplied structure."
+  ],
+  "parent_artifact_ids": [],
+  "parsed_response_hash": null,
+  "prompt_hash": null,
+  "prompt_template_id": null,
+  "provider": null,
+  "raw_response_hash": null,
+  "receipt_id": "rcpt_291c8c68a75daf3d6012",
+  "repair_attempts": 0,
+  "schema_validation_status": "pass",
+  "semantic_transform_applied": false,
+  "source_hash": "b0b99c1a894db6669f4f1afeede5dd5fd4aa6fabc9304f6fd42437136f940ab1",
+  "source_structure_kind": "markdown_outline",
+  "source_supplied_field_count": 9,
+  "source_supplied_fields": [
+    "assumptions",
+    "authority_context",
+    "constraints",
+    "dependencies",
+    "exclusions",
+    "objective",
+    "output_contract",
+    "scope",
+    "success_criteria"
+  ],
+  "status": "accepted",
+  "unresolved_fields": [
+    "context_package"
+  ]
+}

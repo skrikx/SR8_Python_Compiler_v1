@@ -1,0 +1,24 @@
+{
+  "artifact_type": "blueprint_design_doc",
+  "blocked_reason": "Fake test risk detected: raw_intent contains ambiguous, incomplete, and contradictory constraints (e.g., 'healthcare_admin' role undefined, 'market_lens' unspecified, 'local_business_site' scope unclear, urgent language without context). Cannot produce a valid SR8-compilable blueprint without resolving these gaps. Blocking to prevent hallucination or unsafe deployment.",
+  "case_id": "DSS-066",
+  "compiled_intent": "Objective: Design a blueprint for a local business website for a healthcare administration entity in South Asia, using market-lens analysis, with full governance and validation gates.\nScope:\n- Define site architecture, compliance requirements, user flows, and deployment constraints for a small-to-medium healthcare business in South Asia.\nConstraints:\n- Must comply with local data protection laws (e.g., India's DPDP Act), use cost-effective hosting, support multilingual content, and include accessibility standards. No patient data storage without explicit consent.\nSuccess Criteria:\n- Blueprint includes: (1) validated user personas, (2) compliance checklist, (3) technical stack recommendation, (4) risk mitigation plan for fake-test scenarios, (5) SR8-compilable sections for objective, scope, constraints, success criteria, and output contract.\nOutput Contract:\n- Deliver a structured design document with sections: Executive Summary, Market Lens Analysis, User Personas, Compliance & Validation Gates, Technical Architecture, Deployment Plan, and SR8 Directive Compilation. All sections must be auditable and pass a governance review.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "blueprint_design_doc",
+    "blocked_reason": "Fake test risk detected: raw_intent contains ambiguous, incomplete, and contradictory constraints (e.g., 'healthcare_admin' role undefined, 'market_lens' unspecified, 'local_business_site' scope unclear, urgent language without context). Cannot produce a valid SR8-compilable blueprint without resolving these gaps. Blocking to prevent hallucination or unsafe deployment.",
+    "compiled_intent": {
+      "Constraints": "Must comply with local data protection laws (e.g., India's DPDP Act), use cost-effective hosting, support multilingual content, and include accessibility standards. No patient data storage without explicit consent.",
+      "Objective": "Design a blueprint for a local business website for a healthcare administration entity in South Asia, using market-lens analysis, with full governance and validation gates.",
+      "Output Contract": "Deliver a structured design document with sections: Executive Summary, Market Lens Analysis, User Personas, Compliance & Validation Gates, Technical Architecture, Deployment Plan, and SR8 Directive Compilation. All sections must be auditable and pass a governance review.",
+      "Scope": "Define site architecture, compliance requirements, user flows, and deployment constraints for a small-to-medium healthcare business in South Asia.",
+      "Success Criteria": "Blueprint includes: (1) validated user personas, (2) compliance checklist, (3) technical stack recommendation, (4) risk mitigation plan for fake-test scenarios, (5) SR8-compilable sections for objective, scope, constraints, success criteria, and output contract."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

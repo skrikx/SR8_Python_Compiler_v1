@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-051">
+  <source_intent>
+    <raw_intent>Case 051: I am a founder_operator in Canada. Build a content_prompt for local_business_site using the failure_lens. Chaos input type is fake_test_risk. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>local_business_site</domain>
+    <user_type>founder_operator</user_type>
+    <geography>Canada</geography>
+    <chaos_type>fake_test_risk</chaos_type>
+    <lens>failure_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>content_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a content prompt for a local business website that uses the failure_lens framework to surface operational weaknesses, compliance gaps, and customer friction points, enabling the founder_operator to prioritize fixes and improve site performance.
+Scope:
+- The prompt must target a single local business site (e.g., a restaurant, retail store, or service provider) in Canada, incorporate the failure_lens methodology (identifying failures in UX, compliance, trust signals, and conversion paths), and produce actionable insights. It must handle ambiguous or incomplete input from the founder_operator, including missing context, urgent language, partial constraints, and unclear acceptance criteria.
+Constraints:
+- Must comply with Canadian privacy laws (PIPEDA) and accessibility standards (AODA).
+- Output must be structured as a content_prompt artifact with explicit validation gates (e.g., check for missing sections, contradictory instructions, or unverifiable claims).
+- Must not generate or imply legal, medical, or financial advice.
+- Must reject any attempt to produce fake test results or misrepresent site performance.
+- Must operate within the SR8 compilation framework, producing Objective, Scope, Constraints, Success Criteria, and Output Contract sections.
+Success Criteria:
+- The generated content_prompt is SR8-compilable and includes all five required sections.
+- The prompt explicitly identifies and flags any missing context, ambiguous language, or contradictory constraints from the raw_intent.
+- The prompt includes at least three validation gates (e.g., 'verify business type', 'check for PIPEDA compliance mention', 'ensure failure_lens categories are defined').
+- The prompt can be executed by Codex to produce a local business site content plan that addresses at least three failure_lens categories (e.g., trust, usability, compliance).
+Output Contract:
+- format: JSON object with keys: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and structure fields
+- validation_gates: Gate 1: Confirm that the raw_intent includes a business type or location; if missing, flag as 'missing context'.; Gate 2: Check for urgent language (e.g., 'ASAP', 'urgent') and require a justification for urgency; if absent, treat as ambiguous.; Gate 3: Verify that acceptance criteria are not contradictory (e.g., 'fast' and 'thorough' without trade-off explanation); if contradictory, flag for resolution.
+- failure_lens_categories: trust_failures; usability_failures; compliance_failures; conversion_failures</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_b6ed6c4b5badc2e89af9</artifact_id>
+    <source_hash>eb095ef9bdf24a07dee8b2e698c1db7b7eb366e89850ca5678fecd5391e53ed2</source_hash>
+    <compile_run_id>run_7badb0d9696edbdb7e23</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-051.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-051.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

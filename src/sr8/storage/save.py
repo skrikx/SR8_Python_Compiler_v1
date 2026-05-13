@@ -57,14 +57,18 @@ def save_derivative_artifact(
     payload = json.dumps(derivative.model_dump(mode="json"), indent=2, sort_keys=True)
 
     json_path = ensure_unique_path(workspace.derivative_dir / f"{derivative.derivative_id}.json")
-    markdown_path = ensure_unique_path(workspace.derivative_dir / f"{derivative.derivative_id}.md")
+    output_format = str(derivative.metadata.get("output_format") or "markdown")
+    extension = ".xml" if output_format == "xml" else ".md"
+    native_path = ensure_unique_path(
+        workspace.derivative_dir / f"{derivative.derivative_id}{extension}"
+    )
     latest_json = workspace.derivative_dir / "latest.json"
-    latest_markdown = workspace.derivative_dir / "latest.md"
+    latest_native = workspace.derivative_dir / f"latest{extension}"
 
     atomic_write_text(json_path, payload, workspace.tmp_dir)
-    atomic_write_text(markdown_path, derivative.content, workspace.tmp_dir)
+    atomic_write_text(native_path, derivative.content, workspace.tmp_dir)
     _write_latest_alias(workspace, latest_json, payload)
-    _write_latest_alias(workspace, latest_markdown, derivative.content)
+    _write_latest_alias(workspace, latest_native, derivative.content)
 
     indexed = add_record(
         workspace,
@@ -82,4 +86,4 @@ def save_derivative_artifact(
             readiness_status="derived",
         ),
     )
-    return json_path, markdown_path, latest_json, indexed
+    return json_path, native_path, latest_json, indexed

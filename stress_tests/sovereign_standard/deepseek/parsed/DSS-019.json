@@ -1,0 +1,50 @@
+{
+  "artifact_type": "srx_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-019",
+  "compiled_intent": "Objective: Build an SRX agent for finance operations in Latin America that processes overbroad one-pass lock inputs, validates compliance, and produces a governed artifact with explicit validation gates.\nScope:\n- The agent must ingest messy, urgent, partially constrained inputs from enterprise compliance leads, apply the compiler_lens to extract structured requirements, and output a compiled SR8 directive with objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must operate within Latin American regulatory frameworks (e.g., LGPD, COSO, local tax compliance).\n- Must handle ambiguous acceptance criteria and missing context without hallucination.\n- Must enforce validation gates at each stage of the one-pass lock process.\n- Must not expose raw financial data beyond governed artifact boundaries.\nSuccess Criteria:\n- Agent produces a valid SR8-compilable JSON with all five required sections.\n- Validation gates are explicitly documented in the output contract.\n- Overbroad one-pass lock inputs are resolved into bounded, auditable steps.\n- Artifact passes srxml_required_sections validation.\nOutput Contract:\n- format: JSON\n- sections: objective; scope; constraints; success_criteria; output_contract\n- validation_gates: gate_1: input_parsing_complete; gate_2: regulatory_check_passed; gate_3: ambiguity_resolved; gate_4: artifact_compiled\n- compliance_evidence: Latin America finance ops compliance checklist embedded in artifact metadata",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate within Latin American regulatory frameworks (e.g., LGPD, COSO, local tax compliance).",
+        "Must handle ambiguous acceptance criteria and missing context without hallucination.",
+        "Must enforce validation gates at each stage of the one-pass lock process.",
+        "Must not expose raw financial data beyond governed artifact boundaries."
+      ],
+      "Objective": "Build an SRX agent for finance operations in Latin America that processes overbroad one-pass lock inputs, validates compliance, and produces a governed artifact with explicit validation gates.",
+      "Output Contract": {
+        "compliance_evidence": "Latin America finance ops compliance checklist embedded in artifact metadata",
+        "format": "JSON",
+        "sections": [
+          "objective",
+          "scope",
+          "constraints",
+          "success_criteria",
+          "output_contract"
+        ],
+        "validation_gates": [
+          "gate_1: input_parsing_complete",
+          "gate_2: regulatory_check_passed",
+          "gate_3: ambiguity_resolved",
+          "gate_4: artifact_compiled"
+        ]
+      },
+      "Scope": "The agent must ingest messy, urgent, partially constrained inputs from enterprise compliance leads, apply the compiler_lens to extract structured requirements, and output a compiled SR8 directive with objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "Agent produces a valid SR8-compilable JSON with all five required sections.",
+        "Validation gates are explicitly documented in the output contract.",
+        "Overbroad one-pass lock inputs are resolved into bounded, auditable steps.",
+        "Artifact passes srxml_required_sections validation."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

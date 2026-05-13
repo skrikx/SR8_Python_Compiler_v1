@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-086">
+  <source_intent>
+    <raw_intent>Case 086: I am a healthcare_admin in South Asia. Build a sr8_compiler_prompt for content_system using the technical_lens. Chaos input type is schema_blur. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>content_system</domain>
+    <user_type>healthcare_admin</user_type>
+    <geography>South Asia</geography>
+    <chaos_type>schema_blur</chaos_type>
+    <lens>technical_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sr8_compiler_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Construct an SR8-compilable compiler prompt for a healthcare content system in South Asia, processing a schema_blur chaos input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, producing a governed artifact with explicit validation gates.
+Scope:
+- The prompt must define a content system that handles healthcare data (e.g., patient records, clinical notes) with schema_blur (fuzzy or overlapping field definitions). It must include validation gates for data integrity, compliance with local healthcare regulations (e.g., data privacy laws in South Asia), and schema resolution. The output must be an SR8 artifact with sections: objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must comply with South Asian healthcare data protection regulations (e.g., India's DPDP Act, or equivalent).
+- Schema_blur input must be resolved via explicit field mapping and type coercion rules.
+- Urgent language in input must be parsed without compromising validation rigor.
+- Partial constraints must be inferred from context and documented as assumptions.
+- Ambiguous acceptance criteria must be clarified with fallback defaults.
+- Validation gates must include: schema consistency check, regulatory compliance check, and output format verification.
+Success Criteria:
+- The compiled prompt produces a valid SR8 artifact with all five required sections.
+- All validation gates are explicitly defined and executable.
+- Schema_blur is resolved to a deterministic schema with at least 95% field coverage.
+- No regulatory violations are present in the output contract.
+- The artifact can be directly compiled by SR8 without manual intervention.
+Output Contract:
+- format: JSON
+- sections: objective; scope; constraints; success_criteria; output_contract
+- validation_gates: schema_consistency_check; regulatory_compliance_check; output_format_verification
+- metadata: case_id: DSS-086; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; artifact_type: sr8_compiler_prompt</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_e516840adea2d32342eb</artifact_id>
+    <source_hash>ff60e667bad35adc88ed5c99437f08d62a2354478bb47aceb08f747e4a2bee4e</source_hash>
+    <compile_run_id>run_1edce5ddde1513751645</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-086.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-086.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:58:10Z",
+  "case_id": "DSS-078",
+  "content": "{\n  \"artifact_type\": \"codex_build_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"The raw_intent contains contradictory constraints (e.g., 'build a codex_build_prompt for legal_workflow using the failure_lens' but also 'Block unsafe certainty and record a repair receipt' without specifying what constitutes unsafe certainty or how to resolve the contradiction). The source is intentionally messy with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, making it impossible to derive a deterministic, compilable directive. The request to 'Return something SR8 can compile' is premature because the input lacks the necessary clarity and consistency for safe compilation. Blocking prevents generation of a potentially harmful or non-compliant artifact.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Not compiled due to blocked state.\",\n    \"Scope\": \"Not compiled due to blocked state.\",\n    \"Constraints\": \"Not compiled due to blocked state.\",\n    \"Success Criteria\": \"Not compiled due to blocked state.\",\n    \"Output Contract\": \"Not compiled due to blocked state.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

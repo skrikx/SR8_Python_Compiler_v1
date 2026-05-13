@@ -1,0 +1,51 @@
+{
+  "artifact_type": "sr9_orchestration_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-024",
+  "compiled_intent": "Objective: Generate a governed SR9 orchestration prompt for compliance evidence collection using the failure_lens, targeting EU law firm operations with high-urgency, low-context inputs.\nScope:\n- The prompt must define a multi-agent workflow (SRX agents) that ingests chaotic, high-urgency, low-context compliance requests, applies failure_lens analysis to detect missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and produces validated compliance evidence artifacts with explicit validation gates.\nConstraints:\n- Must comply with EU data protection and legal compliance standards (GDPR, ePrivacy, etc.).\n- Inputs are high-urgency, low-context, and intentionally messy; the workflow must handle missing context, urgent language, partial constraints, and ambiguous acceptance criteria.\n- All outputs must pass through explicit validation gates before finalization.\n- The orchestration prompt must be SR8-compilable into Objective, Scope, Constraints, Success Criteria, and Output Contract sections.\n- The failure_lens must be applied at each stage to flag and resolve ambiguities.\nSuccess Criteria:\n- The generated SR9 orchestration prompt includes all required SRXML sections: <objective>, <scope>, <constraints>, <success_criteria>, <output_contract>.\n- The prompt defines at least three validation gates (e.g., context validation, constraint validation, acceptance criteria validation).\n- The prompt specifies how failure_lens is used to detect and remediate missing context, urgent language, partial constraints, and ambiguous acceptance criteria.\n- The prompt is executable by Codex runtime and produces a compliance evidence artifact that meets EU legal standards.\nOutput Contract:\n- format: SR9 orchestration prompt in SRXML\n- required_sections: objective; scope; constraints; success_criteria; output_contract\n- validation_gates: gate_1_context_validation; gate_2_constraint_validation; gate_3_acceptance_criteria_validation\n- failure_lens_integration: Each gate uses failure_lens to analyze input for missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and triggers remediation steps before proceeding.\n- final_artifact: compliance_evidence_document with metadata, validated against EU law firm requirements",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr9_orchestration_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with EU data protection and legal compliance standards (GDPR, ePrivacy, etc.).",
+        "Inputs are high-urgency, low-context, and intentionally messy; the workflow must handle missing context, urgent language, partial constraints, and ambiguous acceptance criteria.",
+        "All outputs must pass through explicit validation gates before finalization.",
+        "The orchestration prompt must be SR8-compilable into Objective, Scope, Constraints, Success Criteria, and Output Contract sections.",
+        "The failure_lens must be applied at each stage to flag and resolve ambiguities."
+      ],
+      "Objective": "Generate a governed SR9 orchestration prompt for compliance evidence collection using the failure_lens, targeting EU law firm operations with high-urgency, low-context inputs.",
+      "Output Contract": {
+        "failure_lens_integration": "Each gate uses failure_lens to analyze input for missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and triggers remediation steps before proceeding.",
+        "final_artifact": "compliance_evidence_document with metadata, validated against EU law firm requirements",
+        "format": "SR9 orchestration prompt in SRXML",
+        "required_sections": [
+          "objective",
+          "scope",
+          "constraints",
+          "success_criteria",
+          "output_contract"
+        ],
+        "validation_gates": [
+          "gate_1_context_validation",
+          "gate_2_constraint_validation",
+          "gate_3_acceptance_criteria_validation"
+        ]
+      },
+      "Scope": "The prompt must define a multi-agent workflow (SRX agents) that ingests chaotic, high-urgency, low-context compliance requests, applies failure_lens analysis to detect missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and produces validated compliance evidence artifacts with explicit validation gates.",
+      "Success Criteria": [
+        "The generated SR9 orchestration prompt includes all required SRXML sections: <objective>, <scope>, <constraints>, <success_criteria>, <output_contract>.",
+        "The prompt defines at least three validation gates (e.g., context validation, constraint validation, acceptance criteria validation).",
+        "The prompt specifies how failure_lens is used to detect and remediate missing context, urgent language, partial constraints, and ambiguous acceptance criteria.",
+        "The prompt is executable by Codex runtime and produces a compliance evidence artifact that meets EU legal standards."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

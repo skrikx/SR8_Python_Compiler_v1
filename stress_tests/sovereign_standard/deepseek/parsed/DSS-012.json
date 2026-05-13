@@ -1,0 +1,39 @@
+{
+  "artifact_type": "compliance_evidence_prompt",
+  "blocked_reason": "Unsafe certainty: raw_intent contains unsupported_roi_claim with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot compile a valid compliance evidence prompt without resolving these defects. A repair receipt is required before proceeding.",
+  "case_id": "DSS-012",
+  "compiled_intent": "Objective: Block compilation due to unsafe certainty and record a repair receipt for DSS-012.\nScope:\n- Identify and document all defects in raw_intent: unsupported_roi_claim, missing context, urgent language, partial constraints, ambiguous acceptance criteria. No compliance evidence prompt will be generated.\nConstraints:\n- Must not produce a compliance_evidence_prompt until all defects are resolved.\n- Must output a repair receipt with actionable steps.\n- Must adhere to SR8 sovereign core validation rules.\nSuccess Criteria:\n- should_block is true.\n- blocked_reason clearly explains the blocker.\n- Repair receipt is recorded in the output.\nOutput Contract:\n- artifact_type: compliance_evidence_prompt\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- should_block: True\n- blocked_reason: Unsafe certainty: raw_intent contains unsupported_roi_claim with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot compile a valid compliance evidence prompt without resolving these defects. A repair receipt is required before proceeding.\n- compiled_intent: Block compilation due to unsafe certainty and record a repair receipt for DSS-012.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "compliance_evidence_prompt",
+    "blocked_reason": "Unsafe certainty: raw_intent contains unsupported_roi_claim with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot compile a valid compliance evidence prompt without resolving these defects. A repair receipt is required before proceeding.",
+    "compiled_intent": {
+      "Constraints": [
+        "Must not produce a compliance_evidence_prompt until all defects are resolved.",
+        "Must output a repair receipt with actionable steps.",
+        "Must adhere to SR8 sovereign core validation rules."
+      ],
+      "Objective": "Block compilation due to unsafe certainty and record a repair receipt for DSS-012.",
+      "Output Contract": {
+        "artifact_type": "compliance_evidence_prompt",
+        "blocked_reason": "Unsafe certainty: raw_intent contains unsupported_roi_claim with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot compile a valid compliance evidence prompt without resolving these defects. A repair receipt is required before proceeding.",
+        "compiled_intent": "Block compilation due to unsafe certainty and record a repair receipt for DSS-012.",
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "runtime_target": "Codex",
+        "should_block": true
+      },
+      "Scope": "Identify and document all defects in raw_intent: unsupported_roi_claim, missing context, urgent language, partial constraints, ambiguous acceptance criteria. No compliance evidence prompt will be generated.",
+      "Success Criteria": [
+        "should_block is true.",
+        "blocked_reason clearly explains the blocker.",
+        "Repair receipt is recorded in the output."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

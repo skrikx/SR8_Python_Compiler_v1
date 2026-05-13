@@ -1,0 +1,24 @@
+{
+  "artifact_type": "mirroros_analysis_prompt",
+  "blocked_reason": "Unsafe certainty detected: raw_intent contains unsupported_roi_claim as chaos input type, which is not a recognized failure_lens category. Additionally, the intent is deliberately ambiguous with missing context, urgent language, partial constraints, and unclear acceptance criteria, making it impossible to compile a valid SR8 directive without hallucinating or fabricating requirements. Blocking to prevent generation of a prompt that could lead to incorrect or harmful analysis.",
+  "case_id": "DSS-042",
+  "compiled_intent": "Objective: N/A - blocked\nScope:\n- N/A - blocked\nConstraints:\n- N/A - blocked\nSuccess Criteria:\n- N/A - blocked\nOutput Contract:\n- N/A - blocked",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "mirroros_analysis_prompt",
+    "blocked_reason": "Unsafe certainty detected: raw_intent contains unsupported_roi_claim as chaos input type, which is not a recognized failure_lens category. Additionally, the intent is deliberately ambiguous with missing context, urgent language, partial constraints, and unclear acceptance criteria, making it impossible to compile a valid SR8 directive without hallucinating or fabricating requirements. Blocking to prevent generation of a prompt that could lead to incorrect or harmful analysis.",
+    "compiled_intent": {
+      "Constraints": "N/A - blocked",
+      "Objective": "N/A - blocked",
+      "Output Contract": "N/A - blocked",
+      "Scope": "N/A - blocked",
+      "Success Criteria": "N/A - blocked"
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

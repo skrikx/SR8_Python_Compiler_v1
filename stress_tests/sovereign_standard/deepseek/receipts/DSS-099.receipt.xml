@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-099">
+  <source_intent>
+    <raw_intent>Case 099: I am a enterprise_compliance_lead in Latin America. Build a sales_offer_prompt for compliance_evidence using the sovereign_lens. Chaos input type is high_urgency_low_context. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>compliance_evidence</domain>
+    <user_type>enterprise_compliance_lead</user_type>
+    <geography>Latin America</geography>
+    <chaos_type>high_urgency_low_context</chaos_type>
+    <lens>sovereign_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sales_offer_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a sales offer prompt for compliance evidence collection tailored to an enterprise compliance lead in Latin America, using the sovereign lens to ensure regulatory alignment and audit readiness.
+Scope:
+- The prompt must address high-urgency, low-context scenarios with missing details, urgent language, partial constraints, and ambiguous acceptance criteria. It must include explicit validation gates for SR8 compilation.
+Constraints:
+- Must use sovereign_lens framework for Latin American compliance (e.g., LGPD, local data sovereignty).
+- Must handle incomplete or ambiguous input without hallucinating missing data.
+- Must produce a structured artifact with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.
+- Must include validation gates (e.g., compliance check, evidence completeness, audit trail).
+Success Criteria:
+- Artifact is a valid sales_offer_prompt for compliance evidence.
+- All SR8-required sections are present and compilable.
+- Validation gates are explicitly defined and actionable.
+- Output is ready for Codex runtime execution.
+Output Contract:
+- format: JSON
+- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and sections</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_8e2356dd8204aa46b447</artifact_id>
+    <source_hash>9ed50ef8123765e57fefd31fa35f6a349615dafe75a3052c28da8c26b4eaa171</source_hash>
+    <compile_run_id>run_aaa241c93d4eaa7580d7</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-099.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-099.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

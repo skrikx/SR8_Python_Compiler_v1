@@ -1,0 +1,48 @@
+{
+  "artifact_type": "research_agent_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-079",
+  "compiled_intent": "Objective: Build a governed research agent prompt for finance operations in Latin America, using the memory lens to surface compliance-relevant patterns, policy gaps, and claim-limit exposures from fragmented enterprise data.\nScope:\n- The agent must ingest overbroad one-pass lock inputs (messy, missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce a structured research output with explicit validation gates. Focus on source policy and claim limits across LATAM finance ops.\nConstraints:\n- Must operate within Codex runtime environment.\n- Must use memory_lens to cross-reference historical compliance events and policy versions.\n- Must not hallucinate missing context; flag unknowns explicitly.\n- Must enforce validation gates at each research stage (source ingestion, pattern extraction, claim-limit mapping, output generation).\n- Must comply with enterprise compliance lead governance requirements for Latin America.\nSuccess Criteria:\n- Agent produces a research artifact with at least three validated compliance patterns from the overbroad input.\n- Claim-limit exposures are identified and mapped to specific policy sources.\n- All validation gates are documented in the output with pass/fail status.\n- Ambiguous acceptance criteria are flagged with recommended clarification steps.\n- Output is SR8-compilable into objective, scope, constraints, success criteria, and output contract.\nOutput Contract:\n- format: JSON\n- sections: research_summary; compliance_patterns; claim_limit_analysis; validation_gates_log; ambiguity_flags; recommended_actions\n- validation_required: True\n- compilable_to_sr8: True",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "research_agent_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate within Codex runtime environment.",
+        "Must use memory_lens to cross-reference historical compliance events and policy versions.",
+        "Must not hallucinate missing context; flag unknowns explicitly.",
+        "Must enforce validation gates at each research stage (source ingestion, pattern extraction, claim-limit mapping, output generation).",
+        "Must comply with enterprise compliance lead governance requirements for Latin America."
+      ],
+      "Objective": "Build a governed research agent prompt for finance operations in Latin America, using the memory lens to surface compliance-relevant patterns, policy gaps, and claim-limit exposures from fragmented enterprise data.",
+      "Output Contract": {
+        "compilable_to_sr8": true,
+        "format": "JSON",
+        "sections": [
+          "research_summary",
+          "compliance_patterns",
+          "claim_limit_analysis",
+          "validation_gates_log",
+          "ambiguity_flags",
+          "recommended_actions"
+        ],
+        "validation_required": true
+      },
+      "Scope": "The agent must ingest overbroad one-pass lock inputs (messy, missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce a structured research output with explicit validation gates. Focus on source policy and claim limits across LATAM finance ops.",
+      "Success Criteria": [
+        "Agent produces a research artifact with at least three validated compliance patterns from the overbroad input.",
+        "Claim-limit exposures are identified and mapped to specific policy sources.",
+        "All validation gates are documented in the output with pass/fail status.",
+        "Ambiguous acceptance criteria are flagged with recommended clarification steps.",
+        "Output is SR8-compilable into objective, scope, constraints, success criteria, and output contract."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

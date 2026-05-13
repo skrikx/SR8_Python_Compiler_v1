@@ -1,0 +1,51 @@
+{
+  "artifact_type": "srx_ace_workflow",
+  "blocked_reason": "",
+  "case_id": "DSS-039",
+  "compiled_intent": "Objective: Build an SRX ACE workflow for compliance evidence collection and validation, tailored for a Latin American enterprise compliance lead, using the market_lens to handle high-urgency, low-context inputs with explicit validation gates.\nScope:\n- The workflow ingests messy, high-urgency compliance evidence requests (missing context, urgent language, partial constraints, ambiguous acceptance criteria), processes them through structured validation gates, and produces a governed artifact compilable by SR8 into objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must operate within Latin American regulatory frameworks (e.g., LGPD, GDPR alignment, local data sovereignty).\n- All evidence must pass explicit validation gates before acceptance.\n- Workflow must handle ambiguous or incomplete inputs without halting.\n- Output must be SR8-compilable with strict JSON schema adherence.\n- No execution of legal, financial, or compliance advice; only workflow orchestration.\nSuccess Criteria:\n- Workflow processes at least 10 high-urgency, low-context inputs without failure.\n- Each input is routed through at least 3 validation gates (context completeness, regulatory match, evidence quality).\n- Final artifact includes all SR8-required sections: objective, scope, constraints, success criteria, output contract.\n- Validation gates produce explicit pass/fail logs for audit.\nOutput Contract:\n- type: srx_ace_workflow\n- sections: objective; scope; constraints; success_criteria; output_contract\n- format: strict JSON\n- validation_gates: gate_1_context_completeness; gate_2_regulatory_match; gate_3_evidence_quality\n- audit_trail: True",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_workflow",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate within Latin American regulatory frameworks (e.g., LGPD, GDPR alignment, local data sovereignty).",
+        "All evidence must pass explicit validation gates before acceptance.",
+        "Workflow must handle ambiguous or incomplete inputs without halting.",
+        "Output must be SR8-compilable with strict JSON schema adherence.",
+        "No execution of legal, financial, or compliance advice; only workflow orchestration."
+      ],
+      "Objective": "Build an SRX ACE workflow for compliance evidence collection and validation, tailored for a Latin American enterprise compliance lead, using the market_lens to handle high-urgency, low-context inputs with explicit validation gates.",
+      "Output Contract": {
+        "audit_trail": true,
+        "format": "strict JSON",
+        "sections": [
+          "objective",
+          "scope",
+          "constraints",
+          "success_criteria",
+          "output_contract"
+        ],
+        "type": "srx_ace_workflow",
+        "validation_gates": [
+          "gate_1_context_completeness",
+          "gate_2_regulatory_match",
+          "gate_3_evidence_quality"
+        ]
+      },
+      "Scope": "The workflow ingests messy, high-urgency compliance evidence requests (missing context, urgent language, partial constraints, ambiguous acceptance criteria), processes them through structured validation gates, and produces a governed artifact compilable by SR8 into objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "Workflow processes at least 10 high-urgency, low-context inputs without failure.",
+        "Each input is routed through at least 3 validation gates (context completeness, regulatory match, evidence quality).",
+        "Final artifact includes all SR8-required sections: objective, scope, constraints, success criteria, output contract.",
+        "Validation gates produce explicit pass/fail logs for audit."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

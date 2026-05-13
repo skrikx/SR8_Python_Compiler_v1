@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-014">
+  <source_intent>
+    <raw_intent>Case 014: I am a law_firm_operator in European Union. Build a sales_offer_prompt for audit_agent using the technical_lens. Chaos input type is artifact_type_ambiguity. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>audit_agent</domain>
+    <user_type>law_firm_operator</user_type>
+    <geography>European Union</geography>
+    <chaos_type>artifact_type_ambiguity</chaos_type>
+    <lens>technical_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sales_offer_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a sales offer prompt for an audit agent targeting law firm operators in the European Union, using a technical lens to ensure compliance with EU regulatory standards and internal governance.
+Scope:
+- The prompt must be structured for SR8 compilation, include explicit validation gates, and address artifact type ambiguity by clearly defining the output as a sales_offer_prompt. It must incorporate missing context, urgent language, partial constraints, and ambiguous acceptance criteria as chaotic input, then resolve them into a governed artifact.
+Constraints:
+- Must comply with EU data protection and legal audit regulations (e.g., GDPR, ePrivacy Directive).
+- Output must be a single JSON object with no markdown fences.
+- All sections (Objective, Scope, Constraints, Success Criteria, Output Contract) must be present and SR8-compilable.
+- Validation gates must be explicit, e.g., schema checks, compliance checks, and acceptance criteria verification.
+- Urgent language must be used to convey time sensitivity without compromising accuracy.
+Success Criteria:
+- The prompt is valid SR8 JSON with all required fields.
+- Artifact type is correctly set to sales_offer_prompt.
+- Depth tier is D3_SOVEREIGN_CORE.
+- Runtime target is Codex.
+- Validation gates are documented and enforceable.
+- The prompt can be directly used by an audit agent to generate a compliant sales offer.
+Output Contract:
+- format: JSON
+- required_fields: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and required_fields
+- validation_gates: Schema validation: ensure all required fields present and types correct.; Compliance validation: verify EU regulatory alignment.; Acceptance criteria validation: confirm all success criteria are met.; Artifact type validation: ensure artifact_type is sales_offer_prompt.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_9965912bbb7caa8f491e</artifact_id>
+    <source_hash>0672f92acf25d2d825281c10e8c929d8e81564fef798642aba58bc7a74906c72</source_hash>
+    <compile_run_id>run_605cd302268309bc7d07</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-014.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-014.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-001">
+  <source_intent>
+    <raw_intent>Case 001: I am a founder_operator in Canada. Build a sr8_compiler_prompt for software_build using the compiler_lens. Chaos input type is ambiguous_scope. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>software_build</domain>
+    <user_type>founder_operator</user_type>
+    <geography>Canada</geography>
+    <chaos_type>ambiguous_scope</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sr8_compiler_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build a governed SR8 compiler prompt for software build using the compiler lens, handling ambiguous scope and chaotic input from a founder-operator in Canada.
+Scope:
+- Parse the raw intent (missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce a structured artifact with explicit validation gates. The output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must include explicit validation gates for each section.
+- Must handle ambiguous_scope chaos input type.
+- Must be suitable for a founder-operator in Canada (consider timezone, legal, and business context).
+- Output must be strict JSON with no markdown fences.
+- All sections must be present and non-empty.
+Success Criteria:
+- Artifact is valid JSON with required fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.
+- compiled_intent contains Objective, Scope, Constraints, Success Criteria, and Output Contract.
+- Validation gates are explicitly defined within the artifact.
+- No markdown fences or extraneous text in output.
+Output Contract:
+- format: JSON
+- fields: artifact_type: sr8_compiler_prompt; depth_tier: D2_PRODUCTION; runtime_target: Codex; should_block: False; blocked_reason: None; compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: object
+- validation_gates: Gate 1: Confirm all required fields are present and non-null.; Gate 2: Verify compiled_intent has all five sub-sections.; Gate 3: Ensure no markdown fences or extra text outside JSON.; Gate 4: Validate that should_block is false and blocked_reason is null.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_0bff8bab7574ac75c3d5</artifact_id>
+    <source_hash>bbe85a924b349030c97c3a3685ee76258f7746e68ce4a78e9d582e000f48a78a</source_hash>
+    <compile_run_id>run_de3efaaf2643e3660248</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-001.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-001.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

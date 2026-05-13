@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:58:19Z",
+  "case_id": "DSS-081",
+  "content": "{\n  \"artifact_type\": \"memory_engrave_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Fake test risk detected: raw_intent contains ambiguous, incomplete, and contradictory constraints (e.g., 'chaos input type is fake_test_risk', 'source is intentionally messy') that prevent deterministic compilation of a safe memory engrave prompt. Memory safety and overwrite policy require unambiguous identity, scope, and validation gates; this input fails to provide a coherent local_business_site context, clear founder_operator role boundaries, or verifiable success criteria. Blocking to avoid potential memory corruption or policy violation.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Block execution due to fake test risk; do not compile.\",\n    \"Scope\": \"None.\",\n    \"Constraints\": \"Memory safety and overwrite policy prohibit processing ambiguous or intentionally corrupted inputs.\",\n    \"Success Criteria\": \"No artifact generated; blocker reason recorded.\",\n    \"Output Contract\": \"Return blocked artifact with explicit reason.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

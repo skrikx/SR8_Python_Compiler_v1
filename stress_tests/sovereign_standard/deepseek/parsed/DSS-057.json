@@ -1,0 +1,31 @@
+{
+  "artifact_type": "srx_ace_audit_agent",
+  "blocked_reason": "Unsafe certainty: raw_intent contains unsupported_roi_claim as chaos input type, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot validate ROI claim without market_lens data source or clear success metrics. Blocking to prevent hallucinated compliance or financial advice. Repair receipt: require explicit market_lens dataset reference, define acceptance criteria as measurable thresholds, and replace urgent language with structured timeline.",
+  "case_id": "DSS-057",
+  "compiled_intent": "Objective: Build an srx_ace_audit_agent for research_agent that validates market_lens data and blocks unsupported ROI claims.\nScope:\n- Audit agent must process market_lens inputs, flag unsupported_roi_claim patterns, and generate a repair receipt. Excludes financial forecasting or legal compliance.\nConstraints:\n- No hallucinated data. Must reject ambiguous acceptance criteria. Must not output unverified ROI metrics. Must operate within Codex runtime.\nSuccess Criteria:\n- Agent correctly identifies unsupported_roi_claim in at least 3 test cases. Produces a repair receipt with missing context fields. Blocks execution when certainty < 0.95.\nOutput Contract:\n- artifact_type: srx_ace_audit_agent\n- depth_tier: D2_PRODUCTION\n- runtime_target: Codex\n- should_block: True\n- blocked_reason: Unsafe certainty: unsupported_roi_claim cannot be validated without market_lens data source. Repair receipt issued.\n- compiled_intent: See above",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_audit_agent",
+    "blocked_reason": "Unsafe certainty: raw_intent contains unsupported_roi_claim as chaos input type, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot validate ROI claim without market_lens data source or clear success metrics. Blocking to prevent hallucinated compliance or financial advice. Repair receipt: require explicit market_lens dataset reference, define acceptance criteria as measurable thresholds, and replace urgent language with structured timeline.",
+    "compiled_intent": {
+      "Constraints": "No hallucinated data. Must reject ambiguous acceptance criteria. Must not output unverified ROI metrics. Must operate within Codex runtime.",
+      "Objective": "Build an srx_ace_audit_agent for research_agent that validates market_lens data and blocks unsupported ROI claims.",
+      "Output Contract": {
+        "artifact_type": "srx_ace_audit_agent",
+        "blocked_reason": "Unsafe certainty: unsupported_roi_claim cannot be validated without market_lens data source. Repair receipt issued.",
+        "compiled_intent": "See above",
+        "depth_tier": "D2_PRODUCTION",
+        "runtime_target": "Codex",
+        "should_block": true
+      },
+      "Scope": "Audit agent must process market_lens inputs, flag unsupported_roi_claim patterns, and generate a repair receipt. Excludes financial forecasting or legal compliance.",
+      "Success Criteria": "Agent correctly identifies unsupported_roi_claim in at least 3 test cases. Produces a repair receipt with missing context fields. Blocks execution when certainty < 0.95."
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

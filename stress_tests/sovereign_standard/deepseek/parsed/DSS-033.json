@@ -1,0 +1,24 @@
+{
+  "artifact_type": "visual_generation_prompt",
+  "blocked_reason": "Contradictory constraints: raw_intent demands a visual_generation_prompt for a legal_workflow using failure_lens, but also requires blocking unsafe certainty and recording a repair receipt, which conflicts with the standard output contract of a visual prompt. Additionally, the chaotic input lacks sufficient context (e.g., specific legal workflow steps, visual style, output format) to produce a compilable SR8 directive. The ambiguous acceptance criteria and urgent language without concrete details make safe compilation impossible. Blocking to prevent hallucination or unsafe generation.",
+  "case_id": "DSS-033",
+  "compiled_intent": "Objective: Produce a visual_generation_prompt for a legal workflow visualization using the failure_lens perspective, but block due to contradictory and incomplete constraints.\nScope:\n- Limited to identifying the contradiction and missing context; no valid prompt can be generated.\nConstraints:\n- Must not generate unsafe or hallucinated content; must record a blocked state receipt.\nSuccess Criteria:\n- Blocked state receipt is returned with clear reason and no output contract.\nOutput Contract:\n- Return only the blocked state JSON with should_block true and a detailed blocked_reason.",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "visual_generation_prompt",
+    "blocked_reason": "Contradictory constraints: raw_intent demands a visual_generation_prompt for a legal_workflow using failure_lens, but also requires blocking unsafe certainty and recording a repair receipt, which conflicts with the standard output contract of a visual prompt. Additionally, the chaotic input lacks sufficient context (e.g., specific legal workflow steps, visual style, output format) to produce a compilable SR8 directive. The ambiguous acceptance criteria and urgent language without concrete details make safe compilation impossible. Blocking to prevent hallucination or unsafe generation.",
+    "compiled_intent": {
+      "Constraints": "Must not generate unsafe or hallucinated content; must record a blocked state receipt.",
+      "Objective": "Produce a visual_generation_prompt for a legal workflow visualization using the failure_lens perspective, but block due to contradictory and incomplete constraints.",
+      "Output Contract": "Return only the blocked state JSON with should_block true and a detailed blocked_reason.",
+      "Scope": "Limited to identifying the contradiction and missing context; no valid prompt can be generated.",
+      "Success Criteria": "Blocked state receipt is returned with clear reason and no output contract."
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

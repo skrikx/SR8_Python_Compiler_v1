@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-043">
+  <source_intent>
+    <raw_intent>Case 043: I am a agency_owner in United Kingdom. Build a lovable_build_prompt for workflow_orchestration using the memory_lens. Chaos input type is tool_permission_confusion. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>workflow_orchestration</domain>
+    <user_type>agency_owner</user_type>
+    <geography>United Kingdom</geography>
+    <chaos_type>tool_permission_confusion</chaos_type>
+    <lens>memory_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>lovable_build_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Intent contains tool_permission_confusion as chaos input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot safely compile a deterministic workflow_orchestration prompt without resolving permission boundaries, clarifying the memory_lens integration scope, and validating UK agency compliance requirements. Blocking to prevent unsafe execution.</blocked_reason>
+    <compiled_intent>Objective: Produce a lovable_build_prompt for workflow_orchestration using memory_lens, but blocked due to unresolved permission confusion and incomplete constraints.
+Scope:
+- UK agency_owner context, workflow orchestration, memory_lens integration. Excluded until permission model is clarified and acceptance criteria are unambiguous.
+Constraints:
+- Must resolve tool_permission_confusion before proceeding.
+- All missing context must be supplied by requestor.
+- Urgent language does not override safety or compliance.
+- Partial constraints must be completed.
+- Ambiguous acceptance criteria must be made testable.
+Success Criteria:
+- Permission boundaries are explicitly defined.
+- Memory_lens integration scope is documented.
+- Acceptance criteria are unambiguous and verifiable.
+- UK agency compliance requirements are satisfied.
+Output Contract:
+- artifact_type: lovable_build_prompt
+- depth_tier: D2_PRODUCTION
+- runtime_target: Codex
+- should_block: True
+- blocked_reason: Intent contains tool_permission_confusion as chaos input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot safely compile a deterministic workflow_orchestration prompt without resolving permission boundaries, clarifying the memory_lens integration scope, and validating UK agency compliance requirements. Blocking to prevent unsafe execution.
+- repair_receipt: Recorded case DSS-043 as blocked. Required inputs: complete permission model, full context, unambiguous acceptance criteria, and compliance validation. No output generated.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_73aaa4df33e6ed7288f0</artifact_id>
+    <source_hash>96f89e15eb2771e147eb4543af546bd6cba16c600fc74077be73aa78846b9a05</source_hash>
+    <compile_run_id>run_6f8fa8e731270b30893d</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-043.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-043.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

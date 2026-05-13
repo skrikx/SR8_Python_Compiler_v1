@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:56:26Z",
+  "case_id": "DSS-053",
+  "content": "{\n  \"artifact_type\": \"srx_agent\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": false,\n  \"blocked_reason\": null,\n  \"compiled_intent\": {\n    \"Objective\": \"Build an SRX agent that performs memory engrave operations for a UK agency owner, processing chaotic language-mixed prompts into structured, governed memory artifacts.\",\n    \"Scope\": \"The agent shall accept language_mixed_prompt inputs, extract and normalize intent, apply validation gates, and produce a memory_engrave artifact compliant with SR8 compilation requirements.\",\n    \"Constraints\": [\n      \"Must operate under UK data protection regulations (GDPR/DPA 2018).\",\n      \"Input may be missing context, contain urgent language, partial constraints, and ambiguous acceptance criteria.\",\n      \"Output must include explicit validation gates and be structured for SR8 compilation.\",\n      \"Runtime lens must enforce governance and auditability.\"\n    ],\n    \"Success Criteria\": [\n      \"Agent correctly parses and normalizes chaotic mixed-language input.\",\n      \"Generated memory_engrave artifact contains Objective, Scope, Constraints, Success Criteria, and Output Contract sections.\",\n      \"Validation gates are present and documented.\",\n      \"Artifact passes SR8 compilation without errors.\"\n    ],\n    \"Output Contract\": {\n      \"format\": \"JSON\",\n      \"sections\": [\n        \"artifact_type\",\n        \"depth_tier\",\n        \"runtime_target\",\n        \"should_block\",\n        \"blocked_reason\",\n        \"compiled_intent\"\n      ],\n      \"compiled_intent_structure\": {\n        \"Objective\": \"string\",\n        \"Scope\": \"string\",\n        \"Constraints\": \"array of strings\",\n        \"Success Criteria\": \"array of strings\",\n        \"Output Contract\": \"object\"\n      }\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

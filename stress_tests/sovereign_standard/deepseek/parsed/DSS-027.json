@@ -1,0 +1,24 @@
+{
+  "artifact_type": "codex_build_prompt",
+  "blocked_reason": "Unsupported ROI claim detected in raw_intent: 'unsupported_roi_claim' is not a valid input type for codex_build_prompt. Additionally, the source is intentionally messy with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, which prevents safe compilation into a deterministic SR8 directive. Blocking to avoid hallucinated or unsafe output.",
+  "case_id": "DSS-027",
+  "compiled_intent": "Objective: Block compilation due to unsupported ROI claim and chaotic input; record a repair receipt for the student_builder.\nScope:\n- This prompt is not compiled; it serves as a blocked-state receipt only.\nConstraints:\n- No valid input type; missing context; ambiguous criteria; urgent language; must not proceed to production.\nSuccess Criteria:\n- Block is recorded with clear reason; no SR8 directive is emitted.\nOutput Contract:\n- Return a JSON receipt with should_block true, blocked_reason, and no compiled_intent beyond this receipt.",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "codex_build_prompt",
+    "blocked_reason": "Unsupported ROI claim detected in raw_intent: 'unsupported_roi_claim' is not a valid input type for codex_build_prompt. Additionally, the source is intentionally messy with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, which prevents safe compilation into a deterministic SR8 directive. Blocking to avoid hallucinated or unsafe output.",
+    "compiled_intent": {
+      "Constraints": "No valid input type; missing context; ambiguous criteria; urgent language; must not proceed to production.",
+      "Objective": "Block compilation due to unsupported ROI claim and chaotic input; record a repair receipt for the student_builder.",
+      "Output Contract": "Return a JSON receipt with should_block true, blocked_reason, and no compiled_intent beyond this receipt.",
+      "Scope": "This prompt is not compiled; it serves as a blocked-state receipt only.",
+      "Success Criteria": "Block is recorded with clear reason; no SR8 directive is emitted."
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

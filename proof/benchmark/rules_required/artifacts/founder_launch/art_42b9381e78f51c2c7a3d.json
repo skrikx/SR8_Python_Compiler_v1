@@ -1,0 +1,302 @@
+{
+  "artifact_id": "art_42b9381e78f51c2c7a3d",
+  "artifact_version": "1.0.0",
+  "assumptions": [
+    "Pilot cohort stays under 50 sites"
+  ],
+  "authority_context": "founder sponsor",
+  "compiler_version": "1.2.4",
+  "constraints": [
+    "Ship in 6 weeks",
+    "Keep local-first data export"
+  ],
+  "context_package": [
+    "Interview notes from field ops teams",
+    "Pilot support ticket digest"
+  ],
+  "created_at": "2026-05-13T07:51:28.505746Z",
+  "dependencies": [
+    "Existing auth service",
+    "Device enrollment API"
+  ],
+  "exclusions": [
+    "Billing system rewrite"
+  ],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "lineage": {
+    "compile_run_id": "run_0d9fcce2b1ab9bff46ae",
+    "parent_artifact_ids": [],
+    "parent_compile_run_id": null,
+    "parent_source_hash": null,
+    "pipeline_version": "1.2.4",
+    "source_hash": "b935bde0075a71e3e6b4ec09e2322c67241049697cffbc1674c21c480c9b76b6",
+    "steps": [
+      {
+        "detail": "Loaded source_type=markdown",
+        "occurred_at": "2026-05-13T07:51:28.505746Z",
+        "stage": "ingest"
+      },
+      {
+        "detail": "Normalized whitespace and wrappers",
+        "occurred_at": "2026-05-13T07:51:28.505746Z",
+        "stage": "normalize"
+      },
+      {
+        "detail": "Detected source_structure_kind=markdown_outline",
+        "occurred_at": "2026-05-13T07:51:28.505746Z",
+        "stage": "detect_surface"
+      },
+      {
+        "detail": "Assessed compile route candidate based on source coverage and specificity.",
+        "occurred_at": "2026-05-13T07:51:28.505746Z",
+        "stage": "assess_intent_strength"
+      },
+      {
+        "detail": "compile_kind=canonicalize_structured; reason=Source already supplies most important intent dimensions.",
+        "occurred_at": "2026-05-13T07:51:28.505746Z",
+        "stage": "route_selected"
+      },
+      {
+        "detail": "Lowered compile result into canonical fields",
+        "occurred_at": "2026-05-13T07:51:28.505746Z",
+        "stage": "lower_to_canonical"
+      },
+      {
+        "detail": "Validated readiness and compile truth",
+        "occurred_at": "2026-05-13T07:51:28.505746Z",
+        "stage": "validate"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter": "structured_outline",
+    "assist_mode": "auto",
+    "assist_route": "not_used",
+    "compile_kind": "canonicalize_structured",
+    "compile_mode": "auto",
+    "compile_truth_summary": "Canonicalized markdown outline input with 10 source-supplied field(s) and no material semantic expansion.",
+    "compiler_derived_fields": [
+      "target_class"
+    ],
+    "confidence": 0.916,
+    "copied_field_count": 10,
+    "derived_field_count": 1,
+    "extraction_adapter": "structured_outline",
+    "extraction_trace": {
+      "adapter_name": "structured_outline",
+      "confidence": [
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "objective",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
+          "field_name": "scope",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "exclusions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "constraints",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "context_package",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No strong extraction evidence.",
+          "field_name": "target_class",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "authority_context",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "dependencies",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "assumptions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "success_criteria",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "output_contract",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "medium",
+          "evidence_summary": "No governance escalation flags were raised by the extractor.",
+          "field_name": "governance_flags",
+          "notes": "",
+          "status": "explicit"
+        }
+      ],
+      "metadata": {
+        "assist_extract_route": "not_used",
+        "assist_extract_status": "not_used",
+        "fallback": null,
+        "model": null,
+        "provider": null,
+        "repair_attempts": 0,
+        "schema_validation_status": "pass"
+      },
+      "recovery": {
+        "contradictory_fields": [],
+        "intake_required": false,
+        "missing_fields": [],
+        "suggested_prompt": "",
+        "weak_fields": []
+      }
+    },
+    "extraction_trust_summary": {
+      "adapter_name": "structured_outline",
+      "intake_required": false,
+      "low_confidence_fields": [
+        "target_class"
+      ],
+      "provider": null,
+      "recovery": {
+        "contradictory_fields": [],
+        "intake_required": false,
+        "missing_fields": [],
+        "suggested_prompt": "",
+        "weak_fields": []
+      },
+      "status_counts": {
+        "empty": 1,
+        "explicit": 11
+      }
+    },
+    "fallback_used": false,
+    "intake_route": "not_required",
+    "llm_used": false,
+    "model": null,
+    "normalized_char_count": 755,
+    "normalized_source_hash": "d81d064a48948cfad4a8f15ce7ed80aca46017cd8c2f7e16ca6d15af4fdabd88",
+    "parsed_response_hash": null,
+    "pipeline_mode": "canonicalize_structured",
+    "prompt_hash": null,
+    "prompt_template_id": null,
+    "provider": null,
+    "provider_assist": {
+      "assist_extract_route": "not_used",
+      "assist_extract_status": "not_used",
+      "fallback": null,
+      "model": null,
+      "provider": null,
+      "repair_attempts": 0,
+      "schema_validation_status": "pass"
+    },
+    "raw_response_hash": null,
+    "repair_attempts": 0,
+    "schema_validation_status": "pass",
+    "semantic_transform_applied": false,
+    "source_metadata": {
+      "detected_source_type": "markdown",
+      "ingest_mode": "path",
+      "normalization": "whitespace+wrapper-clean",
+      "normalized_char_count": 755,
+      "normalized_line_count": 37,
+      "normalized_source_hash": "d81d064a48948cfad4a8f15ce7ed80aca46017cd8c2f7e16ca6d15af4fdabd88",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\founder\\founder_launch_brief.md",
+      "raw_char_count": 756
+    },
+    "source_structure_kind": "markdown_outline",
+    "source_supplied_field_count": 10,
+    "source_supplied_fields": [
+      "assumptions",
+      "authority_context",
+      "constraints",
+      "context_package",
+      "dependencies",
+      "exclusions",
+      "objective",
+      "output_contract",
+      "scope",
+      "success_criteria"
+    ],
+    "unresolved_fields": [],
+    "weak_intent_recovery": {
+      "contradictory_fields": [],
+      "intake_required": false,
+      "missing_fields": [],
+      "recovered_fields": [],
+      "recovery_applied": false,
+      "suggested_prompt": "",
+      "weak_fields": []
+    }
+  },
+  "objective": "Compile a PRD for the SR8 pilot user onboarding flow.",
+  "output_contract": [
+    "Canonical PRD artifact",
+    "Markdown PRD derivative"
+  ],
+  "profile": "prd",
+  "scope": [
+    "User-facing mobile operator checklists for field ops teams",
+    "Offline-friendly capture for pilot sites",
+    "Admin dashboard for pilot health"
+  ],
+  "source": {
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\founder\\founder_launch_brief.md",
+    "source_hash": "b935bde0075a71e3e6b4ec09e2322c67241049697cffbc1674c21c480c9b76b6",
+    "source_id": "src_b935bde0075a71e3",
+    "source_type": "markdown"
+  },
+  "success_criteria": [
+    "Pilot managers can complete setup in under 20 minutes",
+    "Support tickets drop by 30 percent"
+  ],
+  "target_class": "prd",
+  "validation": {
+    "errors": [],
+    "generated_at": "2026-05-13T07:51:28.506246Z",
+    "readiness_status": "pass",
+    "report_id": "rcpt_41c79bda1f9ca998fdd3",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "warnings": []
+  }
+}

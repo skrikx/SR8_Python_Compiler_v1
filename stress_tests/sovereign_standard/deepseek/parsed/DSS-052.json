@@ -1,0 +1,56 @@
+{
+  "artifact_type": "sr8_compiler_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-052",
+  "compiled_intent": "Objective: Generate a governed SR8 compiler prompt for a sales_offer artifact using the memory_lens, capable of handling multi_runtime_confusion chaos input with explicit validation gates.\nScope:\n- Parse the raw intent from a US-based developer, resolve missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a structured prompt that SR8 can compile into objective, scope, constraints, success criteria, and output contract. The output must be a valid sr8_compiler_prompt artifact with depth tier D3_SOVEREIGN_CORE targeting Codex runtime.\nConstraints:\n- All sections must be present and non-empty: Objective, Scope, Constraints, Success Criteria, Output Contract.\n- The prompt must include explicit validation gates to detect and reject incomplete or contradictory inputs.\n- Must use memory_lens to infer missing context from the raw intent (e.g., sales_offer type, target audience, pricing model).\n- Must handle multi_runtime_confusion by specifying a single runtime target (Codex) and rejecting ambiguous runtime references.\n- Urgent language must be normalized to standard SR8 directives without loss of intent.\n- Partial constraints must be completed with reasonable defaults (e.g., compliance with US sales laws, data privacy).\n- Ambiguous acceptance criteria must be clarified into measurable, testable conditions.\n- Output must be strict JSON with no markdown fences.\nSuccess Criteria:\n- The compiled prompt contains all five required sections (Objective, Scope, Constraints, Success Criteria, Output Contract).\n- Each section is fully populated with SR8-compilable directives.\n- Validation gates are explicitly defined and can reject malformed input.\n- The prompt is self-contained and can be directly used by SR8 compiler to produce a sales_offer artifact.\n- No hallucinated or fabricated data; all inferred content is marked with [inferred] tag.\nOutput Contract:\n- type: sr8_compiler_prompt\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- sections: objective: string describing the goal of the sales_offer artifact; scope: string defining boundaries and included/excluded elements; constraints: array of strings with explicit validation gates; success_criteria: array of strings with measurable conditions; output_contract: object specifying the expected output structure\n- validation_gates: gate_1: check for missing context and infer using memory_lens; gate_2: reject if runtime_target is not Codex; gate_3: ensure all sections are non-empty; gate_4: flag ambiguous acceptance criteria for clarification",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr8_compiler_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "All sections must be present and non-empty: Objective, Scope, Constraints, Success Criteria, Output Contract.",
+        "The prompt must include explicit validation gates to detect and reject incomplete or contradictory inputs.",
+        "Must use memory_lens to infer missing context from the raw intent (e.g., sales_offer type, target audience, pricing model).",
+        "Must handle multi_runtime_confusion by specifying a single runtime target (Codex) and rejecting ambiguous runtime references.",
+        "Urgent language must be normalized to standard SR8 directives without loss of intent.",
+        "Partial constraints must be completed with reasonable defaults (e.g., compliance with US sales laws, data privacy).",
+        "Ambiguous acceptance criteria must be clarified into measurable, testable conditions.",
+        "Output must be strict JSON with no markdown fences."
+      ],
+      "Objective": "Generate a governed SR8 compiler prompt for a sales_offer artifact using the memory_lens, capable of handling multi_runtime_confusion chaos input with explicit validation gates.",
+      "Output Contract": {
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "runtime_target": "Codex",
+        "sections": {
+          "constraints": "array of strings with explicit validation gates",
+          "objective": "string describing the goal of the sales_offer artifact",
+          "output_contract": "object specifying the expected output structure",
+          "scope": "string defining boundaries and included/excluded elements",
+          "success_criteria": "array of strings with measurable conditions"
+        },
+        "type": "sr8_compiler_prompt",
+        "validation_gates": [
+          "gate_1: check for missing context and infer using memory_lens",
+          "gate_2: reject if runtime_target is not Codex",
+          "gate_3: ensure all sections are non-empty",
+          "gate_4: flag ambiguous acceptance criteria for clarification"
+        ]
+      },
+      "Scope": "Parse the raw intent from a US-based developer, resolve missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a structured prompt that SR8 can compile into objective, scope, constraints, success criteria, and output contract. The output must be a valid sr8_compiler_prompt artifact with depth tier D3_SOVEREIGN_CORE targeting Codex runtime.",
+      "Success Criteria": [
+        "The compiled prompt contains all five required sections (Objective, Scope, Constraints, Success Criteria, Output Contract).",
+        "Each section is fully populated with SR8-compilable directives.",
+        "Validation gates are explicitly defined and can reject malformed input.",
+        "The prompt is self-contained and can be directly used by SR8 compiler to produce a sales_offer artifact.",
+        "No hallucinated or fabricated data; all inferred content is marked with [inferred] tag."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

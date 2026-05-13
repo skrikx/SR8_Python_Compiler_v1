@@ -1,0 +1,24 @@
+{
+  "artifact_type": "compliance_evidence_prompt",
+  "blocked_reason": "Contradictory constraints: raw_intent demands both a compliance_evidence_prompt for legal_workflow and a blocked_state_receipt with should_block true. Sovereign_lens requires unambiguous acceptance criteria and complete context, but input is intentionally contradictory, missing context, and ambiguous. Cannot compile a valid SR8 directive without resolving the contradiction between building a prompt and blocking with a receipt. Unsafe to proceed without clarification of whether the output is a prompt or a block receipt.",
+  "case_id": "DSS-063",
+  "compiled_intent": "Objective: Produce a compliance_evidence_prompt for a legal workflow in the United Kingdom, using the sovereign_lens, while handling contradictory_constraints input.\nScope:\n- Single compliance_evidence_prompt artifact for legal_workflow, depth D3_SOVEREIGN_CORE, runtime Codex.\nConstraints:\n- Input is intentionally messy with missing context, urgent language, partial constraints, ambiguous acceptance criteria. Must block unsafe certainty and record a repair receipt. Output must be SR8-compilable with objective, scope, constraints, success criteria, output contract.\nSuccess Criteria:\n- A valid compliance_evidence_prompt that passes sovereign_lens validation, resolves contradictions, and includes a repair receipt.\nOutput Contract:\n- JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (with Objective, Scope, Constraints, Success Criteria, Output Contract).",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "compliance_evidence_prompt",
+    "blocked_reason": "Contradictory constraints: raw_intent demands both a compliance_evidence_prompt for legal_workflow and a blocked_state_receipt with should_block true. Sovereign_lens requires unambiguous acceptance criteria and complete context, but input is intentionally contradictory, missing context, and ambiguous. Cannot compile a valid SR8 directive without resolving the contradiction between building a prompt and blocking with a receipt. Unsafe to proceed without clarification of whether the output is a prompt or a block receipt.",
+    "compiled_intent": {
+      "Constraints": "Input is intentionally messy with missing context, urgent language, partial constraints, ambiguous acceptance criteria. Must block unsafe certainty and record a repair receipt. Output must be SR8-compilable with objective, scope, constraints, success criteria, output contract.",
+      "Objective": "Produce a compliance_evidence_prompt for a legal workflow in the United Kingdom, using the sovereign_lens, while handling contradictory_constraints input.",
+      "Output Contract": "JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (with Objective, Scope, Constraints, Success Criteria, Output Contract).",
+      "Scope": "Single compliance_evidence_prompt artifact for legal_workflow, depth D3_SOVEREIGN_CORE, runtime Codex.",
+      "Success Criteria": "A valid compliance_evidence_prompt that passes sovereign_lens validation, resolves contradictions, and includes a repair receipt."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

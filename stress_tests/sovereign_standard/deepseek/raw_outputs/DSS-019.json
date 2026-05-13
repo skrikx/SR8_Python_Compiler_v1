@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:53:57Z",
+  "case_id": "DSS-019",
+  "content": "{\n  \"artifact_type\": \"srx_agent\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": false,\n  \"blocked_reason\": null,\n  \"compiled_intent\": {\n    \"Objective\": \"Build an SRX agent for finance operations in Latin America that processes overbroad one-pass lock inputs, validates compliance, and produces a governed artifact with explicit validation gates.\",\n    \"Scope\": \"The agent must ingest messy, urgent, partially constrained inputs from enterprise compliance leads, apply the compiler_lens to extract structured requirements, and output a compiled SR8 directive with objective, scope, constraints, success criteria, and output contract.\",\n    \"Constraints\": [\n      \"Must operate within Latin American regulatory frameworks (e.g., LGPD, COSO, local tax compliance).\",\n      \"Must handle ambiguous acceptance criteria and missing context without hallucination.\",\n      \"Must enforce validation gates at each stage of the one-pass lock process.\",\n      \"Must not expose raw financial data beyond governed artifact boundaries.\"\n    ],\n    \"Success Criteria\": [\n      \"Agent produces a valid SR8-compilable JSON with all five required sections.\",\n      \"Validation gates are explicitly documented in the output contract.\",\n      \"Overbroad one-pass lock inputs are resolved into bounded, auditable steps.\",\n      \"Artifact passes srxml_required_sections validation.\"\n    ],\n    \"Output Contract\": {\n      \"format\": \"JSON\",\n      \"sections\": [\"objective\", \"scope\", \"constraints\", \"success_criteria\", \"output_contract\"],\n      \"validation_gates\": [\n        \"gate_1: input_parsing_complete\",\n        \"gate_2: regulatory_check_passed\",\n        \"gate_3: ambiguity_resolved\",\n        \"gate_4: artifact_compiled\"\n      ],\n      \"compliance_evidence\": \"Latin America finance ops compliance checklist embedded in artifact metadata\"\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

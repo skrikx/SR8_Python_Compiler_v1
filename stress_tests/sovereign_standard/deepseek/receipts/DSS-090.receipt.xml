@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-090">
+  <source_intent>
+    <raw_intent>Case 090: I am a chaotic_power_user in global_cross_border. Build a srx_ace_workflow for blueprint_design_doc using the sovereign_lens. Chaos input type is depth_tier_ambiguity. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>blueprint_design_doc</domain>
+    <user_type>chaotic_power_user</user_type>
+    <geography>global_cross_border</geography>
+    <chaos_type>depth_tier_ambiguity</chaos_type>
+    <lens>sovereign_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_workflow</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Produce a governed srx_ace_workflow artifact for blueprint_design_doc using the sovereign_lens, handling chaotic input with depth_tier_ambiguity and explicit validation gates.
+Scope:
+- Parse messy input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured workflow with validation gates. Output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must use sovereign_lens for governance and validation.
+- Must include explicit validation gates at each workflow step.
+- Must handle depth_tier_ambiguity by resolving to D3_SOVEREIGN_CORE.
+- Output must be strict JSON with no markdown fences.
+- Must not claim completion if any blocker exists.
+Success Criteria:
+- Workflow artifact is valid srx_ace_workflow type.
+- All sections (objective, scope, constraints, success criteria, output contract) are present and compilable.
+- Validation gates are explicitly defined and traceable.
+- Chaotic input is resolved without loss of governance.
+Output Contract:
+- artifact_type: srx_ace_workflow
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: False
+- blocked_reason: None
+- compiled_intent: objective: Produce a governed srx_ace_workflow artifact for blueprint_design_doc using the sovereign_lens, handling chaotic input with depth_tier_ambiguity and explicit validation gates.; scope: Parse messy input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured workflow with validation gates. Output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.; constraints: Must use sovereign_lens for governance and validation.; Must include explicit validation gates at each workflow step.; Must handle depth_tier_ambiguity by resolving to D3_SOVEREIGN_CORE.; Output must be strict JSON with no markdown fences.; Must not claim completion if any blocker exists.; success_criteria: Workflow artifact is valid srx_ace_workflow type.; All sections (objective, scope, constraints, success criteria, output contract) are present and compilable.; Validation gates are explicitly defined and traceable.; Chaotic input is resolved without loss of governance.; output_contract: This JSON object.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_d315b60aa81ed47daad9</artifact_id>
+    <source_hash>8630e62eb4ceb857dd18945d17ffb511c6c38b2c28bcae796c7bc46d53f7bc20</source_hash>
+    <compile_run_id>run_cfc437467738a49ae62e</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-090.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-090.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:52:50Z",
+  "case_id": "DSS-002",
+  "content": "{\n  \"artifact_type\": \"srx_agent\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Unsafe certainty: raw_intent contains missing_inputs chaos type with ambiguous acceptance criteria and partial constraints. The operator_lens cannot resolve repo_refactor scope without explicit input schema, source repository path, or refactor rules. Blocking to prevent hallucinated agent behavior that could corrupt production code.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Build an srx_agent for repo_refactor using operator_lens, but blocked due to insufficient inputs.\",\n    \"Scope\": \"Undefined \u2014 missing repository path, refactor rules, and input schema.\",\n    \"Constraints\": \"Partial: must use operator_lens; no other constraints provided.\",\n    \"Success Criteria\": \"Ambiguous \u2014 no measurable criteria supplied.\",\n    \"Output Contract\": \"Blocked \u2014 cannot produce safe agent without resolved inputs.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

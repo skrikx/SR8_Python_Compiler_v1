@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:59:12Z",
+  "case_id": "DSS-093",
+  "content": "{\n  \"artifact_type\": \"mirroros_analysis_prompt\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Contradictory constraints: agency_owner in UK legal workflow requires GDPR and SRA compliance, but market_lens implies commercial speed. Missing context: no jurisdiction detail, no workflow type (e.g., contract review, litigation), no data handling scope. Urgent language suggests immediate execution, but ambiguous acceptance criteria prevent safe compilation. Blocked to avoid unsafe certainty.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Produce a mirrorOS analysis prompt for a legal workflow in the UK, using the market_lens perspective, that can be compiled by SR8 into a structured directive.\",\n    \"Scope\": \"Legal workflow analysis for a UK agency owner, incorporating market-lens constraints (e.g., speed, cost) and regulatory requirements (GDPR, SRA).\",\n    \"Constraints\": \"Must resolve contradictory constraints between market speed and legal compliance. Must include jurisdiction (UK), workflow type, and data handling. Must not assume missing details.\",\n    \"Success Criteria\": \"A valid SR8-compilable directive with Objective, Scope, Constraints, Success Criteria, and Output Contract sections, with all contradictions explicitly addressed and missing context flagged.\",\n    \"Output Contract\": \"JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (containing Objective, Scope, Constraints, Success Criteria, Output Contract).\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

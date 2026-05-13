@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-026">
+  <source_intent>
+    <raw_intent>Case 026: I am a healthcare_admin in South Asia. Build a lovable_build_prompt for content_system using the runtime_lens. Chaos input type is schema_blur. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>content_system</domain>
+    <user_type>healthcare_admin</user_type>
+    <geography>South Asia</geography>
+    <chaos_type>schema_blur</chaos_type>
+    <lens>runtime_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>lovable_build_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build a content system for a healthcare administration entity in South Asia that can ingest, validate, and serve structured medical content despite schema_blur inputs (missing fields, inconsistent types, partial constraints). The system must enforce explicit validation gates at ingestion, transformation, and output stages.
+Scope:
+- The system shall accept raw content payloads with ambiguous or missing schema fields, apply configurable validation rules (required fields, type checks, range constraints), and produce a normalized output record. It must log all validation failures and provide a pass/fail summary per record. The system shall be deployable on Codex runtime with SR8 governance.
+Constraints:
+- All validation rules must be defined in a separate configuration file (JSON or YAML) and loaded at startup.
+- No external AI/ML inference calls; all validation must be rule-based.
+- The system must handle at least 1000 records per minute with &lt;500ms latency per record.
+- All output records must include a 'validation_status' field (PASS/FAIL) and a 'validation_errors' array.
+- The system must not store or transmit any personally identifiable information (PII) beyond the input payload.
+- The system must be auditable: every validation decision must be logged with timestamp, rule ID, and input value.
+Success Criteria:
+- Given a payload with missing 'patient_id' field, the system returns FAIL with error 'missing_required_field: patient_id'.
+- Given a payload with 'age' as string 'thirty', the system returns FAIL with error 'type_mismatch: age expected integer'.
+- Given a payload with 'blood_pressure_systolic' = 300, the system returns FAIL with error 'range_violation: blood_pressure_systolic must be between 60 and 250'.
+- Given a fully valid payload, the system returns PASS with empty validation_errors array.
+- All validation logs are written to a rotating file with daily rotation and 30-day retention.
+Output Contract:
+- format: JSON
+- fields: record_id: string (UUID); validation_status: string (PASS or FAIL); validation_errors: array of objects with fields: rule_id (string), field (string), expected (string), actual (string); normalized_payload: object (validated and type-coerced fields only if PASS, else null); timestamp: string (ISO 8601)
+- example: record_id: a1b2c3d4-e5f6-7890-abcd-ef1234567890; validation_status: FAIL; validation_errors: rule_id: R001; field: patient_id; expected: required; actual: missing; normalized_payload: None; timestamp: 2025-04-10T14:30:00Z</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_67481deeadde57abaa92</artifact_id>
+    <source_hash>2fb1dc5843a44490c60a7218ca47aa91329046d6a6de8642d018ae6e0f137a2b</source_hash>
+    <compile_run_id>run_d9ae9da0c59b0b3d3869</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-026.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-026.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

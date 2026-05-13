@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-044">
+  <source_intent>
+    <raw_intent>Case 044: I am a law_firm_operator in European Union. Build a codex_build_prompt for audit_agent using the runtime_lens. Chaos input type is artifact_type_ambiguity. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>audit_agent</domain>
+    <user_type>law_firm_operator</user_type>
+    <geography>European Union</geography>
+    <chaos_type>artifact_type_ambiguity</chaos_type>
+    <lens>runtime_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>codex_build_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Construct a Codex-compatible build prompt for an audit agent operating under EU law firm constraints, capable of processing chaotic, ambiguous inputs with missing context and partial constraints, and producing a governed artifact with explicit validation gates.
+Scope:
+- The prompt must define an audit agent that ingests raw, unstructured case data (artifact_type_ambiguity, missing context, urgent language, partial constraints, ambiguous acceptance criteria) and outputs a structured, SR8-compilable directive containing Objective, Scope, Constraints, Success Criteria, and Output Contract. The agent must enforce EU regulatory compliance (GDPR, ePrivacy, legal professional privilege) and include validation gates for completeness, consistency, and legal soundness.
+Constraints:
+- Must comply with EU data protection and legal professional privilege requirements.
+- Must handle artifact_type_ambiguity by inferring the most likely artifact type from context and flagging uncertainty.
+- Must reject or escalate inputs that cannot be resolved to a single valid artifact type after heuristic analysis.
+- Must include explicit validation gates: context completeness check, constraint consistency check, acceptance criteria clarity check, and output contract enforceability check.
+- Must operate within Codex runtime environment with deterministic output formatting.
+- Must not produce legally binding conclusions without human review flag.
+Success Criteria:
+- Agent correctly identifies and resolves artifact_type_ambiguity in at least 95% of test cases.
+- Agent produces a valid SR8-compilable directive with all five sections (Objective, Scope, Constraints, Success Criteria, Output Contract) for any input meeting minimum context threshold.
+- Agent flags and rejects inputs that fail validation gates with clear, actionable error messages.
+- Agent maintains audit trail of all decisions and validation steps for compliance evidence.
+- Agent completes processing within Codex runtime limits (max 30 seconds per input).
+Output Contract:
+- format: JSON
+- schema: artifact_type: string (must be one of: sr8_compiler_prompt, srx_agent, srx_ace_v3_agent, srx_ace_build_agent, srx_ace_workflow, srx_ace_audit_agent, sr9_orchestration_prompt, mirroros_analysis_prompt, lovable_build_prompt, codex_build_prompt, research_agent_prompt, compliance_evidence_prompt, memory_engrave_prompt, sales_offer_prompt, blueprint_design_doc, visual_generation_prompt, content_prompt); depth_tier: string (D1_OPERATIONAL, D2_PRODUCTION, or D3_SOVEREIGN_CORE); runtime_target: string (must be 'Codex'); should_block: boolean; blocked_reason: string or null; compiled_intent: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and schema
+- validation_gates: context_completeness: input must contain at minimum a case_id, expected_artifact_type, expected_depth_tier, expected_runtime_target, and raw_intent.; constraint_consistency: all constraints must be non-contradictory and compatible with EU law.; acceptance_clarity: success criteria must be measurable and testable.; output_enforceability: output contract must define a valid JSON schema with required fields.
+- error_handling: If any validation gate fails, set should_block to true and populate blocked_reason with a human-readable explanation of the failure and suggested remediation.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_6f6d7d3676e6d1481420</artifact_id>
+    <source_hash>a7484c45991a493a3501e4e2723557e5010e251a8242c3a20feb7275ecc05d0a</source_hash>
+    <compile_run_id>run_3744861f038267ffe522</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-044.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-044.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

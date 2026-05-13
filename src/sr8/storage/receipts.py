@@ -31,6 +31,11 @@ def _metadata_int(metadata: Mapping[str, object], key: str) -> int:
     return value if isinstance(value, int) else 0
 
 
+def _metadata_bool(metadata: Mapping[str, object], key: str) -> bool:
+    value = metadata.get(key)
+    return value if isinstance(value, bool) else False
+
+
 def write_compilation_receipt(
     workspace: SR8Workspace,
     result: CompilationResult,
@@ -84,6 +89,26 @@ def write_compilation_receipt(
         assist_route=str(artifact.metadata.get("assist_route", "not_used")),
         intake_route=str(artifact.metadata.get("intake_route", "not_required")),
         compile_truth_summary=str(artifact.metadata.get("compile_truth_summary", "")),
+        assist_mode=str(
+            artifact.metadata.get("assist_mode", artifact.metadata.get("compile_mode", "auto"))
+        ),
+        llm_used=_metadata_bool(artifact.metadata, "llm_used"),
+        provider=cast(str | None, artifact.metadata.get("provider")),
+        model=cast(str | None, artifact.metadata.get("model")),
+        adapter=str(
+            artifact.metadata.get(
+                "adapter",
+                artifact.metadata.get("extraction_adapter", "rule_based"),
+            )
+        ),
+        prompt_template_id=cast(str | None, artifact.metadata.get("prompt_template_id")),
+        prompt_hash=cast(str | None, artifact.metadata.get("prompt_hash")),
+        raw_response_hash=cast(str | None, artifact.metadata.get("raw_response_hash")),
+        parsed_response_hash=cast(str | None, artifact.metadata.get("parsed_response_hash")),
+        repair_attempts=_metadata_int(artifact.metadata, "repair_attempts"),
+        schema_validation_status=str(artifact.metadata.get("schema_validation_status", "pass")),
+        fallback_used=_metadata_bool(artifact.metadata, "fallback_used"),
+        confidence=cast(float | None, artifact.metadata.get("confidence")),
         compile_target=cast(str | None, artifact.metadata.get("compile_target")),
         compile_target_validation=cast(
             dict[str, object] | None,

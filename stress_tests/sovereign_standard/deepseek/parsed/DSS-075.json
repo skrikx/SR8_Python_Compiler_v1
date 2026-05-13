@@ -1,0 +1,61 @@
+{
+  "artifact_type": "sr9_orchestration_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-075",
+  "compiled_intent": "Objective: Generate a blueprint design document for a Middle East finance operator using the market_lens framework, with explicit validation gates and SR8-compilable structure.\nScope:\n- The blueprint must cover market analysis, regulatory compliance (local and international), risk assessment, technology stack recommendations, and operational workflow design. It must be adaptable to ambiguous or incomplete input data.\nConstraints:\n- Must comply with SR8 sovereign core validation rules.\n- All sections must be present and non-empty: objective, scope, constraints, success criteria, output contract.\n- Must include explicit validation gates for each section.\n- Must handle depth_tier_ambiguity by requiring clarification steps before proceeding.\n- Output must be in strict JSON format without markdown fences.\n- Must not include any legal, medical, financial, or compliance advice; only structural and procedural guidance.\nSuccess Criteria:\n- Blueprint document contains all required sections with validation gates.\n- Validation gates are explicitly defined and actionable.\n- Document is compilable by SR8 into a structured directive.\n- Ambiguity in input is resolved through defined clarification steps.\n- Output is valid JSON and passes schema validation.\nOutput Contract:\n- format: JSON\n- required_fields: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and required_fields\n- validation_gates: Gate 1: Confirm all required fields are present and non-null.; Gate 2: Verify compiled_intent contains all five sections.; Gate 3: Ensure no prohibited content (legal/medical/financial/compliance advice).; Gate 4: Validate JSON structure against schema.; Gate 5: Check for ambiguity markers and require clarification if present.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr9_orchestration_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with SR8 sovereign core validation rules.",
+        "All sections must be present and non-empty: objective, scope, constraints, success criteria, output contract.",
+        "Must include explicit validation gates for each section.",
+        "Must handle depth_tier_ambiguity by requiring clarification steps before proceeding.",
+        "Output must be in strict JSON format without markdown fences.",
+        "Must not include any legal, medical, financial, or compliance advice; only structural and procedural guidance."
+      ],
+      "Objective": "Generate a blueprint design document for a Middle East finance operator using the market_lens framework, with explicit validation gates and SR8-compilable structure.",
+      "Output Contract": {
+        "compiled_intent_structure": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "Output Contract": "object with format and required_fields",
+          "Scope": "string",
+          "Success Criteria": "array of strings"
+        },
+        "format": "JSON",
+        "required_fields": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "validation_gates": [
+          "Gate 1: Confirm all required fields are present and non-null.",
+          "Gate 2: Verify compiled_intent contains all five sections.",
+          "Gate 3: Ensure no prohibited content (legal/medical/financial/compliance advice).",
+          "Gate 4: Validate JSON structure against schema.",
+          "Gate 5: Check for ambiguity markers and require clarification if present."
+        ]
+      },
+      "Scope": "The blueprint must cover market analysis, regulatory compliance (local and international), risk assessment, technology stack recommendations, and operational workflow design. It must be adaptable to ambiguous or incomplete input data.",
+      "Success Criteria": [
+        "Blueprint document contains all required sections with validation gates.",
+        "Validation gates are explicitly defined and actionable.",
+        "Document is compilable by SR8 into a structured directive.",
+        "Ambiguity in input is resolved through defined clarification steps.",
+        "Output is valid JSON and passes schema validation."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

@@ -13,6 +13,7 @@ from sr8.models.intent_artifact import GovernanceFlags
 from sr8.models.validation import ValidationIssue, ValidationReport
 from sr8.profiles.registry import PROFILE_REGISTRY
 from sr8.srxml import classify_srxml_route, render_srxml_rc2_artifact, validate_srxml_text
+from sr8.srxml.rc2 import ARTIFACT_TYPES
 from sr8.storage.receipts import write_compilation_receipt
 from sr8.storage.save import save_canonical_artifact
 from sr8.storage.workspace import init_workspace
@@ -112,6 +113,30 @@ def test_all_profiles_allow_srxml_rc2_transform_target() -> None:
     ]
 
     assert unsupported == []
+
+
+def test_all_registered_srxml_artifact_classes_render_valid_rc2() -> None:
+    artifact = load_artifact("tests/fixtures/compiled_prd_artifact.json")
+
+    for artifact_type, spec in ARTIFACT_TYPES.items():
+        min_depth = spec["min_depth"]
+        depth_tier = "D3_SOVEREIGN_CORE" if min_depth == 3 else "D2_PRODUCTION"
+        routed = artifact.model_copy(
+            update={
+                "metadata": artifact.metadata
+                | {
+                    "srxml_artifact_type": artifact_type,
+                    "srxml_depth_tier": depth_tier,
+                    "runtime_target": "Codex",
+                }
+            }
+        )
+
+        validation = validate_srxml_text(render_srxml_rc2_artifact(routed))
+
+        assert validation.valid, (artifact_type, validation.as_dict())
+        assert validation.artifact_type == artifact_type
+        assert validation.depth_tier == depth_tier
 
 
 def test_compile_then_transform_to_srxml_rc2() -> None:

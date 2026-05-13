@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:58:07Z",
+  "case_id": "DSS-077",
+  "content": "{\n  \"artifact_type\": \"lovable_build_prompt\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Missing critical inputs: no repo URL, no current architecture description, no specific refactor goal, no language/framework stack, no test coverage baseline, no performance metrics. Ambiguous acceptance criteria and urgent language without concrete deliverables. Cannot safely compile a production-grade refactor prompt without these fundamentals.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Blocked due to insufficient inputs; repair receipt recorded.\",\n    \"Scope\": \"Undefined.\",\n    \"Constraints\": \"Cannot proceed without repo context, architecture, and measurable success criteria.\",\n    \"Success Criteria\": \"Not established.\",\n    \"Output Contract\": \"Repair receipt: request repo URL, current architecture summary, refactor goal, language/framework, test coverage, and performance baselines before re-submission.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

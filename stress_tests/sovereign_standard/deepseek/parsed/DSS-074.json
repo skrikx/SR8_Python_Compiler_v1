@@ -1,0 +1,62 @@
+{
+  "artifact_type": "srx_ace_audit_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-074",
+  "compiled_intent": "Objective: Build an SRX ACE audit agent for a European Union law firm operator that validates artifact type consistency, enforces governance gates, and produces an SR8-compilable directive from ambiguous, urgent, and partial input.\nScope:\n- The agent shall ingest a raw intent with missing context, urgent language, partial constraints, and ambiguous acceptance criteria; apply operator_lens to resolve artifact_type_ambiguity; generate a governed artifact with explicit validation gates; output a structured directive containing objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must comply with EU data protection and legal professional privilege requirements.\n- All validation gates must be explicit and auditable.\n- Output must be SR8-compilable with no markdown fences.\n- Artifact type must be srx_ace_audit_agent.\n- Depth tier must be D3_SOVEREIGN_CORE.\n- Runtime target must be Codex.\nSuccess Criteria:\n- Artifact type matches expected_artifact_type.\n- Depth tier matches expected_depth_tier.\n- Runtime target matches expected_runtime_target.\n- All SR8 required sections (objective, scope, constraints, success criteria, output contract) are present and well-formed.\n- Validation gates are explicitly defined and traceable.\n- No markdown fences in final output.\nOutput Contract:\n- format: strict JSON\n- fields: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object\n- validation_gates: Gate 1: Input parsing and ambiguity resolution.; Gate 2: Artifact type and depth tier enforcement.; Gate 3: Constraint compliance check (EU law, SR8 rules).; Gate 4: Output structure validation against schema.; Gate 5: Final audit log generation.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_audit_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with EU data protection and legal professional privilege requirements.",
+        "All validation gates must be explicit and auditable.",
+        "Output must be SR8-compilable with no markdown fences.",
+        "Artifact type must be srx_ace_audit_agent.",
+        "Depth tier must be D3_SOVEREIGN_CORE.",
+        "Runtime target must be Codex."
+      ],
+      "Objective": "Build an SRX ACE audit agent for a European Union law firm operator that validates artifact type consistency, enforces governance gates, and produces an SR8-compilable directive from ambiguous, urgent, and partial input.",
+      "Output Contract": {
+        "compiled_intent_structure": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "Output Contract": "object",
+          "Scope": "string",
+          "Success Criteria": "array of strings"
+        },
+        "fields": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "format": "strict JSON",
+        "validation_gates": [
+          "Gate 1: Input parsing and ambiguity resolution.",
+          "Gate 2: Artifact type and depth tier enforcement.",
+          "Gate 3: Constraint compliance check (EU law, SR8 rules).",
+          "Gate 4: Output structure validation against schema.",
+          "Gate 5: Final audit log generation."
+        ]
+      },
+      "Scope": "The agent shall ingest a raw intent with missing context, urgent language, partial constraints, and ambiguous acceptance criteria; apply operator_lens to resolve artifact_type_ambiguity; generate a governed artifact with explicit validation gates; output a structured directive containing objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "Artifact type matches expected_artifact_type.",
+        "Depth tier matches expected_depth_tier.",
+        "Runtime target matches expected_runtime_target.",
+        "All SR8 required sections (objective, scope, constraints, success criteria, output contract) are present and well-formed.",
+        "Validation gates are explicitly defined and traceable.",
+        "No markdown fences in final output."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

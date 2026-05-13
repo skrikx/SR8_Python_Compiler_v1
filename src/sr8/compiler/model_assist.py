@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 
+from pydantic import ValidationError
+
 from sr8.adapters import create_provider
 from sr8.adapters.errors import ProviderNormalizationError
 from sr8.adapters.types import ProviderRequest, ProviderResponse
@@ -10,7 +12,9 @@ from sr8.extract.confidence import build_confidence_signals
 from sr8.extract.signals import ExtractedDimensions
 from sr8.extract.trace import build_extraction_trace
 from sr8.models.extraction_trace import ExtractionTrace
+from sr8.utils.hash import stable_object_hash, stable_text_hash
 
+PROMPT_TEMPLATE_ID = "sr8.model_assist.extract.v1"
 MODEL_ASSIST_SYSTEM_PROMPT = """
 You are extracting SR8 compiler dimensions from a local source directive.
 Return strict JSON only with these keys:
@@ -30,9 +34,11 @@ class ModelAssistResult:
     provider_response: ProviderResponse
 
 
-def _extract_json_object(text: str) -> dict[str, object]:
+def _extract_json_object(text: str) -> tuple[dict[str, object], int]:
+    repair_attempts = 0
     stripped = text.strip()
     if stripped.startswith("```") and "\n" in stripped:
+        repair_attempts += 1
         stripped = stripped.split("\n", 1)[1]
     start = stripped.find("{")
     end = stripped.rfind("}")
@@ -41,10 +47,12 @@ def _extract_json_object(text: str) -> dict[str, object]:
             "model_assist",
             "Provider output did not contain a JSON object.",
         )
+    if start != 0 or end != len(stripped) - 1:
+        repair_attempts += 1
     payload = json.loads(stripped[start : end + 1])
     if not isinstance(payload, dict):
         raise ProviderNormalizationError("model_assist", "Provider JSON output must be an object.")
-    return payload
+    return payload, repair_attempts
 
 
 def run_model_assisted_extraction(
@@ -54,6 +62,7 @@ def run_model_assisted_extraction(
     timeout_seconds: float = 30.0,
 ) -> ModelAssistResult:
     provider = create_provider(provider_name)
+    prompt_hash = stable_text_hash(f"{MODEL_ASSIST_SYSTEM_PROMPT}\n\n{normalized_source}")
     response = provider.complete(
         ProviderRequest(
             provider=provider_name,
@@ -65,7 +74,20 @@ def run_model_assisted_extraction(
             metadata={"mode": "model_assisted_extraction"},
         )
     )
-    extracted = ExtractedDimensions.model_validate(_extract_json_object(response.content))
+    try:
+        candidate_payload, repair_attempts = _extract_json_object(response.content)
+    except json.JSONDecodeError as exc:
+        raise ProviderNormalizationError(
+            "model_assist",
+            f"Provider JSON output was invalid: {exc.msg}.",
+        ) from exc
+    try:
+        extracted = ExtractedDimensions.model_validate(candidate_payload)
+    except ValidationError as exc:
+        raise ProviderNormalizationError(
+            "model_assist",
+            f"Provider JSON failed SR8 extraction schema validation: {exc.errors()[0]['msg']}.",
+        ) from exc
     confidence = build_confidence_signals(extracted, inferred_fields=set())
     trace = build_extraction_trace(
         adapter_name="model_assisted",
@@ -73,6 +95,12 @@ def run_model_assisted_extraction(
         metadata={
             "provider": provider_name,
             "model": model_name,
+            "prompt_template_id": PROMPT_TEMPLATE_ID,
+            "prompt_hash": prompt_hash,
+            "raw_response_hash": stable_text_hash(response.content),
+            "parsed_response_hash": stable_object_hash(candidate_payload),
+            "repair_attempts": repair_attempts,
+            "schema_validation_status": "pass",
             "finish_reason": response.finish_reason,
             "assist_extract_status": "assisted",
             "assist_extract_route": "provider_live",

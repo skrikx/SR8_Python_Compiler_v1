@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-016">
+  <source_intent>
+    <raw_intent>Case 016: I am a healthcare_admin in South Asia. Build a visual_generation_prompt for software_build using the memory_lens. Chaos input type is ambiguous_scope. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>software_build</domain>
+    <user_type>healthcare_admin</user_type>
+    <geography>South Asia</geography>
+    <chaos_type>ambiguous_scope</chaos_type>
+    <lens>memory_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>visual_generation_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a visual prompt for a healthcare administration software build in South Asia, using the memory_lens to incorporate historical context and user memory patterns, with explicit validation gates to ensure governance and compliance.
+Scope:
+- The prompt must produce a visual representation (e.g., UI mockup, system architecture diagram, or workflow illustration) of a healthcare admin software module. It must include elements for patient record management, appointment scheduling, billing, and local regulatory compliance (e.g., data privacy laws). The memory_lens should reflect past user interactions, error patterns, and optimization suggestions from similar deployments.
+Constraints:
+- Must comply with South Asian healthcare data protection regulations (e.g., India's DPDP Act, Bangladesh's data privacy rules).
+- Visual output must be interpretable by Codex for code generation.
+- Must include validation gates: (1) scope clarity check, (2) regulatory compliance check, (3) memory consistency check, (4) ambiguity resolution gate.
+- No hardcoded patient data; use placeholders.
+- Must support English and at least one local language (e.g., Hindi, Bengali, Tamil).
+Success Criteria:
+- The visual prompt is SR8-compilable into a structured directive with Objective, Scope, Constraints, Success Criteria, and Output Contract.
+- All validation gates are explicitly defined and passable.
+- The memory_lens integration is demonstrable (e.g., shows how past errors inform current design).
+- The output can be directly used by Codex to generate a software build specification.
+Output Contract:
+- format: JSON with fields: prompt_text (string), validation_gates (array of objects with gate_name, description, pass_condition), memory_lens_context (object with historical_errors, user_patterns, optimization_hints), compliance_notes (array of strings), language_support (array of strings)
+- example: prompt_text: Generate a UI mockup for a healthcare admin dashboard in South Asia. Include patient list, appointment calendar, billing summary, and a compliance alert banner. Use memory_lens to highlight frequently accessed features and past user errors.; validation_gates: gate_name: scope_clarity; description: Ensure all required modules are present; pass_condition: Patient, Appointment, Billing, Compliance modules exist; gate_name: regulatory_compliance; description: Check data privacy markers; pass_condition: No real patient data, DPDP Act placeholders used; gate_name: memory_consistency; description: Verify memory_lens integration; pass_condition: At least one historical error pattern is reflected; gate_name: ambiguity_resolution; description: Resolve any ambiguous terms; pass_condition: All terms defined in glossary; memory_lens_context: historical_errors: Duplicate patient entries; Timezone mismatches in scheduling; user_patterns: High use of search function; Frequent billing corrections; optimization_hints: Auto-detect duplicates; Use local timezone by default; compliance_notes: DPDP Act 2023 compliance required; Data localization mandatory; language_support: English; Hindi; Bengali</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_a2263e702128894db7f3</artifact_id>
+    <source_hash>eee277354dca34b9521ad3c45ab3a1a23d8b36a0745068754f84c9846c968812</source_hash>
+    <compile_run_id>run_97d3d1d61bd570daa06a</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-016.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-016.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

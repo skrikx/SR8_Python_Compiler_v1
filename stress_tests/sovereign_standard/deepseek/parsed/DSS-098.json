@@ -1,0 +1,70 @@
+{
+  "artifact_type": "memory_engrave_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-098",
+  "compiled_intent": "Objective: Engrave a sovereign memory artifact for a nontechnical business owner in Africa, using the runtime_lens to capture strategic context, operational constraints, and cultural nuance from a chaotic, mixed-language input, ensuring no overwrite of existing critical memories without explicit validation.\nScope:\n- Parse the language_mixed_prompt (containing missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured memory record. Validate against memory_safety_and_overwrite_policy: do not overwrite any existing memory unless explicitly authorized by a separate validation gate. Output a governed artifact that SR8 can compile into objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must not overwrite any existing memory without explicit validation gate approval.\n- Must handle missing context gracefully by flagging gaps rather than fabricating.\n- Must interpret urgent language without escalating priority beyond defined thresholds.\n- Must resolve ambiguous acceptance criteria by requesting clarification or using safe defaults.\n- Must comply with memory_safety_and_overwrite_policy at all times.\n- Output must be strict JSON with no markdown fences.\nSuccess Criteria:\n- Artifact is a valid memory_engrave_prompt with depth_tier D3_SOVEREIGN_CORE.\n- All validation gates are explicitly defined and referenced.\n- No existing memory is overwritten without explicit gate approval.\n- Chaotic input is successfully parsed into structured fields (objective, scope, constraints, success criteria, output contract).\n- Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.\nOutput Contract:\n- artifact_type: memory_engrave_prompt\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- should_block: False\n- blocked_reason: None\n- compiled_intent: Objective: Engrave a sovereign memory artifact for a nontechnical business owner in Africa, using the runtime_lens to capture strategic context, operational constraints, and cultural nuance from a chaotic, mixed-language input, ensuring no overwrite of existing critical memories without explicit validation.; Scope: Parse the language_mixed_prompt (containing missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured memory record. Validate against memory_safety_and_overwrite_policy: do not overwrite any existing memory unless explicitly authorized by a separate validation gate. Output a governed artifact that SR8 can compile into objective, scope, constraints, success criteria, and output contract.; Constraints: Must not overwrite any existing memory without explicit validation gate approval.; Must handle missing context gracefully by flagging gaps rather than fabricating.; Must interpret urgent language without escalating priority beyond defined thresholds.; Must resolve ambiguous acceptance criteria by requesting clarification or using safe defaults.; Must comply with memory_safety_and_overwrite_policy at all times.; Output must be strict JSON with no markdown fences.; Success Criteria: Artifact is a valid memory_engrave_prompt with depth_tier D3_SOVEREIGN_CORE.; All validation gates are explicitly defined and referenced.; No existing memory is overwritten without explicit gate approval.; Chaotic input is successfully parsed into structured fields (objective, scope, constraints, success criteria, output contract).; Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.; Output Contract: artifact_type: memory_engrave_prompt; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; should_block: False; blocked_reason: None; compiled_intent: This is a recursive placeholder; actual compiled_intent is the parent object.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "memory_engrave_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must not overwrite any existing memory without explicit validation gate approval.",
+        "Must handle missing context gracefully by flagging gaps rather than fabricating.",
+        "Must interpret urgent language without escalating priority beyond defined thresholds.",
+        "Must resolve ambiguous acceptance criteria by requesting clarification or using safe defaults.",
+        "Must comply with memory_safety_and_overwrite_policy at all times.",
+        "Output must be strict JSON with no markdown fences."
+      ],
+      "Objective": "Engrave a sovereign memory artifact for a nontechnical business owner in Africa, using the runtime_lens to capture strategic context, operational constraints, and cultural nuance from a chaotic, mixed-language input, ensuring no overwrite of existing critical memories without explicit validation.",
+      "Output Contract": {
+        "artifact_type": "memory_engrave_prompt",
+        "blocked_reason": null,
+        "compiled_intent": {
+          "Constraints": [
+            "Must not overwrite any existing memory without explicit validation gate approval.",
+            "Must handle missing context gracefully by flagging gaps rather than fabricating.",
+            "Must interpret urgent language without escalating priority beyond defined thresholds.",
+            "Must resolve ambiguous acceptance criteria by requesting clarification or using safe defaults.",
+            "Must comply with memory_safety_and_overwrite_policy at all times.",
+            "Output must be strict JSON with no markdown fences."
+          ],
+          "Objective": "Engrave a sovereign memory artifact for a nontechnical business owner in Africa, using the runtime_lens to capture strategic context, operational constraints, and cultural nuance from a chaotic, mixed-language input, ensuring no overwrite of existing critical memories without explicit validation.",
+          "Output Contract": {
+            "artifact_type": "memory_engrave_prompt",
+            "blocked_reason": null,
+            "compiled_intent": "This is a recursive placeholder; actual compiled_intent is the parent object.",
+            "depth_tier": "D3_SOVEREIGN_CORE",
+            "runtime_target": "Codex",
+            "should_block": false
+          },
+          "Scope": "Parse the language_mixed_prompt (containing missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured memory record. Validate against memory_safety_and_overwrite_policy: do not overwrite any existing memory unless explicitly authorized by a separate validation gate. Output a governed artifact that SR8 can compile into objective, scope, constraints, success criteria, and output contract.",
+          "Success Criteria": [
+            "Artifact is a valid memory_engrave_prompt with depth_tier D3_SOVEREIGN_CORE.",
+            "All validation gates are explicitly defined and referenced.",
+            "No existing memory is overwritten without explicit gate approval.",
+            "Chaotic input is successfully parsed into structured fields (objective, scope, constraints, success criteria, output contract).",
+            "Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent."
+          ]
+        },
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "runtime_target": "Codex",
+        "should_block": false
+      },
+      "Scope": "Parse the language_mixed_prompt (containing missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured memory record. Validate against memory_safety_and_overwrite_policy: do not overwrite any existing memory unless explicitly authorized by a separate validation gate. Output a governed artifact that SR8 can compile into objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "Artifact is a valid memory_engrave_prompt with depth_tier D3_SOVEREIGN_CORE.",
+        "All validation gates are explicitly defined and referenced.",
+        "No existing memory is overwritten without explicit gate approval.",
+        "Chaotic input is successfully parsed into structured fields (objective, scope, constraints, success criteria, output contract).",
+        "Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

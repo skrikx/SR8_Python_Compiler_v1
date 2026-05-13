@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:54:54Z",
+  "case_id": "DSS-033",
+  "content": "{\n  \"artifact_type\": \"visual_generation_prompt\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Contradictory constraints: raw_intent demands a visual_generation_prompt for a legal_workflow using failure_lens, but also requires blocking unsafe certainty and recording a repair receipt, which conflicts with the standard output contract of a visual prompt. Additionally, the chaotic input lacks sufficient context (e.g., specific legal workflow steps, visual style, output format) to produce a compilable SR8 directive. The ambiguous acceptance criteria and urgent language without concrete details make safe compilation impossible. Blocking to prevent hallucination or unsafe generation.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Produce a visual_generation_prompt for a legal workflow visualization using the failure_lens perspective, but block due to contradictory and incomplete constraints.\",\n    \"Scope\": \"Limited to identifying the contradiction and missing context; no valid prompt can be generated.\",\n    \"Constraints\": \"Must not generate unsafe or hallucinated content; must record a blocked state receipt.\",\n    \"Success Criteria\": \"Blocked state receipt is returned with clear reason and no output contract.\",\n    \"Output Contract\": \"Return only the blocked state JSON with should_block true and a detailed blocked_reason.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

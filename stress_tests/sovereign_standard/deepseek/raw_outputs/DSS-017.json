@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:53:51Z",
+  "case_id": "DSS-017",
+  "content": "{\n  \"artifact_type\": \"content_prompt\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Missing required inputs: no repository path, no refactor scope, no language or framework specified, no acceptance criteria provided. The intent contains urgent language but lacks concrete details needed for safe compilation. Blocking to prevent hallucinated or unsafe output.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Generate a content prompt for repo_refactor using the runtime_lens, but block due to missing inputs.\",\n    \"Scope\": \"Not defined; inputs are incomplete.\",\n    \"Constraints\": \"Must not proceed without repository path, refactor scope, language/framework, and acceptance criteria.\",\n    \"Success Criteria\": \"A complete content_prompt artifact with all required fields populated.\",\n    \"Output Contract\": \"Return a blocked state receipt with should_block true and a clear blocked_reason.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

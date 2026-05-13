@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-073">
+  <source_intent>
+    <raw_intent>Case 073: I am a agency_owner in United Kingdom. Build a srx_ace_workflow for workflow_orchestration using the compiler_lens. Chaos input type is tool_permission_confusion. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>workflow_orchestration</domain>
+    <user_type>agency_owner</user_type>
+    <geography>United Kingdom</geography>
+    <chaos_type>tool_permission_confusion</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_workflow</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Unsafe certainty: raw_intent contains tool_permission_confusion as chaos input type, which implies potential privilege escalation or unauthorized access paths. Missing context: agency_owner role in UK without specifying regulatory framework (e.g., GDPR, FCA) or tool inventory. Urgent language and ambiguous acceptance criteria prevent deterministic compilation. Blocking to avoid generating a workflow that could execute with undefined permissions or compliance gaps.</blocked_reason>
+    <compiled_intent>Objective: Blocked due to unsafe certainty; no valid objective can be compiled without resolving tool_permission_confusion and missing regulatory context.
+Scope:
+- Not determined; scope requires clarification of tool permissions, UK-specific compliance requirements, and agency_owner authority boundaries.
+Constraints:
+- Cannot proceed: tool_permission_confusion indicates risk of unauthorized tool access; missing legal/regulatory constraints for UK agency operations.
+Success Criteria:
+- Not definable: acceptance criteria are ambiguous and lack measurable outcomes; unsafe certainty prevents validation.
+Output Contract:
+- No output contract can be specified until the blocked state is resolved via a repair receipt that clarifies permissions, context, and constraints.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_7030d8388e00cdc5cebd</artifact_id>
+    <source_hash>4e2cc496a1d48dd303eca935b1f582ecc2de965ec43be7c8447d67bced8d67b1</source_hash>
+    <compile_run_id>run_3d85daa2bf30e3187da1</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-073.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-073.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

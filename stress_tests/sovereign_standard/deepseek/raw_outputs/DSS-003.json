@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:52:57Z",
+  "case_id": "DSS-003",
+  "content": "{\n  \"artifact_type\": \"srx_ace_v3_agent\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Contradictory constraints: agency_owner in United Kingdom implies UK legal jurisdiction and regulatory compliance (e.g., SRA, GDPR), but market_lens is undefined and may conflict with UK-specific legal workflow requirements. Missing context: no details on legal workflow type (e.g., contract review, litigation, compliance), no client data handling scope, no integration endpoints. Urgent language without concrete deadlines or escalation paths. Ambiguous acceptance criteria: no measurable success metrics, no output format specification. Unsafe certainty: cannot guarantee lawful operation under UK law without explicit compliance mapping. Repair receipt: requires clarification of legal workflow domain, market_lens definition, data protection measures, and acceptance criteria with verifiable thresholds.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Build an SRX ACE v3 agent for legal workflow in the United Kingdom, using the market_lens, that can be compiled by SR8 into a deployable sovereign agent.\",\n    \"Scope\": \"Agent must handle legal workflow tasks within UK jurisdiction, comply with UK legal and regulatory standards, and integrate with specified systems (undefined).\",\n    \"Constraints\": \"Must operate under UK law (e.g., SRA, GDPR, Data Protection Act 2018). Must not process data outside UK/EU without explicit consent. Must log all decisions for audit. Must handle contradictory inputs gracefully.\",\n    \"Success Criteria\": \"Agent passes UK legal compliance audit. Agent processes legal workflow with <1% error rate. Agent generates auditable receipts for all blocked or uncertain actions.\",\n    \"Output Contract\": \"Returns a JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (with Objective, Scope, Constraints, Success Criteria, Output Contract).\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

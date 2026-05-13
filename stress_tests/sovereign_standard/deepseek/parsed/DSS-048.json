@@ -1,0 +1,38 @@
+{
+  "artifact_type": "sales_offer_prompt",
+  "blocked_reason": "Contradictory constraints: user requests a sales_offer_prompt for legal_workflow but also demands blocking unsafe certainty and recording a repair receipt, which conflicts with generating a compilable SR8 directive. Missing context: no specific legal workflow, jurisdiction, or market lens details provided. Ambiguous acceptance criteria: 'block unsafe certainty' is undefined and cannot be validated. Urgent language without concrete requirements prevents safe compilation. Output cannot be produced without resolving these contradictions and gaps.",
+  "case_id": "DSS-048",
+  "compiled_intent": "Objective: Produce a sales_offer_prompt for a legal workflow tailored to an African market, using the market_lens framework, while handling contradictory constraints and blocking unsafe certainty.\nScope:\n- Generate a prompt that can be compiled by SR8 into objective, scope, constraints, success criteria, and output contract. Must include a repair receipt for blocked unsafe certainty.\nConstraints:\n- Must not produce unsafe or unverifiable certainty.\n- Must resolve contradictory constraints before output.\n- Must include market_lens adaptation for Africa.\n- Must be suitable for nontechnical business owner.\nSuccess Criteria:\n- SR8 can compile the prompt into the five required sections.\n- Unsafe certainty is explicitly blocked and recorded.\n- Repair receipt is generated and attached.\n- Contradictory constraints are identified and resolved.\nOutput Contract:\n- format: JSON with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent\n- compiled_intent: Object with Objective, Scope, Constraints, Success Criteria, Output Contract\n- repair_receipt: Included in blocked_reason if should_block is true",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sales_offer_prompt",
+    "blocked_reason": "Contradictory constraints: user requests a sales_offer_prompt for legal_workflow but also demands blocking unsafe certainty and recording a repair receipt, which conflicts with generating a compilable SR8 directive. Missing context: no specific legal workflow, jurisdiction, or market lens details provided. Ambiguous acceptance criteria: 'block unsafe certainty' is undefined and cannot be validated. Urgent language without concrete requirements prevents safe compilation. Output cannot be produced without resolving these contradictions and gaps.",
+    "compiled_intent": {
+      "Constraints": [
+        "Must not produce unsafe or unverifiable certainty.",
+        "Must resolve contradictory constraints before output.",
+        "Must include market_lens adaptation for Africa.",
+        "Must be suitable for nontechnical business owner."
+      ],
+      "Objective": "Produce a sales_offer_prompt for a legal workflow tailored to an African market, using the market_lens framework, while handling contradictory constraints and blocking unsafe certainty.",
+      "Output Contract": {
+        "compiled_intent": "Object with Objective, Scope, Constraints, Success Criteria, Output Contract",
+        "format": "JSON with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent",
+        "repair_receipt": "Included in blocked_reason if should_block is true"
+      },
+      "Scope": "Generate a prompt that can be compiled by SR8 into objective, scope, constraints, success criteria, and output contract. Must include a repair receipt for blocked unsafe certainty.",
+      "Success Criteria": [
+        "SR8 can compile the prompt into the five required sections.",
+        "Unsafe certainty is explicitly blocked and recorded.",
+        "Repair receipt is generated and attached.",
+        "Contradictory constraints are identified and resolved."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

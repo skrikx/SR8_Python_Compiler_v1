@@ -1,0 +1,86 @@
+{
+  "artifact_type": "srx_ace_build_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-004",
+  "compiled_intent": "Objective: Build an SRX ACE build agent for finance operations within a European Union law firm, using the compliance lens to ensure regulatory adherence and audit readiness.\nScope:\n- The agent shall generate, validate, and deploy finance operation workflows, contracts, and reports that comply with EU financial regulations (e.g., MiFID II, GDPR, AML directives). It must handle overbroad one-pass lock inputs by enforcing strict validation gates and rejecting ambiguous or incomplete data.\nConstraints:\n- All outputs must be GDPR-compliant and respect data minimization.\n- No execution of financial transactions without explicit human approval.\n- Must log all validation failures and blocked actions for audit trails.\n- Must operate within the law firm's existing IT infrastructure and Codex runtime.\n- Must not expose client confidential data beyond encrypted storage.\nSuccess Criteria:\n- Agent successfully parses and validates at least 95% of finance ops requests against compliance rules.\n- All validation gates produce explicit pass/fail evidence with timestamps.\n- Generated artifacts (contracts, reports) pass a mock regulatory audit checklist.\n- Overbroad one-pass lock inputs are rejected with clear reason codes.\n- System produces a final compliance evidence report for each processed case.\nOutput Contract:\n- format: JSON\n- fields: name: artifact_id; type: string; description: Unique identifier for the generated artifact; name: validation_gates; type: array; items: type: object; properties: gate_name: string; status: string; evidence: string; timestamp: string; name: compliance_report; type: object; properties: regulation: string; status: string; details: string; name: blocked_reason; type: string; nullable: True; name: final_report; type: object; properties: summary: string; recommendations: array\n- required: artifact_id; validation_gates; compliance_report; final_report",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_build_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "All outputs must be GDPR-compliant and respect data minimization.",
+        "No execution of financial transactions without explicit human approval.",
+        "Must log all validation failures and blocked actions for audit trails.",
+        "Must operate within the law firm's existing IT infrastructure and Codex runtime.",
+        "Must not expose client confidential data beyond encrypted storage."
+      ],
+      "Objective": "Build an SRX ACE build agent for finance operations within a European Union law firm, using the compliance lens to ensure regulatory adherence and audit readiness.",
+      "Output Contract": {
+        "fields": [
+          {
+            "description": "Unique identifier for the generated artifact",
+            "name": "artifact_id",
+            "type": "string"
+          },
+          {
+            "items": {
+              "properties": {
+                "evidence": "string",
+                "gate_name": "string",
+                "status": "string",
+                "timestamp": "string"
+              },
+              "type": "object"
+            },
+            "name": "validation_gates",
+            "type": "array"
+          },
+          {
+            "name": "compliance_report",
+            "properties": {
+              "details": "string",
+              "regulation": "string",
+              "status": "string"
+            },
+            "type": "object"
+          },
+          {
+            "name": "blocked_reason",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "name": "final_report",
+            "properties": {
+              "recommendations": "array",
+              "summary": "string"
+            },
+            "type": "object"
+          }
+        ],
+        "format": "JSON",
+        "required": [
+          "artifact_id",
+          "validation_gates",
+          "compliance_report",
+          "final_report"
+        ]
+      },
+      "Scope": "The agent shall generate, validate, and deploy finance operation workflows, contracts, and reports that comply with EU financial regulations (e.g., MiFID II, GDPR, AML directives). It must handle overbroad one-pass lock inputs by enforcing strict validation gates and rejecting ambiguous or incomplete data.",
+      "Success Criteria": [
+        "Agent successfully parses and validates at least 95% of finance ops requests against compliance rules.",
+        "All validation gates produce explicit pass/fail evidence with timestamps.",
+        "Generated artifacts (contracts, reports) pass a mock regulatory audit checklist.",
+        "Overbroad one-pass lock inputs are rejected with clear reason codes.",
+        "System produces a final compliance evidence report for each processed case."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

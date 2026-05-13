@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-046">
+  <source_intent>
+    <raw_intent>Case 046: I am a healthcare_admin in South Asia. Build a compliance_evidence_prompt for software_build using the compiler_lens. Chaos input type is ambiguous_scope. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>software_build</domain>
+    <user_type>healthcare_admin</user_type>
+    <geography>South Asia</geography>
+    <chaos_type>ambiguous_scope</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>compliance_evidence_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a compliance evidence prompt for a healthcare software build in South Asia, using the compiler lens to resolve ambiguous scope and produce a governed artifact with explicit validation gates.
+Scope:
+- The prompt must address regulatory compliance (e.g., data protection, medical device software standards), include placeholders for jurisdiction-specific policies, and define validation gates for ambiguous acceptance criteria. It must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must not claim completion of legal or medical advice; only evidence collection and compliance mapping.
+- Must handle missing context by marking placeholders with [REQUIRED] tags.
+- Must reject any request for fake or secret data.
+- Must include a validation gate for source policy and claim limits.
+- Output must be strict JSON without markdown fences.
+Success Criteria:
+- The prompt is structured with explicit sections: Objective, Scope, Constraints, Success Criteria, Output Contract.
+- All ambiguous acceptance criteria are flagged with validation gates.
+- The artifact is governed and ready for SR8 compilation.
+- No legal, medical, or financial advice is rendered.
+Output Contract:
+- format: JSON
+- fields: artifact_type: compliance_evidence_prompt; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; should_block: False; blocked_reason: None; compiled_intent: objective: string; scope: string; constraints: string; success_criteria: string; output_contract: format: string; fields: object
+- validation_gates: Gate 1: Confirm source policy and claim limits are documented.; Gate 2: Flag any missing context with [REQUIRED].; Gate 3: Reject any request for fake or secret data.; Gate 4: Ensure no legal/medical/financial advice is given.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_71c257a9bed4fae5dea8</artifact_id>
+    <source_hash>a9dcf08892f5cec7bd106bf545b1ac84f8556c1d83508d454060e1814d42122c</source_hash>
+    <compile_run_id>run_c795dc1594e93c3d213c</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-046.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-046.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

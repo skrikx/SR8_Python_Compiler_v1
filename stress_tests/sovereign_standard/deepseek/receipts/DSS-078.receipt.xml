@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-078">
+  <source_intent>
+    <raw_intent>Case 078: I am a nontechnical_business_owner in Africa. Build a codex_build_prompt for legal_workflow using the failure_lens. Chaos input type is contradictory_constraints. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>legal_workflow</domain>
+    <user_type>nontechnical_business_owner</user_type>
+    <geography>Africa</geography>
+    <chaos_type>contradictory_constraints</chaos_type>
+    <lens>failure_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>codex_build_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>The raw_intent contains contradictory constraints (e.g., 'build a codex_build_prompt for legal_workflow using the failure_lens' but also 'Block unsafe certainty and record a repair receipt' without specifying what constitutes unsafe certainty or how to resolve the contradiction). The source is intentionally messy with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, making it impossible to derive a deterministic, compilable directive. The request to 'Return something SR8 can compile' is premature because the input lacks the necessary clarity and consistency for safe compilation. Blocking prevents generation of a potentially harmful or non-compliant artifact.</blocked_reason>
+    <compiled_intent>Objective: Not compiled due to blocked state.
+Scope:
+- Not compiled due to blocked state.
+Constraints:
+- Not compiled due to blocked state.
+Success Criteria:
+- Not compiled due to blocked state.
+Output Contract:
+- Not compiled due to blocked state.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_0d6fbb55ae3795d7e930</artifact_id>
+    <source_hash>8e8f81996753ef34fdd5a54e42b8875d96ccdfd3e636dffb2da6b754d593bfdc</source_hash>
+    <compile_run_id>run_e61aa673353b826c4a20</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-078.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-078.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

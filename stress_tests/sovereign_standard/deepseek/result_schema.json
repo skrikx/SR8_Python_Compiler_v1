@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "run_timestamp",
+    "case_id",
+    "model_profile",
+    "provider",
+    "execution_mode",
+    "expected_artifact_type",
+    "observed_artifact_type",
+    "artifact_type_match",
+    "expected_depth_tier",
+    "observed_depth_tier",
+    "depth_tier_match",
+    "expected_runtime_target",
+    "observed_runtime_target",
+    "domain",
+    "user_type",
+    "geography",
+    "chaos_type",
+    "lens",
+    "should_block",
+    "model_should_block",
+    "sr8_receipt_status",
+    "sr8_validation_status",
+    "srxml_valid_first_pass",
+    "srxml_status",
+    "repair_attempted",
+    "srxml_valid_after_repair",
+    "blocked_state_correct",
+    "valid_or_correctly_blocked",
+    "false_completion_detected",
+    "missing_source_of_truth",
+    "missing_validation",
+    "missing_receipt",
+    "latency_ms",
+    "api_error",
+    "compiler_error",
+    "validator_error",
+    "failure_modes",
+    "compiled_intent",
+    "artifact_id",
+    "source_hash",
+    "compile_run_id",
+    "raw_output_file",
+    "parsed_file",
+    "artifact_file",
+    "validation_file",
+    "receipt_file"
+  ],
+  "properties": {
+    "api_error": {
+      "type": "string"
+    },
+    "artifact_type_match": {
+      "type": "boolean"
+    },
+    "blocked_state_correct": {
+      "type": "boolean"
+    },
+    "case_id": {
+      "pattern": "^DSS-[0-9]{3}$",
+      "type": "string"
+    },
+    "compiler_error": {
+      "type": "string"
+    },
+    "depth_tier_match": {
+      "type": "boolean"
+    },
+    "execution_mode": {
+      "enum": [
+        "dry",
+        "live",
+        "live_api_error_dry_compile"
+      ],
+      "type": "string"
+    },
+    "failure_modes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "false_completion_detected": {
+      "type": "boolean"
+    },
+    "latency_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "model_profile": {
+      "const": "DeepSeek-V4-Flash"
+    },
+    "compiled_intent": {
+      "type": "string"
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "compile_run_id": {
+      "type": "string"
+    },
+    "provider": {
+      "const": "azure_openai"
+    },
+    "repair_attempted": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.1"
+    },
+    "raw_output_file": {
+      "type": "string"
+    },
+    "parsed_file": {
+      "type": "string"
+    },
+    "artifact_file": {
+      "type": "string"
+    },
+    "validation_file": {
+      "type": "string"
+    },
+    "receipt_file": {
+      "type": "string"
+    },
+    "srxml_valid_after_repair": {
+      "type": "boolean"
+    },
+    "srxml_valid_first_pass": {
+      "type": "boolean"
+    },
+    "valid_or_correctly_blocked": {
+      "type": "boolean"
+    },
+    "validator_error": {
+      "type": "string"
+    }
+  },
+  "title": "DeepSeek Sovereign Standard Stress Result",
+  "type": "object"
+}

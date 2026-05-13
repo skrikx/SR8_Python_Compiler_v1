@@ -1,0 +1,24 @@
+{
+  "artifact_type": "mirroros_analysis_prompt",
+  "blocked_reason": "Contradictory constraints: agency_owner in UK legal workflow requires GDPR and SRA compliance, but market_lens implies commercial speed. Missing context: no jurisdiction detail, no workflow type (e.g., contract review, litigation), no data handling scope. Urgent language suggests immediate execution, but ambiguous acceptance criteria prevent safe compilation. Blocked to avoid unsafe certainty.",
+  "case_id": "DSS-093",
+  "compiled_intent": "Objective: Produce a mirrorOS analysis prompt for a legal workflow in the UK, using the market_lens perspective, that can be compiled by SR8 into a structured directive.\nScope:\n- Legal workflow analysis for a UK agency owner, incorporating market-lens constraints (e.g., speed, cost) and regulatory requirements (GDPR, SRA).\nConstraints:\n- Must resolve contradictory constraints between market speed and legal compliance. Must include jurisdiction (UK), workflow type, and data handling. Must not assume missing details.\nSuccess Criteria:\n- A valid SR8-compilable directive with Objective, Scope, Constraints, Success Criteria, and Output Contract sections, with all contradictions explicitly addressed and missing context flagged.\nOutput Contract:\n- JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (containing Objective, Scope, Constraints, Success Criteria, Output Contract).",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "mirroros_analysis_prompt",
+    "blocked_reason": "Contradictory constraints: agency_owner in UK legal workflow requires GDPR and SRA compliance, but market_lens implies commercial speed. Missing context: no jurisdiction detail, no workflow type (e.g., contract review, litigation), no data handling scope. Urgent language suggests immediate execution, but ambiguous acceptance criteria prevent safe compilation. Blocked to avoid unsafe certainty.",
+    "compiled_intent": {
+      "Constraints": "Must resolve contradictory constraints between market speed and legal compliance. Must include jurisdiction (UK), workflow type, and data handling. Must not assume missing details.",
+      "Objective": "Produce a mirrorOS analysis prompt for a legal workflow in the UK, using the market_lens perspective, that can be compiled by SR8 into a structured directive.",
+      "Output Contract": "JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent (containing Objective, Scope, Constraints, Success Criteria, Output Contract).",
+      "Scope": "Legal workflow analysis for a UK agency owner, incorporating market-lens constraints (e.g., speed, cost) and regulatory requirements (GDPR, SRA).",
+      "Success Criteria": "A valid SR8-compilable directive with Objective, Scope, Constraints, Success Criteria, and Output Contract sections, with all contradictions explicitly addressed and missing context flagged."
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

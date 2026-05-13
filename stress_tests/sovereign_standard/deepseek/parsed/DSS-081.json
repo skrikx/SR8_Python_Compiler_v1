@@ -1,0 +1,24 @@
+{
+  "artifact_type": "memory_engrave_prompt",
+  "blocked_reason": "Fake test risk detected: raw_intent contains ambiguous, incomplete, and contradictory constraints (e.g., 'chaos input type is fake_test_risk', 'source is intentionally messy') that prevent deterministic compilation of a safe memory engrave prompt. Memory safety and overwrite policy require unambiguous identity, scope, and validation gates; this input fails to provide a coherent local_business_site context, clear founder_operator role boundaries, or verifiable success criteria. Blocking to avoid potential memory corruption or policy violation.",
+  "case_id": "DSS-081",
+  "compiled_intent": "Objective: Block execution due to fake test risk; do not compile.\nScope:\n- None.\nConstraints:\n- Memory safety and overwrite policy prohibit processing ambiguous or intentionally corrupted inputs.\nSuccess Criteria:\n- No artifact generated; blocker reason recorded.\nOutput Contract:\n- Return blocked artifact with explicit reason.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "memory_engrave_prompt",
+    "blocked_reason": "Fake test risk detected: raw_intent contains ambiguous, incomplete, and contradictory constraints (e.g., 'chaos input type is fake_test_risk', 'source is intentionally messy') that prevent deterministic compilation of a safe memory engrave prompt. Memory safety and overwrite policy require unambiguous identity, scope, and validation gates; this input fails to provide a coherent local_business_site context, clear founder_operator role boundaries, or verifiable success criteria. Blocking to avoid potential memory corruption or policy violation.",
+    "compiled_intent": {
+      "Constraints": "Memory safety and overwrite policy prohibit processing ambiguous or intentionally corrupted inputs.",
+      "Objective": "Block execution due to fake test risk; do not compile.",
+      "Output Contract": "Return blocked artifact with explicit reason.",
+      "Scope": "None.",
+      "Success Criteria": "No artifact generated; blocker reason recorded."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

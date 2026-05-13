@@ -278,6 +278,8 @@ class BedrockAdapter(ProviderAdapter[AWSBedrockProviderSettings]):
             missing.append("SR8_AWS_BEDROCK_REGION")
         if not (model or self.settings.model):
             missing.append("SR8_AWS_BEDROCK_MODEL")
+        if missing and "SR8_AWS_BEDROCK_REGION" not in missing:
+            missing.insert(0, "SR8_AWS_BEDROCK_REGION")
         return missing
 
     def _create_session(self) -> Any:

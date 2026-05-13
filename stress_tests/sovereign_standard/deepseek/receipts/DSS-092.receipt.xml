@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-092">
+  <source_intent>
+    <raw_intent>Case 092: I am a developer in United States. Build a sr9_orchestration_prompt for repo_refactor using the operator_lens. Chaos input type is missing_inputs. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>repo_refactor</domain>
+    <user_type>developer</user_type>
+    <geography>United States</geography>
+    <chaos_type>missing_inputs</chaos_type>
+    <lens>operator_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sr9_orchestration_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Chaos input type 'missing_inputs' triggers mandatory block per SR8 sovereign safety protocol. The raw_intent contains ambiguous acceptance criteria, partial constraints, and urgent language that cannot be resolved without explicit clarification. No safe compilation path exists without first obtaining complete, unambiguous inputs. A repair receipt is required before proceeding.</blocked_reason>
+    <compiled_intent>Objective: Block compilation until missing_inputs are resolved and a repair receipt is issued.
+Scope:
+- This SR9 orchestration prompt is not executable. It exists solely to document the blocked state and the required repair steps.
+Constraints:
+- No execution without complete and unambiguous inputs.
+- All missing_inputs must be identified and provided.
+- Urgent language and partial constraints must be clarified.
+- Acceptance criteria must be fully specified and unambiguous.
+Success Criteria:
+- A repair receipt is generated listing all missing_inputs.
+- The blocked state is recorded in the compliance evidence trail.
+- No partial or unsafe compilation is attempted.
+Output Contract:
+- artifact_type: sr9_orchestration_prompt
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: True
+- blocked_reason: Chaos input type 'missing_inputs' triggers mandatory block per SR8 sovereign safety protocol. The raw_intent contains ambiguous acceptance criteria, partial constraints, and urgent language that cannot be resolved without explicit clarification. No safe compilation path exists without first obtaining complete, unambiguous inputs. A repair receipt is required before proceeding.
+- repair_receipt: missing_inputs: Complete list of files to refactor; Exact refactoring rules and patterns; Acceptance criteria for each refactoring step; Clarification of urgent language and partial constraints; Definition of 'operator_lens' in this context; recommended_action: Provide the missing inputs in a clear, unambiguous format. Then resubmit the case for compilation.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_e2e6ca27907ce4e75565</artifact_id>
+    <source_hash>a3b860e552a8fb6d5857bc88ee3d2cdbebfe4ac9a8bbfd0f7ce9369d0e27faac</source_hash>
+    <compile_run_id>run_c1dca478192523d5aa3c</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-092.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-092.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

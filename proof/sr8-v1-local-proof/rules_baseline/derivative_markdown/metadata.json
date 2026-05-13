@@ -1,0 +1,28 @@
+{
+  "content": "# PRD - art_9ca1a8a11e961ebd46e8\n## Summary\nProfile: prd\n## Problem\nProduce a product requirement artifact for SR8 v2.\n## Objective\nProduce a product requirement artifact for SR8 v2.\n## Scope\n- Define user and stakeholder signals for onboarding flow.\n- Define acceptance criteria for first-session completion.\n- Define milestone slices for delivery planning.\n- Capture measurable success criteria for release readiness.\n\n## Non-goals\n- No implementation coding in this phase.\n- No analytics vendor migration work.\n\n## Constraints\n- Two sprint timeline.\n- No backend schema migration in this phase.\n\n## Success Criteria\n- Stakeholders approve requirement scope.\n- Completion rate improves after rollout compared with current baseline.\n",
+  "created_at": "2026-05-13T07:51:27.592893Z",
+  "derivative_id": "drv_f75b4e4df4b854370352",
+  "lineage": {
+    "parent_compile_run_id": "run_b1b38a2b9804cca4ba53",
+    "parent_lineage_steps": [
+      "ingest",
+      "normalize",
+      "detect_surface",
+      "assess_intent_strength",
+      "route_selected",
+      "lower_to_canonical",
+      "validate"
+    ],
+    "parent_source_hash": "b0b99c1a894db6669f4f1afeede5dd5fd4aa6fabc9304f6fd42437136f940ab1"
+  },
+  "metadata": {
+    "output_format": "markdown",
+    "parent_profile": "prd",
+    "renderer_version": "w04.v1",
+    "transform_target": "markdown_prd"
+  },
+  "parent_artifact_id": "art_9ca1a8a11e961ebd46e8",
+  "parent_artifact_version": "1.0.0",
+  "profile": "prd",
+  "transform_target": "markdown_prd"
+}

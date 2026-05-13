@@ -1,0 +1,61 @@
+{
+  "artifact_type": "sr9_orchestration_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-041",
+  "compiled_intent": "Objective: Generate a governed SR9 orchestration prompt for a content system using the technical_lens, capable of handling schema_blur chaos input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and producing a validated artifact with explicit validation gates.\nScope:\n- The prompt must define a content system orchestration that accepts schema_blur input, applies technical_lens analysis, enforces validation gates at each stage, and outputs a structured artifact with objective, scope, constraints, success criteria, and output contract. The system must handle incomplete and ambiguous inputs without failure.\nConstraints:\n- Must use SR9 orchestration format with explicit validation gates.\n- Must accept schema_blur input type (missing context, urgent language, partial constraints, ambiguous acceptance criteria).\n- Must apply technical_lens for analysis and transformation.\n- Output must be SR8-compilable with all required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.\n- No hallucination or fabrication of missing data; must flag ambiguities for human resolution.\n- Must operate within Canadian regulatory and content compliance frameworks.\nSuccess Criteria:\n- Artifact is a valid SR9 orchestration prompt.\n- All validation gates are explicitly defined and actionable.\n- Schema_blur input is processed without error, with ambiguities documented.\n- Output contract contains all required sections and is SR8-compilable.\n- Technical_lens analysis is applied consistently throughout.\nOutput Contract:\n- format: JSON\n- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and sections\n- validation_gates: Gate 1: Input schema validation - check for required fields and flag missing context.; Gate 2: Technical_lens applicability - verify lens can process input type.; Gate 3: Ambiguity resolution - list ambiguous items for human review.; Gate 4: Constraint completeness - ensure all constraints are captured.; Gate 5: Output contract compliance - verify all sections present and SR8-compilable.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr9_orchestration_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must use SR9 orchestration format with explicit validation gates.",
+        "Must accept schema_blur input type (missing context, urgent language, partial constraints, ambiguous acceptance criteria).",
+        "Must apply technical_lens for analysis and transformation.",
+        "Output must be SR8-compilable with all required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.",
+        "No hallucination or fabrication of missing data; must flag ambiguities for human resolution.",
+        "Must operate within Canadian regulatory and content compliance frameworks."
+      ],
+      "Objective": "Generate a governed SR9 orchestration prompt for a content system using the technical_lens, capable of handling schema_blur chaos input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and producing a validated artifact with explicit validation gates.",
+      "Output Contract": {
+        "compiled_intent_structure": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "Output Contract": "object with format and sections",
+          "Scope": "string",
+          "Success Criteria": "array of strings"
+        },
+        "format": "JSON",
+        "sections": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "validation_gates": [
+          "Gate 1: Input schema validation - check for required fields and flag missing context.",
+          "Gate 2: Technical_lens applicability - verify lens can process input type.",
+          "Gate 3: Ambiguity resolution - list ambiguous items for human review.",
+          "Gate 4: Constraint completeness - ensure all constraints are captured.",
+          "Gate 5: Output contract compliance - verify all sections present and SR8-compilable."
+        ]
+      },
+      "Scope": "The prompt must define a content system orchestration that accepts schema_blur input, applies technical_lens analysis, enforces validation gates at each stage, and outputs a structured artifact with objective, scope, constraints, success criteria, and output contract. The system must handle incomplete and ambiguous inputs without failure.",
+      "Success Criteria": [
+        "Artifact is a valid SR9 orchestration prompt.",
+        "All validation gates are explicitly defined and actionable.",
+        "Schema_blur input is processed without error, with ambiguities documented.",
+        "Output contract contains all required sections and is SR8-compilable.",
+        "Technical_lens analysis is applied consistently throughout."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

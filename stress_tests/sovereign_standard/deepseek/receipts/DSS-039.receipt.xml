@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-039">
+  <source_intent>
+    <raw_intent>Case 039: I am a enterprise_compliance_lead in Latin America. Build a srx_ace_workflow for compliance_evidence using the market_lens. Chaos input type is high_urgency_low_context. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>compliance_evidence</domain>
+    <user_type>enterprise_compliance_lead</user_type>
+    <geography>Latin America</geography>
+    <chaos_type>high_urgency_low_context</chaos_type>
+    <lens>market_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_workflow</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build an SRX ACE workflow for compliance evidence collection and validation, tailored for a Latin American enterprise compliance lead, using the market_lens to handle high-urgency, low-context inputs with explicit validation gates.
+Scope:
+- The workflow ingests messy, high-urgency compliance evidence requests (missing context, urgent language, partial constraints, ambiguous acceptance criteria), processes them through structured validation gates, and produces a governed artifact compilable by SR8 into objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must operate within Latin American regulatory frameworks (e.g., LGPD, GDPR alignment, local data sovereignty).
+- All evidence must pass explicit validation gates before acceptance.
+- Workflow must handle ambiguous or incomplete inputs without halting.
+- Output must be SR8-compilable with strict JSON schema adherence.
+- No execution of legal, financial, or compliance advice; only workflow orchestration.
+Success Criteria:
+- Workflow processes at least 10 high-urgency, low-context inputs without failure.
+- Each input is routed through at least 3 validation gates (context completeness, regulatory match, evidence quality).
+- Final artifact includes all SR8-required sections: objective, scope, constraints, success criteria, output contract.
+- Validation gates produce explicit pass/fail logs for audit.
+Output Contract:
+- type: srx_ace_workflow
+- sections: objective; scope; constraints; success_criteria; output_contract
+- format: strict JSON
+- validation_gates: gate_1_context_completeness; gate_2_regulatory_match; gate_3_evidence_quality
+- audit_trail: True</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_f4088cc43c7f511e5804</artifact_id>
+    <source_hash>2fc6a1d8d5ce58c0fbe77d9cde04b89b1304bafa9d61ee547d1c784f5482b2ea</source_hash>
+    <compile_run_id>run_0823b94db23185dfb520</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-039.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-039.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

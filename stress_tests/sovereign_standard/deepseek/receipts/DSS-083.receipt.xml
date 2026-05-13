@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-083">
+  <source_intent>
+    <raw_intent>Case 083: I am a agency_owner in United Kingdom. Build a blueprint_design_doc for memory_engrave using the operator_lens. Chaos input type is language_mixed_prompt. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>memory_engrave</domain>
+    <user_type>agency_owner</user_type>
+    <geography>United Kingdom</geography>
+    <chaos_type>language_mixed_prompt</chaos_type>
+    <lens>operator_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>blueprint_design_doc</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Design and document a memory engrave blueprint for a UK-based agency owner, using the operator lens, that can be compiled by SR8 into a governed artifact with explicit validation gates.
+Scope:
+- The blueprint covers the memory engrave process including data ingestion, storage, retrieval, and compliance checks under UK regulations. It defines the operator lens as the primary viewpoint for interaction and decision-making. The artifact must include all SR8-required sections: objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must comply with UK data protection laws (e.g., GDPR, DPA 2018).
+- Must use the operator lens for all user-facing interactions.
+- Must include explicit validation gates at each stage of the memory engrave pipeline.
+- Must be structured as a blueprint design doc suitable for Codex runtime.
+- Must handle ambiguous or missing context from the raw intent by defining default fallback behaviors.
+Success Criteria:
+- Blueprint contains all five SR8 sections: objective, scope, constraints, success criteria, output contract.
+- Validation gates are explicitly defined and testable.
+- Operator lens is consistently applied throughout the document.
+- Compliance with UK regulations is documented and verifiable.
+- Artifact can be directly compiled by SR8 without additional preprocessing.
+Output Contract:
+- format: JSON
+- schema: artifact_type: blueprint_design_doc; depth_tier: D2_PRODUCTION; runtime_target: Codex; sections: objective: string; scope: string; constraints: array of strings; success_criteria: array of strings; output_contract: object; validation_gates: gate_id: string; description: string; pass_condition: string; operator_lens: viewpoint: agency_owner; region: United Kingdom; interaction_model: memory_engrave
+- required: True</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_27aeb94245498e5d866d</artifact_id>
+    <source_hash>bf63c8c3c5ea37393e44eb7b0212cc934e9e3970bb9a90475b16dc462a60a537</source_hash>
+    <compile_run_id>run_cf89ef0c03de4fd36b33</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-083.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-083.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

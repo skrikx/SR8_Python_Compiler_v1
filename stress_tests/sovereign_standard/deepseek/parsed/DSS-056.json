@@ -1,0 +1,52 @@
+{
+  "artifact_type": "srx_ace_workflow",
+  "blocked_reason": "",
+  "case_id": "DSS-056",
+  "compiled_intent": "Objective: Build a governed SRX ACE workflow for a healthcare content system in South Asia, handling schema_blur chaos input with explicit validation gates.\nScope:\n- The workflow must ingest messy, ambiguous content requests (missing context, urgent language, partial constraints, unclear acceptance criteria) and produce a validated, structured artifact suitable for SR8 compilation.\nConstraints:\n- Must operate under South Asian healthcare regulatory frameworks (e.g., data localization, patient privacy).\n- Must use operator_lens to detect and resolve schema_blur (ambiguous or missing schema fields).\n- Must include explicit validation gates at each stage: ingestion, normalization, schema resolution, compliance check, output generation.\n- Must reject or flag any content that fails validation with clear reason.\n- Must not assume complete input; must handle partial or contradictory constraints gracefully.\nSuccess Criteria:\n- Workflow processes a schema_blur input and produces a valid SR8-compilable output with Objective, Scope, Constraints, Success Criteria, and Output Contract.\n- All validation gates are triggered and logged.\n- Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.\n- No hallucinated or fabricated data; all fields derived from input or explicitly marked as unresolved.\nOutput Contract:\n- artifact_type: srx_ace_workflow\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- should_block: False\n- blocked_reason: None\n- compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: object",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_workflow",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate under South Asian healthcare regulatory frameworks (e.g., data localization, patient privacy).",
+        "Must use operator_lens to detect and resolve schema_blur (ambiguous or missing schema fields).",
+        "Must include explicit validation gates at each stage: ingestion, normalization, schema resolution, compliance check, output generation.",
+        "Must reject or flag any content that fails validation with clear reason.",
+        "Must not assume complete input; must handle partial or contradictory constraints gracefully."
+      ],
+      "Objective": "Build a governed SRX ACE workflow for a healthcare content system in South Asia, handling schema_blur chaos input with explicit validation gates.",
+      "Output Contract": {
+        "artifact_type": "srx_ace_workflow",
+        "blocked_reason": null,
+        "compiled_intent": {
+          "Constraints": [
+            "string"
+          ],
+          "Objective": "string",
+          "Output Contract": "object",
+          "Scope": "string",
+          "Success Criteria": [
+            "string"
+          ]
+        },
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "runtime_target": "Codex",
+        "should_block": false
+      },
+      "Scope": "The workflow must ingest messy, ambiguous content requests (missing context, urgent language, partial constraints, unclear acceptance criteria) and produce a validated, structured artifact suitable for SR8 compilation.",
+      "Success Criteria": [
+        "Workflow processes a schema_blur input and produces a valid SR8-compilable output with Objective, Scope, Constraints, Success Criteria, and Output Contract.",
+        "All validation gates are triggered and logged.",
+        "Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.",
+        "No hallucinated or fabricated data; all fields derived from input or explicitly marked as unresolved."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

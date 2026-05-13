@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:54:39Z",
+  "case_id": "DSS-029",
+  "content": "{\n  \"artifact_type\": \"compliance_evidence_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": false,\n  \"blocked_reason\": null,\n  \"compiled_intent\": {\n    \"Objective\": \"Generate a compliance evidence prompt for an audit agent operating under the operator lens, targeting Latin American enterprise compliance requirements, with explicit validation gates and SR8-compilable structure.\",\n    \"Scope\": \"The prompt must handle artifact_type_ambiguity, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. It must produce a governed artifact with clear objective, scope, constraints, success criteria, and output contract sections.\",\n    \"Constraints\": [\n      \"Must comply with Latin American regulatory frameworks (e.g., LGPD, GDPR-equivalent local laws).\",\n      \"Must include validation gates for source policy and claim limits.\",\n      \"Must reject or flag ambiguous or incomplete inputs with explicit reasoning.\",\n      \"Must be SR8-compilable: all sections must be machine-parseable and actionable.\"\n    ],\n    \"Success Criteria\": [\n      \"Output is a valid compliance_evidence_prompt artifact.\",\n      \"All five compiled_intent sections are present and populated.\",\n      \"Validation gates are explicitly defined and trigger on policy/claim violations.\",\n      \"Artifact can be directly consumed by an audit agent without manual interpretation.\"\n    ],\n    \"Output Contract\": {\n      \"type\": \"compliance_evidence_prompt\",\n      \"sections\": [\n        \"objective\",\n        \"scope\",\n        \"constraints\",\n        \"success_criteria\",\n        \"output_contract\"\n      ],\n      \"validation_gates\": [\n        \"source_policy_check\",\n        \"claim_limit_check\",\n        \"ambiguity_resolution_check\"\n      ],\n      \"format\": \"strict JSON with no markdown fences\"\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

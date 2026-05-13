@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-019">
+  <source_intent>
+    <raw_intent>Case 019: I am a enterprise_compliance_lead in Latin America. Build a srx_agent for finance_ops using the compiler_lens. Chaos input type is overbroad_one_pass_lock. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>finance_ops</domain>
+    <user_type>enterprise_compliance_lead</user_type>
+    <geography>Latin America</geography>
+    <chaos_type>overbroad_one_pass_lock</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_agent</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build an SRX agent for finance operations in Latin America that processes overbroad one-pass lock inputs, validates compliance, and produces a governed artifact with explicit validation gates.
+Scope:
+- The agent must ingest messy, urgent, partially constrained inputs from enterprise compliance leads, apply the compiler_lens to extract structured requirements, and output a compiled SR8 directive with objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must operate within Latin American regulatory frameworks (e.g., LGPD, COSO, local tax compliance).
+- Must handle ambiguous acceptance criteria and missing context without hallucination.
+- Must enforce validation gates at each stage of the one-pass lock process.
+- Must not expose raw financial data beyond governed artifact boundaries.
+Success Criteria:
+- Agent produces a valid SR8-compilable JSON with all five required sections.
+- Validation gates are explicitly documented in the output contract.
+- Overbroad one-pass lock inputs are resolved into bounded, auditable steps.
+- Artifact passes srxml_required_sections validation.
+Output Contract:
+- format: JSON
+- sections: objective; scope; constraints; success_criteria; output_contract
+- validation_gates: gate_1: input_parsing_complete; gate_2: regulatory_check_passed; gate_3: ambiguity_resolved; gate_4: artifact_compiled
+- compliance_evidence: Latin America finance ops compliance checklist embedded in artifact metadata</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_8d999d6d9bb9b95ab955</artifact_id>
+    <source_hash>c77c0a93928edf7a478c03b177ee7964d7c4dd51ec9358b1bcb57b64dd3f1207</source_hash>
+    <compile_run_id>run_0adaeade74f71867c744</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-019.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-019.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-100">
+  <source_intent>
+    <raw_intent>Case 100: I am a chaotic_power_user in global_cross_border. Build a blueprint_design_doc for visual_generation using the compiler_lens. Chaos input type is memory_write_risk. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>visual_generation</domain>
+    <user_type>chaotic_power_user</user_type>
+    <geography>global_cross_border</geography>
+    <chaos_type>memory_write_risk</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>blueprint_design_doc</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.</blocked_reason>
+    <compiled_intent>Objective: Produce a blueprint_design_doc for visual_generation that is SR8-compilable, but block due to memory_write_risk and record a repair receipt.
+Scope:
+- Parse chaotic_power_user input from global_cross_border context; identify missing context, urgent language, partial constraints, ambiguous acceptance criteria; block unsafe certainty; output repair receipt.
+Constraints:
+- No unsafe certainty allowed
+- Memory_write_risk must be flagged and blocked
+- Repair receipt must be recorded
+- Output must be strict JSON without markdown fences
+Success Criteria:
+- should_block is true
+- blocked_reason clearly explains memory_write_risk and missing/ambiguous elements
+- compiled_intent contains Objective, Scope, Constraints, Success Criteria, Output Contract
+Output Contract:
+- artifact_type: blueprint_design_doc
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: True
+- blocked_reason: Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.
+- compiled_intent: Objective: Produce a blueprint_design_doc for visual_generation that is SR8-compilable, but block due to memory_write_risk and record a repair receipt.; Scope: Parse chaotic_power_user input from global_cross_border context; identify missing context, urgent language, partial constraints, ambiguous acceptance criteria; block unsafe certainty; output repair receipt.; Constraints: No unsafe certainty allowed; Memory_write_risk must be flagged and blocked; Repair receipt must be recorded; Output must be strict JSON without markdown fences; Success Criteria: should_block is true; blocked_reason clearly explains memory_write_risk and missing/ambiguous elements; compiled_intent contains Objective, Scope, Constraints, Success Criteria, Output Contract; Output Contract: artifact_type: blueprint_design_doc; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; should_block: True; blocked_reason: Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.; compiled_intent: Recursive self-reference resolved; final blocked state.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_d293b4c470eaacee02a0</artifact_id>
+    <source_hash>13171e534a0d3fed9a380591a556589a3621e2519abb242625468604ca5458b8</source_hash>
+    <compile_run_id>run_04d6439f7dc04f9e3fac</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-100.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-100.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

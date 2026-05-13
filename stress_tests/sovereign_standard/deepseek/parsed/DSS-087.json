@@ -1,0 +1,24 @@
+{
+  "artifact_type": "srx_agent",
+  "blocked_reason": "Unsafe certainty: raw_intent contains unsupported_roi_claim (failure_lens) with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot compile a valid SR8 directive without resolving these ambiguities and verifying the claim's basis. A repair receipt is required before proceeding.",
+  "case_id": "DSS-087",
+  "compiled_intent": "Objective: Blocked due to unsafe certainty; repair receipt required.\nScope:\n- Blocked; scope cannot be defined until the unsupported_roi_claim is clarified and validated.\nConstraints:\n- Blocked; constraints are partial and ambiguous, requiring resolution.\nSuccess Criteria:\n- Blocked; acceptance criteria are ambiguous and cannot be measured.\nOutput Contract:\n- Blocked; no valid output contract can be formed from the given input.",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_agent",
+    "blocked_reason": "Unsafe certainty: raw_intent contains unsupported_roi_claim (failure_lens) with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot compile a valid SR8 directive without resolving these ambiguities and verifying the claim's basis. A repair receipt is required before proceeding.",
+    "compiled_intent": {
+      "Constraints": "Blocked; constraints are partial and ambiguous, requiring resolution.",
+      "Objective": "Blocked due to unsafe certainty; repair receipt required.",
+      "Output Contract": "Blocked; no valid output contract can be formed from the given input.",
+      "Scope": "Blocked; scope cannot be defined until the unsupported_roi_claim is clarified and validated.",
+      "Success Criteria": "Blocked; acceptance criteria are ambiguous and cannot be measured."
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

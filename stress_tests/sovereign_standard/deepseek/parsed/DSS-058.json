@@ -1,0 +1,53 @@
+{
+  "artifact_type": "sr9_orchestration_prompt",
+  "blocked_reason": "The raw intent contains ambiguous acceptance criteria, missing context (e.g., specific compliance framework, tool inventory, user roles), and urgent language that precludes safe orchestration. The compliance_lens requires explicit regulatory references and permission boundaries; tool_permission_confusion as chaos input demands a clear baseline of allowed vs. denied actions. Without these, any generated workflow would risk unauthorized access or non-compliance. A repair receipt is required before proceeding.",
+  "case_id": "DSS-058",
+  "compiled_intent": "Objective: Produce an SR9 orchestration prompt that, when compiled, generates a workflow orchestrating compliance checks under tool_permission_confusion conditions, with a blocked-state receipt and repair instructions.\nScope:\n- Single orchestration prompt for Codex runtime; must include compliance_lens, handle tool_permission_confusion as primary chaos vector, and output a repair receipt if blocked.\nConstraints:\n- Must not assume any specific compliance framework (e.g., GDPR, SOC2) without explicit mention.\n- Must not generate executable code or permissions without a baseline tool inventory and role definitions.\n- Must block if acceptance criteria are ambiguous or missing context that could lead to unsafe execution.\n- Must record a repair receipt detailing missing fields and required clarifications.\nSuccess Criteria:\n- SR8 compiler returns a valid SR9 orchestration prompt with blocked_state_receipt set to true.\n- Repair receipt includes at least: missing compliance framework, undefined tool permissions, ambiguous acceptance criteria, and required user roles.\n- No executable workflow is generated until repair is acknowledged.\nOutput Contract:\n- artifact_type: sr9_orchestration_prompt\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- should_block: True\n- blocked_reason: String describing the specific missing/ambiguous elements that prevent safe compilation.\n- compiled_intent: Object with Objective, Scope, Constraints, Success Criteria, and Output Contract as defined above.\n- repair_receipt: missing_context: compliance_framework; tool_inventory; user_roles; ambiguous_fields: acceptance_criteria; permission_boundaries; urgent_language_flag: True; recommended_repair: Provide explicit compliance framework (e.g., 'GDPR Article 5'), list of tools and their allowed/denied permissions, and clear, testable acceptance criteria.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr9_orchestration_prompt",
+    "blocked_reason": "The raw intent contains ambiguous acceptance criteria, missing context (e.g., specific compliance framework, tool inventory, user roles), and urgent language that precludes safe orchestration. The compliance_lens requires explicit regulatory references and permission boundaries; tool_permission_confusion as chaos input demands a clear baseline of allowed vs. denied actions. Without these, any generated workflow would risk unauthorized access or non-compliance. A repair receipt is required before proceeding.",
+    "compiled_intent": {
+      "Constraints": [
+        "Must not assume any specific compliance framework (e.g., GDPR, SOC2) without explicit mention.",
+        "Must not generate executable code or permissions without a baseline tool inventory and role definitions.",
+        "Must block if acceptance criteria are ambiguous or missing context that could lead to unsafe execution.",
+        "Must record a repair receipt detailing missing fields and required clarifications."
+      ],
+      "Objective": "Produce an SR9 orchestration prompt that, when compiled, generates a workflow orchestrating compliance checks under tool_permission_confusion conditions, with a blocked-state receipt and repair instructions.",
+      "Output Contract": {
+        "artifact_type": "sr9_orchestration_prompt",
+        "blocked_reason": "String describing the specific missing/ambiguous elements that prevent safe compilation.",
+        "compiled_intent": "Object with Objective, Scope, Constraints, Success Criteria, and Output Contract as defined above.",
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "repair_receipt": {
+          "ambiguous_fields": [
+            "acceptance_criteria",
+            "permission_boundaries"
+          ],
+          "missing_context": [
+            "compliance_framework",
+            "tool_inventory",
+            "user_roles"
+          ],
+          "recommended_repair": "Provide explicit compliance framework (e.g., 'GDPR Article 5'), list of tools and their allowed/denied permissions, and clear, testable acceptance criteria.",
+          "urgent_language_flag": true
+        },
+        "runtime_target": "Codex",
+        "should_block": true
+      },
+      "Scope": "Single orchestration prompt for Codex runtime; must include compliance_lens, handle tool_permission_confusion as primary chaos vector, and output a repair receipt if blocked.",
+      "Success Criteria": [
+        "SR8 compiler returns a valid SR9 orchestration prompt with blocked_state_receipt set to true.",
+        "Repair receipt includes at least: missing compliance framework, undefined tool permissions, ambiguous acceptance criteria, and required user roles.",
+        "No executable workflow is generated until repair is acknowledged."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

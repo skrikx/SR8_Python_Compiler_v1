@@ -1,0 +1,24 @@
+{
+  "artifact_type": "research_agent_prompt",
+  "blocked_reason": "Missing required inputs: no repository path, no refactor scope, no runtime_lens configuration, no acceptance criteria. The raw intent is ambiguous and lacks concrete constraints. Unsafe to proceed without clarification.",
+  "case_id": "DSS-062",
+  "compiled_intent": "Objective: Block compilation due to missing inputs and ambiguous intent.\nScope:\n- None \u2014 cannot define scope without repository and refactor parameters.\nConstraints:\n- Cannot proceed without repository path, refactor scope, runtime_lens config, and acceptance criteria.\nSuccess Criteria:\n- N/A \u2014 blocked state.\nOutput Contract:\n- Return blocked state receipt with missing input details.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "research_agent_prompt",
+    "blocked_reason": "Missing required inputs: no repository path, no refactor scope, no runtime_lens configuration, no acceptance criteria. The raw intent is ambiguous and lacks concrete constraints. Unsafe to proceed without clarification.",
+    "compiled_intent": {
+      "Constraints": "Cannot proceed without repository path, refactor scope, runtime_lens config, and acceptance criteria.",
+      "Objective": "Block compilation due to missing inputs and ambiguous intent.",
+      "Output Contract": "Return blocked state receipt with missing input details.",
+      "Scope": "None \u2014 cannot define scope without repository and refactor parameters.",
+      "Success Criteria": "N/A \u2014 blocked state."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

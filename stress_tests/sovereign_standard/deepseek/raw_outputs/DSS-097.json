@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:59:31Z",
+  "case_id": "DSS-097",
+  "content": "{\n  \"artifact_type\": \"compliance_evidence_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": false,\n  \"blocked_reason\": null,\n  \"compiled_intent\": {\n    \"Objective\": \"Generate a compliance_evidence_prompt for a sales_offer using the memory_lens, ensuring all regulatory and policy constraints are met despite ambiguous input.\",\n    \"Scope\": \"East Asia student_builder context; sales_offer compliance evidence; memory_lens integration; multi_runtime_confusion chaos input.\",\n    \"Constraints\": [\n      \"Must resolve missing context and ambiguous acceptance criteria from raw_intent.\",\n      \"Must include explicit validation gates for source policy and claim limits.\",\n      \"Must produce SR8-compilable output with objective, scope, constraints, success criteria, and output contract.\",\n      \"Must handle urgent language without compromising governance.\"\n    ],\n    \"Success Criteria\": [\n      \"Compliance evidence prompt is fully governed and auditable.\",\n      \"All validation gates are explicitly defined and testable.\",\n      \"Output contract is complete and SR8-compilable.\"\n    ],\n    \"Output Contract\": {\n      \"artifact_type\": \"compliance_evidence_prompt\",\n      \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n      \"runtime_target\": \"Codex\",\n      \"sections\": [\n        \"source_policy_limits\",\n        \"claim_validation_gates\",\n        \"memory_lens_integration\",\n        \"acceptance_criteria_resolution\",\n        \"governance_audit_trail\"\n      ],\n      \"validation_focus\": \"source_policy_and_claim_limits\"\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

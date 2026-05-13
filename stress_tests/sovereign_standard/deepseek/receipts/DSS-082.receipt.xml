@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-082">
+  <source_intent>
+    <raw_intent>Case 082: I am a developer in United States. Build a sales_offer_prompt for sales_offer using the compiler_lens. Chaos input type is multi_runtime_confusion. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>sales_offer</domain>
+    <user_type>developer</user_type>
+    <geography>United States</geography>
+    <chaos_type>multi_runtime_confusion</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sales_offer_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a governed sales_offer_prompt artifact for a developer in the United States, using the compiler_lens to resolve multi_runtime_confusion from chaotic input (missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce an SR8-compilable directive with explicit validation gates.
+Scope:
+- The artifact must be a sales_offer_prompt that includes all required SR8 sections: Objective, Scope, Constraints, Success Criteria, and Output Contract. It must handle the chaos input type 'multi_runtime_confusion' by normalizing missing context, urgent language, partial constraints, and ambiguous acceptance criteria into a structured, governed format. The prompt must be suitable for Codex runtime execution.
+Constraints:
+- Must include explicit validation gates for each SR8 section (e.g., completeness checks, consistency checks, ambiguity resolution).
+- Must not assume any missing context; instead, define placeholders or default behaviors for missing data.
+- Urgent language must be translated into priority levels and deadlines within the Constraints section.
+- Partial constraints must be expanded to full constraint statements with fallback defaults.
+- Ambiguous acceptance criteria must be clarified with at least two possible interpretations and a resolution rule.
+- Must be a single JSON object with no markdown fences.
+- Must comply with US legal and regulatory standards for sales offers (e.g., truth-in-advertising, data privacy).
+Success Criteria:
+- The artifact is a valid sales_offer_prompt with artifact_type, depth_tier, runtime_target, should_block, blocked_reason, and compiled_intent fields.
+- compiled_intent contains Objective, Scope, Constraints, Success Criteria, and Output Contract sections.
+- All chaos input types (missing context, urgent language, partial constraints, ambiguous acceptance criteria) are explicitly addressed in the artifact.
+- Validation gates are present and clearly defined for each SR8 section.
+- The artifact can be directly compiled by SR8 into a runnable directive.
+- No markdown fences or extraneous text outside the JSON object.
+Output Contract:
+- format: JSON object with keys: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent
+- compiled_intent: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and compiled_intent fields
+- validation_gates: Gate 1: Verify all required keys are present and non-null.; Gate 2: Ensure compiled_intent contains all five required sections.; Gate 3: Check that each constraint is a complete sentence with no ambiguity.; Gate 4: Confirm success criteria are measurable and testable.; Gate 5: Validate that output contract specifies format and structure.; Gate 6: Ensure no markdown fences or external formatting.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_0df10cd199b8f466b367</artifact_id>
+    <source_hash>fb7d0d7eaf7bdabec592d7c2575f9bac7eecd56ace84867cc11db9366721967c</source_hash>
+    <compile_run_id>run_ac0a284b072a06800cfd</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-082.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-082.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

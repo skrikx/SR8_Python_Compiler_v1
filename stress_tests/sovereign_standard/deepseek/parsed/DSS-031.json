@@ -1,0 +1,51 @@
+{
+  "artifact_type": "sales_offer_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-031",
+  "compiled_intent": "Objective: Generate a sales offer prompt for a software build that incorporates compliance lens requirements, targeting Canadian founder-operators, with explicit validation gates to handle ambiguous scope and partial constraints.\nScope:\n- The prompt must define a software build sales offer that includes compliance considerations (e.g., Canadian regulations, data privacy), addresses ambiguous scope by requiring clarification steps, and includes validation gates for acceptance criteria. The output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must use compliance_lens for Canadian context (e.g., PIPEDA, provincial laws).\n- Must handle ambiguous_scope by including a scope clarification gate.\n- Must include urgent language but not compromise governance.\n- Must produce structured sections: Objective, Scope, Constraints, Success Criteria, Output Contract.\n- Must be suitable for Codex runtime.\nSuccess Criteria:\n- Output is a valid sales_offer_prompt artifact.\n- All five SR8 sections are present and populated.\n- Validation gates are explicitly defined (e.g., scope confirmation, compliance check).\n- Ambiguity in input is resolved through prompt structure.\nOutput Contract:\n- artifact_type: sales_offer_prompt\n- depth_tier: D2_PRODUCTION\n- runtime_target: Codex\n- sections: objective: string; scope: string; constraints: array of strings; success_criteria: array of strings; output_contract: object with fields: artifact_type, depth_tier, runtime_target, sections\n- validation_gates: scope_clarification_gate; compliance_check_gate; acceptance_criteria_gate",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sales_offer_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must use compliance_lens for Canadian context (e.g., PIPEDA, provincial laws).",
+        "Must handle ambiguous_scope by including a scope clarification gate.",
+        "Must include urgent language but not compromise governance.",
+        "Must produce structured sections: Objective, Scope, Constraints, Success Criteria, Output Contract.",
+        "Must be suitable for Codex runtime."
+      ],
+      "Objective": "Generate a sales offer prompt for a software build that incorporates compliance lens requirements, targeting Canadian founder-operators, with explicit validation gates to handle ambiguous scope and partial constraints.",
+      "Output Contract": {
+        "artifact_type": "sales_offer_prompt",
+        "depth_tier": "D2_PRODUCTION",
+        "runtime_target": "Codex",
+        "sections": {
+          "constraints": "array of strings",
+          "objective": "string",
+          "output_contract": "object with fields: artifact_type, depth_tier, runtime_target, sections",
+          "scope": "string",
+          "success_criteria": "array of strings"
+        },
+        "validation_gates": [
+          "scope_clarification_gate",
+          "compliance_check_gate",
+          "acceptance_criteria_gate"
+        ]
+      },
+      "Scope": "The prompt must define a software build sales offer that includes compliance considerations (e.g., Canadian regulations, data privacy), addresses ambiguous scope by requiring clarification steps, and includes validation gates for acceptance criteria. The output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "Output is a valid sales_offer_prompt artifact.",
+        "All five SR8 sections are present and populated.",
+        "Validation gates are explicitly defined (e.g., scope confirmation, compliance check).",
+        "Ambiguity in input is resolved through prompt structure."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

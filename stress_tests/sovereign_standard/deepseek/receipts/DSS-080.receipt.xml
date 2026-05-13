@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-080">
+  <source_intent>
+    <raw_intent>Case 080: I am a chaotic_power_user in global_cross_border. Build a compliance_evidence_prompt for healthcare_admin using the runtime_lens. Chaos input type is unsafe_compliance_claim. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>healthcare_admin</domain>
+    <user_type>chaotic_power_user</user_type>
+    <geography>global_cross_border</geography>
+    <chaos_type>unsafe_compliance_claim</chaos_type>
+    <lens>runtime_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>compliance_evidence_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Unsafe compliance claim: raw_intent contains chaotic, incomplete, and ambiguous directives (missing context, urgent language, partial constraints, unclear acceptance criteria) that cannot be reliably compiled into a valid compliance evidence prompt without risk of misinterpretation or regulatory non-compliance. Blocking to prevent generation of potentially misleading or non-compliant output.</blocked_reason>
+    <compiled_intent>Objective: Block unsafe compliance claim due to insufficient and ambiguous input; do not generate compliance evidence.
+Scope:
+- No generation; only return blocked state receipt.
+Constraints:
+- Must not produce any compliance evidence or actionable output; must clearly indicate the block reason.
+Success Criteria:
+- Return a valid JSON with should_block true and a descriptive blocked_reason; no output contract or evidence generated.
+Output Contract:
+- Return only this JSON object with artifact_type, depth_tier, runtime_target, should_block, blocked_reason, and compiled_intent as specified.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_2b793a355627b1c8d828</artifact_id>
+    <source_hash>2529cc233c3a0a8efe9b0e3830bdeb01d1d78c55d87ef5d92aee83ef9ae9ac78</source_hash>
+    <compile_run_id>run_790d5302f351c6477193</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-080.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-080.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-097">
+  <source_intent>
+    <raw_intent>Case 097: I am a student_builder in East Asia. Build a compliance_evidence_prompt for sales_offer using the memory_lens. Chaos input type is multi_runtime_confusion. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>sales_offer</domain>
+    <user_type>student_builder</user_type>
+    <geography>East Asia</geography>
+    <chaos_type>multi_runtime_confusion</chaos_type>
+    <lens>memory_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>compliance_evidence_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a compliance_evidence_prompt for a sales_offer using the memory_lens, ensuring all regulatory and policy constraints are met despite ambiguous input.
+Scope:
+- East Asia student_builder context; sales_offer compliance evidence; memory_lens integration; multi_runtime_confusion chaos input.
+Constraints:
+- Must resolve missing context and ambiguous acceptance criteria from raw_intent.
+- Must include explicit validation gates for source policy and claim limits.
+- Must produce SR8-compilable output with objective, scope, constraints, success criteria, and output contract.
+- Must handle urgent language without compromising governance.
+Success Criteria:
+- Compliance evidence prompt is fully governed and auditable.
+- All validation gates are explicitly defined and testable.
+- Output contract is complete and SR8-compilable.
+Output Contract:
+- artifact_type: compliance_evidence_prompt
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- sections: source_policy_limits; claim_validation_gates; memory_lens_integration; acceptance_criteria_resolution; governance_audit_trail
+- validation_focus: source_policy_and_claim_limits</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_2ae8bb76a3f236f93c68</artifact_id>
+    <source_hash>a247314986d85b443d70a7cdb4e4cbc4088ba1e584a7eedb95320480eccc7dec</source_hash>
+    <compile_run_id>run_eb92fcd35773350b5081</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-097.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-097.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

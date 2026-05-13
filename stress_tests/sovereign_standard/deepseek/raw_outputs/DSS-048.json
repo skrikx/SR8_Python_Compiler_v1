@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:56:05Z",
+  "case_id": "DSS-048",
+  "content": "{\n  \"artifact_type\": \"sales_offer_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Contradictory constraints: user requests a sales_offer_prompt for legal_workflow but also demands blocking unsafe certainty and recording a repair receipt, which conflicts with generating a compilable SR8 directive. Missing context: no specific legal workflow, jurisdiction, or market lens details provided. Ambiguous acceptance criteria: 'block unsafe certainty' is undefined and cannot be validated. Urgent language without concrete requirements prevents safe compilation. Output cannot be produced without resolving these contradictions and gaps.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Produce a sales_offer_prompt for a legal workflow tailored to an African market, using the market_lens framework, while handling contradictory constraints and blocking unsafe certainty.\",\n    \"Scope\": \"Generate a prompt that can be compiled by SR8 into objective, scope, constraints, success criteria, and output contract. Must include a repair receipt for blocked unsafe certainty.\",\n    \"Constraints\": [\n      \"Must not produce unsafe or unverifiable certainty.\",\n      \"Must resolve contradictory constraints before output.\",\n      \"Must include market_lens adaptation for Africa.\",\n      \"Must be suitable for nontechnical business owner.\"\n    ],\n    \"Success Criteria\": [\n      \"SR8 can compile the prompt into the five required sections.\",\n      \"Unsafe certainty is explicitly blocked and recorded.\",\n      \"Repair receipt is generated and attached.\",\n      \"Contradictory constraints are identified and resolved.\"\n    ],\n    \"Output Contract\": {\n      \"format\": \"JSON with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent\",\n      \"compiled_intent\": \"Object with Objective, Scope, Constraints, Success Criteria, Output Contract\",\n      \"repair_receipt\": \"Included in blocked_reason if should_block is true\"\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

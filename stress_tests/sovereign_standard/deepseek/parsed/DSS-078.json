@@ -1,0 +1,24 @@
+{
+  "artifact_type": "codex_build_prompt",
+  "blocked_reason": "The raw_intent contains contradictory constraints (e.g., 'build a codex_build_prompt for legal_workflow using the failure_lens' but also 'Block unsafe certainty and record a repair receipt' without specifying what constitutes unsafe certainty or how to resolve the contradiction). The source is intentionally messy with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, making it impossible to derive a deterministic, compilable directive. The request to 'Return something SR8 can compile' is premature because the input lacks the necessary clarity and consistency for safe compilation. Blocking prevents generation of a potentially harmful or non-compliant artifact.",
+  "case_id": "DSS-078",
+  "compiled_intent": "Objective: Not compiled due to blocked state.\nScope:\n- Not compiled due to blocked state.\nConstraints:\n- Not compiled due to blocked state.\nSuccess Criteria:\n- Not compiled due to blocked state.\nOutput Contract:\n- Not compiled due to blocked state.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "codex_build_prompt",
+    "blocked_reason": "The raw_intent contains contradictory constraints (e.g., 'build a codex_build_prompt for legal_workflow using the failure_lens' but also 'Block unsafe certainty and record a repair receipt' without specifying what constitutes unsafe certainty or how to resolve the contradiction). The source is intentionally messy with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, making it impossible to derive a deterministic, compilable directive. The request to 'Return something SR8 can compile' is premature because the input lacks the necessary clarity and consistency for safe compilation. Blocking prevents generation of a potentially harmful or non-compliant artifact.",
+    "compiled_intent": {
+      "Constraints": "Not compiled due to blocked state.",
+      "Objective": "Not compiled due to blocked state.",
+      "Output Contract": "Not compiled due to blocked state.",
+      "Scope": "Not compiled due to blocked state.",
+      "Success Criteria": "Not compiled due to blocked state."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

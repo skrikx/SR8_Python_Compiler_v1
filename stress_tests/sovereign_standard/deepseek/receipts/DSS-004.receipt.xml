@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-004">
+  <source_intent>
+    <raw_intent>Case 004: I am a law_firm_operator in European Union. Build a srx_ace_build_agent for finance_ops using the compliance_lens. Chaos input type is overbroad_one_pass_lock. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>finance_ops</domain>
+    <user_type>law_firm_operator</user_type>
+    <geography>European Union</geography>
+    <chaos_type>overbroad_one_pass_lock</chaos_type>
+    <lens>compliance_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_build_agent</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build an SRX ACE build agent for finance operations within a European Union law firm, using the compliance lens to ensure regulatory adherence and audit readiness.
+Scope:
+- The agent shall generate, validate, and deploy finance operation workflows, contracts, and reports that comply with EU financial regulations (e.g., MiFID II, GDPR, AML directives). It must handle overbroad one-pass lock inputs by enforcing strict validation gates and rejecting ambiguous or incomplete data.
+Constraints:
+- All outputs must be GDPR-compliant and respect data minimization.
+- No execution of financial transactions without explicit human approval.
+- Must log all validation failures and blocked actions for audit trails.
+- Must operate within the law firm's existing IT infrastructure and Codex runtime.
+- Must not expose client confidential data beyond encrypted storage.
+Success Criteria:
+- Agent successfully parses and validates at least 95% of finance ops requests against compliance rules.
+- All validation gates produce explicit pass/fail evidence with timestamps.
+- Generated artifacts (contracts, reports) pass a mock regulatory audit checklist.
+- Overbroad one-pass lock inputs are rejected with clear reason codes.
+- System produces a final compliance evidence report for each processed case.
+Output Contract:
+- format: JSON
+- fields: name: artifact_id; type: string; description: Unique identifier for the generated artifact; name: validation_gates; type: array; items: type: object; properties: gate_name: string; status: string; evidence: string; timestamp: string; name: compliance_report; type: object; properties: regulation: string; status: string; details: string; name: blocked_reason; type: string; nullable: True; name: final_report; type: object; properties: summary: string; recommendations: array
+- required: artifact_id; validation_gates; compliance_report; final_report</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_c30e36b2422d3b82e278</artifact_id>
+    <source_hash>11ed7748be48461a4dd488761093f25b42a38a5b4312fcbeba86ba8373c3fff3</source_hash>
+    <compile_run_id>run_906e5885d0f54b7c0147</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-004.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-004.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

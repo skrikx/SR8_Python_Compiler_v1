@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-069">
+  <source_intent>
+    <raw_intent>Case 069: I am a enterprise_compliance_lead in Latin America. Build a sr8_compiler_prompt for compliance_evidence using the failure_lens. Chaos input type is high_urgency_low_context. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>compliance_evidence</domain>
+    <user_type>enterprise_compliance_lead</user_type>
+    <geography>Latin America</geography>
+    <chaos_type>high_urgency_low_context</chaos_type>
+    <lens>failure_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sr8_compiler_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a compliance evidence artifact from high-urgency, low-context input using the failure_lens, ensuring all SR8 governance gates are satisfied.
+Scope:
+- Parse the raw intent from DSS-069, extract and validate compliance evidence requirements, and produce a structured SR8 compiler prompt with explicit validation gates.
+Constraints:
+- Input may be incomplete, urgent, and ambiguous; must not hallucinate missing data.
+- All SR8 required sections (Objective, Scope, Constraints, Success Criteria, Output Contract) must be present and valid.
+- Output must be a single JSON object with no markdown fences.
+- Must include explicit validation gates for compliance evidence completeness and correctness.
+Success Criteria:
+- The compiled intent contains all five SR8 sections.
+- Validation gates are explicitly defined and actionable.
+- The artifact is directly compilable by SR8 without further clarification.
+Output Contract:
+- format: JSON
+- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: format: string; sections: string; compiled_intent_structure: object
+- validation_gates: Gate 1: Confirm all SR8 sections are present and non-empty.; Gate 2: Verify constraints are derived from raw intent without addition.; Gate 3: Ensure success criteria are measurable and testable.; Gate 4: Validate output contract matches schema exactly.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_23975d11deef927ab394</artifact_id>
+    <source_hash>d349a6d0d2aef3b8aa6038e04517e0b580cf3b4367575478edec178da866aa5d</source_hash>
+    <compile_run_id>run_2eaf45ec04fe37c8f2ac</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-069.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-069.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-045">
+  <source_intent>
+    <raw_intent>Case 045: I am a finance_operator in Middle East. Build a research_agent_prompt for blueprint_design_doc using the sovereign_lens. Chaos input type is depth_tier_ambiguity. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>blueprint_design_doc</domain>
+    <user_type>finance_operator</user_type>
+    <geography>Middle East</geography>
+    <chaos_type>depth_tier_ambiguity</chaos_type>
+    <lens>sovereign_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>research_agent_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Design a sovereign-lens blueprint document for a Middle East finance operator, capturing regional compliance, risk, and operational constraints.
+Scope:
+- Research and produce a blueprint_design_doc covering regulatory frameworks (e.g., local financial authority rules), data sovereignty requirements, and integration patterns for financial systems in the Middle East.
+Constraints:
+- Must adhere to sovereign_lens principles: data localization, jurisdictional control, and auditability.
+- All outputs must be verifiable against known Middle East financial regulations (e.g., Saudi Central Bank, UAE Central Bank).
+- No assumptions about specific institution; use generic but region-accurate references.
+- Validation gates: source policy check, claim limit verification, and compliance cross-reference.
+Success Criteria:
+- Blueprint document includes explicit sections: regulatory landscape, data sovereignty map, integration architecture, and risk controls.
+- Each claim in the blueprint is backed by a verifiable source or policy reference.
+- Document passes automated validation gates for source policy and claim limits.
+- Output is SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Output Contract:
+- format: JSON
+- fields: blueprint_id: string; region: Middle East; domain: finance_operations; lens: sovereign_lens; regulatory_references: array of strings; data_sovereignty_map: object; integration_patterns: array of objects; risk_controls: array of objects; validation_gates: source_policy_check; claim_limit_verification; compliance_cross_reference; compiled_intent: object
+- validation_required: True</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_447374a1fd58321e89ed</artifact_id>
+    <source_hash>2d001e49b4f96ccbea3568cada606ac2963488b94446e87aaf00f54567bb91ff</source_hash>
+    <compile_run_id>run_c93352e9925b86628697</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-045.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-045.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

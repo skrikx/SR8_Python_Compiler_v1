@@ -1,0 +1,45 @@
+{
+  "artifact_type": "compliance_evidence_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-097",
+  "compiled_intent": "Objective: Generate a compliance_evidence_prompt for a sales_offer using the memory_lens, ensuring all regulatory and policy constraints are met despite ambiguous input.\nScope:\n- East Asia student_builder context; sales_offer compliance evidence; memory_lens integration; multi_runtime_confusion chaos input.\nConstraints:\n- Must resolve missing context and ambiguous acceptance criteria from raw_intent.\n- Must include explicit validation gates for source policy and claim limits.\n- Must produce SR8-compilable output with objective, scope, constraints, success criteria, and output contract.\n- Must handle urgent language without compromising governance.\nSuccess Criteria:\n- Compliance evidence prompt is fully governed and auditable.\n- All validation gates are explicitly defined and testable.\n- Output contract is complete and SR8-compilable.\nOutput Contract:\n- artifact_type: compliance_evidence_prompt\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- sections: source_policy_limits; claim_validation_gates; memory_lens_integration; acceptance_criteria_resolution; governance_audit_trail\n- validation_focus: source_policy_and_claim_limits",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "compliance_evidence_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must resolve missing context and ambiguous acceptance criteria from raw_intent.",
+        "Must include explicit validation gates for source policy and claim limits.",
+        "Must produce SR8-compilable output with objective, scope, constraints, success criteria, and output contract.",
+        "Must handle urgent language without compromising governance."
+      ],
+      "Objective": "Generate a compliance_evidence_prompt for a sales_offer using the memory_lens, ensuring all regulatory and policy constraints are met despite ambiguous input.",
+      "Output Contract": {
+        "artifact_type": "compliance_evidence_prompt",
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "runtime_target": "Codex",
+        "sections": [
+          "source_policy_limits",
+          "claim_validation_gates",
+          "memory_lens_integration",
+          "acceptance_criteria_resolution",
+          "governance_audit_trail"
+        ],
+        "validation_focus": "source_policy_and_claim_limits"
+      },
+      "Scope": "East Asia student_builder context; sales_offer compliance evidence; memory_lens integration; multi_runtime_confusion chaos input.",
+      "Success Criteria": [
+        "Compliance evidence prompt is fully governed and auditable.",
+        "All validation gates are explicitly defined and testable.",
+        "Output contract is complete and SR8-compilable."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

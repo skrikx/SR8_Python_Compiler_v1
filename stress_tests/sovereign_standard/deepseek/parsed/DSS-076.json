@@ -1,0 +1,60 @@
+{
+  "artifact_type": "mirroros_analysis_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-076",
+  "compiled_intent": "Objective: Analyze the ambiguous healthcare administration software build request from South Asia using the compliance lens, and produce a structured mirrorOS analysis prompt that resolves missing context, urgent language, partial constraints, and ambiguous acceptance criteria into a governed artifact with explicit validation gates.\nScope:\n- The analysis covers the healthcare administration domain in South Asia, focusing on compliance requirements (e.g., data privacy, regulatory standards), software build feasibility, and the transformation of chaotic input into a compilable SR8 directive. It does not include actual software implementation or deployment.\nConstraints:\n- Must use compliance_lens as the primary analytical framework.\n- Must handle ambiguous_scope input type without assuming missing details.\n- Must produce explicit validation gates for each section of the output.\n- Must not generate executable code or deployment instructions.\n- Must adhere to SR8 compilation standards for objective, scope, constraints, success criteria, and output contract.\nSuccess Criteria:\n- All ambiguous elements (missing context, urgent language, partial constraints, ambiguous acceptance criteria) are identified and flagged with resolution paths.\n- Validation gates are defined for each section of the mirrorOS analysis prompt.\n- The output is a valid SR8-compilable directive with all required sections.\n- The artifact is governed and traceable to the original chaotic input.\nOutput Contract:\n- format: JSON\n- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and sections\n- validation_gates: Gate 1: Confirm artifact_type is mirroros_analysis_prompt.; Gate 2: Confirm depth_tier is D3_SOVEREIGN_CORE.; Gate 3: Confirm runtime_target is Codex.; Gate 4: Confirm should_block is false.; Gate 5: Confirm compiled_intent contains all five required sections.; Gate 6: Confirm each section in compiled_intent is non-empty and logically consistent.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "mirroros_analysis_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must use compliance_lens as the primary analytical framework.",
+        "Must handle ambiguous_scope input type without assuming missing details.",
+        "Must produce explicit validation gates for each section of the output.",
+        "Must not generate executable code or deployment instructions.",
+        "Must adhere to SR8 compilation standards for objective, scope, constraints, success criteria, and output contract."
+      ],
+      "Objective": "Analyze the ambiguous healthcare administration software build request from South Asia using the compliance lens, and produce a structured mirrorOS analysis prompt that resolves missing context, urgent language, partial constraints, and ambiguous acceptance criteria into a governed artifact with explicit validation gates.",
+      "Output Contract": {
+        "compiled_intent_structure": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "Output Contract": "object with format and sections",
+          "Scope": "string",
+          "Success Criteria": "array of strings"
+        },
+        "format": "JSON",
+        "sections": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "validation_gates": [
+          "Gate 1: Confirm artifact_type is mirroros_analysis_prompt.",
+          "Gate 2: Confirm depth_tier is D3_SOVEREIGN_CORE.",
+          "Gate 3: Confirm runtime_target is Codex.",
+          "Gate 4: Confirm should_block is false.",
+          "Gate 5: Confirm compiled_intent contains all five required sections.",
+          "Gate 6: Confirm each section in compiled_intent is non-empty and logically consistent."
+        ]
+      },
+      "Scope": "The analysis covers the healthcare administration domain in South Asia, focusing on compliance requirements (e.g., data privacy, regulatory standards), software build feasibility, and the transformation of chaotic input into a compilable SR8 directive. It does not include actual software implementation or deployment.",
+      "Success Criteria": [
+        "All ambiguous elements (missing context, urgent language, partial constraints, ambiguous acceptance criteria) are identified and flagged with resolution paths.",
+        "Validation gates are defined for each section of the mirrorOS analysis prompt.",
+        "The output is a valid SR8-compilable directive with all required sections.",
+        "The artifact is governed and traceable to the original chaotic input."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

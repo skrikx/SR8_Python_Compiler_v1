@@ -1,0 +1,402 @@
+{
+  "run_id": "bench_2edd66775ed4",
+  "suite": "rules_required",
+  "compiler_version": "1.2.4",
+  "rubric_id": "wf12.default",
+  "generated_at": "2026-05-13T07:51:28.559747Z",
+  "results": [
+    {
+      "case_id": "founder_launch",
+      "suite": "founder",
+      "profile": "prd",
+      "artifact_id": "art_42b9381e78f51c2c7a3d",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_prd",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\founder_launch\\markdown_prd\\drv_59b1e01c9b1b60c10bea.md.",
+          "derivative_id": "drv_59b1e01c9b1b60c10bea"
+        },
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\founder_launch\\markdown_plan\\drv_afa2ba91b595a4a15856.md.",
+          "derivative_id": "drv_afa2ba91b595a4a15856"
+        }
+      ],
+      "output_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\artifacts\\founder_launch\\art_42b9381e78f51c2c7a3d.json",
+      "source_hash": "b935bde0075a71e3e6b4ec09e2322c67241049697cffbc1674c21c480c9b76b6"
+    },
+    {
+      "case_id": "procedure_rollback",
+      "suite": "procedure",
+      "profile": "procedure",
+      "artifact_id": "art_986f27ce44fa4d3e8b93",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_procedure",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\procedure_rollback\\markdown_procedure\\drv_08b329235192cba0034c.md.",
+          "derivative_id": "drv_08b329235192cba0034c"
+        },
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\procedure_rollback\\markdown_plan\\drv_3e63b5c41309516d47cc.md.",
+          "derivative_id": "drv_3e63b5c41309516d47cc"
+        }
+      ],
+      "output_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\artifacts\\procedure_rollback\\art_986f27ce44fa4d3e8b93.json",
+      "source_hash": "7022f8adccc70e7c73b512ea19ed973ed43445298567d2ae98e9cabd2720ad7d"
+    },
+    {
+      "case_id": "sr8_artifact_eval",
+      "suite": "self_hosting",
+      "profile": "prd",
+      "artifact_id": "art_527f5ff94cf4c3eea865",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [],
+      "output_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\artifacts\\sr8_artifact_eval\\art_527f5ff94cf4c3eea865.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_recompile_whitepaper",
+      "suite": "self_hosting",
+      "profile": "whitepaper_outline",
+      "artifact_id": "art_c25aaa856ac4be0a6f8e",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\sr8_recompile_whitepaper\\markdown_plan\\drv_b577f0ffce6f5a2a9460.md.",
+          "derivative_id": "drv_b577f0ffce6f5a2a9460"
+        }
+      ],
+      "output_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\artifacts\\sr8_recompile_whitepaper\\art_c25aaa856ac4be0a6f8e.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_release_transform",
+      "suite": "self_hosting",
+      "profile": "prd",
+      "artifact_id": "art_768d3966d0ca60ca0be5",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_prd",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\sr8_release_transform\\markdown_prd\\drv_470c0448ab973bcf7385.md.",
+          "derivative_id": "drv_470c0448ab973bcf7385"
+        },
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\sr8_release_transform\\markdown_plan\\drv_a19634aa9d1d38c3f818.md.",
+          "derivative_id": "drv_a19634aa9d1d38c3f818"
+        },
+        {
+          "target": "markdown_prompt_pack",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\sr8_release_transform\\markdown_prompt_pack\\drv_a3b4f9d08a476ec2f505.md.",
+          "derivative_id": "drv_a3b4f9d08a476ec2f505"
+        }
+      ],
+      "output_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\artifacts\\sr8_release_transform\\art_768d3966d0ca60ca0be5.json",
+      "source_hash": "da1fdbe6452afd53fe364a2ab32163b0b842737fd20d7b46f223da785979c0fe"
+    },
+    {
+      "case_id": "sr8_workflow_compile",
+      "suite": "self_hosting",
+      "profile": "plan",
+      "artifact_id": "art_fbf4d275cb9a5cd96799",
+      "readiness_status": "pass",
+      "lint_status": "pass",
+      "dimension_scores": [
+        {
+          "dimension": "faithfulness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "completeness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "constraint_integrity",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "readiness",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "trust_surface",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        },
+        {
+          "dimension": "transform_utility",
+          "score": 1.0,
+          "passed": true,
+          "findings": []
+        }
+      ],
+      "aggregate_score": 1.0,
+      "passed": true,
+      "findings": [],
+      "failure_clusters": [],
+      "transform_checks": [
+        {
+          "target": "markdown_plan",
+          "success": true,
+          "detail": "Transform completed and written to C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\derivatives\\sr8_workflow_compile\\markdown_plan\\drv_38f38bed0055b9541402.md.",
+          "derivative_id": "drv_38f38bed0055b9541402"
+        }
+      ],
+      "output_path": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\proof\\benchmark\\rules_required\\artifacts\\sr8_workflow_compile\\art_fbf4d275cb9a5cd96799.json",
+      "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c"
+    }
+  ],
+  "summary": {
+    "suite": "rules_required",
+    "total_cases": 6,
+    "passed_cases": 6,
+    "failed_cases": 0,
+    "average_score": 1.0,
+    "average_dimension_scores": {
+      "completeness": 1.0,
+      "constraint_integrity": 1.0,
+      "faithfulness": 1.0,
+      "readiness": 1.0,
+      "transform_utility": 1.0,
+      "trust_surface": 1.0
+    },
+    "failure_clusters": {}
+  }
+}

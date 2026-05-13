@@ -1,0 +1,171 @@
+{
+  "changes": [
+    {
+      "change_class": "unchanged",
+      "field": "profile",
+      "impact": "low",
+      "left": "prd",
+      "note": "",
+      "right": "prd",
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "objective",
+      "impact": "low",
+      "left": "Produce a product requirement artifact for SR8 v2.",
+      "note": "",
+      "right": "Produce a product requirement artifact for SR8 v2.",
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "scope",
+      "impact": "low",
+      "left": [
+        "Define user and stakeholder signals for onboarding flow.",
+        "Define acceptance criteria for first-session completion.",
+        "Define milestone slices for delivery planning.",
+        "Capture measurable success criteria for release readiness."
+      ],
+      "note": "",
+      "right": [
+        "Define user and stakeholder signals for onboarding flow.",
+        "Define acceptance criteria for first-session completion.",
+        "Define milestone slices for delivery planning.",
+        "Capture measurable success criteria for release readiness."
+      ],
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "exclusions",
+      "impact": "low",
+      "left": [
+        "No implementation coding in this phase.",
+        "No analytics vendor migration work."
+      ],
+      "note": "",
+      "right": [
+        "No implementation coding in this phase.",
+        "No analytics vendor migration work."
+      ],
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "constraints",
+      "impact": "low",
+      "left": [
+        "Two sprint timeline.",
+        "No backend schema migration in this phase."
+      ],
+      "note": "",
+      "right": [
+        "Two sprint timeline.",
+        "No backend schema migration in this phase."
+      ],
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "assumptions",
+      "impact": "low",
+      "left": [
+        "Product and engineering stakeholders are available for review.",
+        "Existing onboarding instrumentation is reliable enough for baseline measurement."
+      ],
+      "note": "",
+      "right": [
+        "Product and engineering stakeholders are available for review.",
+        "Existing onboarding instrumentation is reliable enough for baseline measurement."
+      ],
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "dependencies",
+      "impact": "low",
+      "left": [
+        "Design review sign-off.",
+        "Analytics event naming agreement."
+      ],
+      "note": "",
+      "right": [
+        "Design review sign-off.",
+        "Analytics event naming agreement."
+      ],
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "success_criteria",
+      "impact": "low",
+      "left": [
+        "Stakeholders approve requirement scope.",
+        "Completion rate improves after rollout compared with current baseline."
+      ],
+      "note": "",
+      "right": [
+        "Stakeholders approve requirement scope.",
+        "Completion rate improves after rollout compared with current baseline."
+      ],
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "output_contract",
+      "impact": "low",
+      "left": [
+        "PRD artifact for planning and implementation handoff.",
+        "Markdown PRD derivative for cross-functional review."
+      ],
+      "note": "",
+      "right": [
+        "PRD artifact for planning and implementation handoff.",
+        "Markdown PRD derivative for cross-functional review."
+      ],
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "governance_flags",
+      "impact": "low",
+      "left": {
+        "ambiguous": false,
+        "incomplete": false,
+        "requires_human_review": false
+      },
+      "note": "",
+      "right": {
+        "ambiguous": false,
+        "incomplete": false,
+        "requires_human_review": false
+      },
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "validation.readiness_status",
+      "impact": "low",
+      "left": "pass",
+      "note": "",
+      "right": "pass",
+      "semantic_class": "unchanged"
+    },
+    {
+      "change_class": "unchanged",
+      "field": "target_class",
+      "impact": "low",
+      "left": "prd",
+      "note": "",
+      "right": "prd",
+      "semantic_class": "unchanged"
+    }
+  ],
+  "created_at": "2026-05-13T07:51:27.599390Z",
+  "left_ref": "canonical",
+  "report_id": "diff_eb6f751c4b64e165",
+  "right_ref": "regenerated",
+  "summary": "No semantic changes detected."
+}

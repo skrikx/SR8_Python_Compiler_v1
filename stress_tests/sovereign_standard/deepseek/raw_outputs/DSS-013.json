@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:53:35Z",
+  "case_id": "DSS-013",
+  "content": "{\n  \"artifact_type\": \"memory_engrave_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Unsafe certainty: The raw_intent lacks specific jurisdiction (UK) compliance lens details, tool permission scope, and unambiguous acceptance criteria. The chaotic input with missing context and urgent language prevents safe compilation into a deterministic memory engrave prompt. Blocking to avoid hallucinated compliance obligations or tool permission misconfiguration.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Block compilation due to unsafe certainty from incomplete and ambiguous raw intent.\",\n    \"Scope\": \"No scope defined; input insufficient to determine valid boundaries.\",\n    \"Constraints\": \"Must not proceed without verified UK compliance lens, explicit tool permission inventory, and clear acceptance criteria.\",\n    \"Success Criteria\": \"Receipt of blocked state with repair instructions for requester to provide missing context, compliance lens details, and unambiguous constraints.\",\n    \"Output Contract\": \"Return a blocked state receipt JSON with should_block true, blocked_reason explaining the deficiency, and no fabricated completion.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

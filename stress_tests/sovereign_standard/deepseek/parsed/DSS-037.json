@@ -1,0 +1,54 @@
+{
+  "artifact_type": "srx_ace_v3_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-037",
+  "compiled_intent": "Objective: Build an SRX ACE v3 agent that generates a sales offer artifact from a chaotic multi-runtime input, using the compiler_lens to enforce governance and validation gates.\nScope:\n- The agent must accept a raw intent with missing context, urgent language, partial constraints, and ambiguous acceptance criteria; parse and normalize it; produce a structured sales_offer artifact with explicit validation gates; and output a compiled SR8 directive with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.\nConstraints:\n- Must operate within the SR8 Sovereign Standard framework.\n- Must use the compiler_lens for governance and validation.\n- Must handle multi_runtime_confusion input type.\n- Must not assume complete or consistent input.\n- Must produce a governed artifact with explicit validation gates.\n- Output must be SR8-compilable.\nSuccess Criteria:\n- Agent accepts chaotic input and produces a valid sales_offer artifact.\n- Artifact includes explicit validation gates.\n- Compiled intent contains all five required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.\n- No hallucinated or unverified content from missing context.\n- Agent logs or flags unresolved ambiguities for human review.\nOutput Contract:\n- artifact_type: srx_ace_v3_agent\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- should_block: False\n- blocked_reason: None\n- compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: object",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_v3_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate within the SR8 Sovereign Standard framework.",
+        "Must use the compiler_lens for governance and validation.",
+        "Must handle multi_runtime_confusion input type.",
+        "Must not assume complete or consistent input.",
+        "Must produce a governed artifact with explicit validation gates.",
+        "Output must be SR8-compilable."
+      ],
+      "Objective": "Build an SRX ACE v3 agent that generates a sales offer artifact from a chaotic multi-runtime input, using the compiler_lens to enforce governance and validation gates.",
+      "Output Contract": {
+        "artifact_type": "srx_ace_v3_agent",
+        "blocked_reason": null,
+        "compiled_intent": {
+          "Constraints": [
+            "string"
+          ],
+          "Objective": "string",
+          "Output Contract": "object",
+          "Scope": "string",
+          "Success Criteria": [
+            "string"
+          ]
+        },
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "runtime_target": "Codex",
+        "should_block": false
+      },
+      "Scope": "The agent must accept a raw intent with missing context, urgent language, partial constraints, and ambiguous acceptance criteria; parse and normalize it; produce a structured sales_offer artifact with explicit validation gates; and output a compiled SR8 directive with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.",
+      "Success Criteria": [
+        "Agent accepts chaotic input and produces a valid sales_offer artifact.",
+        "Artifact includes explicit validation gates.",
+        "Compiled intent contains all five required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.",
+        "No hallucinated or unverified content from missing context.",
+        "Agent logs or flags unresolved ambiguities for human review."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

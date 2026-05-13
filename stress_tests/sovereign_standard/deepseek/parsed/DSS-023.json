@@ -1,0 +1,61 @@
+{
+  "artifact_type": "srx_ace_audit_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-023",
+  "compiled_intent": "Objective: Build an SRX ACE audit agent that validates memory_engrave artifacts using the technical_lens, processing chaotic language_mixed_prompt inputs from a UK agency_owner, and producing a governed artifact with explicit validation gates for SR8 compilation.\nScope:\n- The agent shall accept a language_mixed_prompt input (containing missing context, urgent language, partial constraints, ambiguous acceptance criteria), apply the technical_lens to extract and validate memory_engrave requirements, and output a structured artifact with objective, scope, constraints, success criteria, and output contract sections. The agent must enforce validation gates at each stage: input parsing, lens application, constraint extraction, criteria validation, and output generation.\nConstraints:\n- Must operate within UK regulatory framework for agency operations.\n- Input may be incomplete or ambiguous; agent must flag missing context without halting.\n- Urgent language must be parsed but not override structural validation.\n- Partial constraints must be inferred or marked as incomplete.\n- Ambiguous acceptance criteria must be clarified via explicit validation gates.\n- Output must be SR8-compilable JSON with all required sections.\nSuccess Criteria:\n- Agent correctly identifies and extracts all present constraints from chaotic input.\n- Validation gates produce explicit pass/fail for each section (objective, scope, constraints, success criteria, output contract).\n- Missing context is logged and flagged but does not prevent artifact generation.\n- Output artifact is valid SR8 JSON with all five sections populated.\n- Technical_lens is applied consistently across all validation steps.\nOutput Contract:\n- format: JSON\n- sections: objective; scope; constraints; success_criteria; output_contract\n- validation_gates: input_parsing_gate; lens_application_gate; constraint_extraction_gate; criteria_validation_gate; output_generation_gate\n- required_fields: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_audit_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate within UK regulatory framework for agency operations.",
+        "Input may be incomplete or ambiguous; agent must flag missing context without halting.",
+        "Urgent language must be parsed but not override structural validation.",
+        "Partial constraints must be inferred or marked as incomplete.",
+        "Ambiguous acceptance criteria must be clarified via explicit validation gates.",
+        "Output must be SR8-compilable JSON with all required sections."
+      ],
+      "Objective": "Build an SRX ACE audit agent that validates memory_engrave artifacts using the technical_lens, processing chaotic language_mixed_prompt inputs from a UK agency_owner, and producing a governed artifact with explicit validation gates for SR8 compilation.",
+      "Output Contract": {
+        "format": "JSON",
+        "required_fields": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "sections": [
+          "objective",
+          "scope",
+          "constraints",
+          "success_criteria",
+          "output_contract"
+        ],
+        "validation_gates": [
+          "input_parsing_gate",
+          "lens_application_gate",
+          "constraint_extraction_gate",
+          "criteria_validation_gate",
+          "output_generation_gate"
+        ]
+      },
+      "Scope": "The agent shall accept a language_mixed_prompt input (containing missing context, urgent language, partial constraints, ambiguous acceptance criteria), apply the technical_lens to extract and validate memory_engrave requirements, and output a structured artifact with objective, scope, constraints, success criteria, and output contract sections. The agent must enforce validation gates at each stage: input parsing, lens application, constraint extraction, criteria validation, and output generation.",
+      "Success Criteria": [
+        "Agent correctly identifies and extracts all present constraints from chaotic input.",
+        "Validation gates produce explicit pass/fail for each section (objective, scope, constraints, success criteria, output contract).",
+        "Missing context is logged and flagged but does not prevent artifact generation.",
+        "Output artifact is valid SR8 JSON with all five sections populated.",
+        "Technical_lens is applied consistently across all validation steps."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

@@ -1,0 +1,49 @@
+{
+  "artifact_type": "compliance_evidence_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-029",
+  "compiled_intent": "Objective: Generate a compliance evidence prompt for an audit agent operating under the operator lens, targeting Latin American enterprise compliance requirements, with explicit validation gates and SR8-compilable structure.\nScope:\n- The prompt must handle artifact_type_ambiguity, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. It must produce a governed artifact with clear objective, scope, constraints, success criteria, and output contract sections.\nConstraints:\n- Must comply with Latin American regulatory frameworks (e.g., LGPD, GDPR-equivalent local laws).\n- Must include validation gates for source policy and claim limits.\n- Must reject or flag ambiguous or incomplete inputs with explicit reasoning.\n- Must be SR8-compilable: all sections must be machine-parseable and actionable.\nSuccess Criteria:\n- Output is a valid compliance_evidence_prompt artifact.\n- All five compiled_intent sections are present and populated.\n- Validation gates are explicitly defined and trigger on policy/claim violations.\n- Artifact can be directly consumed by an audit agent without manual interpretation.\nOutput Contract:\n- type: compliance_evidence_prompt\n- sections: objective; scope; constraints; success_criteria; output_contract\n- validation_gates: source_policy_check; claim_limit_check; ambiguity_resolution_check\n- format: strict JSON with no markdown fences",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "compliance_evidence_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with Latin American regulatory frameworks (e.g., LGPD, GDPR-equivalent local laws).",
+        "Must include validation gates for source policy and claim limits.",
+        "Must reject or flag ambiguous or incomplete inputs with explicit reasoning.",
+        "Must be SR8-compilable: all sections must be machine-parseable and actionable."
+      ],
+      "Objective": "Generate a compliance evidence prompt for an audit agent operating under the operator lens, targeting Latin American enterprise compliance requirements, with explicit validation gates and SR8-compilable structure.",
+      "Output Contract": {
+        "format": "strict JSON with no markdown fences",
+        "sections": [
+          "objective",
+          "scope",
+          "constraints",
+          "success_criteria",
+          "output_contract"
+        ],
+        "type": "compliance_evidence_prompt",
+        "validation_gates": [
+          "source_policy_check",
+          "claim_limit_check",
+          "ambiguity_resolution_check"
+        ]
+      },
+      "Scope": "The prompt must handle artifact_type_ambiguity, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. It must produce a governed artifact with clear objective, scope, constraints, success criteria, and output contract sections.",
+      "Success Criteria": [
+        "Output is a valid compliance_evidence_prompt artifact.",
+        "All five compiled_intent sections are present and populated.",
+        "Validation gates are explicitly defined and trigger on policy/claim violations.",
+        "Artifact can be directly consumed by an audit agent without manual interpretation."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

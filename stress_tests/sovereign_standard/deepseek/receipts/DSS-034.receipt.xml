@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-034">
+  <source_intent>
+    <raw_intent>Case 034: I am a law_firm_operator in European Union. Build a content_prompt for finance_ops using the memory_lens. Chaos input type is overbroad_one_pass_lock. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>finance_ops</domain>
+    <user_type>law_firm_operator</user_type>
+    <geography>European Union</geography>
+    <chaos_type>overbroad_one_pass_lock</chaos_type>
+    <lens>memory_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>content_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a governed content prompt for finance operations within a European Union law firm, using the memory_lens to incorporate historical context and compliance constraints, and ensuring the output is SR8-compilable with explicit validation gates.
+Scope:
+- The prompt must address finance operations tasks (e.g., invoice processing, expense reporting, budget tracking) for a law firm operating under EU regulations (GDPR, AML, MiFID II). It must integrate memory_lens to recall past audit findings, compliance gaps, and operational patterns. The output must be a single content_prompt artifact that can be directly compiled by SR8.
+Constraints:
+- Must comply with EU data protection and financial regulations (GDPR, AML, MiFID II).
+- Must include explicit validation gates (e.g., compliance check, data accuracy check, audit trail check).
+- Must handle overbroad_one_pass_lock: the prompt must be self-contained and not require iterative refinement; it must produce a final artifact in one pass.
+- Must use memory_lens to reference at least three historical events or patterns relevant to finance ops (e.g., previous audit findings, recurring errors, regulatory updates).
+- Must be written in English, with legal and financial terminology appropriate for EU law firm context.
+- Must not include any personally identifiable information (PII) or client-specific data.
+Success Criteria:
+- The generated content_prompt includes all required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.
+- The prompt explicitly references memory_lens data (at least three historical references).
+- The prompt includes at least two validation gates (e.g., 'Validate against GDPR compliance checklist' and 'Cross-check with AML transaction monitoring rules').
+- The prompt is self-contained and can be executed in one pass (overbroad_one_pass_lock satisfied).
+- The prompt is SR8-compilable: it contains a clear Objective, Scope, Constraints, Success Criteria, and Output Contract in structured format.
+Output Contract:
+- format: JSON object with keys: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent
+- compiled_intent: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and fields
+- validation_gates: Compliance validation: Ensure all finance operations steps adhere to GDPR, AML, and MiFID II requirements.; Data accuracy validation: Verify that all financial figures and client references are accurate and non-PII.; Audit trail validation: Confirm that memory_lens references are correctly cited and traceable.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_8316f9acbf76bb49e5eb</artifact_id>
+    <source_hash>244c2d691a24f55c4bc4bc456e0737af5505c5486035aab466534cd8f0c48c17</source_hash>
+    <compile_run_id>run_e6e857f33838e5d33301</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-034.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-034.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

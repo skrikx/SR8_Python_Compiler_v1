@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-098">
+  <source_intent>
+    <raw_intent>Case 098: I am a nontechnical_business_owner in Africa. Build a memory_engrave_prompt for memory_engrave using the runtime_lens. Chaos input type is language_mixed_prompt. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>memory_engrave</domain>
+    <user_type>nontechnical_business_owner</user_type>
+    <geography>Africa</geography>
+    <chaos_type>language_mixed_prompt</chaos_type>
+    <lens>runtime_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>memory_engrave_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Engrave a sovereign memory artifact for a nontechnical business owner in Africa, using the runtime_lens to capture strategic context, operational constraints, and cultural nuance from a chaotic, mixed-language input, ensuring no overwrite of existing critical memories without explicit validation.
+Scope:
+- Parse the language_mixed_prompt (containing missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured memory record. Validate against memory_safety_and_overwrite_policy: do not overwrite any existing memory unless explicitly authorized by a separate validation gate. Output a governed artifact that SR8 can compile into objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must not overwrite any existing memory without explicit validation gate approval.
+- Must handle missing context gracefully by flagging gaps rather than fabricating.
+- Must interpret urgent language without escalating priority beyond defined thresholds.
+- Must resolve ambiguous acceptance criteria by requesting clarification or using safe defaults.
+- Must comply with memory_safety_and_overwrite_policy at all times.
+- Output must be strict JSON with no markdown fences.
+Success Criteria:
+- Artifact is a valid memory_engrave_prompt with depth_tier D3_SOVEREIGN_CORE.
+- All validation gates are explicitly defined and referenced.
+- No existing memory is overwritten without explicit gate approval.
+- Chaotic input is successfully parsed into structured fields (objective, scope, constraints, success criteria, output contract).
+- Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.
+Output Contract:
+- artifact_type: memory_engrave_prompt
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: False
+- blocked_reason: None
+- compiled_intent: Objective: Engrave a sovereign memory artifact for a nontechnical business owner in Africa, using the runtime_lens to capture strategic context, operational constraints, and cultural nuance from a chaotic, mixed-language input, ensuring no overwrite of existing critical memories without explicit validation.; Scope: Parse the language_mixed_prompt (containing missing context, urgent language, partial constraints, ambiguous acceptance criteria) into a structured memory record. Validate against memory_safety_and_overwrite_policy: do not overwrite any existing memory unless explicitly authorized by a separate validation gate. Output a governed artifact that SR8 can compile into objective, scope, constraints, success criteria, and output contract.; Constraints: Must not overwrite any existing memory without explicit validation gate approval.; Must handle missing context gracefully by flagging gaps rather than fabricating.; Must interpret urgent language without escalating priority beyond defined thresholds.; Must resolve ambiguous acceptance criteria by requesting clarification or using safe defaults.; Must comply with memory_safety_and_overwrite_policy at all times.; Output must be strict JSON with no markdown fences.; Success Criteria: Artifact is a valid memory_engrave_prompt with depth_tier D3_SOVEREIGN_CORE.; All validation gates are explicitly defined and referenced.; No existing memory is overwritten without explicit gate approval.; Chaotic input is successfully parsed into structured fields (objective, scope, constraints, success criteria, output contract).; Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.; Output Contract: artifact_type: memory_engrave_prompt; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; should_block: False; blocked_reason: None; compiled_intent: This is a recursive placeholder; actual compiled_intent is the parent object.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_d52d91469349ab84e3d2</artifact_id>
+    <source_hash>384e94204c785c1f9d96ff7ea6012a8ae59e367e4317a1f4ab5d7a0688eeb30c</source_hash>
+    <compile_run_id>run_a8311372c5090883b457</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-098.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-098.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

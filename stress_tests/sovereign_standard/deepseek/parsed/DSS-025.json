@@ -1,0 +1,24 @@
+{
+  "artifact_type": "mirroros_analysis_prompt",
+  "blocked_reason": "Unsafe certainty: raw_intent lacks clear context for memory_write_risk in Middle East finance operations, uses urgent language without defined scope, and contains ambiguous acceptance criteria. Cannot compile a safe mirroros_analysis_prompt without resolving missing context, clarifying constraints, and specifying success criteria. Blocked to prevent hallucinated or harmful generation.",
+  "case_id": "DSS-025",
+  "compiled_intent": "Objective: Produce a mirroros_analysis_prompt for visual_generation using memory_lens, but blocked due to unsafe certainty.\nScope:\n- Not defined; raw_intent missing context and constraints.\nConstraints:\n- Ambiguous; memory_write_risk type requires explicit risk parameters and jurisdiction.\nSuccess Criteria:\n- Not specified; acceptance criteria are ambiguous.\nOutput Contract:\n- Blocked; repair receipt required before compilation.",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "mirroros_analysis_prompt",
+    "blocked_reason": "Unsafe certainty: raw_intent lacks clear context for memory_write_risk in Middle East finance operations, uses urgent language without defined scope, and contains ambiguous acceptance criteria. Cannot compile a safe mirroros_analysis_prompt without resolving missing context, clarifying constraints, and specifying success criteria. Blocked to prevent hallucinated or harmful generation.",
+    "compiled_intent": {
+      "Constraints": "Ambiguous; memory_write_risk type requires explicit risk parameters and jurisdiction.",
+      "Objective": "Produce a mirroros_analysis_prompt for visual_generation using memory_lens, but blocked due to unsafe certainty.",
+      "Output Contract": "Blocked; repair receipt required before compilation.",
+      "Scope": "Not defined; raw_intent missing context and constraints.",
+      "Success Criteria": "Not specified; acceptance criteria are ambiguous."
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

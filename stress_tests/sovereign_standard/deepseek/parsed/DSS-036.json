@@ -1,0 +1,76 @@
+{
+  "artifact_type": "srx_agent",
+  "blocked_reason": "The raw intent contains ambiguous acceptance criteria, missing context (e.g., specific local business type, regulatory jurisdiction, data sensitivity level), and urgent language that may bypass proper validation. Under sovereign_lens, a healthcare_admin in South Asia must comply with local data protection and healthcare regulations (e.g., India's DPDP Act, Singapore's PDPA, or similar). Without explicit clarity on the business domain, patient data handling, and consent mechanisms, the agent cannot be safely compiled. Additionally, the fake_test_risk input type indicates a high risk of hallucination or misalignment; a governed artifact requires concrete validation gates that cannot be defined from the provided partial constraints.",
+  "case_id": "DSS-036",
+  "compiled_intent": "Objective: Build a governed srx_agent for a local business site in South Asia under sovereign_lens, ensuring compliance with healthcare data regulations and explicit validation gates.\nScope:\n- The agent must handle local business site operations (e.g., appointment scheduling, patient records, billing) for a healthcare_admin in South Asia, with strict adherence to regional data protection laws and sovereign principles.\nConstraints:\n- Must comply with applicable South Asian healthcare data regulations (e.g., India DPDP Act, Singapore PDPA, or equivalent).\n- No storage or transmission of personally identifiable health information without explicit, auditable consent.\n- All outputs must be auditable and traceable to a sovereign governance layer.\n- The agent must reject any request that lacks clear, validated context or contains ambiguous acceptance criteria.\nSuccess Criteria:\n- Agent compiles without errors under SR8 sovereign_lens.\n- All validation gates (consent, data minimization, purpose limitation) are enforced and logged.\n- Agent returns a clear rejection with reason for any ambiguous or incomplete input.\n- No hallucinated or unverified data is included in outputs.\nOutput Contract:\n- format: JSON\n- fields: name: artifact_type; type: string; description: Type of artifact generated.; name: depth_tier; type: string; description: Depth tier of the artifact.; name: runtime_target; type: string; description: Target runtime environment.; name: should_block; type: boolean; description: Whether the request is blocked.; name: blocked_reason; type: string; description: Reason for blocking, if applicable.; name: compiled_intent; type: object; description: Compiled intent with Objective, Scope, Constraints, Success Criteria, and Output Contract.\n- required: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_agent",
+    "blocked_reason": "The raw intent contains ambiguous acceptance criteria, missing context (e.g., specific local business type, regulatory jurisdiction, data sensitivity level), and urgent language that may bypass proper validation. Under sovereign_lens, a healthcare_admin in South Asia must comply with local data protection and healthcare regulations (e.g., India's DPDP Act, Singapore's PDPA, or similar). Without explicit clarity on the business domain, patient data handling, and consent mechanisms, the agent cannot be safely compiled. Additionally, the fake_test_risk input type indicates a high risk of hallucination or misalignment; a governed artifact requires concrete validation gates that cannot be defined from the provided partial constraints.",
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with applicable South Asian healthcare data regulations (e.g., India DPDP Act, Singapore PDPA, or equivalent).",
+        "No storage or transmission of personally identifiable health information without explicit, auditable consent.",
+        "All outputs must be auditable and traceable to a sovereign governance layer.",
+        "The agent must reject any request that lacks clear, validated context or contains ambiguous acceptance criteria."
+      ],
+      "Objective": "Build a governed srx_agent for a local business site in South Asia under sovereign_lens, ensuring compliance with healthcare data regulations and explicit validation gates.",
+      "Output Contract": {
+        "fields": [
+          {
+            "description": "Type of artifact generated.",
+            "name": "artifact_type",
+            "type": "string"
+          },
+          {
+            "description": "Depth tier of the artifact.",
+            "name": "depth_tier",
+            "type": "string"
+          },
+          {
+            "description": "Target runtime environment.",
+            "name": "runtime_target",
+            "type": "string"
+          },
+          {
+            "description": "Whether the request is blocked.",
+            "name": "should_block",
+            "type": "boolean"
+          },
+          {
+            "description": "Reason for blocking, if applicable.",
+            "name": "blocked_reason",
+            "type": "string"
+          },
+          {
+            "description": "Compiled intent with Objective, Scope, Constraints, Success Criteria, and Output Contract.",
+            "name": "compiled_intent",
+            "type": "object"
+          }
+        ],
+        "format": "JSON",
+        "required": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ]
+      },
+      "Scope": "The agent must handle local business site operations (e.g., appointment scheduling, patient records, billing) for a healthcare_admin in South Asia, with strict adherence to regional data protection laws and sovereign principles.",
+      "Success Criteria": [
+        "Agent compiles without errors under SR8 sovereign_lens.",
+        "All validation gates (consent, data minimization, purpose limitation) are enforced and logged.",
+        "Agent returns a clear rejection with reason for any ambiguous or incomplete input.",
+        "No hallucinated or unverified data is included in outputs."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

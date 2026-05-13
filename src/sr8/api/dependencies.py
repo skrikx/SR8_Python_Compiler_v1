@@ -115,9 +115,12 @@ def resolve_compile_config_for_request(
             profile=payload.profile,
             target=payload.target,
             validate_target=payload.validate_target,
+            mode=payload.mode,
             rule_only=payload.rule_only,
+            assist_extract=payload.assist_extract,
             assist_provider=payload.assist_provider,
             assist_model=payload.assist_model,
+            save_llm_trace=payload.save_llm_trace,
         )
     except ValueError as exc:
         raise InvalidConfigurationError(str(exc)) from exc

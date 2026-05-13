@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-036">
+  <source_intent>
+    <raw_intent>Case 036: I am a healthcare_admin in South Asia. Build a srx_agent for local_business_site using the sovereign_lens. Chaos input type is fake_test_risk. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>local_business_site</domain>
+    <user_type>healthcare_admin</user_type>
+    <geography>South Asia</geography>
+    <chaos_type>fake_test_risk</chaos_type>
+    <lens>sovereign_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_agent</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>The raw intent contains ambiguous acceptance criteria, missing context (e.g., specific local business type, regulatory jurisdiction, data sensitivity level), and urgent language that may bypass proper validation. Under sovereign_lens, a healthcare_admin in South Asia must comply with local data protection and healthcare regulations (e.g., India's DPDP Act, Singapore's PDPA, or similar). Without explicit clarity on the business domain, patient data handling, and consent mechanisms, the agent cannot be safely compiled. Additionally, the fake_test_risk input type indicates a high risk of hallucination or misalignment; a governed artifact requires concrete validation gates that cannot be defined from the provided partial constraints.</blocked_reason>
+    <compiled_intent>Objective: Build a governed srx_agent for a local business site in South Asia under sovereign_lens, ensuring compliance with healthcare data regulations and explicit validation gates.
+Scope:
+- The agent must handle local business site operations (e.g., appointment scheduling, patient records, billing) for a healthcare_admin in South Asia, with strict adherence to regional data protection laws and sovereign principles.
+Constraints:
+- Must comply with applicable South Asian healthcare data regulations (e.g., India DPDP Act, Singapore PDPA, or equivalent).
+- No storage or transmission of personally identifiable health information without explicit, auditable consent.
+- All outputs must be auditable and traceable to a sovereign governance layer.
+- The agent must reject any request that lacks clear, validated context or contains ambiguous acceptance criteria.
+Success Criteria:
+- Agent compiles without errors under SR8 sovereign_lens.
+- All validation gates (consent, data minimization, purpose limitation) are enforced and logged.
+- Agent returns a clear rejection with reason for any ambiguous or incomplete input.
+- No hallucinated or unverified data is included in outputs.
+Output Contract:
+- format: JSON
+- fields: name: artifact_type; type: string; description: Type of artifact generated.; name: depth_tier; type: string; description: Depth tier of the artifact.; name: runtime_target; type: string; description: Target runtime environment.; name: should_block; type: boolean; description: Whether the request is blocked.; name: blocked_reason; type: string; description: Reason for blocking, if applicable.; name: compiled_intent; type: object; description: Compiled intent with Objective, Scope, Constraints, Success Criteria, and Output Contract.
+- required: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_6f1b2f203ba5c97d2bc4</artifact_id>
+    <source_hash>603b8037ed0d53570076233a409e8d166637484b044e8bad371c46a0af4ab188</source_hash>
+    <compile_run_id>run_77e150558b9195ea2635</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-036.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-036.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>False</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes>
+    <failure_mode>blocked_state_overtriggered</failure_mode>
+  </failure_modes>
+</SR8DeepSeekCaseReceipt>

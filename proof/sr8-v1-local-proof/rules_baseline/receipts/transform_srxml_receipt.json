@@ -1,0 +1,6 @@
+{
+  "derivative_id": "drv_30b8cb807e0a4b2de583",
+  "output_path": "proof\\sr8-v1-local-proof\\rules_baseline\\derivative_srxml\\artifact.xml",
+  "parent_artifact_id": "art_9ca1a8a11e961ebd46e8",
+  "transform_target": "xml_srxml_rc2"
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-027">
+  <source_intent>
+    <raw_intent>Case 027: I am a student_builder in East Asia. Build a codex_build_prompt for research_agent using the sovereign_lens. Chaos input type is unsupported_roi_claim. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>research_agent</domain>
+    <user_type>student_builder</user_type>
+    <geography>East Asia</geography>
+    <chaos_type>unsupported_roi_claim</chaos_type>
+    <lens>sovereign_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>codex_build_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Unsupported ROI claim detected in raw_intent: 'unsupported_roi_claim' is not a valid input type for codex_build_prompt. Additionally, the source is intentionally messy with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, which prevents safe compilation into a deterministic SR8 directive. Blocking to avoid hallucinated or unsafe output.</blocked_reason>
+    <compiled_intent>Objective: Block compilation due to unsupported ROI claim and chaotic input; record a repair receipt for the student_builder.
+Scope:
+- This prompt is not compiled; it serves as a blocked-state receipt only.
+Constraints:
+- No valid input type; missing context; ambiguous criteria; urgent language; must not proceed to production.
+Success Criteria:
+- Block is recorded with clear reason; no SR8 directive is emitted.
+Output Contract:
+- Return a JSON receipt with should_block true, blocked_reason, and no compiled_intent beyond this receipt.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_b533a82564f86cc3c56f</artifact_id>
+    <source_hash>4128cd9d128e499dd03dce0d08c36518c9b40a0b9e9b028e81bb607b29d39967</source_hash>
+    <compile_run_id>run_4e24be21c89a07feff43</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-027.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-027.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

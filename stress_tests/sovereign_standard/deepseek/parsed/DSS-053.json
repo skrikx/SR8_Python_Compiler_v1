@@ -1,0 +1,51 @@
+{
+  "artifact_type": "srx_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-053",
+  "compiled_intent": "Objective: Build an SRX agent that performs memory engrave operations for a UK agency owner, processing chaotic language-mixed prompts into structured, governed memory artifacts.\nScope:\n- The agent shall accept language_mixed_prompt inputs, extract and normalize intent, apply validation gates, and produce a memory_engrave artifact compliant with SR8 compilation requirements.\nConstraints:\n- Must operate under UK data protection regulations (GDPR/DPA 2018).\n- Input may be missing context, contain urgent language, partial constraints, and ambiguous acceptance criteria.\n- Output must include explicit validation gates and be structured for SR8 compilation.\n- Runtime lens must enforce governance and auditability.\nSuccess Criteria:\n- Agent correctly parses and normalizes chaotic mixed-language input.\n- Generated memory_engrave artifact contains Objective, Scope, Constraints, Success Criteria, and Output Contract sections.\n- Validation gates are present and documented.\n- Artifact passes SR8 compilation without errors.\nOutput Contract:\n- format: JSON\n- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate under UK data protection regulations (GDPR/DPA 2018).",
+        "Input may be missing context, contain urgent language, partial constraints, and ambiguous acceptance criteria.",
+        "Output must include explicit validation gates and be structured for SR8 compilation.",
+        "Runtime lens must enforce governance and auditability."
+      ],
+      "Objective": "Build an SRX agent that performs memory engrave operations for a UK agency owner, processing chaotic language-mixed prompts into structured, governed memory artifacts.",
+      "Output Contract": {
+        "compiled_intent_structure": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "Output Contract": "object",
+          "Scope": "string",
+          "Success Criteria": "array of strings"
+        },
+        "format": "JSON",
+        "sections": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ]
+      },
+      "Scope": "The agent shall accept language_mixed_prompt inputs, extract and normalize intent, apply validation gates, and produce a memory_engrave artifact compliant with SR8 compilation requirements.",
+      "Success Criteria": [
+        "Agent correctly parses and normalizes chaotic mixed-language input.",
+        "Generated memory_engrave artifact contains Objective, Scope, Constraints, Success Criteria, and Output Contract sections.",
+        "Validation gates are present and documented.",
+        "Artifact passes SR8 compilation without errors."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

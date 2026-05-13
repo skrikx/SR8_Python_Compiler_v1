@@ -1,0 +1,63 @@
+{
+  "artifact_type": "blueprint_design_doc",
+  "blocked_reason": "",
+  "case_id": "DSS-083",
+  "compiled_intent": "Objective: Design and document a memory engrave blueprint for a UK-based agency owner, using the operator lens, that can be compiled by SR8 into a governed artifact with explicit validation gates.\nScope:\n- The blueprint covers the memory engrave process including data ingestion, storage, retrieval, and compliance checks under UK regulations. It defines the operator lens as the primary viewpoint for interaction and decision-making. The artifact must include all SR8-required sections: objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must comply with UK data protection laws (e.g., GDPR, DPA 2018).\n- Must use the operator lens for all user-facing interactions.\n- Must include explicit validation gates at each stage of the memory engrave pipeline.\n- Must be structured as a blueprint design doc suitable for Codex runtime.\n- Must handle ambiguous or missing context from the raw intent by defining default fallback behaviors.\nSuccess Criteria:\n- Blueprint contains all five SR8 sections: objective, scope, constraints, success criteria, output contract.\n- Validation gates are explicitly defined and testable.\n- Operator lens is consistently applied throughout the document.\n- Compliance with UK regulations is documented and verifiable.\n- Artifact can be directly compiled by SR8 without additional preprocessing.\nOutput Contract:\n- format: JSON\n- schema: artifact_type: blueprint_design_doc; depth_tier: D2_PRODUCTION; runtime_target: Codex; sections: objective: string; scope: string; constraints: array of strings; success_criteria: array of strings; output_contract: object; validation_gates: gate_id: string; description: string; pass_condition: string; operator_lens: viewpoint: agency_owner; region: United Kingdom; interaction_model: memory_engrave\n- required: True",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "blueprint_design_doc",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with UK data protection laws (e.g., GDPR, DPA 2018).",
+        "Must use the operator lens for all user-facing interactions.",
+        "Must include explicit validation gates at each stage of the memory engrave pipeline.",
+        "Must be structured as a blueprint design doc suitable for Codex runtime.",
+        "Must handle ambiguous or missing context from the raw intent by defining default fallback behaviors."
+      ],
+      "Objective": "Design and document a memory engrave blueprint for a UK-based agency owner, using the operator lens, that can be compiled by SR8 into a governed artifact with explicit validation gates.",
+      "Output Contract": {
+        "format": "JSON",
+        "required": true,
+        "schema": {
+          "artifact_type": "blueprint_design_doc",
+          "depth_tier": "D2_PRODUCTION",
+          "operator_lens": {
+            "interaction_model": "memory_engrave",
+            "region": "United Kingdom",
+            "viewpoint": "agency_owner"
+          },
+          "runtime_target": "Codex",
+          "sections": {
+            "constraints": "array of strings",
+            "objective": "string",
+            "output_contract": "object",
+            "scope": "string",
+            "success_criteria": "array of strings"
+          },
+          "validation_gates": [
+            {
+              "description": "string",
+              "gate_id": "string",
+              "pass_condition": "string"
+            }
+          ]
+        }
+      },
+      "Scope": "The blueprint covers the memory engrave process including data ingestion, storage, retrieval, and compliance checks under UK regulations. It defines the operator lens as the primary viewpoint for interaction and decision-making. The artifact must include all SR8-required sections: objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "Blueprint contains all five SR8 sections: objective, scope, constraints, success criteria, output contract.",
+        "Validation gates are explicitly defined and testable.",
+        "Operator lens is consistently applied throughout the document.",
+        "Compliance with UK regulations is documented and verifiable.",
+        "Artifact can be directly compiled by SR8 without additional preprocessing."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

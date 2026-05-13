@@ -1,0 +1,24 @@
+{
+  "artifact_type": "srx_agent",
+  "blocked_reason": "Unsafe certainty: raw_intent contains missing_inputs chaos type with ambiguous acceptance criteria and partial constraints. The operator_lens cannot resolve repo_refactor scope without explicit input schema, source repository path, or refactor rules. Blocking to prevent hallucinated agent behavior that could corrupt production code.",
+  "case_id": "DSS-002",
+  "compiled_intent": "Objective: Build an srx_agent for repo_refactor using operator_lens, but blocked due to insufficient inputs.\nScope:\n- Undefined \u2014 missing repository path, refactor rules, and input schema.\nConstraints:\n- Partial: must use operator_lens; no other constraints provided.\nSuccess Criteria:\n- Ambiguous \u2014 no measurable criteria supplied.\nOutput Contract:\n- Blocked \u2014 cannot produce safe agent without resolved inputs.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_agent",
+    "blocked_reason": "Unsafe certainty: raw_intent contains missing_inputs chaos type with ambiguous acceptance criteria and partial constraints. The operator_lens cannot resolve repo_refactor scope without explicit input schema, source repository path, or refactor rules. Blocking to prevent hallucinated agent behavior that could corrupt production code.",
+    "compiled_intent": {
+      "Constraints": "Partial: must use operator_lens; no other constraints provided.",
+      "Objective": "Build an srx_agent for repo_refactor using operator_lens, but blocked due to insufficient inputs.",
+      "Output Contract": "Blocked \u2014 cannot produce safe agent without resolved inputs.",
+      "Scope": "Undefined \u2014 missing repository path, refactor rules, and input schema.",
+      "Success Criteria": "Ambiguous \u2014 no measurable criteria supplied."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

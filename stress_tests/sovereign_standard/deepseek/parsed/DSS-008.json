@@ -1,0 +1,53 @@
+{
+  "artifact_type": "mirroros_analysis_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-008",
+  "compiled_intent": "Objective: Generate a MirrorOS analysis prompt that can be memory-engraved for a nontechnical business owner in Africa, using the runtime_lens to handle language-mixed, chaotic input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria.\nScope:\n- The prompt must produce a structured analysis artifact that includes explicit validation gates, SR8-compilable sections (Objective, Scope, Constraints, Success Criteria, Output Contract), and be suitable for Codex runtime execution.\nConstraints:\n- Input is language-mixed and may contain incomplete or contradictory information.\n- Output must be governed and auditable, with clear validation checkpoints.\n- Must not assume technical expertise from the business owner.\n- Must respect regional and cultural context of Africa.\n- All sections must be SRXML-compliant for SR8 compilation.\nSuccess Criteria:\n- The generated prompt can be directly used for memory engraving in MirrorOS.\n- All validation gates are explicitly defined and testable.\n- The output contract is unambiguous and actionable.\n- The artifact handles chaotic input without loss of governance.\nOutput Contract:\n- format: SRXML\n- sections: Objective; Scope; Constraints; Success Criteria; Output Contract\n- validation_gates: Gate 1: Input sanitization and language normalization.; Gate 2: Context reconstruction from partial data.; Gate 3: Constraint extraction and conflict resolution.; Gate 4: Acceptance criteria disambiguation.; Gate 5: Final compliance check against SR8 schema.\n- runtime: Codex\n- target_audience: Nontechnical business owner in Africa",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "mirroros_analysis_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Input is language-mixed and may contain incomplete or contradictory information.",
+        "Output must be governed and auditable, with clear validation checkpoints.",
+        "Must not assume technical expertise from the business owner.",
+        "Must respect regional and cultural context of Africa.",
+        "All sections must be SRXML-compliant for SR8 compilation."
+      ],
+      "Objective": "Generate a MirrorOS analysis prompt that can be memory-engraved for a nontechnical business owner in Africa, using the runtime_lens to handle language-mixed, chaotic input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria.",
+      "Output Contract": {
+        "format": "SRXML",
+        "runtime": "Codex",
+        "sections": [
+          "Objective",
+          "Scope",
+          "Constraints",
+          "Success Criteria",
+          "Output Contract"
+        ],
+        "target_audience": "Nontechnical business owner in Africa",
+        "validation_gates": [
+          "Gate 1: Input sanitization and language normalization.",
+          "Gate 2: Context reconstruction from partial data.",
+          "Gate 3: Constraint extraction and conflict resolution.",
+          "Gate 4: Acceptance criteria disambiguation.",
+          "Gate 5: Final compliance check against SR8 schema."
+        ]
+      },
+      "Scope": "The prompt must produce a structured analysis artifact that includes explicit validation gates, SR8-compilable sections (Objective, Scope, Constraints, Success Criteria, Output Contract), and be suitable for Codex runtime execution.",
+      "Success Criteria": [
+        "The generated prompt can be directly used for memory engraving in MirrorOS.",
+        "All validation gates are explicitly defined and testable.",
+        "The output contract is unambiguous and actionable.",
+        "The artifact handles chaotic input without loss of governance."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

@@ -1,0 +1,301 @@
+{
+  "artifact_id": "art_986f27ce44fa4d3e8b93",
+  "artifact_version": "1.0.0",
+  "assumptions": [
+    "Fallback path uses the previous passing results bundle"
+  ],
+  "authority_context": "product manager",
+  "compiler_version": "1.2.4",
+  "constraints": [
+    "If fail on source hash mismatch, trigger rollback within 15 minutes",
+    "Escalate to the release owner before publishing a replacement pack"
+  ],
+  "context_package": [
+    "Release checklist",
+    "Receipt persistence docs"
+  ],
+  "created_at": "2026-05-13T07:51:27.614391Z",
+  "dependencies": [
+    "Workspace receipts",
+    "Versioned benchmark results"
+  ],
+  "exclusions": [
+    "Schema redesign"
+  ],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "lineage": {
+    "compile_run_id": "run_13e5764ae083ed328c59",
+    "parent_artifact_ids": [],
+    "parent_compile_run_id": null,
+    "parent_source_hash": null,
+    "pipeline_version": "1.2.4",
+    "source_hash": "7022f8adccc70e7c73b512ea19ed973ed43445298567d2ae98e9cabd2720ad7d",
+    "steps": [
+      {
+        "detail": "Loaded source_type=markdown",
+        "occurred_at": "2026-05-13T07:51:27.614391Z",
+        "stage": "ingest"
+      },
+      {
+        "detail": "Normalized whitespace and wrappers",
+        "occurred_at": "2026-05-13T07:51:27.614391Z",
+        "stage": "normalize"
+      },
+      {
+        "detail": "Detected source_structure_kind=markdown_outline",
+        "occurred_at": "2026-05-13T07:51:27.614391Z",
+        "stage": "detect_surface"
+      },
+      {
+        "detail": "Assessed compile route candidate based on source coverage and specificity.",
+        "occurred_at": "2026-05-13T07:51:27.614391Z",
+        "stage": "assess_intent_strength"
+      },
+      {
+        "detail": "compile_kind=canonicalize_structured; reason=Source already supplies most important intent dimensions.",
+        "occurred_at": "2026-05-13T07:51:27.614391Z",
+        "stage": "route_selected"
+      },
+      {
+        "detail": "Lowered compile result into canonical fields",
+        "occurred_at": "2026-05-13T07:51:27.614391Z",
+        "stage": "lower_to_canonical"
+      },
+      {
+        "detail": "Validated readiness and compile truth",
+        "occurred_at": "2026-05-13T07:51:27.614391Z",
+        "stage": "validate"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter": "structured_outline",
+    "assist_mode": "auto",
+    "assist_route": "not_used",
+    "compile_kind": "canonicalize_structured",
+    "compile_mode": "auto",
+    "compile_truth_summary": "Canonicalized markdown outline input with 10 source-supplied field(s) and no material semantic expansion.",
+    "compiler_derived_fields": [
+      "target_class"
+    ],
+    "confidence": 0.916,
+    "copied_field_count": 10,
+    "derived_field_count": 1,
+    "extraction_adapter": "structured_outline",
+    "extraction_trace": {
+      "adapter_name": "structured_outline",
+      "confidence": [
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "objective",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
+          "field_name": "scope",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "exclusions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "constraints",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "context_package",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No strong extraction evidence.",
+          "field_name": "target_class",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "authority_context",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "dependencies",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "assumptions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "success_criteria",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "output_contract",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "medium",
+          "evidence_summary": "No governance escalation flags were raised by the extractor.",
+          "field_name": "governance_flags",
+          "notes": "",
+          "status": "explicit"
+        }
+      ],
+      "metadata": {
+        "assist_extract_route": "not_used",
+        "assist_extract_status": "not_used",
+        "fallback": null,
+        "model": null,
+        "provider": null,
+        "repair_attempts": 0,
+        "schema_validation_status": "pass"
+      },
+      "recovery": {
+        "contradictory_fields": [],
+        "intake_required": false,
+        "missing_fields": [],
+        "suggested_prompt": "",
+        "weak_fields": []
+      }
+    },
+    "extraction_trust_summary": {
+      "adapter_name": "structured_outline",
+      "intake_required": false,
+      "low_confidence_fields": [
+        "target_class"
+      ],
+      "provider": null,
+      "recovery": {
+        "contradictory_fields": [],
+        "intake_required": false,
+        "missing_fields": [],
+        "suggested_prompt": "",
+        "weak_fields": []
+      },
+      "status_counts": {
+        "empty": 1,
+        "explicit": 11
+      }
+    },
+    "fallback_used": false,
+    "intake_route": "not_required",
+    "llm_used": false,
+    "model": null,
+    "normalized_char_count": 863,
+    "normalized_source_hash": "86ac5cfbe814eafc2c1c33d8f6b76505f640e94d5f67bc733eadfb8a1e44935e",
+    "parsed_response_hash": null,
+    "pipeline_mode": "canonicalize_structured",
+    "prompt_hash": null,
+    "prompt_template_id": null,
+    "provider": null,
+    "provider_assist": {
+      "assist_extract_route": "not_used",
+      "assist_extract_status": "not_used",
+      "fallback": null,
+      "model": null,
+      "provider": null,
+      "repair_attempts": 0,
+      "schema_validation_status": "pass"
+    },
+    "raw_response_hash": null,
+    "repair_attempts": 0,
+    "schema_validation_status": "pass",
+    "semantic_transform_applied": false,
+    "source_metadata": {
+      "detected_source_type": "markdown",
+      "ingest_mode": "path",
+      "normalization": "whitespace+wrapper-clean",
+      "normalized_char_count": 863,
+      "normalized_line_count": 36,
+      "normalized_source_hash": "86ac5cfbe814eafc2c1c33d8f6b76505f640e94d5f67bc733eadfb8a1e44935e",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\procedure\\incident_rollback_procedure.md",
+      "raw_char_count": 864
+    },
+    "source_structure_kind": "markdown_outline",
+    "source_supplied_field_count": 10,
+    "source_supplied_fields": [
+      "assumptions",
+      "authority_context",
+      "constraints",
+      "context_package",
+      "dependencies",
+      "exclusions",
+      "objective",
+      "output_contract",
+      "scope",
+      "success_criteria"
+    ],
+    "unresolved_fields": [],
+    "weak_intent_recovery": {
+      "contradictory_fields": [],
+      "intake_required": false,
+      "missing_fields": [],
+      "recovered_fields": [],
+      "recovery_applied": false,
+      "suggested_prompt": "",
+      "weak_fields": []
+    }
+  },
+  "objective": "Document an incident rollback procedure for failed benchmark releases.",
+  "output_contract": [
+    "Markdown procedure"
+  ],
+  "profile": "procedure",
+  "scope": [
+    "Step 1. Detect benchmark release breakage",
+    "Step 2. Roll back result packs to the prior passing version",
+    "Step 3. Notify the release owner and archive the failed pack"
+  ],
+  "source": {
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\procedure\\incident_rollback_procedure.md",
+    "source_hash": "7022f8adccc70e7c73b512ea19ed973ed43445298567d2ae98e9cabd2720ad7d",
+    "source_id": "src_7022f8adccc70e7c",
+    "source_type": "markdown"
+  },
+  "success_criteria": [
+    "Owner approval is captured before rerun",
+    "Escalation path is explicit for on-call review"
+  ],
+  "target_class": "procedure",
+  "validation": {
+    "errors": [],
+    "generated_at": "2026-05-13T07:51:27.614891Z",
+    "readiness_status": "pass",
+    "report_id": "rcpt_43807d2e0afe74ce7bf4",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "warnings": []
+  }
+}

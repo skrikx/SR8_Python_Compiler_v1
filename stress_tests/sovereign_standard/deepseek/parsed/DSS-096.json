@@ -1,0 +1,44 @@
+{
+  "artifact_type": "research_agent_prompt",
+  "blocked_reason": "The raw_intent references a 'failure_lens' and 'fake_test_risk' as chaos input type, which implies deliberate injection of false or misleading test data. In a healthcare administration context in South Asia, this could violate patient safety, data integrity, and regulatory compliance (e.g., HIPAA-like local laws). The ambiguous acceptance criteria and missing context further increase risk of harm. Without explicit safeguards and verified source policy limits, compiling this prompt would be irresponsible. Blocked until a compliance evidence prompt and memory engrave prompt are generated to validate claims and constraints.",
+  "case_id": "DSS-096",
+  "compiled_intent": "Objective: Design a research agent prompt for a local business site in South Asia that uses the failure_lens to identify and mitigate fake_test_risk, ensuring all outputs are governed by explicit validation gates and source policy limits.\nScope:\n- The prompt must operate within healthcare administration, focusing on local business site data. It must handle ambiguous, urgent, and partial input constraints while producing a structured artifact with objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must not process or generate any fake or misleading test data that could impact real patient care or business operations.\n- Must include explicit validation gates that check source authenticity and policy compliance before any output is produced.\n- Must comply with South Asian healthcare data protection regulations and local business site privacy policies.\n- Must reject any input that is intentionally chaotic or ambiguous without clear resolution steps.\nSuccess Criteria:\n- The research agent prompt is compilable by SR8 into a valid objective, scope, constraints, success criteria, and output contract.\n- All validation gates are documented and enforceable at runtime.\n- No fake_test_risk data is propagated; any detected risk triggers a block with a clear reason.\nOutput Contract:\n- format: JSON\n- fields: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- validation: Each field must be present and conform to the schema. The compiled_intent must have all five sub-sections (Objective, Scope, Constraints, Success Criteria, Output Contract) with non-empty content.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "research_agent_prompt",
+    "blocked_reason": "The raw_intent references a 'failure_lens' and 'fake_test_risk' as chaos input type, which implies deliberate injection of false or misleading test data. In a healthcare administration context in South Asia, this could violate patient safety, data integrity, and regulatory compliance (e.g., HIPAA-like local laws). The ambiguous acceptance criteria and missing context further increase risk of harm. Without explicit safeguards and verified source policy limits, compiling this prompt would be irresponsible. Blocked until a compliance evidence prompt and memory engrave prompt are generated to validate claims and constraints.",
+    "compiled_intent": {
+      "Constraints": [
+        "Must not process or generate any fake or misleading test data that could impact real patient care or business operations.",
+        "Must include explicit validation gates that check source authenticity and policy compliance before any output is produced.",
+        "Must comply with South Asian healthcare data protection regulations and local business site privacy policies.",
+        "Must reject any input that is intentionally chaotic or ambiguous without clear resolution steps."
+      ],
+      "Objective": "Design a research agent prompt for a local business site in South Asia that uses the failure_lens to identify and mitigate fake_test_risk, ensuring all outputs are governed by explicit validation gates and source policy limits.",
+      "Output Contract": {
+        "fields": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "format": "JSON",
+        "validation": "Each field must be present and conform to the schema. The compiled_intent must have all five sub-sections (Objective, Scope, Constraints, Success Criteria, Output Contract) with non-empty content."
+      },
+      "Scope": "The prompt must operate within healthcare administration, focusing on local business site data. It must handle ambiguous, urgent, and partial input constraints while producing a structured artifact with objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "The research agent prompt is compilable by SR8 into a valid objective, scope, constraints, success criteria, and output contract.",
+        "All validation gates are documented and enforceable at runtime.",
+        "No fake_test_risk data is propagated; any detected risk triggers a block with a clear reason."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

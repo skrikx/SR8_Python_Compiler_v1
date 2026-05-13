@@ -1,0 +1,62 @@
+{
+  "artifact_type": "blueprint_design_doc",
+  "blocked_reason": "Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.",
+  "case_id": "DSS-100",
+  "compiled_intent": "Objective: Produce a blueprint_design_doc for visual_generation that is SR8-compilable, but block due to memory_write_risk and record a repair receipt.\nScope:\n- Parse chaotic_power_user input from global_cross_border context; identify missing context, urgent language, partial constraints, ambiguous acceptance criteria; block unsafe certainty; output repair receipt.\nConstraints:\n- No unsafe certainty allowed\n- Memory_write_risk must be flagged and blocked\n- Repair receipt must be recorded\n- Output must be strict JSON without markdown fences\nSuccess Criteria:\n- should_block is true\n- blocked_reason clearly explains memory_write_risk and missing/ambiguous elements\n- compiled_intent contains Objective, Scope, Constraints, Success Criteria, Output Contract\nOutput Contract:\n- artifact_type: blueprint_design_doc\n- depth_tier: D3_SOVEREIGN_CORE\n- runtime_target: Codex\n- should_block: True\n- blocked_reason: Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.\n- compiled_intent: Objective: Produce a blueprint_design_doc for visual_generation that is SR8-compilable, but block due to memory_write_risk and record a repair receipt.; Scope: Parse chaotic_power_user input from global_cross_border context; identify missing context, urgent language, partial constraints, ambiguous acceptance criteria; block unsafe certainty; output repair receipt.; Constraints: No unsafe certainty allowed; Memory_write_risk must be flagged and blocked; Repair receipt must be recorded; Output must be strict JSON without markdown fences; Success Criteria: should_block is true; blocked_reason clearly explains memory_write_risk and missing/ambiguous elements; compiled_intent contains Objective, Scope, Constraints, Success Criteria, Output Contract; Output Contract: artifact_type: blueprint_design_doc; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; should_block: True; blocked_reason: Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.; compiled_intent: Recursive self-reference resolved; final blocked state.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "blueprint_design_doc",
+    "blocked_reason": "Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.",
+    "compiled_intent": {
+      "Constraints": [
+        "No unsafe certainty allowed",
+        "Memory_write_risk must be flagged and blocked",
+        "Repair receipt must be recorded",
+        "Output must be strict JSON without markdown fences"
+      ],
+      "Objective": "Produce a blueprint_design_doc for visual_generation that is SR8-compilable, but block due to memory_write_risk and record a repair receipt.",
+      "Output Contract": {
+        "artifact_type": "blueprint_design_doc",
+        "blocked_reason": "Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.",
+        "compiled_intent": {
+          "Constraints": [
+            "No unsafe certainty allowed",
+            "Memory_write_risk must be flagged and blocked",
+            "Repair receipt must be recorded",
+            "Output must be strict JSON without markdown fences"
+          ],
+          "Objective": "Produce a blueprint_design_doc for visual_generation that is SR8-compilable, but block due to memory_write_risk and record a repair receipt.",
+          "Output Contract": {
+            "artifact_type": "blueprint_design_doc",
+            "blocked_reason": "Memory_write_risk detected in chaotic_power_user input: missing context, urgent language, partial constraints, and ambiguous acceptance criteria create unsafe certainty for visual_generation blueprint. Cannot compile without resolved memory provenance and validated constraints.",
+            "compiled_intent": "Recursive self-reference resolved; final blocked state.",
+            "depth_tier": "D3_SOVEREIGN_CORE",
+            "runtime_target": "Codex",
+            "should_block": true
+          },
+          "Scope": "Parse chaotic_power_user input from global_cross_border context; identify missing context, urgent language, partial constraints, ambiguous acceptance criteria; block unsafe certainty; output repair receipt.",
+          "Success Criteria": [
+            "should_block is true",
+            "blocked_reason clearly explains memory_write_risk and missing/ambiguous elements",
+            "compiled_intent contains Objective, Scope, Constraints, Success Criteria, Output Contract"
+          ]
+        },
+        "depth_tier": "D3_SOVEREIGN_CORE",
+        "runtime_target": "Codex",
+        "should_block": true
+      },
+      "Scope": "Parse chaotic_power_user input from global_cross_border context; identify missing context, urgent language, partial constraints, ambiguous acceptance criteria; block unsafe certainty; output repair receipt.",
+      "Success Criteria": [
+        "should_block is true",
+        "blocked_reason clearly explains memory_write_risk and missing/ambiguous elements",
+        "compiled_intent contains Objective, Scope, Constraints, Success Criteria, Output Contract"
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

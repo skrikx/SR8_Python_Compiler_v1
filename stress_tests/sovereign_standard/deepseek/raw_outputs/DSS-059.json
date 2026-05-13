@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:56:49Z",
+  "case_id": "DSS-059",
+  "content": "{\n  \"artifact_type\": \"mirroros_analysis_prompt\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": false,\n  \"blocked_reason\": null,\n  \"compiled_intent\": {\n    \"Objective\": \"Generate a MirrorOS analysis prompt for an audit agent that processes enterprise compliance data in Latin America, using a technical lens to resolve artifact type ambiguity and produce a governed, validated output.\",\n    \"Scope\": \"The prompt must handle messy input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. It must include explicit validation gates and produce an SR8-compilable artifact with objective, scope, constraints, success criteria, and output contract sections.\",\n    \"Constraints\": [\n      \"Input may contain contradictory or incomplete information.\",\n      \"Output must be strictly JSON with no markdown fences.\",\n      \"All sections must be present and non-empty.\",\n      \"Validation gates must check for completeness, consistency, and compliance with SR8 schema.\"\n    ],\n    \"Success Criteria\": [\n      \"The generated prompt resolves artifact type ambiguity by inferring the correct type from context.\",\n      \"All validation gates pass before output is finalized.\",\n      \"The output contract includes a clear specification of the artifact type, depth tier, and runtime target.\"\n    ],\n    \"Output Contract\": {\n      \"artifact_type\": \"mirroros_analysis_prompt\",\n      \"depth_tier\": \"D2_PRODUCTION\",\n      \"runtime_target\": \"Codex\",\n      \"should_block\": false,\n      \"blocked_reason\": null,\n      \"compiled_intent\": {\n        \"Objective\": \"string\",\n        \"Scope\": \"string\",\n        \"Constraints\": [\"string\"],\n        \"Success Criteria\": [\"string\"],\n        \"Output Contract\": \"object\"\n      }\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

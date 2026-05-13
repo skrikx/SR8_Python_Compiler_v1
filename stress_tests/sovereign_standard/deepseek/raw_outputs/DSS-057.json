@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:56:41Z",
+  "case_id": "DSS-057",
+  "content": "{\n  \"artifact_type\": \"srx_ace_audit_agent\",\n  \"depth_tier\": \"D2_PRODUCTION\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Unsafe certainty: raw_intent contains unsupported_roi_claim as chaos input type, missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot validate ROI claim without market_lens data source or clear success metrics. Blocking to prevent hallucinated compliance or financial advice. Repair receipt: require explicit market_lens dataset reference, define acceptance criteria as measurable thresholds, and replace urgent language with structured timeline.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Build an srx_ace_audit_agent for research_agent that validates market_lens data and blocks unsupported ROI claims.\",\n    \"Scope\": \"Audit agent must process market_lens inputs, flag unsupported_roi_claim patterns, and generate a repair receipt. Excludes financial forecasting or legal compliance.\",\n    \"Constraints\": \"No hallucinated data. Must reject ambiguous acceptance criteria. Must not output unverified ROI metrics. Must operate within Codex runtime.\",\n    \"Success Criteria\": \"Agent correctly identifies unsupported_roi_claim in at least 3 test cases. Produces a repair receipt with missing context fields. Blocks execution when certainty < 0.95.\",\n    \"Output Contract\": {\n      \"artifact_type\": \"srx_ace_audit_agent\",\n      \"depth_tier\": \"D2_PRODUCTION\",\n      \"runtime_target\": \"Codex\",\n      \"should_block\": true,\n      \"blocked_reason\": \"Unsafe certainty: unsupported_roi_claim cannot be validated without market_lens data source. Repair receipt issued.\",\n      \"compiled_intent\": \"See above\"\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

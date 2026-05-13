@@ -1,0 +1,58 @@
+{
+  "artifact_type": "srx_ace_build_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-021",
+  "compiled_intent": "Objective: Build an SRX ACE build agent that generates a local business website for a Canadian founder-operator, using the market_lens framework to adapt content and structure to local market conditions.\nScope:\n- The agent must accept a business profile (name, industry, location, services, target audience) and produce a complete static website with homepage, about, services, contact, and a local SEO metadata block. It must validate inputs against a market_lens schema (region, language, cultural cues, competitor density) and reject or flag ambiguous or missing fields.\nConstraints:\n- Must run on Codex runtime with no external API calls beyond static asset generation.\n- All output must be in valid HTML5, CSS3, and plain JavaScript (no frameworks).\n- Must include a validation gate that checks for at least 80% of required fields before generation.\n- Must handle fake_test_risk inputs by logging a warning and returning a partial scaffold with placeholders instead of failing.\n- Must comply with Canadian accessibility standards (WCAG 2.1 AA) and include a language attribute of 'en-CA' or 'fr-CA' based on location.\nSuccess Criteria:\n- Agent produces a zip file containing index.html, about.html, services.html, contact.html, style.css, and a local-seo.json metadata file.\n- All pages pass W3C validation with zero errors.\n- Market_lens fields (region, language, competitor_count) are reflected in the SEO metadata and page content.\n- Fake_test_risk input triggers a warning log and generates a scaffold with '[PLACEHOLDER]' markers instead of crashing.\n- Validation gate rejects input with fewer than 4 of 6 required fields and returns a structured error report.\nOutput Contract:\n- format: zip archive\n- contents: index.html; about.html; services.html; contact.html; style.css; local-seo.json\n- metadata: generated_by: srx_ace_build_agent; runtime: Codex; market_lens_version: 1.0; validation_status: passed|partial|failed; risk_flag: none|fake_test_risk\n- error_report: missing_fields: ; warnings: ; blockers:",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_build_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must run on Codex runtime with no external API calls beyond static asset generation.",
+        "All output must be in valid HTML5, CSS3, and plain JavaScript (no frameworks).",
+        "Must include a validation gate that checks for at least 80% of required fields before generation.",
+        "Must handle fake_test_risk inputs by logging a warning and returning a partial scaffold with placeholders instead of failing.",
+        "Must comply with Canadian accessibility standards (WCAG 2.1 AA) and include a language attribute of 'en-CA' or 'fr-CA' based on location."
+      ],
+      "Objective": "Build an SRX ACE build agent that generates a local business website for a Canadian founder-operator, using the market_lens framework to adapt content and structure to local market conditions.",
+      "Output Contract": {
+        "contents": [
+          "index.html",
+          "about.html",
+          "services.html",
+          "contact.html",
+          "style.css",
+          "local-seo.json"
+        ],
+        "error_report": {
+          "blockers": [],
+          "missing_fields": [],
+          "warnings": []
+        },
+        "format": "zip archive",
+        "metadata": {
+          "generated_by": "srx_ace_build_agent",
+          "market_lens_version": "1.0",
+          "risk_flag": "none|fake_test_risk",
+          "runtime": "Codex",
+          "validation_status": "passed|partial|failed"
+        }
+      },
+      "Scope": "The agent must accept a business profile (name, industry, location, services, target audience) and produce a complete static website with homepage, about, services, contact, and a local SEO metadata block. It must validate inputs against a market_lens schema (region, language, cultural cues, competitor density) and reject or flag ambiguous or missing fields.",
+      "Success Criteria": [
+        "Agent produces a zip file containing index.html, about.html, services.html, contact.html, style.css, and a local-seo.json metadata file.",
+        "All pages pass W3C validation with zero errors.",
+        "Market_lens fields (region, language, competitor_count) are reflected in the SEO metadata and page content.",
+        "Fake_test_risk input triggers a warning log and generates a scaffold with '[PLACEHOLDER]' markers instead of crashing.",
+        "Validation gate rejects input with fewer than 4 of 6 required fields and returns a structured error report."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

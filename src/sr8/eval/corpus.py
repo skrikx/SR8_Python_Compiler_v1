@@ -8,6 +8,8 @@ from sr8.utils.paths import resolve_trusted_local_path
 
 DEFAULT_CORPUS_ROOT = Path("benchmarks/corpus")
 DEFAULT_EXPECTED_ROOT = Path("benchmarks/expected")
+VIRTUAL_SUITES = ("adversarial", "experimental", "llm_required", "rules_required")
+RULES_REQUIRED_SUITES = ("founder", "procedure", "self_hosting")
 
 
 def list_available_suites(corpus_root: str | Path = DEFAULT_CORPUS_ROOT) -> tuple[str, ...]:
@@ -15,7 +17,8 @@ def list_available_suites(corpus_root: str | Path = DEFAULT_CORPUS_ROOT) -> tupl
         root = resolve_trusted_local_path(corpus_root, must_exist=True)
     except (FileNotFoundError, ValueError):
         return ()
-    return tuple(sorted(path.name for path in root.iterdir() if path.is_dir()))
+    discovered = tuple(sorted(path.name for path in root.iterdir() if path.is_dir()))
+    return tuple(sorted((*discovered, *VIRTUAL_SUITES)))
 
 
 def _load_expectations(expected_root: Path, case_id: str) -> BenchmarkExpectation:
@@ -33,7 +36,16 @@ def load_benchmark_cases(
 ) -> list[BenchmarkCase]:
     root = resolve_trusted_local_path(corpus_root, must_exist=True)
     expected = resolve_trusted_local_path(expected_root)
-    suites = [suite] if suite not in {None, "all"} else list_available_suites(root)
+    if suite == "rules_required":
+        suites = list(RULES_REQUIRED_SUITES)
+    elif suite == "llm_required":
+        suites = []
+    elif suite in {"adversarial", "experimental"}:
+        suites = []
+    elif suite is None or suite == "all":
+        suites = list(RULES_REQUIRED_SUITES)
+    else:
+        suites = [suite]
     cases: list[BenchmarkCase] = []
     for suite_name in suites:
         suite_root = root / str(suite_name)

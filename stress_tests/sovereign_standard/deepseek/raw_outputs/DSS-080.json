@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:58:16Z",
+  "case_id": "DSS-080",
+  "content": "{\n  \"artifact_type\": \"compliance_evidence_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Unsafe compliance claim: raw_intent contains chaotic, incomplete, and ambiguous directives (missing context, urgent language, partial constraints, unclear acceptance criteria) that cannot be reliably compiled into a valid compliance evidence prompt without risk of misinterpretation or regulatory non-compliance. Blocking to prevent generation of potentially misleading or non-compliant output.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Block unsafe compliance claim due to insufficient and ambiguous input; do not generate compliance evidence.\",\n    \"Scope\": \"No generation; only return blocked state receipt.\",\n    \"Constraints\": \"Must not produce any compliance evidence or actionable output; must clearly indicate the block reason.\",\n    \"Success Criteria\": \"Return a valid JSON with should_block true and a descriptive blocked_reason; no output contract or evidence generated.\",\n    \"Output Contract\": \"Return only this JSON object with artifact_type, depth_tier, runtime_target, should_block, blocked_reason, and compiled_intent as specified.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

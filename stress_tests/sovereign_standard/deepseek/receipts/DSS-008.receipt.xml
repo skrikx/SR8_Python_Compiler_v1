@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-008">
+  <source_intent>
+    <raw_intent>Case 008: I am a nontechnical_business_owner in Africa. Build a mirroros_analysis_prompt for memory_engrave using the runtime_lens. Chaos input type is language_mixed_prompt. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>memory_engrave</domain>
+    <user_type>nontechnical_business_owner</user_type>
+    <geography>Africa</geography>
+    <chaos_type>language_mixed_prompt</chaos_type>
+    <lens>runtime_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>mirroros_analysis_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a MirrorOS analysis prompt that can be memory-engraved for a nontechnical business owner in Africa, using the runtime_lens to handle language-mixed, chaotic input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria.
+Scope:
+- The prompt must produce a structured analysis artifact that includes explicit validation gates, SR8-compilable sections (Objective, Scope, Constraints, Success Criteria, Output Contract), and be suitable for Codex runtime execution.
+Constraints:
+- Input is language-mixed and may contain incomplete or contradictory information.
+- Output must be governed and auditable, with clear validation checkpoints.
+- Must not assume technical expertise from the business owner.
+- Must respect regional and cultural context of Africa.
+- All sections must be SRXML-compliant for SR8 compilation.
+Success Criteria:
+- The generated prompt can be directly used for memory engraving in MirrorOS.
+- All validation gates are explicitly defined and testable.
+- The output contract is unambiguous and actionable.
+- The artifact handles chaotic input without loss of governance.
+Output Contract:
+- format: SRXML
+- sections: Objective; Scope; Constraints; Success Criteria; Output Contract
+- validation_gates: Gate 1: Input sanitization and language normalization.; Gate 2: Context reconstruction from partial data.; Gate 3: Constraint extraction and conflict resolution.; Gate 4: Acceptance criteria disambiguation.; Gate 5: Final compliance check against SR8 schema.
+- runtime: Codex
+- target_audience: Nontechnical business owner in Africa</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_a65e12a99c45a3a3eb94</artifact_id>
+    <source_hash>87ba37d0d5c89e105dbf8be2a22aa8d1bc7d8047e4b42b510188105025bf79e3</source_hash>
+    <compile_run_id>run_e77b62bdf8b2958be29d</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-008.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-008.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

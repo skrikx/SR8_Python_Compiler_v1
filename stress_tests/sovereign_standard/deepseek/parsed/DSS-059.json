@@ -1,0 +1,50 @@
+{
+  "artifact_type": "mirroros_analysis_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-059",
+  "compiled_intent": "Objective: Generate a MirrorOS analysis prompt for an audit agent that processes enterprise compliance data in Latin America, using a technical lens to resolve artifact type ambiguity and produce a governed, validated output.\nScope:\n- The prompt must handle messy input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. It must include explicit validation gates and produce an SR8-compilable artifact with objective, scope, constraints, success criteria, and output contract sections.\nConstraints:\n- Input may contain contradictory or incomplete information.\n- Output must be strictly JSON with no markdown fences.\n- All sections must be present and non-empty.\n- Validation gates must check for completeness, consistency, and compliance with SR8 schema.\nSuccess Criteria:\n- The generated prompt resolves artifact type ambiguity by inferring the correct type from context.\n- All validation gates pass before output is finalized.\n- The output contract includes a clear specification of the artifact type, depth tier, and runtime target.\nOutput Contract:\n- artifact_type: mirroros_analysis_prompt\n- depth_tier: D2_PRODUCTION\n- runtime_target: Codex\n- should_block: False\n- blocked_reason: None\n- compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: object",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "mirroros_analysis_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Input may contain contradictory or incomplete information.",
+        "Output must be strictly JSON with no markdown fences.",
+        "All sections must be present and non-empty.",
+        "Validation gates must check for completeness, consistency, and compliance with SR8 schema."
+      ],
+      "Objective": "Generate a MirrorOS analysis prompt for an audit agent that processes enterprise compliance data in Latin America, using a technical lens to resolve artifact type ambiguity and produce a governed, validated output.",
+      "Output Contract": {
+        "artifact_type": "mirroros_analysis_prompt",
+        "blocked_reason": null,
+        "compiled_intent": {
+          "Constraints": [
+            "string"
+          ],
+          "Objective": "string",
+          "Output Contract": "object",
+          "Scope": "string",
+          "Success Criteria": [
+            "string"
+          ]
+        },
+        "depth_tier": "D2_PRODUCTION",
+        "runtime_target": "Codex",
+        "should_block": false
+      },
+      "Scope": "The prompt must handle messy input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. It must include explicit validation gates and produce an SR8-compilable artifact with objective, scope, constraints, success criteria, and output contract sections.",
+      "Success Criteria": [
+        "The generated prompt resolves artifact type ambiguity by inferring the correct type from context.",
+        "All validation gates pass before output is finalized.",
+        "The output contract includes a clear specification of the artifact type, depth tier, and runtime target."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

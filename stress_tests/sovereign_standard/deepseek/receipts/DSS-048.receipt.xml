@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-048">
+  <source_intent>
+    <raw_intent>Case 048: I am a nontechnical_business_owner in Africa. Build a sales_offer_prompt for legal_workflow using the market_lens. Chaos input type is contradictory_constraints. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>legal_workflow</domain>
+    <user_type>nontechnical_business_owner</user_type>
+    <geography>Africa</geography>
+    <chaos_type>contradictory_constraints</chaos_type>
+    <lens>market_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sales_offer_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Contradictory constraints: user requests a sales_offer_prompt for legal_workflow but also demands blocking unsafe certainty and recording a repair receipt, which conflicts with generating a compilable SR8 directive. Missing context: no specific legal workflow, jurisdiction, or market lens details provided. Ambiguous acceptance criteria: 'block unsafe certainty' is undefined and cannot be validated. Urgent language without concrete requirements prevents safe compilation. Output cannot be produced without resolving these contradictions and gaps.</blocked_reason>
+    <compiled_intent>Objective: Produce a sales_offer_prompt for a legal workflow tailored to an African market, using the market_lens framework, while handling contradictory constraints and blocking unsafe certainty.
+Scope:
+- Generate a prompt that can be compiled by SR8 into objective, scope, constraints, success criteria, and output contract. Must include a repair receipt for blocked unsafe certainty.
+Constraints:
+- Must not produce unsafe or unverifiable certainty.
+- Must resolve contradictory constraints before output.
+- Must include market_lens adaptation for Africa.
+- Must be suitable for nontechnical business owner.
+Success Criteria:
+- SR8 can compile the prompt into the five required sections.
+- Unsafe certainty is explicitly blocked and recorded.
+- Repair receipt is generated and attached.
+- Contradictory constraints are identified and resolved.
+Output Contract:
+- format: JSON with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent
+- compiled_intent: Object with Objective, Scope, Constraints, Success Criteria, Output Contract
+- repair_receipt: Included in blocked_reason if should_block is true</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_0906c55d9ccf15eb5aca</artifact_id>
+    <source_hash>96ffc11f543cdc59e34f654e4e35990073b642736b96b9df8c6c375925f728d9</source_hash>
+    <compile_run_id>run_1ab9a940cf52a00eacee</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-048.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-048.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

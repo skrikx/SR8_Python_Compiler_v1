@@ -1,0 +1,57 @@
+{
+  "artifact_type": "sr8_compiler_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-086",
+  "compiled_intent": "Objective: Construct an SR8-compilable compiler prompt for a healthcare content system in South Asia, processing a schema_blur chaos input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, producing a governed artifact with explicit validation gates.\nScope:\n- The prompt must define a content system that handles healthcare data (e.g., patient records, clinical notes) with schema_blur (fuzzy or overlapping field definitions). It must include validation gates for data integrity, compliance with local healthcare regulations (e.g., data privacy laws in South Asia), and schema resolution. The output must be an SR8 artifact with sections: objective, scope, constraints, success criteria, and output contract.\nConstraints:\n- Must comply with South Asian healthcare data protection regulations (e.g., India's DPDP Act, or equivalent).\n- Schema_blur input must be resolved via explicit field mapping and type coercion rules.\n- Urgent language in input must be parsed without compromising validation rigor.\n- Partial constraints must be inferred from context and documented as assumptions.\n- Ambiguous acceptance criteria must be clarified with fallback defaults.\n- Validation gates must include: schema consistency check, regulatory compliance check, and output format verification.\nSuccess Criteria:\n- The compiled prompt produces a valid SR8 artifact with all five required sections.\n- All validation gates are explicitly defined and executable.\n- Schema_blur is resolved to a deterministic schema with at least 95% field coverage.\n- No regulatory violations are present in the output contract.\n- The artifact can be directly compiled by SR8 without manual intervention.\nOutput Contract:\n- format: JSON\n- sections: objective; scope; constraints; success_criteria; output_contract\n- validation_gates: schema_consistency_check; regulatory_compliance_check; output_format_verification\n- metadata: case_id: DSS-086; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; artifact_type: sr8_compiler_prompt",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr8_compiler_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with South Asian healthcare data protection regulations (e.g., India's DPDP Act, or equivalent).",
+        "Schema_blur input must be resolved via explicit field mapping and type coercion rules.",
+        "Urgent language in input must be parsed without compromising validation rigor.",
+        "Partial constraints must be inferred from context and documented as assumptions.",
+        "Ambiguous acceptance criteria must be clarified with fallback defaults.",
+        "Validation gates must include: schema consistency check, regulatory compliance check, and output format verification."
+      ],
+      "Objective": "Construct an SR8-compilable compiler prompt for a healthcare content system in South Asia, processing a schema_blur chaos input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, producing a governed artifact with explicit validation gates.",
+      "Output Contract": {
+        "format": "JSON",
+        "metadata": {
+          "artifact_type": "sr8_compiler_prompt",
+          "case_id": "DSS-086",
+          "depth_tier": "D3_SOVEREIGN_CORE",
+          "runtime_target": "Codex"
+        },
+        "sections": [
+          "objective",
+          "scope",
+          "constraints",
+          "success_criteria",
+          "output_contract"
+        ],
+        "validation_gates": [
+          "schema_consistency_check",
+          "regulatory_compliance_check",
+          "output_format_verification"
+        ]
+      },
+      "Scope": "The prompt must define a content system that handles healthcare data (e.g., patient records, clinical notes) with schema_blur (fuzzy or overlapping field definitions). It must include validation gates for data integrity, compliance with local healthcare regulations (e.g., data privacy laws in South Asia), and schema resolution. The output must be an SR8 artifact with sections: objective, scope, constraints, success criteria, and output contract.",
+      "Success Criteria": [
+        "The compiled prompt produces a valid SR8 artifact with all five required sections.",
+        "All validation gates are explicitly defined and executable.",
+        "Schema_blur is resolved to a deterministic schema with at least 95% field coverage.",
+        "No regulatory violations are present in the output contract.",
+        "The artifact can be directly compiled by SR8 without manual intervention."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

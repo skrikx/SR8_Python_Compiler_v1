@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-032">
+  <source_intent>
+    <raw_intent>Case 032: I am a developer in United States. Build a blueprint_design_doc for repo_refactor using the technical_lens. Chaos input type is missing_inputs. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>repo_refactor</domain>
+    <user_type>developer</user_type>
+    <geography>United States</geography>
+    <chaos_type>missing_inputs</chaos_type>
+    <lens>technical_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>blueprint_design_doc</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Missing required inputs: no repo name, no current architecture description, no refactoring goals, no stakeholder list, no risk assessment. Urgent language and ambiguous acceptance criteria cannot be resolved without these. Unsafe to proceed.</blocked_reason>
+    <compiled_intent>Objective: Produce a blueprint design document for repo_refactor, but blocked due to insufficient inputs.
+Scope:
+- Undefined until missing inputs are provided.
+Constraints:
+- Must comply with US development standards; must not hallucinate missing data.
+Success Criteria:
+- All required fields present and validated; no ambiguous or contradictory statements.
+Output Contract:
+- A JSON artifact with artifact_type, depth_tier, runtime_target, should_block, blocked_reason, and compiled_intent containing Objective, Scope, Constraints, Success Criteria, and Output Contract.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_fea41658f7bc272b6a9c</artifact_id>
+    <source_hash>e34313982662ce9c5548f1c254752f9d80793b0f2c103df7670882653e5e83da</source_hash>
+    <compile_run_id>run_64689254255c448bb4f6</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-032.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-032.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

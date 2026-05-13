@@ -1,0 +1,58 @@
+{
+  "artifact_type": "memory_engrave_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-064",
+  "compiled_intent": "Objective: Engrave a governed memory artifact for finance operations within a European Union law firm, using the compiler_lens to resolve overbroad_one_pass_lock chaos input into a structured, validated SR8 directive.\nScope:\n- Single memory engrave operation targeting finance_ops domain. Input is a messy, overbroad one-pass lock with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Output must be a validated artifact with explicit gates for memory safety and overwrite policy compliance.\nConstraints:\n- Must comply with EU data protection regulations (GDPR) and law firm confidentiality requirements.\n- Memory engrave must enforce overwrite policy: no destructive overwrite of existing critical memory without explicit validation gate approval.\n- All validation gates must be explicitly defined and logged.\n- The artifact must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.\n- No hallucination or fabrication of missing context; use placeholder markers for unresolved inputs.\nSuccess Criteria:\n- Memory engrave artifact is produced with all required sections (objective, scope, constraints, success criteria, output contract).\n- Validation gates are present and testable for memory safety and overwrite policy.\n- Artifact passes SR8 compilation without errors.\n- Overbroad_one_pass_lock input is resolved into a governed structure without data loss or policy violation.\nOutput Contract:\n- format: JSON\n- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; SuccessCriteria: array of strings; OutputContract: object with format and sections\n- validation_gates: memory_safety_check: verify no existing critical memory is overwritten without approval; overwrite_policy_check: confirm overwrite policy compliance; completeness_check: ensure all required fields are present; sr8_compilability_check: validate structure against SR8 schema",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "memory_engrave_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with EU data protection regulations (GDPR) and law firm confidentiality requirements.",
+        "Memory engrave must enforce overwrite policy: no destructive overwrite of existing critical memory without explicit validation gate approval.",
+        "All validation gates must be explicitly defined and logged.",
+        "The artifact must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.",
+        "No hallucination or fabrication of missing context; use placeholder markers for unresolved inputs."
+      ],
+      "Objective": "Engrave a governed memory artifact for finance operations within a European Union law firm, using the compiler_lens to resolve overbroad_one_pass_lock chaos input into a structured, validated SR8 directive.",
+      "Output Contract": {
+        "compiled_intent_structure": {
+          "Constraints": "array of strings",
+          "Objective": "string",
+          "OutputContract": "object with format and sections",
+          "Scope": "string",
+          "SuccessCriteria": "array of strings"
+        },
+        "format": "JSON",
+        "sections": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "validation_gates": [
+          "memory_safety_check: verify no existing critical memory is overwritten without approval",
+          "overwrite_policy_check: confirm overwrite policy compliance",
+          "completeness_check: ensure all required fields are present",
+          "sr8_compilability_check: validate structure against SR8 schema"
+        ]
+      },
+      "Scope": "Single memory engrave operation targeting finance_ops domain. Input is a messy, overbroad one-pass lock with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Output must be a validated artifact with explicit gates for memory safety and overwrite policy compliance.",
+      "Success Criteria": [
+        "Memory engrave artifact is produced with all required sections (objective, scope, constraints, success criteria, output contract).",
+        "Validation gates are present and testable for memory safety and overwrite policy.",
+        "Artifact passes SR8 compilation without errors.",
+        "Overbroad_one_pass_lock input is resolved into a governed structure without data loss or policy violation."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

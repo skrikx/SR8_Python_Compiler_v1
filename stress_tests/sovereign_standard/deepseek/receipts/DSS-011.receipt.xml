@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-011">
+  <source_intent>
+    <raw_intent>Case 011: I am a founder_operator in Canada. Build a research_agent_prompt for content_system using the operator_lens. Chaos input type is schema_blur. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>content_system</domain>
+    <user_type>founder_operator</user_type>
+    <geography>Canada</geography>
+    <chaos_type>schema_blur</chaos_type>
+    <lens>operator_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>research_agent_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Design and deploy a research agent prompt for a content system that enables a founder-operator in Canada to generate, curate, and validate content assets using an operator lens, with explicit validation gates to ensure policy compliance and claim limits.
+Scope:
+- The research agent prompt must accept ambiguous, partial, and urgent input (schema_blur), resolve missing context via default heuristics, and produce structured research outputs that feed into content generation. The system must operate within Canadian content regulations and platform-specific claim limits.
+Constraints:
+- Must comply with Canadian content laws (e.g., CRTC guidelines, anti-spam legislation).
+- Must enforce claim limits per content asset (e.g., no unsubstantiated health, financial, or performance claims).
+- Must handle schema_blur input by inferring missing fields from context or fallback defaults.
+- Must include explicit validation gates at input ingestion, research synthesis, and output generation stages.
+- Must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Success Criteria:
+- Research agent prompt produces a structured research report with at least 3 sources per content topic.
+- Validation gates flag any claim exceeding predefined limits (e.g., 'cures disease' triggers block).
+- Schema_blur input is resolved without user intervention in &gt;90% of test cases.
+- Output contract is machine-parseable and includes source_policy_and_claim_limits compliance evidence.
+Output Contract:
+- format: JSON
+- fields: research_summary: string (max 2000 chars); sources: array of objects (url, credibility_score, date); claim_audit: array of objects (claim_text, limit_status, policy_reference); validation_gates: array of objects (gate_name, passed, evidence); compliance_evidence: object (policy_version, claim_limits_applied, jurisdiction)
+- validation_rules: All claims must be within Canadian claim limits (e.g., no therapeutic claims without Health Canada approval).; Sources must have credibility_score &gt;= 0.7.; Validation gates must all pass before output is released.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_39e7da33950c87a4560b</artifact_id>
+    <source_hash>eea0d541c414ddd43c82b9c0beaac3829d95c2e001080563f1d09f98558213c8</source_hash>
+    <compile_run_id>run_3637234da4ee5dbf0529</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-011.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-011.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

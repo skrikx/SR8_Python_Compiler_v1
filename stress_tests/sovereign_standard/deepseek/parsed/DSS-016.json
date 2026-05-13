@@ -1,0 +1,85 @@
+{
+  "artifact_type": "visual_generation_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-016",
+  "compiled_intent": "Objective: Generate a visual prompt for a healthcare administration software build in South Asia, using the memory_lens to incorporate historical context and user memory patterns, with explicit validation gates to ensure governance and compliance.\nScope:\n- The prompt must produce a visual representation (e.g., UI mockup, system architecture diagram, or workflow illustration) of a healthcare admin software module. It must include elements for patient record management, appointment scheduling, billing, and local regulatory compliance (e.g., data privacy laws). The memory_lens should reflect past user interactions, error patterns, and optimization suggestions from similar deployments.\nConstraints:\n- Must comply with South Asian healthcare data protection regulations (e.g., India's DPDP Act, Bangladesh's data privacy rules).\n- Visual output must be interpretable by Codex for code generation.\n- Must include validation gates: (1) scope clarity check, (2) regulatory compliance check, (3) memory consistency check, (4) ambiguity resolution gate.\n- No hardcoded patient data; use placeholders.\n- Must support English and at least one local language (e.g., Hindi, Bengali, Tamil).\nSuccess Criteria:\n- The visual prompt is SR8-compilable into a structured directive with Objective, Scope, Constraints, Success Criteria, and Output Contract.\n- All validation gates are explicitly defined and passable.\n- The memory_lens integration is demonstrable (e.g., shows how past errors inform current design).\n- The output can be directly used by Codex to generate a software build specification.\nOutput Contract:\n- format: JSON with fields: prompt_text (string), validation_gates (array of objects with gate_name, description, pass_condition), memory_lens_context (object with historical_errors, user_patterns, optimization_hints), compliance_notes (array of strings), language_support (array of strings)\n- example: prompt_text: Generate a UI mockup for a healthcare admin dashboard in South Asia. Include patient list, appointment calendar, billing summary, and a compliance alert banner. Use memory_lens to highlight frequently accessed features and past user errors.; validation_gates: gate_name: scope_clarity; description: Ensure all required modules are present; pass_condition: Patient, Appointment, Billing, Compliance modules exist; gate_name: regulatory_compliance; description: Check data privacy markers; pass_condition: No real patient data, DPDP Act placeholders used; gate_name: memory_consistency; description: Verify memory_lens integration; pass_condition: At least one historical error pattern is reflected; gate_name: ambiguity_resolution; description: Resolve any ambiguous terms; pass_condition: All terms defined in glossary; memory_lens_context: historical_errors: Duplicate patient entries; Timezone mismatches in scheduling; user_patterns: High use of search function; Frequent billing corrections; optimization_hints: Auto-detect duplicates; Use local timezone by default; compliance_notes: DPDP Act 2023 compliance required; Data localization mandatory; language_support: English; Hindi; Bengali",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "visual_generation_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with South Asian healthcare data protection regulations (e.g., India's DPDP Act, Bangladesh's data privacy rules).",
+        "Visual output must be interpretable by Codex for code generation.",
+        "Must include validation gates: (1) scope clarity check, (2) regulatory compliance check, (3) memory consistency check, (4) ambiguity resolution gate.",
+        "No hardcoded patient data; use placeholders.",
+        "Must support English and at least one local language (e.g., Hindi, Bengali, Tamil)."
+      ],
+      "Objective": "Generate a visual prompt for a healthcare administration software build in South Asia, using the memory_lens to incorporate historical context and user memory patterns, with explicit validation gates to ensure governance and compliance.",
+      "Output Contract": {
+        "example": {
+          "compliance_notes": [
+            "DPDP Act 2023 compliance required",
+            "Data localization mandatory"
+          ],
+          "language_support": [
+            "English",
+            "Hindi",
+            "Bengali"
+          ],
+          "memory_lens_context": {
+            "historical_errors": [
+              "Duplicate patient entries",
+              "Timezone mismatches in scheduling"
+            ],
+            "optimization_hints": [
+              "Auto-detect duplicates",
+              "Use local timezone by default"
+            ],
+            "user_patterns": [
+              "High use of search function",
+              "Frequent billing corrections"
+            ]
+          },
+          "prompt_text": "Generate a UI mockup for a healthcare admin dashboard in South Asia. Include patient list, appointment calendar, billing summary, and a compliance alert banner. Use memory_lens to highlight frequently accessed features and past user errors.",
+          "validation_gates": [
+            {
+              "description": "Ensure all required modules are present",
+              "gate_name": "scope_clarity",
+              "pass_condition": "Patient, Appointment, Billing, Compliance modules exist"
+            },
+            {
+              "description": "Check data privacy markers",
+              "gate_name": "regulatory_compliance",
+              "pass_condition": "No real patient data, DPDP Act placeholders used"
+            },
+            {
+              "description": "Verify memory_lens integration",
+              "gate_name": "memory_consistency",
+              "pass_condition": "At least one historical error pattern is reflected"
+            },
+            {
+              "description": "Resolve any ambiguous terms",
+              "gate_name": "ambiguity_resolution",
+              "pass_condition": "All terms defined in glossary"
+            }
+          ]
+        },
+        "format": "JSON with fields: prompt_text (string), validation_gates (array of objects with gate_name, description, pass_condition), memory_lens_context (object with historical_errors, user_patterns, optimization_hints), compliance_notes (array of strings), language_support (array of strings)"
+      },
+      "Scope": "The prompt must produce a visual representation (e.g., UI mockup, system architecture diagram, or workflow illustration) of a healthcare admin software module. It must include elements for patient record management, appointment scheduling, billing, and local regulatory compliance (e.g., data privacy laws). The memory_lens should reflect past user interactions, error patterns, and optimization suggestions from similar deployments.",
+      "Success Criteria": [
+        "The visual prompt is SR8-compilable into a structured directive with Objective, Scope, Constraints, Success Criteria, and Output Contract.",
+        "All validation gates are explicitly defined and passable.",
+        "The memory_lens integration is demonstrable (e.g., shows how past errors inform current design).",
+        "The output can be directly used by Codex to generate a software build specification."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

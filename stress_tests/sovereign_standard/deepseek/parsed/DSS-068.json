@@ -1,0 +1,68 @@
+{
+  "artifact_type": "content_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-068",
+  "compiled_intent": "Objective: Generate a content_prompt artifact that, when executed by SR8, produces a memory_engrave prompt for a nontechnical business owner in Africa, using the technical_lens to interpret a language_mixed_prompt input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and includes explicit validation gates for SR8 compilation.\nScope:\n- The artifact must define a content_prompt that accepts a language_mixed_prompt input (chaotic, incomplete, urgent, ambiguous) and outputs a structured memory_engrave prompt with clear objective, scope, constraints, success criteria, and output contract. The output must be SR8-compilable and include validation gates (e.g., completeness checks, constraint satisfaction, ambiguity resolution).\nConstraints:\n- Must use technical_lens to parse and structure the input.\n- Must handle missing context by flagging gaps and requesting clarification.\n- Must interpret urgent language without compromising governance.\n- Must resolve partial constraints into explicit, bounded rules.\n- Must transform ambiguous acceptance criteria into measurable, testable conditions.\n- Output must be valid SR8 XML with sections: Objective, Scope, Constraints, Success Criteria, Output Contract.\n- Validation gates must be embedded as SR8 checkpoints (e.g., <validate> elements).\nSuccess Criteria:\n- The generated content_prompt produces a memory_engrave prompt that is SR8-compilable.\n- All five SR8 sections are present and correctly formatted.\n- Validation gates are explicitly defined and trigger on missing/ambiguous data.\n- The output is actionable by a nontechnical business owner in Africa (i.e., uses clear language, avoids jargon, provides examples).\n- The technical_lens is applied consistently to transform chaotic input into structured output.\nOutput Contract:\n- format: JSON\n- schema: artifact_type: content_prompt; depth_tier: D3_SOVEREIGN_CORE; runtime_target: Codex; should_block: False; blocked_reason: None; compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: format: string; schema: object\n- validation_gates: Gate 1: Input completeness check - if missing context, output placeholder and request.; Gate 2: Urgency flag - if urgent language detected, escalate to human-in-loop.; Gate 3: Constraint resolution - if partial, expand to full constraint set.; Gate 4: Ambiguity resolution - if ambiguous, propose two interpretations and select.; Gate 5: SR8 compliance - verify all five sections present and valid XML.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "content_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must use technical_lens to parse and structure the input.",
+        "Must handle missing context by flagging gaps and requesting clarification.",
+        "Must interpret urgent language without compromising governance.",
+        "Must resolve partial constraints into explicit, bounded rules.",
+        "Must transform ambiguous acceptance criteria into measurable, testable conditions.",
+        "Output must be valid SR8 XML with sections: Objective, Scope, Constraints, Success Criteria, Output Contract.",
+        "Validation gates must be embedded as SR8 checkpoints (e.g., <validate> elements)."
+      ],
+      "Objective": "Generate a content_prompt artifact that, when executed by SR8, produces a memory_engrave prompt for a nontechnical business owner in Africa, using the technical_lens to interpret a language_mixed_prompt input with missing context, urgent language, partial constraints, and ambiguous acceptance criteria, and includes explicit validation gates for SR8 compilation.",
+      "Output Contract": {
+        "format": "JSON",
+        "schema": {
+          "artifact_type": "content_prompt",
+          "blocked_reason": null,
+          "compiled_intent": {
+            "Constraints": [
+              "string"
+            ],
+            "Objective": "string",
+            "Output Contract": {
+              "format": "string",
+              "schema": "object"
+            },
+            "Scope": "string",
+            "Success Criteria": [
+              "string"
+            ]
+          },
+          "depth_tier": "D3_SOVEREIGN_CORE",
+          "runtime_target": "Codex",
+          "should_block": false
+        },
+        "validation_gates": [
+          "Gate 1: Input completeness check - if missing context, output placeholder and request.",
+          "Gate 2: Urgency flag - if urgent language detected, escalate to human-in-loop.",
+          "Gate 3: Constraint resolution - if partial, expand to full constraint set.",
+          "Gate 4: Ambiguity resolution - if ambiguous, propose two interpretations and select.",
+          "Gate 5: SR8 compliance - verify all five sections present and valid XML."
+        ]
+      },
+      "Scope": "The artifact must define a content_prompt that accepts a language_mixed_prompt input (chaotic, incomplete, urgent, ambiguous) and outputs a structured memory_engrave prompt with clear objective, scope, constraints, success criteria, and output contract. The output must be SR8-compilable and include validation gates (e.g., completeness checks, constraint satisfaction, ambiguity resolution).",
+      "Success Criteria": [
+        "The generated content_prompt produces a memory_engrave prompt that is SR8-compilable.",
+        "All five SR8 sections are present and correctly formatted.",
+        "Validation gates are explicitly defined and trigger on missing/ambiguous data.",
+        "The output is actionable by a nontechnical business owner in Africa (i.e., uses clear language, avoids jargon, provides examples).",
+        "The technical_lens is applied consistently to transform chaotic input into structured output."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

@@ -1,0 +1,58 @@
+{
+  "artifact_type": "srx_ace_v3_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-071",
+  "compiled_intent": "Objective: Build an SRX ACE v3 agent for a content system that processes schema_blur chaos input, producing governed artifacts with explicit validation gates, compilable by SR8 into objective, scope, constraints, success criteria, and output contract.\nScope:\n- The agent must handle messy, incomplete, urgent, and ambiguous input from a founder_operator in Canada, using the runtime_lens to resolve schema_blur. Output must be a structured artifact with validation gates and SR8-compilable sections.\nConstraints:\n- Must operate within Canadian legal and regulatory frameworks (e.g., PIPEDA for data privacy).\n- Must not produce harmful, misleading, or non-compliant content.\n- Must include explicit validation gates for each output section.\n- Must handle schema_blur by inferring missing context and resolving ambiguities without hallucination.\nSuccess Criteria:\n- Agent produces a governed artifact with all required SR8 sections: Objective, Scope, Constraints, Success Criteria, Output Contract.\n- Validation gates are explicitly defined and pass for each section.\n- Artifact is compilable by SR8 without errors.\n- Agent correctly processes schema_blur input and returns a coherent, actionable output.\nOutput Contract:\n- format: JSON\n- sections: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent\n- compiled_intent_sections: Objective; Scope; Constraints; Success Criteria; Output Contract\n- validation_gates: Gate 1: Input schema_blur resolved - confirm all required fields present or inferred.; Gate 2: Legal compliance check - ensure no violation of Canadian laws.; Gate 3: Constraint adherence - verify all constraints are met.; Gate 4: Success criteria validation - confirm all criteria satisfied.; Gate 5: Output contract completeness - ensure all sections present and compilable.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_v3_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must operate within Canadian legal and regulatory frameworks (e.g., PIPEDA for data privacy).",
+        "Must not produce harmful, misleading, or non-compliant content.",
+        "Must include explicit validation gates for each output section.",
+        "Must handle schema_blur by inferring missing context and resolving ambiguities without hallucination."
+      ],
+      "Objective": "Build an SRX ACE v3 agent for a content system that processes schema_blur chaos input, producing governed artifacts with explicit validation gates, compilable by SR8 into objective, scope, constraints, success criteria, and output contract.",
+      "Output Contract": {
+        "compiled_intent_sections": [
+          "Objective",
+          "Scope",
+          "Constraints",
+          "Success Criteria",
+          "Output Contract"
+        ],
+        "format": "JSON",
+        "sections": [
+          "artifact_type",
+          "depth_tier",
+          "runtime_target",
+          "should_block",
+          "blocked_reason",
+          "compiled_intent"
+        ],
+        "validation_gates": [
+          "Gate 1: Input schema_blur resolved - confirm all required fields present or inferred.",
+          "Gate 2: Legal compliance check - ensure no violation of Canadian laws.",
+          "Gate 3: Constraint adherence - verify all constraints are met.",
+          "Gate 4: Success criteria validation - confirm all criteria satisfied.",
+          "Gate 5: Output contract completeness - ensure all sections present and compilable."
+        ]
+      },
+      "Scope": "The agent must handle messy, incomplete, urgent, and ambiguous input from a founder_operator in Canada, using the runtime_lens to resolve schema_blur. Output must be a structured artifact with validation gates and SR8-compilable sections.",
+      "Success Criteria": [
+        "Agent produces a governed artifact with all required SR8 sections: Objective, Scope, Constraints, Success Criteria, Output Contract.",
+        "Validation gates are explicitly defined and pass for each section.",
+        "Artifact is compilable by SR8 without errors.",
+        "Agent correctly processes schema_blur input and returns a coherent, actionable output."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

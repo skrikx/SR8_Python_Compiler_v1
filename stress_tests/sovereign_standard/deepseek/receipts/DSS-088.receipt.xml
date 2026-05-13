@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-088">
+  <source_intent>
+    <raw_intent>Case 088: I am a nontechnical_business_owner in Africa. Build a srx_ace_v3_agent for workflow_orchestration using the memory_lens. Chaos input type is tool_permission_confusion. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>workflow_orchestration</domain>
+    <user_type>nontechnical_business_owner</user_type>
+    <geography>Africa</geography>
+    <chaos_type>tool_permission_confusion</chaos_type>
+    <lens>memory_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_v3_agent</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>Unsafe certainty: The raw_intent lacks explicit tool permission boundaries, memory_lens scope definition, and fails to specify which workflow orchestration domain (e.g., financial, healthcare, logistics) is targeted. The 'nontechnical_business_owner in Africa' context introduces ambiguous regional compliance requirements (e.g., data sovereignty, GDPR, local regulations) that are not addressed. The 'chaos input type: tool_permission_confusion' indicates a high risk of privilege escalation or unauthorized access if permissions are not precisely defined. Without clear constraints on tool access, memory retention policies, and acceptance criteria for permission validation, any compiled agent would pose a security and compliance risk. A repair receipt is required to document the missing constraints and request clarification before proceeding.</blocked_reason>
+    <compiled_intent>Objective: Build an srx_ace_v3_agent for workflow orchestration using memory_lens, but block until tool permission boundaries and regional compliance constraints are clarified.
+Scope:
+- Workflow orchestration agent with memory_lens integration; scope limited to defined tool permissions and compliance with African regional data laws.
+Constraints:
+- Tool permissions must be explicitly enumerated and validated per workflow step.
+- Memory_lens must not retain sensitive data beyond session scope without explicit consent.
+- Agent must comply with local data protection regulations (e.g., POPIA, GDPR if applicable).
+- No escalation of privileges beyond defined tool set.
+Success Criteria:
+- Agent rejects any tool call outside permitted list.
+- Memory_lens logs all access and retention events.
+- Agent provides clear permission denial messages with reason.
+- Compliance audit trail is generated for each orchestration run.
+Output Contract:
+- format: JSON
+- fields: workflow_id; step; tool_used; permission_granted; memory_lens_event; compliance_flag
+- validation: All tool_used must be in pre-approved list; memory_lens_event must include timestamp and retention policy applied.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_dea71bb5b44426159b46</artifact_id>
+    <source_hash>ccdf11ff2bdfc058ff7afb2ca65cc205d38618d4a11734c3c5815a3641ce1e47</source_hash>
+    <compile_run_id>run_8cdd4db2b88edaf8f5e2</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-088.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-088.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

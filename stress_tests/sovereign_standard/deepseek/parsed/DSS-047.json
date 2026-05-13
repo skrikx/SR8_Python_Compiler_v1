@@ -1,0 +1,24 @@
+{
+  "artifact_type": "memory_engrave_prompt",
+  "blocked_reason": "The raw_intent contains missing_inputs (no repo name, no refactor scope, no operator_lens parameters), ambiguous acceptance criteria, and urgent language that precludes safe compilation. The student_builder role and East Asia context introduce unverified compliance and memory constraints. Blocking to prevent unsafe execution.",
+  "case_id": "DSS-047",
+  "compiled_intent": "Objective: Blocked due to missing_inputs and unsafe certainty. No valid objective can be compiled.\nScope:\n- Blocked. Required inputs: repo name, refactor scope, operator_lens parameters, acceptance criteria.\nConstraints:\n- Blocked. Missing compliance, memory, and ROI constraints. Urgent language overrides safe defaults.\nSuccess Criteria:\n- Blocked. No measurable criteria provided; ambiguous acceptance criteria cannot be validated.\nOutput Contract:\n- Blocked. Cannot produce a valid memory_engrave_prompt without complete and safe inputs.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "memory_engrave_prompt",
+    "blocked_reason": "The raw_intent contains missing_inputs (no repo name, no refactor scope, no operator_lens parameters), ambiguous acceptance criteria, and urgent language that precludes safe compilation. The student_builder role and East Asia context introduce unverified compliance and memory constraints. Blocking to prevent unsafe execution.",
+    "compiled_intent": {
+      "Constraints": "Blocked. Missing compliance, memory, and ROI constraints. Urgent language overrides safe defaults.",
+      "Objective": "Blocked due to missing_inputs and unsafe certainty. No valid objective can be compiled.",
+      "Output Contract": "Blocked. Cannot produce a valid memory_engrave_prompt without complete and safe inputs.",
+      "Scope": "Blocked. Required inputs: repo name, refactor scope, operator_lens parameters, acceptance criteria.",
+      "Success Criteria": "Blocked. No measurable criteria provided; ambiguous acceptance criteria cannot be validated."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

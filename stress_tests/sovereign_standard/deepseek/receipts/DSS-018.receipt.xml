@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-018">
+  <source_intent>
+    <raw_intent>Case 018: I am a nontechnical_business_owner in Africa. Build a sr8_compiler_prompt for legal_workflow using the sovereign_lens. Chaos input type is contradictory_constraints. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>legal_workflow</domain>
+    <user_type>nontechnical_business_owner</user_type>
+    <geography>Africa</geography>
+    <chaos_type>contradictory_constraints</chaos_type>
+    <lens>sovereign_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sr8_compiler_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>The raw_intent contains contradictory_constraints (e.g., urgent language vs. missing context, ambiguous acceptance criteria) and lacks sufficient clarity for a safe legal workflow compilation. The sovereign_lens requires unambiguous, verifiable directives; the provided input is too chaotic to produce a reliable SR8-compilable directive without risk of misinterpretation or unsafe execution. Blocking to prevent potential legal liability and ensure compliance with sovereign core standards.</blocked_reason>
+    <compiled_intent>Objective: N/A - Blocked
+Scope:
+- N/A - Blocked
+Constraints:
+- N/A - Blocked
+Success Criteria:
+- N/A - Blocked
+Output Contract:
+- N/A - Blocked</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_2f76aa72f6e774cee735</artifact_id>
+    <source_hash>32e80893b718038e20a018c5f6b7fff0bf66f1634f28bd3d5b8ded0df5ffb4e9</source_hash>
+    <compile_run_id>run_553ef15aa61a3641ce7e</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-018.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-018.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:57:01Z",
+  "case_id": "DSS-062",
+  "content": "{\n  \"artifact_type\": \"research_agent_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Missing required inputs: no repository path, no refactor scope, no runtime_lens configuration, no acceptance criteria. The raw intent is ambiguous and lacks concrete constraints. Unsafe to proceed without clarification.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Block compilation due to missing inputs and ambiguous intent.\",\n    \"Scope\": \"None \u2014 cannot define scope without repository and refactor parameters.\",\n    \"Constraints\": \"Cannot proceed without repository path, refactor scope, runtime_lens config, and acceptance criteria.\",\n    \"Success Criteria\": \"N/A \u2014 blocked state.\",\n    \"Output Contract\": \"Return blocked state receipt with missing input details.\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

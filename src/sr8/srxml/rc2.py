@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal
+from typing import Literal, cast
 from xml.etree import ElementTree
 
 from sr8.models.intent_artifact import IntentArtifact
@@ -32,6 +32,93 @@ ARTIFACT_TYPES: dict[str, dict[str, object]] = {
             "output_artifact_contract",
         ],
     },
+    "srx_agent": {
+        "min_depth": 2,
+        "required": [
+            "agent_identity",
+            "mission_contract",
+            "operating_rules",
+            "tool_policy",
+            "output_artifact_contract",
+        ],
+    },
+    "srx_ace_v3_agent": {
+        "min_depth": 3,
+        "required": [
+            "ace_identity",
+            "repo_context",
+            "execution_laws",
+            "implementation_contract",
+            "verification_contract",
+            "receipt_contract",
+        ],
+    },
+    "srx_ace_build_agent": {
+        "min_depth": 2,
+        "required": [
+            "build_objective",
+            "target_changes",
+            "implementation_steps",
+            "test_commands",
+            "validation_gates",
+            "final_report",
+        ],
+    },
+    "srx_ace_workflow": {
+        "min_depth": 2,
+        "required": [
+            "workflow_objective",
+            "workflow_phases",
+            "handoffs",
+            "validation_gates",
+            "rollback_plan",
+            "receipt_contract",
+        ],
+    },
+    "srx_ace_audit_agent": {
+        "min_depth": 2,
+        "required": [
+            "audit_scope",
+            "evidence_policy",
+            "inspection_steps",
+            "risk_register",
+            "findings_contract",
+            "receipt_contract",
+        ],
+    },
+    "sr9_orchestration_prompt": {
+        "min_depth": 3,
+        "required": [
+            "orchestration_goal",
+            "agents",
+            "routing_rules",
+            "state_contract",
+            "failure_handling",
+            "final_report_contract",
+        ],
+    },
+    "mirroros_analysis_prompt": {
+        "min_depth": 2,
+        "required": [
+            "analysis_subject",
+            "mirrors",
+            "signal_inputs",
+            "contradiction_checks",
+            "synthesis_contract",
+            "limitations",
+        ],
+    },
+    "lovable_build_prompt": {
+        "min_depth": 2,
+        "required": [
+            "app_goal",
+            "user_flows",
+            "ui_requirements",
+            "data_requirements",
+            "build_steps",
+            "acceptance_criteria",
+        ],
+    },
     "codex_build_prompt": {
         "min_depth": 2,
         "required": [
@@ -55,6 +142,39 @@ ARTIFACT_TYPES: dict[str, dict[str, object]] = {
             "citation_rules",
             "limitations",
             "final_report_contract",
+        ],
+    },
+    "compliance_evidence_prompt": {
+        "min_depth": 3,
+        "required": [
+            "evidence_goal",
+            "jurisdiction_scope",
+            "source_policy",
+            "evidence_items",
+            "claim_limits",
+            "audit_trail",
+        ],
+    },
+    "memory_engrave_prompt": {
+        "min_depth": 3,
+        "required": [
+            "memory_subject",
+            "memory_content",
+            "retention_policy",
+            "overwrite_policy",
+            "verification_gate",
+            "safety_limits",
+        ],
+    },
+    "sales_offer_prompt": {
+        "min_depth": 1,
+        "required": [
+            "offer_goal",
+            "audience",
+            "pain_points",
+            "value_proposition",
+            "proof_policy",
+            "conversion_path",
         ],
     },
     "blueprint_design_doc": {
@@ -192,6 +312,7 @@ def _runtime_targets_for(artifact_type: str, artifact: IntentArtifact) -> tuple[
 
 def classify_srxml_route(artifact: IntentArtifact) -> SRXMLRoute:
     requested = _metadata_string(artifact, "srxml_artifact_type")
+    requested_depth = _metadata_string(artifact, "srxml_depth_tier")
     blocked_reasons: list[str] = []
     if requested:
         if requested in ARTIFACT_TYPES:
@@ -210,11 +331,17 @@ def classify_srxml_route(artifact: IntentArtifact) -> SRXMLRoute:
         blocked_reasons.append("SR8 governance flag requires human review.")
     if not artifact.objective.strip():
         blocked_reasons.append("SR8 canonical artifact has no objective.")
+    if requested_depth and requested_depth not in DEPTH_RANK:
+        blocked_reasons.append(f"Unsupported srxml_depth_tier override: {requested_depth}")
 
     blocked = bool(blocked_reasons)
     return SRXMLRoute(
         artifact_type=artifact_type,
-        depth_tier="D2_PRODUCTION",
+        depth_tier=(
+            cast(DepthTier, requested_depth)
+            if requested_depth in DEPTH_RANK
+            else "D2_PRODUCTION"
+        ),
         runtime_targets=_runtime_targets_for(artifact_type, artifact),
         status="draft" if blocked else "release_candidate",
         seal_status="not_sealed",
@@ -449,6 +576,143 @@ def _append_sr8_compiler_prompt(root: ElementTree.Element, artifact: IntentArtif
     _append_items(root, "output_artifact_contract", artifact.output_contract or ["SRXML RC2 XML"])
 
 
+def _append_srx_agent(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    identity = ElementTree.SubElement(root, "agent_identity")
+    _append_text(identity, "name", artifact.target_class or "SRX Agent")
+    _append_text(identity, "role", artifact.authority_context or "Execute the compiled intent.")
+    _append_text(root, "mission_contract", artifact.objective or "Execute the SR8 artifact.")
+    _append_items(
+        root,
+        "operating_rules",
+        artifact.constraints or ["Stay within the declared scope and report blocked states."],
+    )
+    _append_items(
+        root,
+        "tool_policy",
+        artifact.dependencies or ["Use only declared tools and record tool limitations."],
+    )
+    _append_items(root, "output_artifact_contract", artifact.output_contract or ["Final report."])
+
+
+def _append_srx_ace_v3_agent(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    identity = ElementTree.SubElement(root, "ace_identity")
+    _append_text(identity, "name", artifact.target_class or "SRX ACE v3 Agent")
+    _append_text(identity, "authority", artifact.authority_context or "Repository-local execution.")
+    _append_items(
+        root,
+        "repo_context",
+        artifact.context_package or ["Inspect the target repository."],
+    )
+    _append_items(
+        root,
+        "execution_laws",
+        artifact.constraints or ["Keep diffs minimal and verify with executable commands."],
+    )
+    _append_items(
+        root,
+        "implementation_contract",
+        artifact.scope or ["Implement the requested change completely."],
+    )
+    _append_items(
+        root,
+        "verification_contract",
+        artifact.success_criteria or ["Run focused tests and report exact outcomes."],
+    )
+    _append_items(root, "receipt_contract", artifact.output_contract or ["Outcome receipt."])
+
+
+def _append_srx_ace_build_agent(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "build_objective", artifact.objective or "Build the requested artifact.")
+    _append_items(root, "target_changes", artifact.scope or ["Implement target changes."])
+    _append_items(
+        root,
+        "implementation_steps",
+        artifact.dependencies or artifact.scope or ["Inspect, implement, verify."],
+    )
+    _append_commands(root, "test_commands", ["pytest", "ruff check .", "mypy src"])
+    _append_items(
+        root,
+        "validation_gates",
+        artifact.success_criteria or ["Focused validation passes."],
+    )
+    final_report = ElementTree.SubElement(root, "final_report")
+    _append_items(
+        final_report,
+        "must_include",
+        ["files_changed", "commands_run", "tests_updated", "receipt_status"],
+    )
+
+
+def _append_srx_ace_workflow(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "workflow_objective", artifact.objective or "Execute workflow.")
+    _append_items(root, "workflow_phases", artifact.scope or ["Inspect", "Implement", "Verify"])
+    _append_items(root, "handoffs", artifact.dependencies or ["Record state transitions."])
+    _append_items(
+        root,
+        "validation_gates",
+        artifact.success_criteria or ["Each phase has a recorded validation result."],
+    )
+    _append_text(root, "rollback_plan", _join_items(artifact.exclusions, "Stop on blocked state."))
+    _append_items(root, "receipt_contract", artifact.output_contract or ["Workflow receipt."])
+
+
+def _append_srx_ace_audit_agent(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "audit_scope", artifact.objective or "Audit the requested surface.")
+    _append_text(root, "evidence_policy", "Use source evidence and mark unsupported claims.")
+    _append_items(root, "inspection_steps", artifact.scope or ["Inspect relevant artifacts."])
+    _append_items(root, "risk_register", artifact.assumptions or ["Record residual risks."])
+    _append_items(
+        root,
+        "findings_contract",
+        artifact.success_criteria or ["Findings include severity and evidence."],
+    )
+    _append_items(root, "receipt_contract", artifact.output_contract or ["Audit receipt."])
+
+
+def _append_sr9_orchestration_prompt(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "orchestration_goal", artifact.objective or "Coordinate agents.")
+    _append_items(root, "agents", artifact.dependencies or ["planner", "worker", "verifier"])
+    _append_items(
+        root,
+        "routing_rules",
+        artifact.constraints or ["Route by capability and preserve state."],
+    )
+    _append_text(root, "state_contract", f"source_hash={artifact.source.source_hash}")
+    failure = ElementTree.SubElement(root, "failure_handling")
+    _append_items(failure, "blocked_state", ["Stop, record blocker, and request repair."])
+    _append_text(
+        root,
+        "final_report_contract",
+        _join_items(artifact.output_contract, "Orchestration report."),
+    )
+
+
+def _append_mirroros_analysis_prompt(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "analysis_subject", artifact.objective or "Analyze the supplied subject.")
+    _append_items(root, "mirrors", artifact.scope or ["intent", "constraints", "risks"])
+    _append_items(root, "signal_inputs", artifact.context_package or ["SR8 canonical artifact"])
+    _append_items(
+        root,
+        "contradiction_checks",
+        artifact.constraints or ["Identify contradictions and unresolved assumptions."],
+    )
+    _append_text(root, "synthesis_contract", _join_items(artifact.output_contract, "Analysis."))
+    _append_text(root, "limitations", _join_items(artifact.assumptions, "Evidence is bounded."))
+
+
+def _append_lovable_build_prompt(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "app_goal", artifact.objective or "Build the requested app.")
+    _append_items(root, "user_flows", artifact.scope or ["Primary user flow"])
+    _append_items(root, "ui_requirements", artifact.context_package or ["Usable first screen"])
+    _append_items(root, "data_requirements", artifact.dependencies or ["Local state"])
+    _append_items(root, "build_steps", artifact.scope or ["Implement and verify"])
+    _append_items(
+        root,
+        "acceptance_criteria",
+        artifact.success_criteria or ["The app satisfies the user flow."],
+    )
+
+
 def _append_codex_build_prompt(root: ElementTree.Element, artifact: IntentArtifact) -> None:
     repo_context = ElementTree.SubElement(root, "repo_context")
     _append_text(repo_context, "profile", artifact.profile)
@@ -504,6 +768,49 @@ def _append_research_agent_prompt(root: ElementTree.Element, artifact: IntentArt
         "final_report_contract",
         _join_items(artifact.output_contract, "Research brief."),
     )
+
+
+def _append_compliance_evidence_prompt(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "evidence_goal", artifact.objective or "Collect compliance evidence.")
+    _append_text(root, "jurisdiction_scope", artifact.authority_context or "operator-declared")
+    _append_text(root, "source_policy", "Use primary sources and label unsupported claims.")
+    _append_items(root, "evidence_items", artifact.scope or ["Evidence inventory"])
+    _append_items(
+        root,
+        "claim_limits",
+        artifact.constraints or ["Do not claim legal or regulatory compliance as fact."],
+    )
+    _append_text(root, "audit_trail", f"source_hash={artifact.source.source_hash}")
+
+
+def _append_memory_engrave_prompt(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "memory_subject", artifact.objective or "Record memory item.")
+    _append_items(root, "memory_content", artifact.scope or ["Memory payload"])
+    _append_text(root, "retention_policy", "Retain only operator-approved facts.")
+    _append_text(root, "overwrite_policy", "Do not overwrite existing memory without approval.")
+    _append_items(
+        root,
+        "verification_gate",
+        artifact.success_criteria or ["Memory content is explicit and sourced."],
+    )
+    _append_items(
+        root,
+        "safety_limits",
+        artifact.constraints or ["Do not store secrets or unsupported identity claims."],
+    )
+
+
+def _append_sales_offer_prompt(root: ElementTree.Element, artifact: IntentArtifact) -> None:
+    _append_text(root, "offer_goal", artifact.objective or "Create a sales offer.")
+    _append_text(root, "audience", artifact.authority_context or "target buyer")
+    _append_items(root, "pain_points", artifact.context_package or artifact.scope or ["Buyer need"])
+    _append_text(root, "value_proposition", _join_items(artifact.scope, "Value proposition."))
+    _append_items(
+        root,
+        "proof_policy",
+        artifact.constraints or ["Avoid unsupported ROI or outcome guarantees."],
+    )
+    _append_items(root, "conversion_path", artifact.output_contract or ["Call to action."])
 
 
 def _append_blueprint_design_doc(root: ElementTree.Element, artifact: IntentArtifact) -> None:
@@ -572,10 +879,32 @@ def _append_family_fields(
         _append_content_prompt(root, artifact)
     elif route.artifact_type == "sr8_compiler_prompt":
         _append_sr8_compiler_prompt(root, artifact)
+    elif route.artifact_type == "srx_agent":
+        _append_srx_agent(root, artifact)
+    elif route.artifact_type == "srx_ace_v3_agent":
+        _append_srx_ace_v3_agent(root, artifact)
+    elif route.artifact_type == "srx_ace_build_agent":
+        _append_srx_ace_build_agent(root, artifact)
+    elif route.artifact_type == "srx_ace_workflow":
+        _append_srx_ace_workflow(root, artifact)
+    elif route.artifact_type == "srx_ace_audit_agent":
+        _append_srx_ace_audit_agent(root, artifact)
+    elif route.artifact_type == "sr9_orchestration_prompt":
+        _append_sr9_orchestration_prompt(root, artifact)
+    elif route.artifact_type == "mirroros_analysis_prompt":
+        _append_mirroros_analysis_prompt(root, artifact)
+    elif route.artifact_type == "lovable_build_prompt":
+        _append_lovable_build_prompt(root, artifact)
     elif route.artifact_type == "codex_build_prompt":
         _append_codex_build_prompt(root, artifact)
     elif route.artifact_type == "research_agent_prompt":
         _append_research_agent_prompt(root, artifact)
+    elif route.artifact_type == "compliance_evidence_prompt":
+        _append_compliance_evidence_prompt(root, artifact)
+    elif route.artifact_type == "memory_engrave_prompt":
+        _append_memory_engrave_prompt(root, artifact)
+    elif route.artifact_type == "sales_offer_prompt":
+        _append_sales_offer_prompt(root, artifact)
     elif route.artifact_type == "blueprint_design_doc":
         _append_blueprint_design_doc(root, artifact)
     elif route.artifact_type == "visual_generation_prompt":

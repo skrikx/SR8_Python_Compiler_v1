@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-028">
+  <source_intent>
+    <raw_intent>Case 028: I am a nontechnical_business_owner in Africa. Build a research_agent_prompt for workflow_orchestration using the compiler_lens. Chaos input type is tool_permission_confusion. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Block unsafe certainty and record a repair receipt. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>workflow_orchestration</domain>
+    <user_type>nontechnical_business_owner</user_type>
+    <geography>Africa</geography>
+    <chaos_type>tool_permission_confusion</chaos_type>
+    <lens>compiler_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>research_agent_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>True</model_should_block>
+    <blocked_reason>The raw intent contains tool_permission_confusion as the chaos input type, which introduces ambiguity about which permissions are granted, revoked, or overlapping. The nontechnical_business_owner role lacks the specificity to define secure permission boundaries for a sovereign-core research agent. The compiler_lens cannot resolve missing context (e.g., which tools, which users, which data scopes) without hallucinating unsafe defaults. Urgent language and partial constraints further increase risk of unauthorized access or data leakage. Blocking is required to prevent compilation into an agent that might operate with undefined or excessive permissions.</blocked_reason>
+    <compiled_intent>Objective: Design a research agent prompt for workflow orchestration that can be compiled by SR8, but only after resolving tool_permission_confusion and clarifying all missing context, constraints, and acceptance criteria from the nontechnical business owner.
+Scope:
+- The prompt must define a research agent that orchestrates workflows across tools with explicit, verified permission boundaries. It must include a repair receipt mechanism to log and block any unsafe certainty or ambiguous permission states.
+Constraints:
+- All tool permissions must be explicitly enumerated and validated before any orchestration step.
+- No assumption of default access; every permission must be confirmed by the business owner or a designated authority.
+- The agent must not proceed if any permission is ambiguous, conflicting, or missing.
+- Urgent language must not override safety checks.
+- The output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Success Criteria:
+- A research agent prompt is produced that includes a permission validation step.
+- The prompt contains a repair receipt section that records any blocked states and the reason for blocking.
+- The prompt can be compiled by SR8 into a structured intent with all five required sections.
+- The compiled intent explicitly lists all tool permissions and their sources.
+Output Contract:
+- artifact_type: research_agent_prompt
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: True
+- blocked_reason: See above.
+- compiled_intent: This JSON object itself, serving as the repair receipt and blocked state record.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_11d768042199e11f083b</artifact_id>
+    <source_hash>cb165a56fa470c9e9029334299ed4504d3635c509b9ec48e67ceb6c9a6a982f3</source_hash>
+    <compile_run_id>run_78b05f502ce3792d6de8</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-028.srxml.xml</artifact_file>
+    <srxml_status>blocked</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>fail</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-028.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

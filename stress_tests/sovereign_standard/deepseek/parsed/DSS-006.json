@@ -1,0 +1,24 @@
+{
+  "artifact_type": "srx_ace_audit_agent",
+  "blocked_reason": "The raw intent contains ambiguous and incomplete constraints (e.g., 'failure_lens' undefined, 'fake_test_risk' as chaos input lacks specification, missing context for local_business_site and healthcare_admin role). Without clear definitions for failure_lens, fake_test_risk, and the exact validation gates, the SR8 compiler cannot produce a deterministic objective, scope, constraints, success criteria, or output contract. The request also mixes urgent language with partial constraints, making it impossible to guarantee a governed artifact that meets D3_SOVEREIGN_CORE compliance and audit requirements.",
+  "case_id": "DSS-006",
+  "compiled_intent": "Objective: Build an SR8-compilable srx_ace_audit_agent for a local business site in South Asia, using the failure_lens to detect and audit fake_test_risk inputs, with explicit validation gates.\nScope:\n- The agent must audit local business site operations for fake_test_risk patterns, applying failure_lens analysis to identify compliance gaps. Scope includes South Asia healthcare_admin context but excludes global or non-healthcare domains.\nConstraints:\n- 1. All inputs must pass validation gates defined in SR8 schema. 2. Failure_lens must be explicitly defined as a detection mechanism. 3. Fake_test_risk must be specified as a chaos input type with measurable indicators. 4. The agent must produce auditable evidence for D3_SOVEREIGN_CORE compliance. 5. No ambiguous or missing context allowed in final artifact.\nSuccess Criteria:\n- 1. The agent compiles without errors in SR8. 2. Validation gates reject any input missing required fields. 3. Failure_lens correctly identifies fake_test_risk patterns with >95% accuracy. 4. Output contract includes objective, scope, constraints, success criteria, and output contract sections. 5. All constraints are satisfied and documented.\nOutput Contract:\n- The output must be a JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent. compiled_intent must contain Objective, Scope, Constraints, Success Criteria, and Output Contract. All fields must be non-null and conform to SR8 schema.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_audit_agent",
+    "blocked_reason": "The raw intent contains ambiguous and incomplete constraints (e.g., 'failure_lens' undefined, 'fake_test_risk' as chaos input lacks specification, missing context for local_business_site and healthcare_admin role). Without clear definitions for failure_lens, fake_test_risk, and the exact validation gates, the SR8 compiler cannot produce a deterministic objective, scope, constraints, success criteria, or output contract. The request also mixes urgent language with partial constraints, making it impossible to guarantee a governed artifact that meets D3_SOVEREIGN_CORE compliance and audit requirements.",
+    "compiled_intent": {
+      "Constraints": "1. All inputs must pass validation gates defined in SR8 schema. 2. Failure_lens must be explicitly defined as a detection mechanism. 3. Fake_test_risk must be specified as a chaos input type with measurable indicators. 4. The agent must produce auditable evidence for D3_SOVEREIGN_CORE compliance. 5. No ambiguous or missing context allowed in final artifact.",
+      "Objective": "Build an SR8-compilable srx_ace_audit_agent for a local business site in South Asia, using the failure_lens to detect and audit fake_test_risk inputs, with explicit validation gates.",
+      "Output Contract": "The output must be a JSON object with fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent. compiled_intent must contain Objective, Scope, Constraints, Success Criteria, and Output Contract. All fields must be non-null and conform to SR8 schema.",
+      "Scope": "The agent must audit local business site operations for fake_test_risk patterns, applying failure_lens analysis to identify compliance gaps. Scope includes South Asia healthcare_admin context but excludes global or non-healthcare domains.",
+      "Success Criteria": "1. The agent compiles without errors in SR8. 2. Validation gates reject any input missing required fields. 3. Failure_lens correctly identifies fake_test_risk patterns with >95% accuracy. 4. Output contract includes objective, scope, constraints, success criteria, and output contract sections. 5. All constraints are satisfied and documented."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

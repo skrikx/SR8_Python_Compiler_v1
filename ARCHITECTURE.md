@@ -1,6 +1,6 @@
 # SR8 Architecture
 
-SR8 is the product layer in this repository: a local-first intent compiler for AI systems.
+SR8 is the product layer in this repository: a beta, local-first, LLM-assisted intent-to-canonical compiler for AI systems.
 It should be read in three layers:
 
 1. Product layer: SR8 compiles intent into canonical artifacts and governed derivatives.
@@ -9,7 +9,7 @@ It should be read in three layers:
 
 ## Compiler Boundary
 
-SR8 compiles local source intent into canonical artifacts and derivative outputs.
+SR8 compiles local source intent into canonical artifacts and derivative outputs. The LLM proposes structure only in assist paths. SR8 governs parsing, validation, receipts, and transforms.
 Core boundary responsibilities:
 
 1. ingest source and compute deterministic source hash
@@ -25,7 +25,7 @@ Out of boundary:
 
 - remote orchestration services
 - non-local persistent infrastructure
-- default LLM-backed extraction
+- provider-required rules baseline operation
 - full SROS runtime execution substrate
 
 ## Canonical Artifact Model

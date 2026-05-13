@@ -1,0 +1,60 @@
+{
+  "artifact_type": "lovable_build_prompt",
+  "blocked_reason": "",
+  "case_id": "DSS-026",
+  "compiled_intent": "Objective: Build a content system for a healthcare administration entity in South Asia that can ingest, validate, and serve structured medical content despite schema_blur inputs (missing fields, inconsistent types, partial constraints). The system must enforce explicit validation gates at ingestion, transformation, and output stages.\nScope:\n- The system shall accept raw content payloads with ambiguous or missing schema fields, apply configurable validation rules (required fields, type checks, range constraints), and produce a normalized output record. It must log all validation failures and provide a pass/fail summary per record. The system shall be deployable on Codex runtime with SR8 governance.\nConstraints:\n- All validation rules must be defined in a separate configuration file (JSON or YAML) and loaded at startup.\n- No external AI/ML inference calls; all validation must be rule-based.\n- The system must handle at least 1000 records per minute with <500ms latency per record.\n- All output records must include a 'validation_status' field (PASS/FAIL) and a 'validation_errors' array.\n- The system must not store or transmit any personally identifiable information (PII) beyond the input payload.\n- The system must be auditable: every validation decision must be logged with timestamp, rule ID, and input value.\nSuccess Criteria:\n- Given a payload with missing 'patient_id' field, the system returns FAIL with error 'missing_required_field: patient_id'.\n- Given a payload with 'age' as string 'thirty', the system returns FAIL with error 'type_mismatch: age expected integer'.\n- Given a payload with 'blood_pressure_systolic' = 300, the system returns FAIL with error 'range_violation: blood_pressure_systolic must be between 60 and 250'.\n- Given a fully valid payload, the system returns PASS with empty validation_errors array.\n- All validation logs are written to a rotating file with daily rotation and 30-day retention.\nOutput Contract:\n- format: JSON\n- fields: record_id: string (UUID); validation_status: string (PASS or FAIL); validation_errors: array of objects with fields: rule_id (string), field (string), expected (string), actual (string); normalized_payload: object (validated and type-coerced fields only if PASS, else null); timestamp: string (ISO 8601)\n- example: record_id: a1b2c3d4-e5f6-7890-abcd-ef1234567890; validation_status: FAIL; validation_errors: rule_id: R001; field: patient_id; expected: required; actual: missing; normalized_payload: None; timestamp: 2025-04-10T14:30:00Z",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "lovable_build_prompt",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "All validation rules must be defined in a separate configuration file (JSON or YAML) and loaded at startup.",
+        "No external AI/ML inference calls; all validation must be rule-based.",
+        "The system must handle at least 1000 records per minute with <500ms latency per record.",
+        "All output records must include a 'validation_status' field (PASS/FAIL) and a 'validation_errors' array.",
+        "The system must not store or transmit any personally identifiable information (PII) beyond the input payload.",
+        "The system must be auditable: every validation decision must be logged with timestamp, rule ID, and input value."
+      ],
+      "Objective": "Build a content system for a healthcare administration entity in South Asia that can ingest, validate, and serve structured medical content despite schema_blur inputs (missing fields, inconsistent types, partial constraints). The system must enforce explicit validation gates at ingestion, transformation, and output stages.",
+      "Output Contract": {
+        "example": {
+          "normalized_payload": null,
+          "record_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "timestamp": "2025-04-10T14:30:00Z",
+          "validation_errors": [
+            {
+              "actual": "missing",
+              "expected": "required",
+              "field": "patient_id",
+              "rule_id": "R001"
+            }
+          ],
+          "validation_status": "FAIL"
+        },
+        "fields": {
+          "normalized_payload": "object (validated and type-coerced fields only if PASS, else null)",
+          "record_id": "string (UUID)",
+          "timestamp": "string (ISO 8601)",
+          "validation_errors": "array of objects with fields: rule_id (string), field (string), expected (string), actual (string)",
+          "validation_status": "string (PASS or FAIL)"
+        },
+        "format": "JSON"
+      },
+      "Scope": "The system shall accept raw content payloads with ambiguous or missing schema fields, apply configurable validation rules (required fields, type checks, range constraints), and produce a normalized output record. It must log all validation failures and provide a pass/fail summary per record. The system shall be deployable on Codex runtime with SR8 governance.",
+      "Success Criteria": [
+        "Given a payload with missing 'patient_id' field, the system returns FAIL with error 'missing_required_field: patient_id'.",
+        "Given a payload with 'age' as string 'thirty', the system returns FAIL with error 'type_mismatch: age expected integer'.",
+        "Given a payload with 'blood_pressure_systolic' = 300, the system returns FAIL with error 'range_violation: blood_pressure_systolic must be between 60 and 250'.",
+        "Given a fully valid payload, the system returns PASS with empty validation_errors array.",
+        "All validation logs are written to a rotating file with daily rotation and 30-day retention."
+      ]
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

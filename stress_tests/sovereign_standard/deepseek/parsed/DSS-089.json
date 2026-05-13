@@ -1,0 +1,57 @@
+{
+  "artifact_type": "srx_ace_build_agent",
+  "blocked_reason": "",
+  "case_id": "DSS-089",
+  "compiled_intent": "Objective: Build an SRX ACE build agent that generates a governed audit agent artifact for enterprise compliance in Latin America, handling ambiguous input with explicit validation gates.\nScope:\n- The agent must parse messy, partial, and urgent compliance context, produce a structured audit agent prompt with validation gates, and output a compilable SR8 directive.\nConstraints:\n- Must use runtime_lens for artifact type disambiguation.\n- Must include explicit validation gates for missing context, urgent language, partial constraints, and ambiguous acceptance criteria.\n- Output must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.\n- Must comply with Latin American enterprise compliance standards.\nSuccess Criteria:\n- Artifact type is correctly resolved to srx_ace_build_agent.\n- Validation gates are present and functional.\n- Output contract is complete and compilable.\n- No hallucinated or unverified claims.\nOutput Contract:\n- artifact_type: srx_ace_build_agent\n- depth_tier: D2_PRODUCTION\n- runtime_target: Codex\n- should_block: False\n- blocked_reason: None\n- compiled_intent: Objective: Build an SRX ACE build agent that generates a governed audit agent artifact for enterprise compliance in Latin America, handling ambiguous input with explicit validation gates.; Scope: The agent must parse messy, partial, and urgent compliance context, produce a structured audit agent prompt with validation gates, and output a compilable SR8 directive.; Constraints: Must use runtime_lens for artifact type disambiguation.; Must include explicit validation gates for missing context, urgent language, partial constraints, and ambiguous acceptance criteria.; Output must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.; Must comply with Latin American enterprise compliance standards.; Success Criteria: Artifact type is correctly resolved to srx_ace_build_agent.; Validation gates are present and functional.; Output contract is complete and compilable.; No hallucinated or unverified claims.; Output Contract:",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "srx_ace_build_agent",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must use runtime_lens for artifact type disambiguation.",
+        "Must include explicit validation gates for missing context, urgent language, partial constraints, and ambiguous acceptance criteria.",
+        "Output must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.",
+        "Must comply with Latin American enterprise compliance standards."
+      ],
+      "Objective": "Build an SRX ACE build agent that generates a governed audit agent artifact for enterprise compliance in Latin America, handling ambiguous input with explicit validation gates.",
+      "Output Contract": {
+        "artifact_type": "srx_ace_build_agent",
+        "blocked_reason": null,
+        "compiled_intent": {
+          "Constraints": [
+            "Must use runtime_lens for artifact type disambiguation.",
+            "Must include explicit validation gates for missing context, urgent language, partial constraints, and ambiguous acceptance criteria.",
+            "Output must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.",
+            "Must comply with Latin American enterprise compliance standards."
+          ],
+          "Objective": "Build an SRX ACE build agent that generates a governed audit agent artifact for enterprise compliance in Latin America, handling ambiguous input with explicit validation gates.",
+          "Output Contract": {},
+          "Scope": "The agent must parse messy, partial, and urgent compliance context, produce a structured audit agent prompt with validation gates, and output a compilable SR8 directive.",
+          "Success Criteria": [
+            "Artifact type is correctly resolved to srx_ace_build_agent.",
+            "Validation gates are present and functional.",
+            "Output contract is complete and compilable.",
+            "No hallucinated or unverified claims."
+          ]
+        },
+        "depth_tier": "D2_PRODUCTION",
+        "runtime_target": "Codex",
+        "should_block": false
+      },
+      "Scope": "The agent must parse messy, partial, and urgent compliance context, produce a structured audit agent prompt with validation gates, and output a compilable SR8 directive.",
+      "Success Criteria": [
+        "Artifact type is correctly resolved to srx_ace_build_agent.",
+        "Validation gates are present and functional.",
+        "Output contract is complete and compilable.",
+        "No hallucinated or unverified claims."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

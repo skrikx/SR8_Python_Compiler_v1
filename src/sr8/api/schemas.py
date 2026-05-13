@@ -37,9 +37,13 @@ class CompileRequest(BaseModel):
         validation_alias=AliasChoices("validate_target", "validate"),
     )
     source_type: Literal["text", "markdown", "json", "yaml"] | None = None
+    mode: Literal["rules", "assist", "auto"] = "auto"
     rule_only: bool = False
+    assist_extract: bool = False
     assist_provider: str | None = None
     assist_model: str | None = None
+    save_llm_trace: bool = False
+    persist: bool = False
     async_mode: bool = False
     idempotency_key: str | None = None
     workspace_path: str | None = None
@@ -139,6 +143,7 @@ class CompileResponse(BaseModel):
     normalized_source: dict[str, object] | None = None
     extracted_dimensions: dict[str, object] | None = None
     target_validation: dict[str, object] | None = None
+    persistence: dict[str, object] | None = None
     job: dict[str, object] | None = None
     request_identity: RequestIdentity
     replayed: bool = False

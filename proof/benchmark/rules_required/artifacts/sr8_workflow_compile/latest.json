@@ -1,0 +1,302 @@
+{
+  "artifact_id": "art_fbf4d275cb9a5cd96799",
+  "artifact_version": "1.0.0",
+  "assumptions": [
+    "Rule-first extraction remains the default path"
+  ],
+  "authority_context": "founder sponsor",
+  "compiler_version": "1.2.4",
+  "constraints": [
+    "Keep evaluation local-first and reproducible",
+    "Do not hide weak confidence or contradictory intent"
+  ],
+  "context_package": [
+    "WF11 gap closure receipt",
+    "Architecture notes",
+    "Benchmark rubric definitions"
+  ],
+  "created_at": "2026-05-13T07:51:28.552746Z",
+  "dependencies": [
+    "Current compile, transform, and lint rails"
+  ],
+  "exclusions": [
+    "Hosted SaaS benchmark portal"
+  ],
+  "governance_flags": {
+    "ambiguous": false,
+    "incomplete": false,
+    "requires_human_review": false
+  },
+  "lineage": {
+    "compile_run_id": "run_133223bd3dda403bccd3",
+    "parent_artifact_ids": [],
+    "parent_compile_run_id": null,
+    "parent_source_hash": null,
+    "pipeline_version": "1.2.4",
+    "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c",
+    "steps": [
+      {
+        "detail": "Loaded source_type=text",
+        "occurred_at": "2026-05-13T07:51:28.552746Z",
+        "stage": "ingest"
+      },
+      {
+        "detail": "Normalized whitespace and wrappers",
+        "occurred_at": "2026-05-13T07:51:28.552746Z",
+        "stage": "normalize"
+      },
+      {
+        "detail": "Detected source_structure_kind=text_outline",
+        "occurred_at": "2026-05-13T07:51:28.552746Z",
+        "stage": "detect_surface"
+      },
+      {
+        "detail": "Assessed compile route candidate based on source coverage and specificity.",
+        "occurred_at": "2026-05-13T07:51:28.552746Z",
+        "stage": "assess_intent_strength"
+      },
+      {
+        "detail": "compile_kind=canonicalize_structured; reason=Source already supplies most important intent dimensions.",
+        "occurred_at": "2026-05-13T07:51:28.552746Z",
+        "stage": "route_selected"
+      },
+      {
+        "detail": "Lowered compile result into canonical fields",
+        "occurred_at": "2026-05-13T07:51:28.552746Z",
+        "stage": "lower_to_canonical"
+      },
+      {
+        "detail": "Validated readiness and compile truth",
+        "occurred_at": "2026-05-13T07:51:28.552746Z",
+        "stage": "validate"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter": "structured_outline",
+    "assist_mode": "auto",
+    "assist_route": "not_used",
+    "compile_kind": "canonicalize_structured",
+    "compile_mode": "auto",
+    "compile_truth_summary": "Canonicalized text outline input with 10 source-supplied field(s) and no material semantic expansion.",
+    "compiler_derived_fields": [
+      "target_class"
+    ],
+    "confidence": 0.916,
+    "copied_field_count": 10,
+    "derived_field_count": 1,
+    "extraction_adapter": "structured_outline",
+    "extraction_trace": {
+      "adapter_name": "structured_outline",
+      "confidence": [
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "objective",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
+          "field_name": "scope",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "exclusions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "constraints",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 3 item(s) from section signals.",
+          "field_name": "context_package",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "low",
+          "evidence_summary": "No strong extraction evidence.",
+          "field_name": "target_class",
+          "notes": "",
+          "status": "empty"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Field populated from direct section or heading evidence.",
+          "field_name": "authority_context",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "dependencies",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 1 item(s) from section signals.",
+          "field_name": "assumptions",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "success_criteria",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "high",
+          "evidence_summary": "Extracted 2 item(s) from section signals.",
+          "field_name": "output_contract",
+          "notes": "",
+          "status": "explicit"
+        },
+        {
+          "confidence_band": "medium",
+          "evidence_summary": "No governance escalation flags were raised by the extractor.",
+          "field_name": "governance_flags",
+          "notes": "",
+          "status": "explicit"
+        }
+      ],
+      "metadata": {
+        "assist_extract_route": "not_used",
+        "assist_extract_status": "not_used",
+        "fallback": null,
+        "model": null,
+        "provider": null,
+        "repair_attempts": 0,
+        "schema_validation_status": "pass"
+      },
+      "recovery": {
+        "contradictory_fields": [],
+        "intake_required": false,
+        "missing_fields": [],
+        "suggested_prompt": "",
+        "weak_fields": []
+      }
+    },
+    "extraction_trust_summary": {
+      "adapter_name": "structured_outline",
+      "intake_required": false,
+      "low_confidence_fields": [
+        "target_class"
+      ],
+      "provider": null,
+      "recovery": {
+        "contradictory_fields": [],
+        "intake_required": false,
+        "missing_fields": [],
+        "suggested_prompt": "",
+        "weak_fields": []
+      },
+      "status_counts": {
+        "empty": 1,
+        "explicit": 11
+      }
+    },
+    "fallback_used": false,
+    "intake_route": "not_required",
+    "llm_used": false,
+    "model": null,
+    "normalized_char_count": 993,
+    "normalized_source_hash": "aa19e4e85df32205e4b2afa96dc36090e9a4ec6840fc4a2a131e35042cade149",
+    "parsed_response_hash": null,
+    "pipeline_mode": "canonicalize_structured",
+    "prompt_hash": null,
+    "prompt_template_id": null,
+    "provider": null,
+    "provider_assist": {
+      "assist_extract_route": "not_used",
+      "assist_extract_status": "not_used",
+      "fallback": null,
+      "model": null,
+      "provider": null,
+      "repair_attempts": 0,
+      "schema_validation_status": "pass"
+    },
+    "raw_response_hash": null,
+    "repair_attempts": 0,
+    "schema_validation_status": "pass",
+    "semantic_transform_applied": false,
+    "source_metadata": {
+      "detected_source_type": "text",
+      "ingest_mode": "path",
+      "normalization": "whitespace+wrapper-clean",
+      "normalized_char_count": 993,
+      "normalized_line_count": 35,
+      "normalized_source_hash": "aa19e4e85df32205e4b2afa96dc36090e9a4ec6840fc4a2a131e35042cade149",
+      "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\self_hosting\\wf12_workflow_spec.txt",
+      "raw_char_count": 994
+    },
+    "source_structure_kind": "text_outline",
+    "source_supplied_field_count": 10,
+    "source_supplied_fields": [
+      "assumptions",
+      "authority_context",
+      "constraints",
+      "context_package",
+      "dependencies",
+      "exclusions",
+      "objective",
+      "output_contract",
+      "scope",
+      "success_criteria"
+    ],
+    "unresolved_fields": [],
+    "weak_intent_recovery": {
+      "contradictory_fields": [],
+      "intake_required": false,
+      "missing_fields": [],
+      "recovered_fields": [],
+      "recovery_applied": false,
+      "suggested_prompt": "",
+      "weak_fields": []
+    }
+  },
+  "objective": "Build the SR8 proof lane so benchmark runs are local-first, reproducible, and useful to operators.",
+  "output_contract": [
+    "Canonical artifact",
+    "Self-hosting proof pack"
+  ],
+  "profile": "plan",
+  "scope": [
+    "Phase 1. Add an evaluation harness for compile, validate, lint, and transform",
+    "Phase 2. Add a benchmark corpus across founder, research, repo, procedure, weak, and self-hosting tracks",
+    "Phase 3. Add regression comparison and self-hosting proof cases"
+  ],
+  "source": {
+    "origin": "C:\\Users\\hassm\\OneDrive\\Desktop\\SROS_v3_Snapshots\\SR8_Python_Compiler_v1\\benchmarks\\corpus\\self_hosting\\wf12_workflow_spec.txt",
+    "source_hash": "fe15eef3c73b59cc697bad092d7c2a0ee547ee025720b9834414f95da2a7436c",
+    "source_id": "src_fe15eef3c73b59cc",
+    "source_type": "text"
+  },
+  "success_criteria": [
+    "Benchmark runs emit scored JSON and markdown reports",
+    "Self-hosting cases prove compile, transform, and recompile flows"
+  ],
+  "target_class": "plan",
+  "validation": {
+    "errors": [],
+    "generated_at": "2026-05-13T07:51:28.552746Z",
+    "readiness_status": "pass",
+    "report_id": "rcpt_24c8730a1f3ec00679e5",
+    "summary": "Validation pass: 0 error(s), 0 warning(s).",
+    "warnings": []
+  }
+}

@@ -69,6 +69,8 @@ from sr8.models.base import utc_now
 from sr8.storage.catalog import list_catalog, show_catalog_record
 from sr8.storage.jobs import create_or_reuse_job, load_job, save_job
 from sr8.storage.load import load_by_id
+from sr8.storage.receipts import write_compilation_receipt
+from sr8.storage.save import save_canonical_artifact
 from sr8.transform.engine import transform_artifact
 from sr8.utils.hash import stable_object_hash
 from sr8.validate.engine import validate_artifact
@@ -254,6 +256,7 @@ def _build_compile_payload(
                         if frontdoor_result.extracted_dimensions
                         else None,
                         "target_validation": None,
+                        "persistence": {"persisted": False},
                         "job": None,
                         "request_identity": identity_payload,
                         "replayed": False,
@@ -262,6 +265,23 @@ def _build_compile_payload(
             result = compile_intent(source=source, source_type=source_type, config=compile_config)
     except ValueError as exc:
         _raise_invalid_request("invalid_compile_request", exc)
+    persistence: dict[str, object] | None = None
+    if compile_request.persist:
+        workspace = resolve_workspace_for_request(compile_request.workspace_path, settings)
+        artifact_path, latest_path, record = save_canonical_artifact(workspace, result.artifact)
+        receipt_record, receipt_path = write_compilation_receipt(
+            workspace,
+            result=result,
+            output_path=str(artifact_path),
+        )
+        persistence = {
+            "persisted": True,
+            "artifact_path": str(artifact_path),
+            "latest_path": str(latest_path),
+            "record_id": record.record_id,
+            "receipt_path": str(receipt_path),
+            "receipt_id": receipt_record.receipt_id,
+        }
     return _route_response(
         "compile",
         {
@@ -273,6 +293,7 @@ def _build_compile_payload(
             "target_validation": result.target_validation.model_dump(mode="json")
             if result.target_validation
             else None,
+            "persistence": persistence or {"persisted": False},
             "job": None,
             "request_identity": identity_payload,
             "replayed": False,
@@ -529,7 +550,6 @@ def compile_endpoint(payload: CompileRequest, request: Request) -> JSONResponse 
     )
     enforce_rate_limit(identity, route_id=route.route_id, settings=settings)
     enforce_compile_budget(payload, settings)
-    workspace = resolve_workspace_for_request(payload.workspace_path, settings)
     source, _ = resolve_compile_source(payload)
     request_hash = stable_object_hash(
         {
@@ -537,13 +557,24 @@ def compile_endpoint(payload: CompileRequest, request: Request) -> JSONResponse 
             "source_type": payload.source_type,
             "profile": payload.profile,
             "rule_only": payload.rule_only,
+            "mode": payload.mode,
+            "persist": payload.persist,
+            "assist_extract": payload.assist_extract,
             "assist_provider": payload.assist_provider,
             "assist_model": payload.assist_model,
+            "save_llm_trace": payload.save_llm_trace,
             "target": payload.target,
             "validate_target": payload.validate_target,
             "async_mode": payload.async_mode,
         }
     )
+    if not payload.async_mode and not payload.idempotency_key and not payload.persist:
+        return _build_compile_payload(
+            source,
+            compile_request=payload,
+            identity_payload=identity.model_dump(mode="json"),
+        )
+    workspace = resolve_workspace_for_request(payload.workspace_path, settings)
     try:
         job, reused = create_or_reuse_job(
             workspace,
@@ -573,6 +604,7 @@ def compile_endpoint(payload: CompileRequest, request: Request) -> JSONResponse 
                 "normalized_source": None,
                 "extracted_dimensions": None,
                 "target_validation": None,
+                "persistence": None,
                 "job": job.model_dump(mode="json"),
                 "request_identity": identity.model_dump(mode="json"),
                 "replayed": reused,
@@ -597,6 +629,7 @@ def compile_endpoint(payload: CompileRequest, request: Request) -> JSONResponse 
                         "normalized_source": None,
                         "extracted_dimensions": None,
                         "target_validation": None,
+                        "persistence": None,
                         "job": job.model_dump(mode="json"),
                         "request_identity": identity.model_dump(mode="json"),
                         "replayed": True,

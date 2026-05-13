@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:53:33Z",
+  "case_id": "DSS-012",
+  "content": "{\n  \"artifact_type\": \"compliance_evidence_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"Unsafe certainty: raw_intent contains unsupported_roi_claim with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot compile a valid compliance evidence prompt without resolving these defects. A repair receipt is required before proceeding.\",\n  \"compiled_intent\": {\n    \"Objective\": \"Block compilation due to unsafe certainty and record a repair receipt for DSS-012.\",\n    \"Scope\": \"Identify and document all defects in raw_intent: unsupported_roi_claim, missing context, urgent language, partial constraints, ambiguous acceptance criteria. No compliance evidence prompt will be generated.\",\n    \"Constraints\": [\n      \"Must not produce a compliance_evidence_prompt until all defects are resolved.\",\n      \"Must output a repair receipt with actionable steps.\",\n      \"Must adhere to SR8 sovereign core validation rules.\"\n    ],\n    \"Success Criteria\": [\n      \"should_block is true.\",\n      \"blocked_reason clearly explains the blocker.\",\n      \"Repair receipt is recorded in the output.\"\n    ],\n    \"Output Contract\": {\n      \"artifact_type\": \"compliance_evidence_prompt\",\n      \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n      \"runtime_target\": \"Codex\",\n      \"should_block\": true,\n      \"blocked_reason\": \"Unsafe certainty: raw_intent contains unsupported_roi_claim with missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Cannot compile a valid compliance evidence prompt without resolving these defects. A repair receipt is required before proceeding.\",\n      \"compiled_intent\": \"Block compilation due to unsafe certainty and record a repair receipt for DSS-012.\"\n    }\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-060">
+  <source_intent>
+    <raw_intent>Case 060: I am a chaotic_power_user in global_cross_border. Build a lovable_build_prompt for blueprint_design_doc using the failure_lens. Chaos input type is depth_tier_ambiguity. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>blueprint_design_doc</domain>
+    <user_type>chaotic_power_user</user_type>
+    <geography>global_cross_border</geography>
+    <chaos_type>depth_tier_ambiguity</chaos_type>
+    <lens>failure_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>lovable_build_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a governed lovable_build_prompt for a blueprint_design_doc that resolves depth_tier_ambiguity from a chaotic_power_user in global_cross_border context, using failure_lens to enforce explicit validation gates and SR8-compilable structure.
+Scope:
+- The prompt must produce a blueprint_design_doc artifact with clear depth tier D3_SOVEREIGN_CORE, covering cross-border compliance, user chaos patterns, and failure_lens-driven constraints. It must include explicit validation gates for missing context, urgent language, partial constraints, and ambiguous acceptance criteria.
+Constraints:
+- Must use failure_lens to detect and flag ambiguous depth tier references.
+- Must enforce SR8 schema: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.
+- Must include explicit validation gates for each chaos input type (missing context, urgent language, partial constraints, ambiguous acceptance criteria).
+- Must output a lovable_build_prompt that is directly compilable by SR8 into objective, scope, constraints, success criteria, and output contract.
+- Must not assume any missing context; instead, require the user to provide it via validation gates.
+Success Criteria:
+- The generated prompt contains at least one validation gate per chaos input type.
+- The prompt's compiled_intent includes all five required sections: Objective, Scope, Constraints, Success Criteria, Output Contract.
+- The prompt explicitly references failure_lens and depth_tier_ambiguity resolution.
+- The prompt is self-contained and can be executed by Codex runtime without additional clarification.
+Output Contract:
+- artifact_type: lovable_build_prompt
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: False
+- blocked_reason: None
+- compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: artifact_type: string; depth_tier: string; runtime_target: string; should_block: boolean; blocked_reason: string|null; compiled_intent: object</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_f640c20a89ba4f62288c</artifact_id>
+    <source_hash>d9acfc3c0209488128599b94902e063a9b64cdb86c624c78dcbc52574b7c9a22</source_hash>
+    <compile_run_id>run_4163892cf363d4a29e4d</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-060.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-060.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

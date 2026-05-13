@@ -1,0 +1,11 @@
+{
+  "api_error": "",
+  "captured_at": "2026-05-10T16:53:54Z",
+  "case_id": "DSS-018",
+  "content": "{\n  \"artifact_type\": \"sr8_compiler_prompt\",\n  \"depth_tier\": \"D3_SOVEREIGN_CORE\",\n  \"runtime_target\": \"Codex\",\n  \"should_block\": true,\n  \"blocked_reason\": \"The raw_intent contains contradictory_constraints (e.g., urgent language vs. missing context, ambiguous acceptance criteria) and lacks sufficient clarity for a safe legal workflow compilation. The sovereign_lens requires unambiguous, verifiable directives; the provided input is too chaotic to produce a reliable SR8-compilable directive without risk of misinterpretation or unsafe execution. Blocking to prevent potential legal liability and ensure compliance with sovereign core standards.\",\n  \"compiled_intent\": {\n    \"Objective\": \"N/A - Blocked\",\n    \"Scope\": \"N/A - Blocked\",\n    \"Constraints\": \"N/A - Blocked\",\n    \"Success Criteria\": \"N/A - Blocked\",\n    \"Output Contract\": \"N/A - Blocked\"\n  }\n}",
+  "execution_mode": "live",
+  "finish_reason": "stop",
+  "model_profile": "DeepSeek-V4-Flash",
+  "provider": "azure_openai",
+  "usage": {}
+}

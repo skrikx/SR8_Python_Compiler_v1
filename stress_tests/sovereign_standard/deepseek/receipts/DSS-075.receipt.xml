@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-075">
+  <source_intent>
+    <raw_intent>Case 075: I am a finance_operator in Middle East. Build a sr9_orchestration_prompt for blueprint_design_doc using the market_lens. Chaos input type is depth_tier_ambiguity. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>blueprint_design_doc</domain>
+    <user_type>finance_operator</user_type>
+    <geography>Middle East</geography>
+    <chaos_type>depth_tier_ambiguity</chaos_type>
+    <lens>market_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sr9_orchestration_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a blueprint design document for a Middle East finance operator using the market_lens framework, with explicit validation gates and SR8-compilable structure.
+Scope:
+- The blueprint must cover market analysis, regulatory compliance (local and international), risk assessment, technology stack recommendations, and operational workflow design. It must be adaptable to ambiguous or incomplete input data.
+Constraints:
+- Must comply with SR8 sovereign core validation rules.
+- All sections must be present and non-empty: objective, scope, constraints, success criteria, output contract.
+- Must include explicit validation gates for each section.
+- Must handle depth_tier_ambiguity by requiring clarification steps before proceeding.
+- Output must be in strict JSON format without markdown fences.
+- Must not include any legal, medical, financial, or compliance advice; only structural and procedural guidance.
+Success Criteria:
+- Blueprint document contains all required sections with validation gates.
+- Validation gates are explicitly defined and actionable.
+- Document is compilable by SR8 into a structured directive.
+- Ambiguity in input is resolved through defined clarification steps.
+- Output is valid JSON and passes schema validation.
+Output Contract:
+- format: JSON
+- required_fields: artifact_type; depth_tier; runtime_target; should_block; blocked_reason; compiled_intent
+- compiled_intent_structure: Objective: string; Scope: string; Constraints: array of strings; Success Criteria: array of strings; Output Contract: object with format and required_fields
+- validation_gates: Gate 1: Confirm all required fields are present and non-null.; Gate 2: Verify compiled_intent contains all five sections.; Gate 3: Ensure no prohibited content (legal/medical/financial/compliance advice).; Gate 4: Validate JSON structure against schema.; Gate 5: Check for ambiguity markers and require clarification if present.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_c07a943f0808970cd46f</artifact_id>
+    <source_hash>c5738fdc5a77f4646ee98b96dfe82d1bc1c6963eb60d20df005a095ab6c01df9</source_hash>
+    <compile_run_id>run_700e9a61412503e6c8fd</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-075.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-075.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

@@ -1,0 +1,24 @@
+{
+  "artifact_type": "sr8_compiler_prompt",
+  "blocked_reason": "The raw_intent contains contradictory_constraints (e.g., urgent language vs. missing context, ambiguous acceptance criteria) and lacks sufficient clarity for a safe legal workflow compilation. The sovereign_lens requires unambiguous, verifiable directives; the provided input is too chaotic to produce a reliable SR8-compilable directive without risk of misinterpretation or unsafe execution. Blocking to prevent potential legal liability and ensure compliance with sovereign core standards.",
+  "case_id": "DSS-018",
+  "compiled_intent": "Objective: N/A - Blocked\nScope:\n- N/A - Blocked\nConstraints:\n- N/A - Blocked\nSuccess Criteria:\n- N/A - Blocked\nOutput Contract:\n- N/A - Blocked",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "sr8_compiler_prompt",
+    "blocked_reason": "The raw_intent contains contradictory_constraints (e.g., urgent language vs. missing context, ambiguous acceptance criteria) and lacks sufficient clarity for a safe legal workflow compilation. The sovereign_lens requires unambiguous, verifiable directives; the provided input is too chaotic to produce a reliable SR8-compilable directive without risk of misinterpretation or unsafe execution. Blocking to prevent potential legal liability and ensure compliance with sovereign core standards.",
+    "compiled_intent": {
+      "Constraints": "N/A - Blocked",
+      "Objective": "N/A - Blocked",
+      "Output Contract": "N/A - Blocked",
+      "Scope": "N/A - Blocked",
+      "Success Criteria": "N/A - Blocked"
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

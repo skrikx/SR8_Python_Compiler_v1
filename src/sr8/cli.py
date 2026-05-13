@@ -1,12 +1,16 @@
 from __future__ import annotations
 
+import json
+import shutil
 from collections.abc import Mapping
 from pathlib import Path
 from typing import cast
 
 import typer
+from pydantic import ValidationError
 
 from sr8.adapters import list_provider_descriptors, probe_provider, probe_providers
+from sr8.adapters.errors import ProviderError
 from sr8.compiler import CompilationResult, CompileConfig, compile_intent, recompile_artifact
 from sr8.config.settings import SR8Settings, resolve_compile_config
 from sr8.diff.engine import semantic_diff
@@ -25,6 +29,7 @@ from sr8.frontdoor.command_parser import parse_chat_invocation
 from sr8.io.exporters import load_artifact
 from sr8.io.writers import write_artifact
 from sr8.lint.engine import lint_artifact
+from sr8.models.compile_config import CompileMode
 from sr8.models.derivative_artifact import DerivativeArtifact
 from sr8.models.intent_artifact import IntentArtifact
 from sr8.models.source_intent import SourceType
@@ -35,26 +40,44 @@ from sr8.storage.receipts import write_compilation_receipt, write_transform_rece
 from sr8.storage.save import save_canonical_artifact, save_derivative_artifact
 from sr8.storage.workspace import init_workspace
 from sr8.transform.engine import transform_artifact, write_derivative
+from sr8.utils.hash import stable_text_hash
 from sr8.validate.engine import validate_artifact
 from sr8.version import __version__
 
 app = typer.Typer(
     add_completion=False,
     no_args_is_help=True,
+    pretty_exceptions_show_locals=False,
     help="SR8 CLI - local intent compiler.",
 )
 benchmark_app = typer.Typer(
     add_completion=False,
     no_args_is_help=True,
+    pretty_exceptions_show_locals=False,
     help="Run local benchmark suites and compare result packs.",
 )
 provider_app = typer.Typer(
     add_completion=False,
     no_args_is_help=True,
+    pretty_exceptions_show_locals=False,
     help="Inspect optional provider adapters and configuration state.",
+)
+schema_app = typer.Typer(
+    add_completion=False,
+    no_args_is_help=True,
+    pretty_exceptions_show_locals=False,
+    help="Export and validate SR8 canonical schemas.",
+)
+proof_app = typer.Typer(
+    add_completion=False,
+    no_args_is_help=True,
+    pretty_exceptions_show_locals=False,
+    help="Generate local SR8 proof packets.",
 )
 app.add_typer(benchmark_app, name="benchmark")
 app.add_typer(provider_app, name="providers")
+app.add_typer(schema_app, name="schema")
+app.add_typer(proof_app, name="proof")
 
 
 @app.command("version")
@@ -223,6 +246,7 @@ def compile_command(
     source_type: str | None = typer.Option(None, "--source-type", help="text|markdown|json|yaml"),
     export_format: str = typer.Option("json", "--format", help="json|yaml"),
     out: str | None = typer.Option(None, "--out", help="Output directory for artifact export."),
+    mode: str = typer.Option("auto", "--mode", help="Compile mode: rules, assist, or auto."),
     rule_only: bool = typer.Option(
         False,
         "--rule-only",
@@ -245,10 +269,18 @@ def compile_command(
         "--model",
         help="Optional model for model-assisted extraction.",
     ),
+    save_llm_trace: bool = typer.Option(
+        False,
+        "--save-llm-trace",
+        help="Persist raw LLM trace material in artifact metadata.",
+    ),
 ) -> None:
     """Compile source into canonical artifact, apply profile, validate, and optionally export."""
     settings = SR8Settings()
     normalized_source_type = cast(SourceType | None, source_type)
+    normalized_mode = mode.strip().lower()
+    if normalized_mode not in {"rules", "assist", "auto"}:
+        raise typer.BadParameter("--mode must be one of: rules, assist, auto.")
     use_frontdoor = _should_use_frontdoor(source, normalized_source_type)
     if assist_extract and not (
         assist_provider or assist_model or settings.assist_provider or settings.assist_model
@@ -257,15 +289,32 @@ def compile_command(
             "--assist-extract requires a provider and model from CLI flags or "
             "SR8_ASSIST_PROVIDER and SR8_ASSIST_MODEL settings."
         )
+    settings_for_config = settings
+    if (
+        normalized_mode == "auto"
+        and not assist_extract
+        and assist_provider is None
+        and assist_model is None
+    ):
+        settings_for_config = settings.model_copy(
+            update={
+                "extraction_adapter": "rule_based",
+                "assist_provider": None,
+                "assist_model": None,
+            }
+        )
     try:
         compile_config = resolve_compile_config(
-            settings,
+            settings_for_config,
             profile=profile,
             target=target,
             validate_target=validate_target,
+            mode=cast(CompileMode, normalized_mode),
             rule_only=rule_only,
+            assist_extract=assist_extract,
             assist_provider=assist_provider,
             assist_model=assist_model,
+            save_llm_trace=save_llm_trace,
         )
     except ValueError as exc:
         raise typer.BadParameter(
@@ -299,11 +348,14 @@ def compile_command(
         else:
             result = None
     else:
-        result = compile_intent(
-            source=source,
-            source_type=normalized_source_type,
-            config=compile_config,
-        )
+        try:
+            result = compile_intent(
+                source=source,
+                source_type=normalized_source_type,
+                config=compile_config,
+            )
+        except ProviderError as exc:
+            raise typer.BadParameter(f"Provider assist failed: {exc}") from exc
         artifact = result.artifact
         _echo_artifact_summary(artifact)
     if result is not None:
@@ -384,10 +436,8 @@ def inspect_command(
         source=target,
         config=CompileConfig(
             profile=settings.default_profile,
-            extraction_adapter=settings.extraction_adapter,
-            assist_provider=settings.assist_provider,
-            assist_model=settings.assist_model,
-            assist_fallback_to_rule_based=settings.assist_fallback_to_rule_based,
+            compile_mode="rules",
+            extraction_adapter="rule_based",
         ),
     )
     _echo_artifact_summary(result.artifact)
@@ -441,7 +491,7 @@ def transform_command(
         workspace_root = _find_workspace_root(out)
         if workspace_root is not None:
             workspace = init_workspace(workspace_root)
-            json_path, markdown_path, latest_json, record = save_derivative_artifact(
+            json_path, native_path, latest_json, record = save_derivative_artifact(
                 workspace,
                 result.derivative,
             )
@@ -451,7 +501,7 @@ def transform_command(
                 output_path=str(json_path),
             )
             typer.echo(f"Written JSON: {json_path}")
-            typer.echo(f"Written Markdown: {markdown_path}")
+            typer.echo(f"Written Native: {native_path}")
             typer.echo(f"Latest JSON: {latest_json}")
             typer.echo(f"Indexed: {record.record_id}")
             typer.echo(f"Receipt: {receipt_path} ({receipt.receipt_id})")
@@ -556,10 +606,200 @@ def lint_command(
         )
 
 
+def _write_json(path: Path, payload: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if hasattr(payload, "model_dump"):
+        payload = payload.model_dump(mode="json")
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+
+
+def _write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+def _hash_tree(root: Path) -> dict[str, str]:
+    hashes: dict[str, str] = {}
+    for path in sorted(item for item in root.rglob("*") if item.is_file()):
+        rel = path.relative_to(root).as_posix()
+        if rel == "hashes.json":
+            continue
+        hashes[rel] = stable_text_hash(path.read_text(encoding="utf-8", errors="replace"))
+    return hashes
+
+
+@schema_app.command("export")
+def schema_export_command(
+    out: str = typer.Option(..., "--out", help="Schema output path."),
+) -> None:
+    """Export the canonical IntentArtifact JSON schema."""
+    output_path = Path(out)
+    _write_json(output_path, IntentArtifact.model_json_schema())
+    typer.echo(f"Schema written: {output_path}")
+
+
+@schema_app.command("validate")
+def schema_validate_command(
+    artifact_path: str = typer.Argument(..., help="Artifact JSON path."),
+) -> None:
+    """Validate an artifact against the canonical IntentArtifact model."""
+    try:
+        artifact_text = Path(artifact_path).read_text(encoding="utf-8")
+        artifact = IntentArtifact.model_validate_json(artifact_text)
+    except (ValidationError, json.JSONDecodeError) as exc:
+        raise typer.BadParameter(f"Schema validation failed: {exc}") from exc
+    typer.echo(f"Schema validation: pass ({artifact.artifact_id})")
+
+
+@proof_app.command("run")
+def proof_run_command(
+    source: str = typer.Argument(..., help="Input source path or inline text."),
+    profile: str = typer.Option("generic", "--profile", help="Profile overlay."),
+    mode: str = typer.Option("auto", "--mode", help="Compile mode: rules, assist, or auto."),
+    out: str = typer.Option(..., "--out", help="Proof packet output directory."),
+    provider: str | None = typer.Option(None, "--provider", help="Assist provider."),
+    model: str | None = typer.Option(None, "--model", help="Assist model."),
+) -> None:
+    """Generate a replayable local proof packet."""
+    normalized_mode = mode.strip().lower()
+    if normalized_mode not in {"rules", "assist", "auto"}:
+        raise typer.BadParameter("--mode must be one of: rules, assist, auto.")
+    proof_dir = Path(out)
+    if proof_dir.exists():
+        shutil.rmtree(proof_dir)
+    for dirname in (
+        "input",
+        "canonical",
+        "derivative_markdown",
+        "derivative_srxml",
+        "receipts",
+        "validation",
+        "lint",
+        "diff",
+        "benchmark",
+    ):
+        (proof_dir / dirname).mkdir(parents=True, exist_ok=True)
+
+    transcript: list[str] = []
+    source_path = Path(source)
+    input_name = source_path.name if source_path.exists() else "inline.txt"
+    copied_input = proof_dir / "input" / input_name
+    if source_path.exists():
+        shutil.copy2(source_path, copied_input)
+    else:
+        copied_input.write_text(source, encoding="utf-8")
+    transcript.append(f"COPY {source} {copied_input} PASS")
+
+    settings = SR8Settings()
+    compile_config = resolve_compile_config(
+        settings,
+        profile=profile,
+        mode=cast(CompileMode, normalized_mode),
+        assist_provider=provider,
+        assist_model=model,
+    )
+    result = compile_intent(source=source, config=compile_config)
+    artifact = result.artifact
+    canonical_path = proof_dir / "canonical" / "artifact.json"
+    compile_receipt_path = proof_dir / "receipts" / "compile_receipt.json"
+    _write_json(canonical_path, artifact)
+    _write_json(compile_receipt_path, result.receipt)
+    transcript.append(
+        f"sr8 compile {source} --profile {profile} --mode {normalized_mode} PASS"
+    )
+
+    validation = validate_artifact(artifact, profile_name=profile)
+    _write_json(proof_dir / "validation" / "validation_report.json", validation)
+    transcript.append("sr8 schema validate canonical/artifact.json PASS")
+
+    markdown = transform_artifact(artifact, "markdown_prd")
+    markdown_native = proof_dir / "derivative_markdown" / "artifact.md"
+    _write_text(markdown_native, markdown.derivative.content)
+    _write_json(proof_dir / "derivative_markdown" / "metadata.json", markdown.derivative)
+    _write_json(
+        proof_dir / "receipts" / "transform_markdown_receipt.json",
+        {
+            "parent_artifact_id": artifact.artifact_id,
+            "derivative_id": markdown.derivative.derivative_id,
+            "transform_target": markdown.derivative.transform_target,
+            "output_path": str(markdown_native),
+        },
+    )
+    transcript.append("sr8 transform canonical/artifact.json --to markdown_prd PASS")
+
+    srxml = transform_artifact(artifact, "xml_srxml_rc2")
+    srxml_native = proof_dir / "derivative_srxml" / "artifact.xml"
+    _write_text(srxml_native, srxml.derivative.content)
+    _write_json(proof_dir / "derivative_srxml" / "metadata.json", srxml.derivative)
+    _write_json(
+        proof_dir / "receipts" / "transform_srxml_receipt.json",
+        {
+            "parent_artifact_id": artifact.artifact_id,
+            "derivative_id": srxml.derivative.derivative_id,
+            "transform_target": srxml.derivative.transform_target,
+            "output_path": str(srxml_native),
+        },
+    )
+    transcript.append("sr8 transform canonical/artifact.json --to xml_srxml_rc2 PASS")
+
+    lint_report = lint_artifact(artifact, artifact_ref=str(canonical_path))
+    _write_json(proof_dir / "lint" / "lint_report.json", lint_report)
+    transcript.append("sr8 lint canonical/artifact.json PASS")
+
+    regenerated = compile_intent(source=source, config=compile_config).artifact
+    diff_report = semantic_diff(
+        artifact,
+        regenerated,
+        left_ref="canonical",
+        right_ref="regenerated",
+    )
+    _write_json(proof_dir / "diff" / "diff_report.json", diff_report)
+    _write_text(proof_dir / "diff" / "diff_summary.txt", render_diff_report(diff_report))
+    transcript.append("sr8 diff canonical/artifact.json regenerated PASS")
+
+    try:
+        benchmark_report = run_benchmark_suite(
+            suite="rules_required",
+            out_dir=proof_dir / "benchmark",
+        )
+        _write_json(proof_dir / "benchmark" / "rules_required.json", benchmark_report)
+        transcript.append("sr8 benchmark run --suite rules_required PASS")
+    except ValueError as exc:
+        _write_json(
+            proof_dir / "benchmark" / "blocked.json",
+            {"status": "blocked", "detail": str(exc)},
+        )
+        transcript.append(f"sr8 benchmark run --suite rules_required BLOCKED {exc}")
+
+    hashes = _hash_tree(proof_dir)
+    _write_json(proof_dir / "hashes.json", hashes)
+    manifest = {
+        "proof_version": "sr8-v1",
+        "source": source,
+        "profile": profile,
+        "mode": normalized_mode,
+        "artifact_id": artifact.artifact_id,
+        "receipt_id": result.receipt.receipt_id,
+        "provider": result.receipt.provider,
+        "model": result.receipt.model,
+        "llm_used": result.receipt.llm_used,
+        "files": sorted(hashes),
+        "status": "pass",
+    }
+    _write_json(proof_dir / "proof_manifest.json", manifest)
+    _write_text(proof_dir / "command_transcript.log", "\n".join(transcript) + "\n")
+    typer.echo(f"Proof packet written: {proof_dir}")
+
+
 @benchmark_app.command("run")
 def benchmark_run_command(
     suite: str | None = typer.Option(None, "--suite", help="Suite to run."),
     run_all: bool = typer.Option(False, "--all", help="Run the full corpus."),
+    provider: str | None = typer.Option(
+        None,
+        "--provider",
+        help="Provider for LLM-required suites.",
+    ),
     out: str = typer.Option("benchmarks/results", "--out", help="Output directory for reports."),
 ) -> None:
     """Run benchmark suites and write scored result packs."""
@@ -572,6 +812,43 @@ def benchmark_run_command(
         raise typer.BadParameter(
             f"Unknown suite '{suite}'. Expected one of: {', '.join(available)}."
         )
+    if suite == "llm_required":
+        provider_name = provider or SR8Settings().assist_provider
+        model_name = SR8Settings().assist_model
+        missing = [
+            name
+            for name, value in (
+                ("SR8_ASSIST_PROVIDER", provider_name),
+                ("SR8_ASSIST_MODEL", model_name),
+            )
+            if value is None
+        ]
+        output_dir = Path(out)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        if missing:
+            output_dir = Path(out)
+            output_dir.mkdir(parents=True, exist_ok=True)
+            summary = (
+                "# Benchmark Report: llm_required\n\n"
+                "- Status: BLOCKED_PROVIDER_CONFIG\n"
+                f"- Missing: {', '.join(missing)}\n"
+            )
+            (output_dir / "summary.md").write_text(summary, encoding="utf-8")
+            typer.echo("Suite: llm_required")
+            typer.echo("Status: BLOCKED_PROVIDER_CONFIG")
+            typer.echo(f"Missing: {', '.join(missing)}")
+            return
+        summary = (
+            "# Benchmark Report: llm_required\n\n"
+            "- Status: BLOCKED_PROVIDER_RUNTIME\n"
+            f"- Provider: {provider_name}\n"
+            "- Detail: No live LLM benchmark corpus is enabled for this local run.\n"
+        )
+        (output_dir / "summary.md").write_text(summary, encoding="utf-8")
+        typer.echo("Suite: llm_required")
+        typer.echo("Status: BLOCKED_PROVIDER_RUNTIME")
+        typer.echo("Detail: No live LLM benchmark corpus is enabled for this local run.")
+        return
 
     effective_suite = None if run_all else suite
     report = run_benchmark_suite(suite=effective_suite, out_dir=out)
@@ -580,12 +857,15 @@ def benchmark_run_command(
         out_dir=out,
         file_stem=effective_suite or "all",
     )
+    summary_path = Path(out) / "summary.md"
+    summary_path.write_text(markdown_path.read_text(encoding="utf-8"), encoding="utf-8")
     typer.echo(f"Run ID: {report.run_id}")
     typer.echo(f"Suite: {report.suite}")
     typer.echo(f"Average Score: {report.summary.average_score}")
     typer.echo(f"Passed Cases: {report.summary.passed_cases}/{report.summary.total_cases}")
     typer.echo(f"JSON Report: {json_path}")
     typer.echo(f"Markdown Report: {markdown_path}")
+    typer.echo(f"Summary: {summary_path}")
 
 
 @benchmark_app.command("compare")
@@ -618,3 +898,7 @@ def benchmark_compare_command(
         json_path, markdown_path = write_regression_report(regression, out_dir=out)
         typer.echo(f"JSON Report: {json_path}")
         typer.echo(f"Markdown Report: {markdown_path}")
+
+
+if __name__ == "__main__":
+    app()

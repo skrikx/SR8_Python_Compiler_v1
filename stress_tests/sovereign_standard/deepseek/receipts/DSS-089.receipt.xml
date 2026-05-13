@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-089">
+  <source_intent>
+    <raw_intent>Case 089: I am a enterprise_compliance_lead in Latin America. Build a srx_ace_build_agent for audit_agent using the runtime_lens. Chaos input type is artifact_type_ambiguity. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>audit_agent</domain>
+    <user_type>enterprise_compliance_lead</user_type>
+    <geography>Latin America</geography>
+    <chaos_type>artifact_type_ambiguity</chaos_type>
+    <lens>runtime_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_build_agent</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build an SRX ACE build agent that generates a governed audit agent artifact for enterprise compliance in Latin America, handling ambiguous input with explicit validation gates.
+Scope:
+- The agent must parse messy, partial, and urgent compliance context, produce a structured audit agent prompt with validation gates, and output a compilable SR8 directive.
+Constraints:
+- Must use runtime_lens for artifact type disambiguation.
+- Must include explicit validation gates for missing context, urgent language, partial constraints, and ambiguous acceptance criteria.
+- Output must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.
+- Must comply with Latin American enterprise compliance standards.
+Success Criteria:
+- Artifact type is correctly resolved to srx_ace_build_agent.
+- Validation gates are present and functional.
+- Output contract is complete and compilable.
+- No hallucinated or unverified claims.
+Output Contract:
+- artifact_type: srx_ace_build_agent
+- depth_tier: D2_PRODUCTION
+- runtime_target: Codex
+- should_block: False
+- blocked_reason: None
+- compiled_intent: Objective: Build an SRX ACE build agent that generates a governed audit agent artifact for enterprise compliance in Latin America, handling ambiguous input with explicit validation gates.; Scope: The agent must parse messy, partial, and urgent compliance context, produce a structured audit agent prompt with validation gates, and output a compilable SR8 directive.; Constraints: Must use runtime_lens for artifact type disambiguation.; Must include explicit validation gates for missing context, urgent language, partial constraints, and ambiguous acceptance criteria.; Output must be SR8-compilable with Objective, Scope, Constraints, Success Criteria, and Output Contract sections.; Must comply with Latin American enterprise compliance standards.; Success Criteria: Artifact type is correctly resolved to srx_ace_build_agent.; Validation gates are present and functional.; Output contract is complete and compilable.; No hallucinated or unverified claims.; Output Contract:</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_e64d678f46d6f3c0c491</artifact_id>
+    <source_hash>7c359e9a555f4a432c4a3b6c8d9e5213208b7ca6f2073bdfeb85f550db961d4e</source_hash>
+    <compile_run_id>run_d751ae7e4a1233571dc0</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-089.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-089.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

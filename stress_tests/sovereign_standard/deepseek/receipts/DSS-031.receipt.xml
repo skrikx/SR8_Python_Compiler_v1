@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-031">
+  <source_intent>
+    <raw_intent>Case 031: I am a founder_operator in Canada. Build a sales_offer_prompt for software_build using the compliance_lens. Chaos input type is ambiguous_scope. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>software_build</domain>
+    <user_type>founder_operator</user_type>
+    <geography>Canada</geography>
+    <chaos_type>ambiguous_scope</chaos_type>
+    <lens>compliance_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>sales_offer_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a sales offer prompt for a software build that incorporates compliance lens requirements, targeting Canadian founder-operators, with explicit validation gates to handle ambiguous scope and partial constraints.
+Scope:
+- The prompt must define a software build sales offer that includes compliance considerations (e.g., Canadian regulations, data privacy), addresses ambiguous scope by requiring clarification steps, and includes validation gates for acceptance criteria. The output must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Constraints:
+- Must use compliance_lens for Canadian context (e.g., PIPEDA, provincial laws).
+- Must handle ambiguous_scope by including a scope clarification gate.
+- Must include urgent language but not compromise governance.
+- Must produce structured sections: Objective, Scope, Constraints, Success Criteria, Output Contract.
+- Must be suitable for Codex runtime.
+Success Criteria:
+- Output is a valid sales_offer_prompt artifact.
+- All five SR8 sections are present and populated.
+- Validation gates are explicitly defined (e.g., scope confirmation, compliance check).
+- Ambiguity in input is resolved through prompt structure.
+Output Contract:
+- artifact_type: sales_offer_prompt
+- depth_tier: D2_PRODUCTION
+- runtime_target: Codex
+- sections: objective: string; scope: string; constraints: array of strings; success_criteria: array of strings; output_contract: object with fields: artifact_type, depth_tier, runtime_target, sections
+- validation_gates: scope_clarification_gate; compliance_check_gate; acceptance_criteria_gate</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_061e1a2251f6f2209c45</artifact_id>
+    <source_hash>b8fa6c69d9239f48268c13a3629d881560da4c203c1ee58289159d93c26f30ac</source_hash>
+    <compile_run_id>run_f6a483462f0a3b2ac75e</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-031.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-031.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

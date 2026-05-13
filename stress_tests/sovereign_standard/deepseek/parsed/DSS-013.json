@@ -1,0 +1,24 @@
+{
+  "artifact_type": "memory_engrave_prompt",
+  "blocked_reason": "Unsafe certainty: The raw_intent lacks specific jurisdiction (UK) compliance lens details, tool permission scope, and unambiguous acceptance criteria. The chaotic input with missing context and urgent language prevents safe compilation into a deterministic memory engrave prompt. Blocking to avoid hallucinated compliance obligations or tool permission misconfiguration.",
+  "case_id": "DSS-013",
+  "compiled_intent": "Objective: Block compilation due to unsafe certainty from incomplete and ambiguous raw intent.\nScope:\n- No scope defined; input insufficient to determine valid boundaries.\nConstraints:\n- Must not proceed without verified UK compliance lens, explicit tool permission inventory, and clear acceptance criteria.\nSuccess Criteria:\n- Receipt of blocked state with repair instructions for requester to provide missing context, compliance lens details, and unambiguous constraints.\nOutput Contract:\n- Return a blocked state receipt JSON with should_block true, blocked_reason explaining the deficiency, and no fabricated completion.",
+  "depth_tier": "D3_SOVEREIGN_CORE",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "memory_engrave_prompt",
+    "blocked_reason": "Unsafe certainty: The raw_intent lacks specific jurisdiction (UK) compliance lens details, tool permission scope, and unambiguous acceptance criteria. The chaotic input with missing context and urgent language prevents safe compilation into a deterministic memory engrave prompt. Blocking to avoid hallucinated compliance obligations or tool permission misconfiguration.",
+    "compiled_intent": {
+      "Constraints": "Must not proceed without verified UK compliance lens, explicit tool permission inventory, and clear acceptance criteria.",
+      "Objective": "Block compilation due to unsafe certainty from incomplete and ambiguous raw intent.",
+      "Output Contract": "Return a blocked state receipt JSON with should_block true, blocked_reason explaining the deficiency, and no fabricated completion.",
+      "Scope": "No scope defined; input insufficient to determine valid boundaries.",
+      "Success Criteria": "Receipt of blocked state with repair instructions for requester to provide missing context, compliance lens details, and unambiguous constraints."
+    },
+    "depth_tier": "D3_SOVEREIGN_CORE",
+    "runtime_target": "Codex",
+    "should_block": true
+  },
+  "runtime_target": "Codex",
+  "should_block": true
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-079">
+  <source_intent>
+    <raw_intent>Case 079: I am a enterprise_compliance_lead in Latin America. Build a research_agent_prompt for finance_ops using the memory_lens. Chaos input type is overbroad_one_pass_lock. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>finance_ops</domain>
+    <user_type>enterprise_compliance_lead</user_type>
+    <geography>Latin America</geography>
+    <chaos_type>overbroad_one_pass_lock</chaos_type>
+    <lens>memory_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>research_agent_prompt</observed_artifact_type>
+    <observed_depth_tier>D2_PRODUCTION</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build a governed research agent prompt for finance operations in Latin America, using the memory lens to surface compliance-relevant patterns, policy gaps, and claim-limit exposures from fragmented enterprise data.
+Scope:
+- The agent must ingest overbroad one-pass lock inputs (messy, missing context, urgent language, partial constraints, ambiguous acceptance criteria) and produce a structured research output with explicit validation gates. Focus on source policy and claim limits across LATAM finance ops.
+Constraints:
+- Must operate within Codex runtime environment.
+- Must use memory_lens to cross-reference historical compliance events and policy versions.
+- Must not hallucinate missing context; flag unknowns explicitly.
+- Must enforce validation gates at each research stage (source ingestion, pattern extraction, claim-limit mapping, output generation).
+- Must comply with enterprise compliance lead governance requirements for Latin America.
+Success Criteria:
+- Agent produces a research artifact with at least three validated compliance patterns from the overbroad input.
+- Claim-limit exposures are identified and mapped to specific policy sources.
+- All validation gates are documented in the output with pass/fail status.
+- Ambiguous acceptance criteria are flagged with recommended clarification steps.
+- Output is SR8-compilable into objective, scope, constraints, success criteria, and output contract.
+Output Contract:
+- format: JSON
+- sections: research_summary; compliance_patterns; claim_limit_analysis; validation_gates_log; ambiguity_flags; recommended_actions
+- validation_required: True
+- compilable_to_sr8: True</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_9004e99f38ffb93e57ae</artifact_id>
+    <source_hash>1e6f7eaf7bd8a0b028d2e50f389f25e3f6873aa9d86f19d32f7ad230022d4c15</source_hash>
+    <compile_run_id>run_553537a7270c3b28acbc</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-079.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-079.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

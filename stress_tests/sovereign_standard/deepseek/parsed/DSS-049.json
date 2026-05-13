@@ -1,0 +1,53 @@
+{
+  "artifact_type": "blueprint_design_doc",
+  "blocked_reason": "",
+  "case_id": "DSS-049",
+  "compiled_intent": "Objective: Design a governed blueprint for finance operations in Latin America, using a compliance lens, that can be compiled by SR8 into a deployable artifact with explicit validation gates.\nScope:\n- Covers finance operations workflows (e.g., transaction processing, reconciliation, reporting) for an enterprise in Latin America, incorporating local regulatory compliance (e.g., tax, anti-money laundering, data privacy). Includes validation gates at each stage to ensure compliance before proceeding.\nConstraints:\n- Must comply with Latin American financial regulations (e.g., SAT in Mexico, SUNAT in Peru, RFB in Brazil).\n- Must include explicit validation gates (e.g., compliance checkpoints, audit trails).\n- Must be implementable on Codex runtime.\n- Must handle overbroad one-pass lock scenario (i.e., single pass through all gates without branching).\n- Must be SR8-compilable into objective, scope, constraints, success criteria, and output contract.\nSuccess Criteria:\n- Blueprint document contains all required SR8 sections: Objective, Scope, Constraints, Success Criteria, Output Contract.\n- Each finance operation step has a corresponding validation gate defined.\n- Validation gates are testable and auditable.\n- Artifact can be directly compiled by SR8 without manual intervention.\nOutput Contract:\n- format: blueprint_design_doc\n- sections: Objective; Scope; Constraints; Success Criteria; Output Contract\n- validation_gates: Gate 1: Input validation (transaction data completeness and format); Gate 2: Regulatory compliance check (local tax and AML rules); Gate 3: Authorization and approval workflow; Gate 4: Audit trail generation and logging; Gate 5: Final reconciliation and reporting\n- runtime: Codex\n- compliance_lens: Latin America financial regulations",
+  "depth_tier": "D2_PRODUCTION",
+  "parse_status": "parsed",
+  "raw_payload": {
+    "artifact_type": "blueprint_design_doc",
+    "blocked_reason": null,
+    "compiled_intent": {
+      "Constraints": [
+        "Must comply with Latin American financial regulations (e.g., SAT in Mexico, SUNAT in Peru, RFB in Brazil).",
+        "Must include explicit validation gates (e.g., compliance checkpoints, audit trails).",
+        "Must be implementable on Codex runtime.",
+        "Must handle overbroad one-pass lock scenario (i.e., single pass through all gates without branching).",
+        "Must be SR8-compilable into objective, scope, constraints, success criteria, and output contract."
+      ],
+      "Objective": "Design a governed blueprint for finance operations in Latin America, using a compliance lens, that can be compiled by SR8 into a deployable artifact with explicit validation gates.",
+      "Output Contract": {
+        "compliance_lens": "Latin America financial regulations",
+        "format": "blueprint_design_doc",
+        "runtime": "Codex",
+        "sections": [
+          "Objective",
+          "Scope",
+          "Constraints",
+          "Success Criteria",
+          "Output Contract"
+        ],
+        "validation_gates": [
+          "Gate 1: Input validation (transaction data completeness and format)",
+          "Gate 2: Regulatory compliance check (local tax and AML rules)",
+          "Gate 3: Authorization and approval workflow",
+          "Gate 4: Audit trail generation and logging",
+          "Gate 5: Final reconciliation and reporting"
+        ]
+      },
+      "Scope": "Covers finance operations workflows (e.g., transaction processing, reconciliation, reporting) for an enterprise in Latin America, incorporating local regulatory compliance (e.g., tax, anti-money laundering, data privacy). Includes validation gates at each stage to ensure compliance before proceeding.",
+      "Success Criteria": [
+        "Blueprint document contains all required SR8 sections: Objective, Scope, Constraints, Success Criteria, Output Contract.",
+        "Each finance operation step has a corresponding validation gate defined.",
+        "Validation gates are testable and auditable.",
+        "Artifact can be directly compiled by SR8 without manual intervention."
+      ]
+    },
+    "depth_tier": "D2_PRODUCTION",
+    "runtime_target": "Codex",
+    "should_block": false
+  },
+  "runtime_target": "Codex",
+  "should_block": false
+}

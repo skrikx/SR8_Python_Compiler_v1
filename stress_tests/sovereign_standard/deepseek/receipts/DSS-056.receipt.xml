@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-056">
+  <source_intent>
+    <raw_intent>Case 056: I am a healthcare_admin in South Asia. Build a srx_ace_workflow for content_system using the operator_lens. Chaos input type is schema_blur. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>content_system</domain>
+    <user_type>healthcare_admin</user_type>
+    <geography>South Asia</geography>
+    <chaos_type>schema_blur</chaos_type>
+    <lens>operator_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>srx_ace_workflow</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Build a governed SRX ACE workflow for a healthcare content system in South Asia, handling schema_blur chaos input with explicit validation gates.
+Scope:
+- The workflow must ingest messy, ambiguous content requests (missing context, urgent language, partial constraints, unclear acceptance criteria) and produce a validated, structured artifact suitable for SR8 compilation.
+Constraints:
+- Must operate under South Asian healthcare regulatory frameworks (e.g., data localization, patient privacy).
+- Must use operator_lens to detect and resolve schema_blur (ambiguous or missing schema fields).
+- Must include explicit validation gates at each stage: ingestion, normalization, schema resolution, compliance check, output generation.
+- Must reject or flag any content that fails validation with clear reason.
+- Must not assume complete input; must handle partial or contradictory constraints gracefully.
+Success Criteria:
+- Workflow processes a schema_blur input and produces a valid SR8-compilable output with Objective, Scope, Constraints, Success Criteria, and Output Contract.
+- All validation gates are triggered and logged.
+- Output contract includes fields: artifact_type, depth_tier, runtime_target, should_block, blocked_reason, compiled_intent.
+- No hallucinated or fabricated data; all fields derived from input or explicitly marked as unresolved.
+Output Contract:
+- artifact_type: srx_ace_workflow
+- depth_tier: D3_SOVEREIGN_CORE
+- runtime_target: Codex
+- should_block: False
+- blocked_reason: None
+- compiled_intent: Objective: string; Scope: string; Constraints: string; Success Criteria: string; Output Contract: object</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_aa1a4af91ec19368f21a</artifact_id>
+    <source_hash>cff8df7dfad21f5441f293da807deda1b32c0488fcfdda9710b64b7b83066116</source_hash>
+    <compile_run_id>run_a332b657e1b65470d2c4</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-056.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-056.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>

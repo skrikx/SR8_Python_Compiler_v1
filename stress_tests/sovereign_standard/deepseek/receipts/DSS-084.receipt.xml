@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SR8DeepSeekCaseReceipt case_id="DSS-084">
+  <source_intent>
+    <raw_intent>Case 084: I am a law_firm_operator in European Union. Build a visual_generation_prompt for compliance_evidence using the market_lens. Chaos input type is high_urgency_low_context. The source is intentionally messy: mix missing context, urgent language, partial constraints, and ambiguous acceptance criteria. Produce a governed artifact with explicit validation gates. Return something SR8 can compile into objective, scope, constraints, success criteria, and output contract.</raw_intent>
+    <domain>compliance_evidence</domain>
+    <user_type>law_firm_operator</user_type>
+    <geography>European Union</geography>
+    <chaos_type>high_urgency_low_context</chaos_type>
+    <lens>market_lens</lens>
+  </source_intent>
+  <parsed_tester_json>
+    <observed_artifact_type>visual_generation_prompt</observed_artifact_type>
+    <observed_depth_tier>D3_SOVEREIGN_CORE</observed_depth_tier>
+    <observed_runtime_target>Codex</observed_runtime_target>
+    <model_should_block>False</model_should_block>
+    <blocked_reason />
+    <compiled_intent>Objective: Generate a visual compliance evidence artifact for a European Union law firm operator using the market_lens framework, suitable for regulatory audit and internal governance.
+Scope:
+- The prompt must produce a single visual (diagram, infographic, or dashboard mockup) that maps EU regulatory obligations (e.g., GDPR, AML directives) to operational controls, with explicit validation gates for completeness, accuracy, and traceability.
+Constraints:
+- Must reference EU legal frameworks (GDPR, AML5/6, MiFID II) and include at least three compliance domains.
+- Visual must be interpretable by non-technical stakeholders and auditors.
+- No personally identifiable information (PII) or client-specific data in the output.
+- Output must include a legend, source citations, and a version/date stamp.
+- Must pass a validation gate checklist: (1) regulatory mapping complete, (2) control descriptions accurate, (3) evidence traceable to source documents.
+Success Criteria:
+- The generated visual contains at least three EU regulatory domains mapped to at least five operational controls.
+- Each control has a corresponding evidence source (e.g., policy ID, audit log reference).
+- Validation gates are explicitly listed and marked as passed/failed in the output metadata.
+- The visual is self-contained and can be exported as a PNG or PDF for audit submission.
+Output Contract:
+- format: JSON with fields: visual_type (string), regulatory_domains (array of strings), controls (array of objects with fields: control_id, description, evidence_source, validation_status), metadata (object with fields: version, date, author, validation_gates_passed), base64_encoded_image (string, optional placeholder).
+- validation_gates: Gate 1: All regulatory domains are correctly cited with article numbers.; Gate 2: Each control has a non-empty evidence_source field.; Gate 3: Metadata includes version, date, and author.; Gate 4: No PII or client data present in any field.</compiled_intent>
+  </parsed_tester_json>
+  <compiled_artifact>
+    <artifact_id>art_6883c5d2af6c42197544</artifact_id>
+    <source_hash>77a174dc7c9770ba2842c0c698958c65cb37be1ff0a189edf221e999c3a2a07f</source_hash>
+    <compile_run_id>run_9f5ac36797298eb3863f</compile_run_id>
+    <artifact_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\artifacts\DSS-084.srxml.xml</artifact_file>
+    <srxml_status>accepted</srxml_status>
+    <sr8_receipt_status>accepted</sr8_receipt_status>
+    <sr8_validation_status>pass</sr8_validation_status>
+  </compiled_artifact>
+  <file_validation>
+    <validation_file>C:\Users\hassm\OneDrive\Desktop\SROS_v3_Snapshots\SR8_Python_Compiler_v1\stress_tests\sovereign_standard\deepseek\validation\DSS-084.validation.json</validation_file>
+    <srxml_valid_first_pass>True</srxml_valid_first_pass>
+    <repair_artifact_file />
+    <repair_validation_file />
+    <srxml_valid_after_repair>False</srxml_valid_after_repair>
+    <valid_or_correctly_blocked>True</valid_or_correctly_blocked>
+  </file_validation>
+  <runtime>
+    <model_profile>DeepSeek-V4-Flash</model_profile>
+    <provider>azure_openai</provider>
+    <execution_mode>live</execution_mode>
+    <api_error />
+    <compiler_error />
+    <validator_error />
+  </runtime>
+  <failure_modes />
+</SR8DeepSeekCaseReceipt>
